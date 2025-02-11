@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>ServiceOrderReferenceService</Name>
+		<Documentation>Provides the ability to retrieve Reference Data</Documentation>
+		<TAM_LevelZeroAndOne>SMO/OrderMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/ServiceOrderReference</ServiceTaxonomy>
+		<MajorVersion>3</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://smf-serviceordermgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>ServiceOrderReferenceServiceRequestResponse_v3_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/SMO/OrderMgmt/ServiceOrderReferenceServiceRequestResponse_v3</NameSpace>
+		<nsAbbrev>sor</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getCommitmentReasonList</OperationName>
+		<Documentation>Retrieves Commitment Reason list.</Documentation>
+		<InputType wsp="True">getCommitmentReasonList</InputType>
+		<OutputType>getCommitmentReasonListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getCommitmentReason</OperationName>
+		<Documentation>Retrieves Commitment Reason.</Documentation>
+		<InputType wsp="True">getCommitmentReason</InputType>
+		<OutputType>getCommitmentReasonResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPoolingGroupList</OperationName>
+		<Documentation>Retrieves Pooling Group list.</Documentation>
+		<InputType wsp="True">getPoolingGroupList</InputType>
+		<OutputType>getPoolingGroupListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPoolingGroup</OperationName>
+		<Documentation>Retrieves Pooling Group.</Documentation>
+		<InputType wsp="True">getPoolingGroup</InputType>
+		<OutputType>getPoolingGroupResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getFeatureList</OperationName>
+		<Documentation>Retrieves Feature List.</Documentation>
+		<InputType wsp="True">getFeatureList</InputType>
+		<OutputType>getFeatureListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getFeature</OperationName>
+		<Documentation>Retrieves Feature.</Documentation>
+		<InputType wsp="True">getFeature</InputType>
+		<OutputType>getFeatureResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getRegularServiceList</OperationName>
+		<Documentation>Retrieves Regular Service List.</Documentation>
+		<InputType wsp="True">getRegularServiceList</InputType>
+		<OutputType>getRegularServiceListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getRegularService</OperationName>
+		<Documentation>Retrieves Regular Service.</Documentation>
+		<InputType wsp="True">getRegularService</InputType>
+		<OutputType>getRegularServiceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPrepaidServiceList</OperationName>
+		<Documentation>Retrieves Prepaid Service List.</Documentation>
+		<InputType wsp="True">getPrepaidServiceList</InputType>
+		<OutputType>getPrepaidServiceListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPrepaidServiceListByEquipmentAndNetworkType</OperationName>
+		<Documentation>Retrieves Prepaid Service List By Equipment and Network Type.</Documentation>
+		<InputType wsp="True">getPrepaidServiceListByEquipmentAndNetworkType</InputType>
+		<OutputType>getPrepaidServiceListByEquipmentAndNetworkTypeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPrepaidService</OperationName>
+		<Documentation>Retrieves Prepaid Service.</Documentation>
+		<InputType wsp="True">getPrepaidService</InputType>
+		<OutputType>getPrepaidServiceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceListByFeatureCategory</OperationName>
+		<Documentation>Retrieves Service List By Feature Category.</Documentation>
+		<InputType wsp="True">getServiceListByFeatureCategory</InputType>
+		<OutputType>getServiceListByFeatureCategoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlan</OperationName>
+		<Documentation>Retrieves PricePlan.</Documentation>
+		<InputType wsp="True">getPricePlan</InputType>
+		<OutputType>getPricePlanResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanSummaryListByPricePlanCodeList</OperationName>
+		<Documentation>Retrieves Price Plan Summary List By Price Plan Code List.</Documentation>
+		<InputType wsp="True">getPricePlanSummaryListByPricePlanCodeList</InputType>
+		<OutputType>getPricePlanSummaryListByPricePlanCodeListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanByEquipmentAndAccountInfo</OperationName>
+		<Documentation>Retrieves Price Plan By Equipment And Account Info.</Documentation>
+		<InputType wsp="True">getPricePlanByEquipmentAndAccountInfo</InputType>
+		<OutputType>getPricePlanByEquipmentAndAccountInfoResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanList</OperationName>
+		<Documentation>Retrieves Price Plan List.</Documentation>
+		<InputType wsp="True">getPricePlanList</InputType>
+		<OutputType>getPricePlanListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>checkServiceAssociation</OperationName>
+		<Documentation>Checks Service Association.</Documentation>
+		<InputType wsp="True">checkServiceAssociation</InputType>
+		<OutputType>checkServiceAssociationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getLogicalDate</OperationName>
+		<Documentation>Retrieves Logical Date.</Documentation>
+		<InputType wsp="True">getLogicalDate</InputType>
+		<OutputType>getLogicalDateResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceExclusionGroupList</OperationName>
+		<Documentation>Retrieves Service Exclusion Groups.</Documentation>
+		<InputType wsp="True">getServiceExclusionGroupList</InputType>
+		<OutputType>getServiceExclusionGroupListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getBrandList</OperationName>
+		<Documentation>Retrieves Brand List.</Documentation>
+		<InputType wsp="True">getBrandList</InputType>
+		<OutputType>getBrandListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getBrandByBrandId</OperationName>
+		<Documentation>Retrieves Brand By Brand Id.</Documentation>
+		<InputType wsp="True">getBrandByBrandId</InputType>
+		<OutputType>getBrandByBrandIdResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>checkServicePrivilege</OperationName>
+		<Documentation>Check Service Privilege.</Documentation>
+		<InputType wsp="True">checkServicePrivilege</InputType>
+		<OutputType>checkServicePrivilegeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceTerm</OperationName>
+		<Documentation>Retrieves Wireless Postpaid Service Term for Promotional and Auto-Expiry Services</Documentation>
+		<InputType wsp="True">getServiceTerm</InputType>
+		<OutputType>getServiceTermResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

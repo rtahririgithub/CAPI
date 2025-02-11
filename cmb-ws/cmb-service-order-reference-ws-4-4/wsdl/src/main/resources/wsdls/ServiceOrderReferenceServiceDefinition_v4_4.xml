@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>ServiceOrderReferenceService</Name>
+		<Documentation>Provides the ability to retrieve Reference Data</Documentation>
+		<TAM_LevelZeroAndOne>SMO/OrderMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/ServiceOrderReference</ServiceTaxonomy>
+		<MajorVersion>4</MajorVersion>
+		<MinorVersion>4</MinorVersion>
+		<soapAddress>http://smf-serviceordermgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>ServiceOrderReferenceServiceRequestResponse_v4_4.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/SMO/OrderMgmt/ServiceOrderReferenceServiceRequestResponse_v4</NameSpace>
+		<nsAbbrev>sor</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getCommitmentReasonList</OperationName>
+		<Documentation>Retrieves Commitment Reason list.</Documentation>
+		<InputType wsp="True">getCommitmentReasonList</InputType>
+		<OutputType>getCommitmentReasonListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getCommitmentReason</OperationName>
+		<Documentation>Retrieves Commitment Reason.</Documentation>
+		<InputType wsp="True">getCommitmentReason</InputType>
+		<OutputType>getCommitmentReasonResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPoolingGroupList</OperationName>
+		<Documentation>Retrieves Pooling Group list.</Documentation>
+		<InputType wsp="True">getPoolingGroupList</InputType>
+		<OutputType>getPoolingGroupListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPoolingGroup</OperationName>
+		<Documentation>Retrieves Pooling Group.</Documentation>
+		<InputType wsp="True">getPoolingGroup</InputType>
+		<OutputType>getPoolingGroupResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getFeatureList</OperationName>
+		<Documentation>Retrieves Feature List.</Documentation>
+		<InputType wsp="True">getFeatureList</InputType>
+		<OutputType>getFeatureListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getFeature</OperationName>
+		<Documentation>Retrieves Feature.</Documentation>
+		<InputType wsp="True">getFeature</InputType>
+		<OutputType>getFeatureResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getRegularServiceList</OperationName>
+		<Documentation>Retrieves Regular Service List.</Documentation>
+		<InputType wsp="True">getRegularServiceList</InputType>
+		<OutputType>getRegularServiceListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getRegularService</OperationName>
+		<Documentation>Retrieves Regular Service.</Documentation>
+		<InputType wsp="True">getRegularService</InputType>
+		<OutputType>getRegularServiceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPrepaidServiceList</OperationName>
+		<Documentation>Retrieves Prepaid Service List.</Documentation>
+		<InputType wsp="True">getPrepaidServiceList</InputType>
+		<OutputType>getPrepaidServiceListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPrepaidServiceListByEquipmentAndNetworkType</OperationName>
+		<Documentation>Retrieves Prepaid Service List By Equipment and Network Type.</Documentation>
+		<InputType wsp="True">getPrepaidServiceListByEquipmentAndNetworkType</InputType>
+		<OutputType>getPrepaidServiceListByEquipmentAndNetworkTypeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPrepaidService</OperationName>
+		<Documentation>Retrieves Prepaid Service.</Documentation>
+		<InputType wsp="True">getPrepaidService</InputType>
+		<OutputType>getPrepaidServiceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceListByFeatureCategory</OperationName>
+		<Documentation>Retrieves Service List By Feature Category.</Documentation>
+		<InputType wsp="True">getServiceListByFeatureCategory</InputType>
+		<OutputType>getServiceListByFeatureCategoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlan</OperationName>
+		<Documentation>Retrieves PricePlan.</Documentation>
+		<InputType wsp="True">getPricePlan</InputType>
+		<OutputType>getPricePlanResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanSummaryListByPricePlanCodeList</OperationName>
+		<Documentation>Retrieves Price Plan Summary List By Price Plan Code List.</Documentation>
+		<InputType wsp="True">getPricePlanSummaryListByPricePlanCodeList</InputType>
+		<OutputType>getPricePlanSummaryListByPricePlanCodeListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanByEquipmentAndAccountInfo</OperationName>
+		<Documentation>Retrieves Price Plan By Equipment And Account Info.</Documentation>
+		<InputType wsp="True">getPricePlanByEquipmentAndAccountInfo</InputType>
+		<OutputType>getPricePlanByEquipmentAndAccountInfoResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanList</OperationName>
+		<Documentation>Retrieves Price Plan List.</Documentation>
+		<InputType wsp="True">getPricePlanList</InputType>
+		<OutputType>getPricePlanListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>checkServiceAssociation</OperationName>
+		<Documentation>Checks Service Association.</Documentation>
+		<InputType wsp="True">checkServiceAssociation</InputType>
+		<OutputType>checkServiceAssociationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getLogicalDate</OperationName>
+		<Documentation>Retrieves Logical Date.</Documentation>
+		<InputType wsp="True">getLogicalDate</InputType>
+		<OutputType>getLogicalDateResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceExclusionGroupList</OperationName>
+		<Documentation>Retrieves Service Exclusion Groups.</Documentation>
+		<InputType wsp="True">getServiceExclusionGroupList</InputType>
+		<OutputType>getServiceExclusionGroupListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getBrandList</OperationName>
+		<Documentation>Retrieves Brand List.</Documentation>
+		<InputType wsp="True">getBrandList</InputType>
+		<OutputType>getBrandListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getBrandByBrandId</OperationName>
+		<Documentation>Retrieves Brand By Brand Id.</Documentation>
+		<InputType wsp="True">getBrandByBrandId</InputType>
+		<OutputType>getBrandByBrandIdResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>checkServicePrivilege</OperationName>
+		<Documentation>Check Service Privilege.</Documentation>
+		<InputType wsp="True">checkServicePrivilege</InputType>
+		<OutputType>checkServicePrivilegeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceTerm</OperationName>
+		<Documentation>Retrieves Wireless Postpaid Service Term for Promotional and Auto-Expiry Services</Documentation>
+		<InputType wsp="True">getServiceTerm</InputType>
+		<OutputType>getServiceTermResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getDataSharingGroupList</OperationName>
+		<Documentation>Operation used to get the definition of all data sharing groups</Documentation>
+		<InputType wsp="True">getDataSharingGroupList</InputType>
+		<OutputType>getDataSharingGroupListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getDataSharingGroup</OperationName>
+		<Documentation>Operation used to get the definition of a specific data sharing group</Documentation>
+		<InputType wsp="True">getDataSharingGroup</InputType>
+		<OutputType>getDataSharingGroupResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAirTimeAllocationList</OperationName>
+		<Documentation>Operation to retrieve the voice allocation information for each given service code as configured in database </Documentation>
+		<InputType wsp="True">getAirTimeAllocationList</InputType>
+		<OutputType>getAirTimeAllocationListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getCalculatedEffectiveAirTimeAllocationList</OperationName>
+		<Documentation>Operation to retrieve the voice allocation information for each given service code as configured in database + calculating estimated effective and/or expiration date.</Documentation>
+		<Documentation>This operation has an extra logic to retrieve the voice allocation for the related service if the related service is not in the input list of service code. The related services here include promotional service, bounded and sequencially bounded service. However this operation does not deal with any mising included service. There is no logic of dropping confilicting service or incompatible service as it would have been done via contract save. </Documentation>
+		<InputType wsp="True">getCalculatedEffectiveAirTimeAllocationList</InputType>
+		<OutputType>getCalculatedEffectiveAirTimeAllocationListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPeriodList</OperationName>
+		<Documentation>Operation to retrieve period related reference data for a given service code</Documentation>
+		<InputType wsp="True">getPeriodList</InputType>
+		<OutputType>getPeriodListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceFeatureClassification</OperationName>
+		<Documentation>Operation to retrieve service feature classification object which contains the descriptions for a given classification code</Documentation>
+		<InputType wsp="True">getServiceFeatureClassification</InputType>
+		<OutputType>getServiceFeatureClassificationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSpecialNumber</OperationName>
+		<Documentation>Retrieval of Special Number definition</Documentation>
+		<InputType wsp="True">getSpecialNumber</InputType>
+		<OutputType>getSpecialNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSpecialNumberList</OperationName>
+		<Documentation>Retrieval all Special Number definitions</Documentation>
+		<InputType wsp="True">getSpecialNumberList</InputType>
+		<OutputType>getSpecialNumberListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSpecialNumberRange</OperationName>
+		<Documentation>Retrieval of Special Number Range definition</Documentation>
+		<InputType wsp="True">getSpecialNumberRange</InputType>
+		<OutputType>getSpecialNumberRangeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSpecialNumberRangeList</OperationName>
+		<Documentation>Retrieval all Special Number Range definitions</Documentation>
+		<InputType wsp="True">getSpecialNumberRangeList</InputType>
+		<OutputType>getSpecialNumberRangeListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getEquivalentService</OperationName>
+		<Documentation>This operation returns the  "FIRST SERVICE" found for the provided ServiceCode that is the "Equivalent Service".  The Equivalent Service may exist in the input price plan either as included or optional</Documentation>
+		<InputType wsp="True">getEquivalentService</InputType>
+		<OutputType>getEquivalentServiceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceRelation</OperationName>
+		<Documentation>This operation returns the bounded service(s) from the soc relation extension table for the given service.</Documentation>
+		<InputType wsp="True">getServiceRelation</InputType>
+		<OutputType>getServiceRelationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceListByServiceGroup</OperationName>
+		<Documentation>This operation retrieves a list of services for a given service group code.</Documentation>
+		<InputType wsp="True">getServiceListByServiceGroup</InputType>
+		<OutputType>getServiceListByServiceGroupResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getIncludedPromotionService</OperationName>
+		<Documentation>This operation retrieves promotional services applicable for a given price plan and filtered by the input parameters.  This operation should be called on demand based on the indicator from getPricePlanByEquipmentAndAccountInfo.</Documentation>
+		<InputType wsp="True">getIncludedPromotionService</InputType>
+		<OutputType>getIncludedPromotionServiceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAlternateRecurringCharge</OperationName>
+		<Documentation>Retrieves the alternate recurring charge (if any) for the given list of services.  This operation should only be called if the Service Object (returned from other operations)  has the alternateRecurringChargeInd to TRUE.  Note that the charges are retrieved from batch_pp_rc_rate table.</Documentation>
+		<InputType wsp="True">getAlternateRecurringCharge</InputType>
+		<OutputType>getAlternateRecurringChargeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanByEquipmentAndAccountByBusinessRole</OperationName>
+		<Documentation>This method retrieves the price plan by equipment type and account info.  Data is filtered by the Optional Services Indicator and on the Business Role and Privilege that is passed in.  All services are returned including included service and optioanal service, but based on input parms.</Documentation>
+		<InputType wsp="True">getPricePlanByEquipmentAndAccountByBusinessRole</InputType>
+		<OutputType>getPricePlanByEquipmentAndAccountByBusinessRoleResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanAndServiceCodeListByGroupCode</OperationName>
+		<Documentation>This operation returns a list of codes (includes priceplans and services) for the given group code</Documentation>
+		<InputType wsp="True">getPricePlanAndServiceCodeListByGroupCode</InputType>
+		<OutputType>getPricePlanAndServiceCodeListByGroupCodeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getMigrationTypeList</OperationName>
+		<Documentation>This operation returns a list of codes for valid migration types.</Documentation>
+		<InputType wsp="True">getMigrationTypeList</InputType>
+		<OutputType>getMigrationTypeListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

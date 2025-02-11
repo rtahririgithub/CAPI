@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/WirelessAccountMgmtServiceRequestResponse_v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:acc="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v2" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" xmlns:ect="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8" xmlns:common4="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/WirelessAccountMgmtServiceRequestResponse_v1" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v2" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v2_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8_0.xsd"/>
+	<xsd:element name="updateAccountPassword">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="newPassword" type="common:AccountPassword"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateAccountPasswordResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateBillingInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="billingPropertyListType" type="acc:BillingPropertyListType"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateBillingInformationResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateBillCycle">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="billCycle" type="common:BillCycle"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateBillCycleResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updatePersonalCreditInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="personalCreditInformation" type="common:PersonalCreditInformation"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updatePersonalCreditInformationResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateBusinessCreditInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="businessCreditInformation" type="common:BusinessCreditInformation"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateBusinessCreditInformationResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateCreditCheckResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common4:AccountNumber"/>
+				<xsd:element name="IDENInd" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="currentCreditCheckResult" type="common4:CreditCheckResult"/>
+				<xsd:element name="newCreditCheckResult" type="common4:CreditCheckResult"/>
+				<xsd:element name="asyncInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateCreditCheckResultResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="saveCreditCheckResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common4:AccountNumber"/>
+				<xsd:element name="creditCheckResult" type="common4:CreditCheckResult"/>
+				<xsd:element name="personalCreditInformation" type="common4:PersonalCreditInformation"/>
+				<xsd:element name="asyncInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="saveCreditCheckResultResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="saveBusinessCreditCheckResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common4:AccountNumber"/>
+				<xsd:element name="creditCheckResult" type="common4:CreditCheckResult"/>
+				<xsd:element name="businessCreditIdentityList">
+					<xsd:annotation>
+						<xsd:documentation>List of business identity which are identified by external credit bureau as similar to the input busines account. This information is required for business account only, used for credit check. </xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="item" type="common4:BusinessCreditIdentity" minOccurs="1" maxOccurs="1000"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="selectedBusinessCreditIdentity" type="common4:BusinessCreditIdentity">
+					<xsd:annotation>
+						<xsd:documentation>Selected business identity from provided business identity list. This information is required for business account only, used for credit check. </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="businessCreditInforamtion" type="common4:BusinessCreditInformation"/>
+				<xsd:element name="asyncInd" type="xsd:boolean" default="false"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="saveBusinessCreditCheckResultResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

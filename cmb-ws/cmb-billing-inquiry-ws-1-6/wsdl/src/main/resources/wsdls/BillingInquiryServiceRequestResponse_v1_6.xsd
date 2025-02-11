@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 sp1 (x64) (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/BillingInquiryServiceRequestResponse_1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:typ="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/billing_inquiry_types_1" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/customer_management_common_types_1" xmlns:avalon="http://schemas.telus.com/avalon/common/v1_0" xmlns:audit="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v7" xmlns:ref="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/billing_inquiry_reference_types_1_0" xmlns:ref3="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_v3" xmlns:sub="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/BillingInquiryServiceRequestResponse_1" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/customer_management_common_types_1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/billing_inquiry_types_1" schemaLocation="BillingInquiryTypes_1_2.xsd"/>
+	<xsd:import namespace="http://schemas.telus.com/avalon/common/v1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/AvalonCommonSchema_v1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/billing_inquiry_reference_types_1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_v3_1.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v7" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v7_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3_0.xsd"/>
+	<xsd:element name="getPaymentHistoryResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="paymentHistory" type="typ:PaymentHistory" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="recordPayment">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ban" type="common:AccountNumber"/>
+				<xsd:element name="amount" type="common:PaymentAmount"/>
+				<xsd:element name="creditCard" type="common:CreditCard" minOccurs="0"/>
+				<xsd:element name="cheque" type="common:Cheque" minOccurs="0"/>
+				<xsd:element name="paymentType" type="common:PaymentType"/>
+				<xsd:element name="paymentSourceType" type="ref:PaymentSourceType"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="recordPaymentResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processCreditCard">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="creditCardTransaction" type="typ:CreditCardTransaction"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processCreditCardResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="authorizationNumber" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPaymentHistory">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ban" type="common:AccountNumber"/>
+				<xsd:element name="fromDate" type="xsd:date"/>
+				<xsd:element name="toDate" type="xsd:date"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UserHeader" type="avalon:OriginatingUserType"/>
+	<xsd:element name="getInvoiceHistory">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="fromDate" type="xsd:date"/>
+				<xsd:element name="toDate" type="xsd:date"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getInvoiceHistoryResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="invoice" type="typ:Invoice" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createCreditBalanceTransfer">
+		<xsd:annotation>
+			<xsd:documentation>Iniitate a credit balance transfer resulting from a TOWN. Transfer will occur in kb, in batch.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sourceAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="targetAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="creditTransferReasonCode" type="ref3:CreditTransferReasonCode"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createCreditBalanceTransferResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="audit:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getCreditBalanceTransferList">
+		<xsd:annotation>
+			<xsd:documentation>Retrieve all credit balance transfer requests.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getCreditBalanceTransferListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="transferList" type="ref3:CreditTransfer" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cancelCreditBalanceTransfer">
+		<xsd:annotation>
+			<xsd:documentation>Cancel a credit balance transfer request.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="creditTransferSequenceNumber" type="ref3:CreditTransferSequenceNumber"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cancelCreditBalanceTransferResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="audit:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAllCharges">
+		<xsd:annotation>
+			<xsd:documentation>Get all charges, billed and unbilled for an accoutn by dates and charge code.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber" minOccurs="0"/>
+				<xsd:element name="fromDate" type="xsd:date"/>
+				<xsd:element name="toDate" type="xsd:date"/>
+				<xsd:element name="chargeCodeList" type="ref3:ChargeCode" minOccurs="0" maxOccurs="10"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAllChargesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getAllChargesList" type="ref3:GetAllCharges" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAllCredits">
+		<xsd:annotation>
+			<xsd:documentation>Get all credits, billed and unbilled for an accoutn by dates and charge code.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber" minOccurs="0"/>
+				<xsd:element name="fromDate" type="xsd:date"/>
+				<xsd:element name="toDate" type="xsd:date"/>
+				<xsd:element name="billStateCode" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+						BILL_STATE_BILLED, BILL_STATE_UNBILLED, BILL_STATE_ALL.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="operatorId" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="reasonCode" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAllCreditsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getAllCreditsList" type="ref3:GetAllCredits" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyChargeToAccount">
+		<xsd:annotation>
+			<xsd:documentation>Apply a one time charge to an account.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="chargeCode" type="xsd:string"/>
+				<xsd:element name="chargeAmount" type="xsd:double"/>
+				<xsd:element name="effectiveDate" type="xsd:date"/>
+				<xsd:element name="memoText" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bypassAuthorizationInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="overrideThresholdInd" type="xsd:boolean" default="true" minOccurs="0"/>
+				<xsd:element name="auditIno" type="audit:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyChargeToAccountResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chargeSequenceNumber" type="ref3:ChargeSequenceNumber" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyChargeToAccountForSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>Apply a one-time charge for a subscriber.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberNumber" type="common:SubscriberNumber"/>
+				<xsd:element name="chargeCode" type="xsd:string"/>
+				<xsd:element name="chargeAmount" type="xsd:double"/>
+				<xsd:element name="chargeEffectiveDate" type="xsd:date"/>
+				<xsd:element name="memoText" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bypassAuthorizationInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="overrideThresholdInd" type="xsd:boolean" default="true" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyChargeToAccountForSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chargeSequenceNumber" type="ref3:ChargeSequenceNumber" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="adjustChargeToAccount">
+		<xsd:annotation>
+			<xsd:documentation>Apply a on-time adjustment to an associated charge.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="chargeSequenceNumber" type="ref3:ChargeSequenceNumber"/>
+				<xsd:element name="adjustmentReasonCode" type="xsd:string"/>
+				<xsd:element name="adjustmentMemoText" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="adjustmentAmount" type="xsd:double"/>
+				<xsd:element name="billedInd" type="ref3:BilledInd" minOccurs="0"/>
+				<xsd:element name="billSequenceNumber" type="ref3:BillSequenceNumber" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0"/>
+				<xsd:element name="bypassAuthorizationInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="overrideThresholdInd" type="xsd:boolean" default="true" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="adjustChargeToAccountResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="adjustmentId" type="ref3:AdjustmentId" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="adjustChargeToAccountForSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>Apply a one-time adjustment to a subscriber.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberNumber" type="common:SubscriberNumber"/>
+				<xsd:element name="chargeSequenceNumber" type="ref3:ChargeSequenceNumber"/>
+				<xsd:element name="adjustmentReasonCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="adjustmentMemoText" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="adjustmentAmount" type="xsd:double"/>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="billedInd" type="ref3:BilledInd" minOccurs="0"/>
+				<xsd:element name="billSequenceNumber" type="ref3:BillSequenceNumber" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bypassAuthorizationInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="overrideThresholdInd" type="xsd:boolean" default="true" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="adjustChargeToAccountForSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="adjustmentId" type="ref3:AdjustmentId" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyChargesAndAdjustmentsToAccount">
+		<xsd:annotation>
+			<xsd:documentation>The Charge to be applied and its associated adjustment (if an adjsutment exisits) shoud be passed.    An adjustment with no charges will result in exception as an adjustment must be associated with a charge.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chargesAndAdjustmentsList" type="ref3:ChargeAndAdjustment" maxOccurs="10"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyChargesAndAdjustmentsToAccountResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chargesAndAdjustmentsIdList" type="tns:ChargesAndAdjustmentsId" maxOccurs="10"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyChargesAndAdjustmentsToAccountForSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>The Charge to be applied and its associated adjustment (if an adjsutment exisits) shoud be passed. An adjustment with no charges will result in exception as an adjustment must be associated with a charge.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chargesAndAdjustmentsForSubscriberList" type="ref3:ChargeAndAdjustmentForSubscriber" maxOccurs="10"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyChargesAndAdjustmentsToAccountForSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chargesAndAdjustmentsIdList" type="tns:ChargesAndAdjustmentsId" maxOccurs="10"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyCreditToAccount">
+		<xsd:annotation>
+			<xsd:documentation>Apply a credit or recurring credits to a BAN.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="recurringInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="numberOfRecurring" type="xsd:int" minOccurs="0"/>
+				<xsd:element name="reasonCode" type="xsd:string"/>
+				<xsd:element name="memoText" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="effectiveDate" type="xsd:date"/>
+				<xsd:element name="amount" type="xsd:double"/>
+				<xsd:element name="balanceImpactCode" type="ref3:BalanceImpactCode" minOccurs="0"/>
+				<xsd:element name="prepaidInd" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="taxOptionCode" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							TAX_OPTION_ALL_TAXES, TAX_OPTION_GST_ONLY, TAX_OPTIION_NO_TAX.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bypassAuthorizationInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="overrideThresholdInd" type="xsd:boolean" default="true" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyCreditToAccountResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="audit:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyCreditToAccountForSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>Apply a credit or recurring credits to a subscriber.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberNumber" type="common:SubscriberNumber"/>
+				<xsd:element name="reasonCode" type="xsd:string"/>
+				<xsd:element name="memoText" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="effectiveDate" type="xsd:date"/>
+				<xsd:element name="amount" type="xsd:double"/>
+				<xsd:element name="balanceImpactCode" type="ref3:BalanceImpactCode" minOccurs="0"/>
+				<xsd:element name="recurringInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="numberOfRecurring" type="xsd:int" minOccurs="0"/>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="prepaidInd" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="taxOptionCode" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							TAX_OPTION_ALL_TAXES, TAX_OPTION_GST_ONLY, TAX_OPTIION_NO_TAX.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bypassAuthorizationInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="overrideThresholdInd" type="xsd:boolean" default="true" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyCreditToAccountForSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="audit:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="reverseCreditToAccount">
+		<xsd:annotation>
+			<xsd:documentation>Apply a reversal of adjustment to a BAN.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="adjustmentId" type="ref3:AdjustmentId"/>
+				<xsd:element name="memoText" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="reversalReasonCode" type="xsd:string"/>
+				<xsd:element name="recurringInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="reverseAllRecurringInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bypassAuthorizationInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="overrideThresholdInd" type="xsd:boolean" default="true" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="reverseCreditToAccountResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="audit:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="reverseCreditToAccountForSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>Apply a reversal of adjustment to a BAN.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberNumber" type="common:SubscriberNumber"/>
+				<xsd:element name="adjustmentId" type="ref3:AdjustmentId"/>
+				<xsd:element name="memoText" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="reversalReasonCode" type="xsd:string"/>
+				<xsd:element name="recurringInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="reverseAllRecurringInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bypassAuthorizationInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="overrideThresholdInd" type="xsd:boolean" default="true" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="reverseCreditToAccountForSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="audit:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getRelatedCreditListForCharge">
+		<xsd:annotation>
+			<xsd:documentation>Retrieve related credits for a charge.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chargeIdentifierList" type="ref3:ChargeIdentifier" maxOccurs="10"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getRelatedCreditListForChargeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="relatedCreditsForChargeList" type="tns:RelatedCreditsForChargeList" minOccurs="0" maxOccurs="10"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="adjustChargeToAccountForSubscriberReturn">
+		<xsd:annotation>
+			<xsd:documentation>For each Charge/Adjustment pair, if both charge and adjustment exist for the given date range, then apply adjsutment for orig charge amount, and reverse credit (reverse adjustment) for original adjustment amount.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberNumber" type="common:SubscriberNumber"/>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber" minOccurs="0"/>
+				<xsd:element name="chargeAndAdjustmentCodeList" type="ref3:ChargeAndAdjustmentCodeList"/>
+				<xsd:element name="searchFromDate" type="xsd:date"/>
+				<xsd:element name="searchToDate" type="xsd:date"/>
+				<xsd:element name="adjustmentMemoText" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="bypassAuthorizationInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="overrideThresholdInd" type="xsd:boolean" default="true" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="adjustChargeToAccountForSubscriberReturnResponse">
+		<xsd:annotation>
+			<xsd:documentation>For a Charge that was passed, an adjustment will be applied and  an adjustmetnId returned.  For an Adjustment that was passed, a reverseCredit (reverse adjustment) applied and a chargeSequenceNumber returned.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chargesAndAdjustmentsIdAndAmountList" type="tns:ChargesAndAdjustmentsIdAndAmount" minOccurs="0" maxOccurs="10"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="ChargesAndAdjustmentsId">
+		<xsd:complexContent>
+			<xsd:extension base="audit:ResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="chargeCode" type="xsd:string"/>
+					<xsd:element name="chargeSequenceNumber" type="ref3:ChargeSequenceNumber" minOccurs="0"/>
+					<xsd:element name="adjustmentId" type="ref3:AdjustmentId" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ChargesAndAdjustmentsIdAndAmount">
+		<xsd:complexContent>
+			<xsd:extension base="audit:ResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="adjustmentId" type="ref3:AdjustmentId" minOccurs="0"/>
+					<xsd:element name="chargeSequenceNumber" type="ref3:ChargeSequenceNumber" minOccurs="0"/>
+					<xsd:element name="chargeCode" type="ref3:ChargeCode" minOccurs="0"/>
+					<xsd:element name="adjustmentReasonCode" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="adjustmentAmount" type="xsd:double" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="RelatedCreditsForChargeList">
+		<xsd:sequence>
+			<xsd:element name="relatedCreditsList" type="tns:RelatedCreditsForCharge" minOccurs="0" maxOccurs="1000"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RelatedCreditsForCharge">
+		<xsd:complexContent>
+			<xsd:extension base="audit:ResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="accountNumber" type="common:AccountNumber" minOccurs="0"/>
+					<xsd:element name="subscriberNumber" type="common:SubscriberNumber" minOccurs="0"/>
+					<xsd:element name="chargeSequenceNumber" type="ref3:ChargeSequenceNumber" minOccurs="0"/>
+					<xsd:element name="adjustmentId" type="ref3:AdjustmentId" minOccurs="0"/>
+					<xsd:element name="chargeCreationDate" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="effectiveDate" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="activityCode" type="ref3:ActivityCode" minOccurs="0"/>
+					<xsd:element name="reasonCode" type="ref3:ReasonCode" minOccurs="0"/>
+					<xsd:element name="balanceImpactCode" type="ref3:BalanceImpactCode" minOccurs="0"/>
+					<xsd:element name="productType" type="common:ProductType" minOccurs="0"/>
+					<xsd:element name="operatorId" type="ref3:OperatorId" minOccurs="0"/>
+					<xsd:element name="amount" type="xsd:double" minOccurs="0"/>
+					<xsd:element name="pstAmount" type="xsd:double" minOccurs="0"/>
+					<xsd:element name="gstAmount" type="xsd:double" minOccurs="0"/>
+					<xsd:element name="hstAmount" type="xsd:double" minOccurs="0"/>
+					<xsd:element name="balanceIgnoreFlagInd" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="serviceCode" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="approvalStatus" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="billedInd" type="ref3:BilledInd" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="applyDiscountToAccount">
+		<xsd:annotation>
+			<xsd:documentation>This operation applies discount to an account.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="discount" type="typ:DiscountType"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Optional Enteprrise audit information</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyDiscountToAccountResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="audit:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyDiscountToAccountForSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>This operation applies discount to a subscriber (SUBSCRIBER level).  Discounts are applied on an account but can be linked to a subscriber.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber">
+					<xsd:annotation>
+						<xsd:documentation>Required if discount is at subscriber level</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="productType" type="common:ProductType">
+					<xsd:annotation>
+						<xsd:documentation>Required if discount is at subscriber level C - PRODUCT_TYPE_PCS;
+P- PRODUCT_TYPE_PAGER
+I - PRODUCT_TYPE_IDEN</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="discount" type="typ:DiscountType"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Optional Enteprrise audit information</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applyDiscountToAccountForSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="audit:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getDiscountListForAccount">
+		<xsd:annotation>
+			<xsd:documentation>This operation retrieves a list of discounts currently applied at the account level.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getDiscountListForAccountResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="audit:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="accountNumber" type="common:AccountNumber"/>
+						<xsd:element name="discountList" type="tns:DiscountToPlanAssociation" minOccurs="0" maxOccurs="500"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getDiscountListForSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>This operation retrieves a list of discounts currently applied at the subscriber level.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber">
+					<xsd:annotation>
+						<xsd:documentation>Required for subcriber level discount. </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="productType" type="common:ProductType">
+					<xsd:annotation>
+						<xsd:documentation>Required for subcriber level discount. C-PRODUCT_TYPE_PCS;
+P-RODUCT_TYPE_PAGER
+I-PRODUCT_TYPE_IDEN</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getDiscountListForSubscriberResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="audit:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="accountNumber" type="common:AccountNumber"/>
+						<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+						<xsd:element name="productType" type="common:ProductType">
+							<xsd:annotation>
+								<xsd:documentation>C - PRODUCT_TYPE_PCS;
+P- PRODUCT_TYPE_PAGER
+I - PRODUCT_TYPE_IDEN</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="discountList" type="tns:DiscountToPlanAssociation" minOccurs="0" maxOccurs="500"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="expireDiscountForAccount">
+		<xsd:annotation>
+			<xsd:documentation>Expires a discount on an account profile.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="discount" type="typ:DiscountType">
+					<xsd:annotation>
+						<xsd:documentation>If expiryDate element is not specified, the system's logical date (today) is applied.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Optional Enterprise audit information</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="expireDiscountForAccountResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="audit:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="expireDiscountForSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>Expires a discount on a subscriber's profile.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber">
+					<xsd:annotation>
+						<xsd:documentation>Required if subscriber-level discount</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="productType" type="common:ProductType">
+					<xsd:annotation>
+						<xsd:documentation>Required if subscriber-level discount. C - PRODUCT_TYPE_PCS;
+P- PRODUCT_TYPE_PAGER
+I - PRODUCT_TYPE_IDEN</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="discount" type="typ:DiscountType">
+					<xsd:annotation>
+						<xsd:documentation>If expiryDate element is not specified, the system's logical date (today) is applied.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>notificationSuppressionInd=true implies that an email notification will not be triggered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Optional Enterprise audit information</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="expireDiscountForSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="audit:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="DiscountToPlanAssociation">
+		<xsd:sequence>
+			<xsd:element name="discount" type="typ:DiscountType"/>
+			<xsd:element name="discountPlan" type="ref3:DiscountPlanType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="createDeposit">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="depositAmount" type="xsd:double"/>
+				<xsd:element name="memoText" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="subscriberStatus" type="sub:SubscriberStatus"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createDepositResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="audit:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processPayment">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="creditCardTransaction" type="typ:CreditCardTransaction"/>
+				<xsd:element name="paymentSourceType" type="xsd:string"/>
+				<xsd:element name="paymentSourceId" type="xsd:string"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="true"/>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processPaymentResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="audit:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="authorizationNumber" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processDeposit">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="creditCardTransaction" type="typ:CreditCardTransaction"/>
+				<xsd:element name="paymentSourceType" type="xsd:string"/>
+				<xsd:element name="paymentSourceId" type="xsd:string"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="true"/>
+				<xsd:element name="auditInfo" type="audit:AuditInfo" minOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processDepositResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="audit:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="authorizationNumber" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

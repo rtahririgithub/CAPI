@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee" xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+	<bean class="com.telus.framework.config.spring.PlaceholderConfigurer"/>	
+    
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"/>
+
+	<bean id="codsJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg index="0">
+			<ref bean="codsDataSource"/>
+		</constructor-arg>
+		<property name="nativeJdbcExtractor" ref="nativeJdbcExtractor"/>
+	</bean>	
+	
+	<bean id="coneJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg index="0">
+			<ref bean="coneDataSource"/>
+		</constructor-arg>
+		<property name="nativeJdbcExtractor" ref="nativeJdbcExtractor"/>
+	</bean>
+
+	<bean id="enterpriseCustomerNotificationManagementServicePort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+    	<property name="lookupServiceOnStartup" value="false" />
+        <property name="serviceInterface" value="com.telus.cmb.wsclient.EnterpriseCustomerNotificationManagementServicePort" />
+        <property name="wsdlDocumentUrl" value="classpath:wsdls/EnterpriseCustomerNotificationManagementService_v1_3.wsdl" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/CMO/ContactMgmt/EnterpriseCustomerNotificationManagementService_1" />
+        <property name="serviceName" value="EnterpriseCustomerNotificationManagementService_v1_3" />
+        <property name="username" value="${credentials/ejb/username}"/> 
+        <property name="password" value="${credentials/ejb/password}"/> 
+        <property name="endpointAddress" value="${endpoints/EnterpriseCustomerNotificationManagementService/url}" /> 
+    </bean>
+	
+	<bean id="contactEventDao" class="com.telus.cmb.utility.contacteventmanager.dao.impl.ContactEventDaoImpl" >
+		<property name="codsJdbcTemplate" ref="codsJdbcTemplate"/>
+		<property name="coneJdbcTemplate" ref="coneJdbcTemplate"/>
+		<property name="ecnmsPort" ref="enterpriseCustomerNotificationManagementServicePort"/>
+	</bean>
+	
+	<bean id="ctmTestPointDao" class="com.telus.cmb.common.dao.testpoint.DataSourceTestPointDao">
+	    <property name="codsJdbcTemplate" ref="codsJdbcTemplate"/>
+		<property name="coneJdbcTemplate" ref="coneJdbcTemplate"/>	
+	</bean>
+
+</beans>

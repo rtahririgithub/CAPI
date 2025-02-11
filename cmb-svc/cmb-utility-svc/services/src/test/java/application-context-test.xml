@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<beans profile="lab">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://d070296:7001</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+
+	<beans profile="pt140">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://um-generalutilities-ps101.tmi.telus.com:60152</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+	
+	<beans profile="local">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://localhost:7001</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+
+	<beans profile="remote">
+		<jee:remote-slsb id="dealerManager" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment"
+			business-interface="com.telus.cmb.utility.dealermanager.svc.DealerManager" 
+			jndi-name="DealerManager#com.telus.cmb.utility.dealermanager.svc.DealerManager">
+		</jee:remote-slsb>
+		
+		<jee:remote-slsb id="contactEventManager" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment"
+			business-interface="com.telus.cmb.utility.contacteventmanager.svc.ContactEventManager" 
+			jndi-name="ContactEventManager#com.telus.cmb.utility.contacteventmanager.svc.ContactEventManager">
+		</jee:remote-slsb>
+		
+		<jee:remote-slsb id="activityLoggingService" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment"
+			business-interface="com.telus.cmb.utility.activitylogging.svc.ActivityLoggingService" 
+			jndi-name="ActivityLoggingService#com.telus.cmb.utility.activitylogging.svc.ActivityLoggingService">
+		</jee:remote-slsb>
+		
+		<jee:remote-slsb id="referenceDataFacade" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment"
+			business-interface="com.telus.cmb.reference.svc.ReferenceDataFacade" 
+			jndi-name="ReferenceDataFacade#com.telus.cmb.reference.svc.ReferenceDataFacade">
+		</jee:remote-slsb>
+		
+		<jee:remote-slsb id="subscriberLifecycleHelper" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment"
+			business-interface="com.telus.cmb.subscriber.lifecyclehelper.svc.SubscriberLifecycleHelper" 
+			jndi-name="SubscriberLifecycleHelper#com.telus.cmb.subscriber.lifecyclehelper.svc.SubscriberLifecycleHelper">
+		</jee:remote-slsb>
+		
+		<bean id="jaxbUtil" class="com.telus.cmb.common.util.JAXBUtil">
+			<property name="jaxbContext">
+				<bean
+					class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+					<property name="staticMethod">
+						<value>javax.xml.bind.JAXBContext.newInstance</value>
+					</property>
+					<property name="arguments">
+						<array><!-- list of classes to be bound to the JAXBContext -->
+							<!--TODO, investigate why have to package name rather than the className 
+								here. Class name work when there are multiple classes, see cmb-notification 
+								project -->
+							<value>com.telus.cmb.common.confirmationnotification.ConfirmationNotification</value>
+							<value>com.telus.tmi.xmlschema.xsd.customer.customer.business_connect_v1.CustomerAccount</value>
+							<value>com.telus.tmi.xmlschema.xsd.customer.customerorder.wirelessserviceinfo_v21.CustomerAccount</value>
+							<value>com.telus.tmi.xmlschema.xsd.customer.customer.bcx_sd_fallout_v1.CustomerAccount</value>
+						</array>
+					</property>
+				</bean>
+			</property>
+		</bean>
+		<bean id="contactEventNotificationFactory" class="com.telus.cmb.common.dao.contactevent.ContactEventNotificationFactory">
+			<property name="jaxbUtil" ref="jaxbUtil"/>
+		</bean>
+	</beans>
+
+	<beans profile="standalone">	
+		<import resource="classpath:application-context-dao-utility-activitylogging.xml"/>
+		<import resource="classpath:application-context-dao-utility-configurationmanager.xml"/>
+		<import resource="classpath:application-context-dao-utility-contactevent.xml"/>
+		<import resource="classpath:application-context-dao-utility-dealermanager.xml"/>
+		<import resource="classpath:application-context-dao-utility-queueevent.xml"/>
+		<import resource="classpath:application-context-datasources-dv103.xml"/>
+		
+		<bean class="com.telus.cmb.utility.dealermanager.svc.impl.DealerManagerImpl"/>
+		<bean class="com.telus.cmb.utility.contacteventmanager.svc.impl.ContactEventManagerImpl"/>
+		<bean class="com.telus.cmb.utility.activitylogging.svc.impl.ActivityLoggingServiceImpl"/>
+		
+		<bean id="jaxbUtil" class="com.telus.cmb.common.util.JAXBUtil">
+			<property name="jaxbContext">
+				<bean
+					class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+					<property name="staticMethod">
+						<value>javax.xml.bind.JAXBContext.newInstance</value>
+					</property>
+					<property name="arguments">
+						<array><!-- list of classes to be bound to the JAXBContext -->
+							<!--TODO, investigate why have to package name rather than the className 
+								here. Class name work when there are multiple classes, see cmb-notification 
+								project -->
+							<value>com.telus.cmb.common.confirmationnotification.ConfirmationNotification</value>
+							<value>com.telus.tmi.xmlschema.xsd.customer.customer.business_connect_v1.CustomerAccount</value>
+							<value>com.telus.tmi.xmlschema.xsd.customer.customerorder.wirelessserviceinfo_v21.CustomerAccount</value>
+							<value>com.telus.tmi.xmlschema.xsd.customer.customer.bcx_sd_fallout_v1.CustomerAccount</value>
+						</array>
+					</property>
+				</bean>
+			</property>
+		</bean>
+		<bean id="contactEventNotificationFactory" class="com.telus.cmb.common.dao.contactevent.ContactEventNotificationFactory">
+			<property name="jaxbUtil" ref="jaxbUtil"/>
+		</bean>			
+	</beans>
+	
+</beans> 

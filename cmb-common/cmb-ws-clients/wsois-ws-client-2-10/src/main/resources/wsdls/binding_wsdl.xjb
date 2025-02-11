@@ -1,0 +1,16 @@
+<bindings xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxws"
+	wsdlLocation="WirelessSubscriberOfferInformationService_v2_10.wsdl" xmlns="http://java.sun.com/xml/ns/jaxws">
+	
+	<enableWrapperStyle>false</enableWrapperStyle>
+
+	<package name="com.telus.cmb.wsclient" />
+
+	<bindings node="wsdl:definitions/wsdl:portType[@name='WirelessSubscriberOfferInformationService_v2_10_PortType']">
+		<class name="WirelessSubscriberOfferInformationServicePort" />
+	</bindings>
+	<bindings node="//wsdl:fault[@name='ServiceException']">
+		<class name="ServiceException_v3" />
+	</bindings>
+	
+</bindings>

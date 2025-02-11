@@ -1,0 +1,17 @@
+<bindings xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxws"
+	wsdlLocation="ServiceOrderReferenceService_v4_6.wsdl" xmlns="http://java.sun.com/xml/ns/jaxws">
+
+	<enableWrapperStyle>true</enableWrapperStyle>
+
+	<package name="com.telus.cmb.jws" />
+
+	<bindings
+		node="wsdl:definitions/wsdl:portType[@name='ServiceOrderReferenceServicePortType']">
+		<class name="ServiceOrderReferenceServicePort" />
+	</bindings>
+	<bindings
+		node="wsdl:definitions/wsdl:service[@name='ServiceOrderReferenceService_v4_6']">
+		<class name="ServiceOrderReferenceService" />
+	</bindings>
+</bindings>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 U (http://www.altova.com) by Telus (TME COMMUNICATIONS INC) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/BillingInquiryServiceRequestResponse_1" 
+		    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:typ="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/billing_inquiry_types_1" 	
+			xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/customer_management_common_types_1" 			
+			xmlns:avalon="http://schemas.telus.com/avalon/common/v1_0" 
+			xmlns:ref="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/billing_inquiry_reference_types_1_0"
+			targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/BillingInquiryServiceRequestResponse_1" 
+			elementFormDefault="qualified">
+	
+			<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/customer_management_common_types_1" 
+				schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_1_0.xsd"/>
+			<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/billing_inquiry_types_1" 
+				schemaLocation="BillingInquiryTypes_1_0.xsd"/>
+			<xsd:import namespace="http://schemas.telus.com/avalon/common/v1_0" 
+				schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/AvalonCommonSchema_v1_0.xsd"/>
+			<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/billing_inquiry_reference_types_1_0" 
+				schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_1_0.xsd"/>
+
+				 
+	<xsd:element name="getPaymentHistory">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ban" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="fromDate" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="toDate" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>		
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPaymentHistoryResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="paymentHistory" type="typ:PaymentHistory" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="recordPayment">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ban" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="amount" type="common:PaymentAmount" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="creditCard" type="common:CreditCard" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="paymentType" type="common:PaymentType" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="paymentSourceType" type="ref:PaymentSourceType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>		
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="recordPaymentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="processCreditCard">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="creditCardTransaction" type="typ:CreditCardTransaction"/>
+			</xsd:sequence>		
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processCreditCardResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="authorizationNumber" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UserHeader" type="avalon:OriginatingUserType"/>
+</xsd:schema>

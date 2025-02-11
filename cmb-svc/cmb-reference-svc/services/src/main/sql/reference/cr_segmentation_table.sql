@@ -1,0 +1,22 @@
+
+create table segmentation
+(
+BRAND_ID	 		NUMBER  (9),
+ACCOUNT_TYPE            	VARCHAR (1),
+SEG_AREA			VARCHAR (2),
+SEG_SEGMENT			VARCHAR (4),
+SEG_SUBSEGMENT			VARCHAR (4),
+CONSTRAINT SEGMENTATION_PK PRIMARY KEY (BRAND_ID, ACCOUNT_TYPE, SEG_AREA)
+);
+
+
+insert into segmentation (BRAND_ID,ACCOUNT_TYPE,SEG_AREA,SEG_SEGMENT,SEG_SUBSEGMENT) values (1,'I','PQ','TCSQ','OTHR');
+insert into segmentation (BRAND_ID,ACCOUNT_TYPE,SEG_AREA,SEG_SEGMENT,SEG_SUBSEGMENT) values (1,'I','*' ,'TCSO','OTHR');
+insert into segmentation (BRAND_ID,ACCOUNT_TYPE,SEG_AREA,SEG_SEGMENT,SEG_SUBSEGMENT) values (1,'B','PQ','TCSQ','OTHR');
+insert into segmentation (BRAND_ID,ACCOUNT_TYPE,SEG_AREA,SEG_SEGMENT,SEG_SUBSEGMENT) values (1,'B','*' ,'TCSO','OTHR');
+insert into segmentation (BRAND_ID,ACCOUNT_TYPE,SEG_AREA,SEG_SEGMENT,SEG_SUBSEGMENT) values (1,'C','PQ','TBSQ','BPR');
+insert into segmentation (BRAND_ID,ACCOUNT_TYPE,SEG_AREA,SEG_SEGMENT,SEG_SUBSEGMENT) values (1,'C','*' ,'TBSO','BPR');
+insert into segmentation (BRAND_ID,ACCOUNT_TYPE,SEG_AREA,SEG_SEGMENT,SEG_SUBSEGMENT) values (2,'*','PQ','TCSQ','OTHR');
+insert into segmentation (BRAND_ID,ACCOUNT_TYPE,SEG_AREA,SEG_SEGMENT,SEG_SUBSEGMENT) values (2,'*','*' ,'TCSO','OTHR');
+
+commit;

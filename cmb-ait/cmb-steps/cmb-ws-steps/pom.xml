@@ -1,0 +1,21 @@
+<!-- generated with TAF v0.1.1 -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>telus.ait</groupId>
+        <artifactId>pom-cmb-steps</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+	<artifactId>pom-cmb-ws-steps</artifactId>
+	<packaging>pom</packaging>
+	<name>pom-cmb-ws-steps</name>
+
+    <modules>
+        <module>cmb-clientapi-steps</module>
+    </modules>
+
+</project>

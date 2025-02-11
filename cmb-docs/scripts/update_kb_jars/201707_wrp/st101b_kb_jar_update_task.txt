@@ -1,0 +1,106 @@
+Title: Update KB Jars for KB Resiliency Project on CAPI weblogic Domain/Clusters in ST101B
+
+====================================================================================================
+  PREFACE:
+    For steps 1 to 4 below, please execute the steps for all the following domain/clusters
+====================================================================================================
+Domain/Cluster: 
+ST101BUtilityManagementSvc/GeneralUtilities
+ST101BUtilityManagementSvc/GeneralUtilities2
+ST101BCustomerManagementFulfillmentSvc/CustomerSelfManagement
+ST101BSupplyPartnerManagementSvc/PartnerManagement
+ST101BServiceManagementFulfillmentSvc/ServiceOrderManagement
+ST101BCustomerManagementOSRSvc/CustomerInformationManagement
+ST101BCustomerManagementOSRSvc/CustomerInformationManagement2
+ST101BCustomerManagementOSRSvc/CustomerInformationManagement3
+ST101BCustomerManagementOSRSvc/CustomerInformationManagementBatch
+ST101BCustomerManagementBillingSvc/BillingInquiry
+ITS04BSMIntegrationSvc/Customer
+
+====================================================================================================
+  Execution Steps:
+    1. Backup and remove old AMDOCS jar files from the following weblogic domain locations noted in the PREFACE
+====================================================================================================
+/work/users/infra/wls/domains/ST101BUtilityManagementSvc/common/ASM.jar
+/work/users/infra/wls/domains/ST101BUtilityManagementSvc/common/ASMExtension.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementFulfillmentSvc/common/ASM.jar
+/work/users/infra/wls/domains/ST101BSupplyPartnerManagementSvc/common/ASM.jar
+/work/users/infra/wls/domains/ST101BServiceManagementFulfillmentSvc/common/AmdocsEJB-client-nostub.jar
+/work/users/infra/wls/domains/ST101BServiceManagementFulfillmentSvc/common/ejbInfra_v082.jar
+/work/users/infra/wls/domains/ST101BServiceManagementFulfillmentSvc/common/jutil_v052.jar
+/work/users/infra/wls/domains/ST101BServiceManagementFulfillmentSvc/common/ASM.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementOSRSvc/common/ASM.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementOSRSvc/common/jutil_v052.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementOSRSvc/common/ejbInfra_v082.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementOSRSvc/common/ASMExtension.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementBillingSvc/common/ASM.jar
+
+====================================================================================================
+    2. Copy new AMDOCS jar files over to weblogic domain/clusters noted in the PREFACE
+====================================================================================================
+SOURCE LOCATIONS:
+
+Filename: uams_v8.2_hf19.jar
+Source server: ln99707
+Source location: /work/users/infra/wls/domains/ITS03AmdocsAPISvc/APILink/lib
+
+Filename: jutil.jar
+Source server: ln99707
+Source location: /work/users/infra/wls/domains/ITS03AmdocsAPISvc/APILink/lib
+
+Filename: ejbInfra_new.jar	
+Source server: ln99707	
+Source location: /work/users/infra/wls/domains/ITS03AmdocsAPISvc/APILink/lib
+
+Filename: ASMExtension.jar	
+Source server: ln99707	
+Source location: /work/users/infra/wls/domains/ITS03AmdocsAPISvc/APILink/lib
+
+Filename: AmdocsEJB-client.jar	
+Source server: ln99707	
+Source location: /home/x110237/KBAPI_CLIENT_JAR_201702 
+
+---------------------------------------------------------------------------------------------------
+DESTINATION LOCATIONS:
+
+/work/users/infra/wls/domains/ST101BUtilityManagementSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/ST101BUtilityManagementSvc/common/ASMExtension.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementFulfillmentSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/ST101BSupplyPartnerManagementSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/ST101BServiceManagementFulfillmentSvc/common/AmdocsEJB-client.jar
+/work/users/infra/wls/domains/ST101BServiceManagementFulfillmentSvc/common/ejbInfra_new.jar
+/work/users/infra/wls/domains/ST101BServiceManagementFulfillmentSvc/common/jutil.jar
+/work/users/infra/wls/domains/ST101BServiceManagementFulfillmentSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementOSRSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementOSRSvc/common/jutil.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementOSRSvc/common/ejbInfra_new.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementOSRSvc/common/ASMExtension.jar
+/work/users/infra/wls/domains/ST101BCustomerManagementBillingSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/ITS04BSMIntegrationSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/ITS04BSMIntegrationSvc/common/AmdocsEJB-client.jar
+/work/users/infra/wls/domains/ITS04BSMIntegrationSvc/common/jutil.jar
+/work/users/infra/wls/domains/ITS04BSMIntegrationSvc/common/ejbInfra_new.jar
+/work/users/infra/wls/domains/ITS04BSMIntegrationSvc/common/ASMExtension.jar
+
+====================================================================================================
+    3. Update classpaths on each node of the weblogic domain and clusters noted in the PREFACE
+====================================================================================================
+Update the AMDOCs jar file names as follows (FROM -> TO):
+
+ASM.jar -> uams_v8.2_hf19.jar
+ejbInfra_v082.jar -> ejbInfra_new.jar
+jutil_v052.jar -> jutil.jar
+AmdocsEJB-client-nostub.jar -> AmdocsEJB-client.jar
+
+====================================================================================================
+    4. Recycle the following weblogic domain/clusters noted in the PREFACE
+====================================================================================================
+
+====================================================================================================
+  Rollback Strategy:
+====================================================================================================
+Use the backed up kb jar files from step 1 above.
+
+Redeploy these backed up files to all the domain and clusters and update all the classpaths in each
+node of the weblogic domain and clusters to these backed up files.  Recycle all the domain and clusters.
+====================================================================================================

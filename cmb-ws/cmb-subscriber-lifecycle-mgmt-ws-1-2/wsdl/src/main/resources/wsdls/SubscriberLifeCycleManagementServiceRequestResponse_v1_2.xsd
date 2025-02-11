@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberLifeCycleManagementServiceRequestResponse_v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:srt="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" xmlns:ect="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8" xmlns:slct="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberLifeCycleCommonTypes_v1" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberLifeCycleManagementServiceRequestResponse_v1" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberLifeCycleCommonTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberLifeCycleCommonTypes_v1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8_0.xsd"/>
+	<xsd:element name="resumeCancelledSubscriber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="resumeProperties" type="slct:ResumeCancelledSubscriberPropertiesType"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="resumeCancelledSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="restoreSuspendedSubscriber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="restoreProperties" type="slct:RestoreSuspendedSubscriberPropertiesType"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="restoreSuspendedSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cancelSubscriber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="cancelProperties" type="slct:CancelSubscriberPropertiesType"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="notificationSuppresionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cancelSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="WarningType" type="tns:WarningType"/>
+	<xsd:complexType name="WarningType">
+		<xsd:sequence>
+			<xsd:element name="systemCode" type="xsd:string"/>
+			<xsd:element name="warningType" type="xsd:string"/>
+			<xsd:element name="warning" type="tns:WarningBaseType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WarningBaseType">
+		<xsd:sequence>
+			<xsd:element name="messageId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningMessage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="variables" type="xsd:string" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="cancelPortOutSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>This operation attempts to cancel a subscriber due to a port out.  If the cancelled subscriber results in no active subscribers on the account and the remaining subscribers are all cancelled, the account is cancelled.  If the cancelled subscriber results in no active subscribers on the account and there is at least one subscriber that is suspended, then the account is suspended.  RCM is called to release the telephone number after the subscriber is cancelled and a log entry is recorded in SRPDS for this subscriber cancellation event.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber" minOccurs="0"/>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+				<xsd:element name="cancelProperties" type="slct:CancelSubscriberPropertiesType"/>
+				<xsd:element name="forceCancelImmediateIndicator" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If true, subscriber is cancelled on the specified effectiveDate regardless of when the bill cycle day</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Used for recording entry into SRPDS.  If no value specified, will use values on subscriber</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader">
+					<xsd:annotation>
+						<xsd:documentation>Used for recording entry into SRPDS.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cancelPortOutSubscriberResponse">
+		<xsd:annotation>
+			<xsd:documentation>Returns any errors or warnings while invoking the operation.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

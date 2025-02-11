@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 U (http://www.altova.com) by Telus (TME COMMUNICATIONS INC) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/EO/KnowledgeMgmt/EnterpriseReferenceServiceRequestResponse_1_0" 
+		    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:ref="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/enterprise_reference_types_1_0" 
+			targetNamespace="http://xmlschema.tmi.telus.com/srv/EO/KnowledgeMgmt/EnterpriseReferenceServiceRequestResponse_1_0" 
+			elementFormDefault="qualified">
+	
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/enterprise_reference_types_1_0" 
+			schemaLocation="EnterpriseReferenceTypes_1_0.xsd"/>
+
+	<xsd:element name="getUnitTypes">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getUnitTypesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="unitType" type="ref:UnitType" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getProvinces">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getProvincesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="province" type="ref:Province" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getStates">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getStatesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="state" type="ref:State" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getCountries">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getCountriesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="country" type="ref:Country" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getLanguages">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getLanguagesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="language" type="ref:Language" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

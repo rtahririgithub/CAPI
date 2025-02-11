@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<context:annotation-config/>
+
+	<import resource="classpath*:application-context-wsclients-prepaid.xml"/>
+
+	<bean id="helperKnowbilityJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="knowbilityDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+
+	<bean id="helperEcpcsJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="ecpcsDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"/>
+
+	<bean id="helperEasJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="easDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"/>
+
+	<bean id="helperDistJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="distDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"/>
+
+	<bean id="helperConeJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="coneDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"/>
+	
+	<bean id="helperCodsJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="codsDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"/>
+
+	<bean id="knowbilityNamedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg name="dataSource" ref="knowbilityDataSource" />		
+	</bean>
+	
+	<bean id="helperMultiDao" abstract="true" class="com.telus.cmb.common.dao.jdbctemplate.MultipleJdbcDaoTemplateSupport"
+		p:knowbilityJdbcTemplate-ref="helperKnowbilityJdbcTemplate"
+		p:knowbilityNamedParameterJdbcTemplate-ref="knowbilityNamedParameterJdbcTemplate"
+		p:ecpcsJdbcTemplate-ref="helperEcpcsJdbcTemplate"
+		p:easJdbcTemplate-ref="helperEasJdbcTemplate"
+		p:distJdbcTemplate-ref="helperDistJdbcTemplate"
+		p:coneJdbcTemplate-ref="helperConeJdbcTemplate"
+		p:codsJdbcTemplate-ref="helperCodsJdbcTemplate"/>
+	
+	<bean id="helperCreditCheckDao" class="com.telus.cmb.account.informationhelper.dao.impl.CreditCheckDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperSubscriberDao" class="com.telus.cmb.account.informationhelper.dao.impl.SubscriberDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperAccountDao" class="com.telus.cmb.account.informationhelper.dao.impl.AccountDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperMemoDao" class="com.telus.cmb.account.informationhelper.dao.impl.MemoDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperUsageDao" class="com.telus.cmb.account.informationhelper.dao.impl.UsageDaoImpl" parent="helperMultiDao"/>	
+	<bean id="helperInvoiceDao" class="com.telus.cmb.account.informationhelper.dao.impl.InvoiceDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperFollowUpDao" class="com.telus.cmb.account.informationhelper.dao.impl.FollowUpDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperFleetDao" class="com.telus.cmb.account.informationhelper.dao.impl.FleetDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperPaymentDao" class="com.telus.cmb.account.informationhelper.dao.impl.PaymentDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperEquipmentDao" class="com.telus.cmb.account.informationhelper.dao.impl.EquipmentDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperAdjustmentDao" class="com.telus.cmb.account.informationhelper.dao.impl.AdjustmentDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperAddressDao" class="com.telus.cmb.account.informationhelper.dao.impl.AddressDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperDepositDao" class="com.telus.cmb.account.informationhelper.dao.impl.DepositDaoImpl" parent="helperMultiDao"/>	
+	<bean id="helperCollectionDao" class="com.telus.cmb.account.informationhelper.dao.impl.CollectionDaoImpl" parent="helperMultiDao"/>
+<!-- 	<bean id="helperLetterDao" class="com.telus.cmb.account.informationhelper.dao.impl.LetterDaoImpl" parent="helperMultiDao"/> -->
+	<bean id="helperContactDao" class="com.telus.cmb.account.informationhelper.dao.impl.ContactDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperMaxVoipLineDao" class="com.telus.cmb.account.informationhelper.dao.impl.MaxVoipLineDaoImpl" parent="helperMultiDao"/>
+	<bean id="helperTestPointDao" class="com.telus.cmb.common.dao.testpoint.DataSourceTestPointDao" parent="helperMultiDao"/>
+
+	<bean id="helperPwcosDao" class="com.telus.cmb.account.informationhelper.dao.impl.PrepaidWirelessCustomerOrderServiceDaoImpl"/>
+	<bean id="helperPssDao" class="com.telus.cmb.account.informationhelper.dao.impl.PrepaidSubscriberServiceDaoImpl"/>	
+			
+	<bean id="wirelessCreditManagementServiceDao" class="com.telus.cmb.account.informationhelper.dao.impl.WirelessCreditManagementServiceDaoImpl"/>
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.WirelessCreditManagementServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/WLSCreditManagementSvc_v2_0.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/OrderMgmt/WLSCreditManagementSvc_2"
+		p:serviceName="WLSCreditManagementSvc_v2_0" 
+		p:endpointAddress="${endpoints/WLSCreditManagementService/v2_0/url}" 
+	/>
+	
+</beans>

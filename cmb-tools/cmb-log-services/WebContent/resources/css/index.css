@@ -1,0 +1,30 @@
+body {
+	font-family: "Arial";
+	background-color: #FFFFFF;
+}
+
+#title {
+	color: #49166D;
+	font-size: 55px;
+	margin: 0.5em;
+	font-weight: bolder;
+}
+
+#menu {
+	font-size: 20px;
+	margin: 0.5em;
+}
+
+.title-head {
+	font-size: 30px;
+}
+
+a {
+	color: #66CC00;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #448207;
+}

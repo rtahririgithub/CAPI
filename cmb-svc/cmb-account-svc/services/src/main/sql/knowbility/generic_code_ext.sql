@@ -1,0 +1,14 @@
+INSERT INTO GENERIC_CODES_EXT VALUES
+    ('COLL_STEP_APPR','R','Required','Requis');
+	
+INSERT INTO GENERIC_CODES_EXT VALUES
+    ('COLL_STEP_APPR','C','Not Required','Non Requise');
+
+INSERT INTO GENERIC_CODES_EXT VALUES
+    ('COLL_STEP_APPR','A','Approved','Approuvé');
+
+INSERT INTO GENERIC_CODES_EXT VALUES
+    ('COLL_STEP_APPR','N','Not Approved','Non Approuvé');
+
+INSERT INTO GENERIC_CODES_EXT VALUES
+    ('COLL_STEP_APPR','P','Required','Requis');

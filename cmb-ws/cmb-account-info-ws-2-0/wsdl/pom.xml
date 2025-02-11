@@ -1,0 +1,129 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb.ws.account.info.2-0</groupId>
+		<artifactId>pom-cmb-account-info-ws-2-0</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+	<artifactId>cmb-account-info-wsdl-2-0</artifactId>
+	
+   <properties>
+      <genwsdl.service.definition>AccountInformationService_20.xml</genwsdl.service.definition>
+      <genwsdl.local.wsdl.file>AccountInformationService_v2_0.wsdl</genwsdl.local.wsdl.file>
+      <genwsdl.xmlToWsdl.xslt>http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/xmlToWsdl_v2_6.xslt</genwsdl.xmlToWsdl.xslt>
+      <genwsdl.include.userpassword.for.basic.auth>False</genwsdl.include.userpassword.for.basic.auth>
+   </properties>     
+ 
+ 	<dependencies>
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics-runtime</artifactId>
+		</dependency>
+	</dependencies>	
+ 
+  <build>
+      <plugins>
+
+         <plugin>
+            <artifactId>maven-clean-plugin</artifactId>
+            <configuration>
+               <verbose>${clean.verbose}</verbose>
+               <failOnError>false</failOnError>
+               <filesets>
+                  <fileset>
+                     <directory>${basedir}/src/main/generated-sources</directory>
+                  </fileset>               
+                  <fileset>
+                     <directory>${basedir}/src/main/resources/wsdls</directory>
+                     <includes>
+                        <include>${genwsdl.local.wsdl.file}</include>
+                        <include>*SOA_LM_Bindings.wsdl</include>
+                     </includes>
+                  </fileset>
+               </filesets>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>GenWsdl</id>
+               </execution>
+            </executions>
+         </plugin>
+
+
+		
+			<!-- http://geertschuring.wordpress.com/2009/06/26/how-to-create-a-webservice-client-with-maven-and-jax-ws/
+					How to create a webservice client with Maven and JAX-WS -->
+			
+			<plugin>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				
+				<executions>
+					<execution>
+						<id>GenService</id>
+												
+						<!-- JAX-WS Maven plugin parameters: http://jax-ws-commons.java.net/jaxws-maven-plugin/wsimport-mojo.html -->
+						<configuration>
+							<verbose>true</verbose>
+							<!-- The generated impl class will be located in src/main/impl -->
+							<target>2.1</target>
+							
+							<!-- List of files to use for bindings. If not specified, all .xml
+								files in the bindingDirectory will be used. -->
+							<bindingFiles>
+								<bindingFile>binding_wsdl.xjb</bindingFile>
+								<bindingFile>binding_schema.xjb</bindingFile>
+							</bindingFiles>
+							
+							<wsdlFiles>
+								<wsdlFile>${genwsdl.local.wsdl.file}</wsdlFile>
+							</wsdlFiles>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+      <pluginManagement>
+      	<plugins>
+      		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+      		<plugin>
+      			<groupId>org.eclipse.m2e</groupId>
+      			<artifactId>lifecycle-mapping</artifactId>
+      			<version>1.0.0</version>
+      			<configuration>
+      				<lifecycleMappingMetadata>
+      					<pluginExecutions>
+      						<pluginExecution>
+      							<pluginExecutionFilter>
+      								<groupId>
+      									org.codehaus.mojo
+      								</groupId>
+      								<artifactId>
+      									exec-maven-plugin
+      								</artifactId>
+      								<versionRange>
+      									[1.2.1,)
+      								</versionRange>
+      								<goals>
+      									<goal>exec</goal>
+      								</goals>
+      							</pluginExecutionFilter>
+      							<action>
+      								<ignore></ignore>
+      							</action>
+      						</pluginExecution>
+      					</pluginExecutions>
+      				</lifecycleMappingMetadata>
+      			</configuration>
+      		</plugin>
+      	</plugins>
+      </pluginManagement>
+  </build>
+</project>

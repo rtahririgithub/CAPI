@@ -1,0 +1,662 @@
+<environment-config xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<entry name="endpoints" path="/cmb-ns/common">
+		<entry name="ReferencePdsDataService">
+			<entry name="url">
+				<value environment="dv103" value="http://ln98444.ent.agt.ab.ca:50011/telus-ref-rpds-webservices/ReferencePDSDataService"/>
+				<value environment="dv101" value="http://ln98444.ent.agt.ab.ca:50011/telus-ref-rpds-webservices/ReferencePDSDataService"/>
+				<value environment="pt148" value="http://utilmgtsvcwest-st01.tsl.telus.com/telus-ref-rpds-webservices/ReferencePDSDataService"/>
+				<value environment="pt168" value="http://utilmgtsvcwest-st01.tsl.telus.com/telus-ref-rpds-webservices/ReferencePDSDataService"/>
+				<value environment="ps101" value="http://utilmgtsvcwest-at01.tsl.telus.com/telus-ref-rpds-webservices/ReferencePDSDataService"/>
+				<value environment="pt140" value="http://utilmgtsvcwest-at01.tsl.telus.com/telus-ref-rpds-webservices/ReferencePDSDataService"/>
+				<value environment="st101" value="http://utilmgtsvcwest-at01.tsl.telus.com/telus-ref-rpds-webservices/ReferencePDSDataService"/>
+				<value environment="pr" value="http://utilmgtsvcwest.tsl.telus.com/telus-ref-rpds-webservices/ReferencePDSDataService"/>				
+			</entry>	
+		</entry>
+		<entry name="EnterpriseCustomerNotificationManagementService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-kidc-dv03.tsl.telus.com:443/CMO/ContactMgmt/EnterpriseCustomerNotificationManagement/EnterpriseCustomerNotificationManagementService_v1_3_vs0"/>
+				<value environment="dv101" value="https://soa-mp-kidc-dv01.tsl.telus.com:443/CMO/ContactMgmt/EnterpriseCustomerNotificationManagement/EnterpriseCustomerNotificationManagementService_v1_3_vs0"/>
+				<value environment="pt148" value="https://soa-mp-kidc-it02.tsl.telus.com:443/CMO/ContactMgmt/EnterpriseCustomerNotificationManagement/EnterpriseCustomerNotificationManagementService_v1_3_vs0"/>
+				<value environment="pt168" value="https://soa-mp-kidc-it01.tsl.telus.com:443/CMO/ContactMgmt/EnterpriseCustomerNotificationManagement/EnterpriseCustomerNotificationManagementService_v1_3_vs0"/>
+				<value environment="ps101" value="https://soa-mp-kidc-it03.tsl.telus.com:443/CMO/ContactMgmt/EnterpriseCustomerNotificationManagement/EnterpriseCustomerNotificationManagementService_v1_3_vs0"/>
+				<value environment="pt140" value="https://soa-mp-kidc-it03.tsl.telus.com:443/CMO/ContactMgmt/EnterpriseCustomerNotificationManagement/EnterpriseCustomerNotificationManagementService_v1_3_vs0"/>
+				<value environment="st101" value="https://soa-mp-kidc-it04.tsl.telus.com:443/CMO/ContactMgmt/EnterpriseCustomerNotificationManagement/EnterpriseCustomerNotificationManagementService_v1_3_vs0"/>
+				<value environment="pr" value="https://soa-mp-kidc-pr.tsl.telus.com:443/CMO/ContactMgmt/EnterpriseCustomerNotificationManagement/EnterpriseCustomerNotificationManagementService_v1_3_vs0"/>
+			</entry>
+		</entry>
+		<entry name="EnterpriseFormLetterManagementService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-toll-dv03.tsl.telus.com:443/CMO/OrderMgmt/FormLetters/EnterpriseFormLetterManagementService_v1_0_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-toll-dv01.tsl.telus.com:443/CMO/OrderMgmt/FormLetters/EnterpriseFormLetterManagementService_v1_0_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-toll-pt01.tsl.telus.com:443/CMO/OrderMgmt/FormLetters/EnterpriseFormLetterManagementService_v1_0_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-toll-pt02.tsl.telus.com:443/CMO/OrderMgmt/FormLetters/EnterpriseFormLetterManagementService_v1_0_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-toll-ps.tsl.telus.com:443/CMO/OrderMgmt/FormLetters/EnterpriseFormLetterManagementService_v1_0_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-toll-ps.tsl.telus.com:443/CMO/OrderMgmt/FormLetters/EnterpriseFormLetterManagementService_v1_0_1_vs0" />
+				<value environment="st101" value="https://soa-mp-toll-st01.tsl.telus.com:443/CMO/OrderMgmt/FormLetters/EnterpriseFormLetterManagementService_v1_0_1_vs0" />
+				<value environment="pr" value="https://soa-mp-toll-pr.tsl.telus.com:443/CMO/OrderMgmt/FormLetters/EnterpriseFormLetterManagementService_v1_0_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="EquipmentActivationSupportService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/RMO/ResourceMgmt/ResourceMgmt/EquipmentActivationSupportService_v1_2_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/RMO/ResourceMgmt/ResourceMgmt/EquipmentActivationSupportService_v1_2_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/RMO/ResourceMgmt/ResourceMgmt/EquipmentActivationSupportService_v1_2_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/RMO/ResourceMgmt/ResourceMgmt/EquipmentActivationSupportService_v1_2_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/ResourceMgmt/EquipmentActivationSupportService_v1_2_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/ResourceMgmt/EquipmentActivationSupportService_v1_2_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/RMO/ResourceMgmt/ResourceMgmt/EquipmentActivationSupportService_v1_2_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/RMO/ResourceMgmt/ResourceMgmt/EquipmentActivationSupportService_v1_2_vs0" />
+			</entry>
+		</entry>
+		<entry name="EquipmentInfoService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentInfoService_v2_0_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentInfoService_v2_0_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentInfoService_v2_0_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentInfoService_v2_0_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentInfoService_v2_0_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentInfoService_v2_0_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentInfoService_v2_0_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentInfoService_v2_0_vs0" />
+			</entry>
+		</entry>
+		<entry name="EquipmentLifeCycleManagementService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentLifeCycleManagementService_v2_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentLifeCycleManagementService_v2_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentLifeCycleManagementService_v2_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentLifeCycleManagementService_v2_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentLifeCycleManagementService_v2_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentLifeCycleManagementService_v2_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentLifeCycleManagementService_v2_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/RMO/ResourceMgmt/EquipmentLifeCycleManagementService_v2_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="HardwarePurchaseAccountService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/CMO/BillingAccountMgmt/HardwarePurchaseAccountService_v1_4/HardwarePurchaseAccountService_v1_4_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/CMO/BillingAccountMgmt/HardwarePurchaseAccountService_v1_4/HardwarePurchaseAccountService_v1_4_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/CMO/BillingAccountMgmt/HardwarePurchaseAccountService_v1_4/HardwarePurchaseAccountService_v1_4_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/BillingAccountMgmt/HardwarePurchaseAccountService_v1_4/HardwarePurchaseAccountService_v1_4_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/BillingAccountMgmt/HardwarePurchaseAccountService_v1_4/HardwarePurchaseAccountService_v1_4_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/BillingAccountMgmt/HardwarePurchaseAccountService_v1_4/HardwarePurchaseAccountService_v1_4_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/CMO/BillingAccountMgmt/HardwarePurchaseAccountService_v1_4/HardwarePurchaseAccountService_v1_4_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/BillingAccountMgmt/HardwarePurchaseAccountService_v1_4/HardwarePurchaseAccountService_v1_4_vs0" />
+			</entry>
+		</entry>
+		<entry name="LogicalResourceService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/RMO/ResourceMgmt/LogicalResources/LogicalResourcesManagementService_v6_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/RMO/ResourceMgmt/LogicalResources/LogicalResourcesManagementService_v6_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/RMO/ResourceMgmt/LogicalResources/LogicalResourcesManagementService_v6_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/RMO/ResourceMgmt/LogicalResources/LogicalResourcesManagementService_v6_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/LogicalResources/LogicalResourcesManagementService_v6_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/LogicalResources/LogicalResourcesManagementService_v6_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/RMO/ResourceMgmt/LogicalResources/LogicalResourcesManagementService_v6_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/RMO/ResourceMgmt/LogicalResources/LogicalResourcesManagementService_v6_1_vs0" />
+
+			</entry>
+		</entry>
+		<entry name="OrderService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/CMO/OrderMgmt/OrderService_v2_0_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/CMO/OrderMgmt/OrderService_v2_0_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/CMO/OrderMgmt/OrderService_v2_0_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/OrderMgmt/OrderService_v2_0_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/OrderMgmt/OrderService_v2_0_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/OrderMgmt/OrderService_v2_0_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/CMO/OrderMgmt/OrderService_v2_0_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/OrderMgmt/OrderService_v2_0_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="PrepaidSubscriberService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/CMO/SelfMgmt/PrepaidSubscriberService_v3_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/CMO/SelfMgmt/PrepaidSubscriberService_v3_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/CMO/SelfMgmt/PrepaidSubscriberService_v3_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/SelfMgmt/PrepaidSubscriberService_v3_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/SelfMgmt/PrepaidSubscriberService_v3_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/SelfMgmt/PrepaidSubscriberService_v3_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/CMO/SelfMgmt/PrepaidSubscriberService_v3_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/SelfMgmt/PrepaidSubscriberService_v3_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="PrepaidWirelessCustomerOrderService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/CMO/OrderMgmt/PrepaidWirelessCustomerOrder/PrepaidWirelessCustomerOrderService_v1_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/CMO/OrderMgmt/PrepaidWirelessCustomerOrder/PrepaidWirelessCustomerOrderService_v1_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/CMO/OrderMgmt/PrepaidWirelessCustomerOrder/PrepaidWirelessCustomerOrderService_v1_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/OrderMgmt/PrepaidWirelessCustomerOrder/PrepaidWirelessCustomerOrderService_v1_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/OrderMgmt/PrepaidWirelessCustomerOrder/PrepaidWirelessCustomerOrderService_v1_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/OrderMgmt/PrepaidWirelessCustomerOrder/PrepaidWirelessCustomerOrderService_v1_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/CMO/OrderMgmt/PrepaidWirelessCustomerOrder/PrepaidWirelessCustomerOrderService_v1_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/OrderMgmt/PrepaidWirelessCustomerOrder/PrepaidWirelessCustomerOrderService_v1_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="RealTimeActionAdvisorService">
+			<entry name="url">
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com/v2-1/mso/campaignmgmt/actionadvisor/RealTimeActionAdvisorService_v2_1_vs0" />
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com/v2-1/mso/campaignmgmt/actionadvisor/RealTimeActionAdvisorService_v2_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com/v2-1/mso/campaignmgmt/actionadvisor/RealTimeActionAdvisorService_v2_1_vs0" />			
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com/v2-1/mso/campaignmgmt/actionadvisor/RealTimeActionAdvisorService_v2_1_vs0" />			
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com/v2-1/mso/campaignmgmt/actionadvisor/RealTimeActionAdvisorService_v2_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com/v2-1/mso/campaignmgmt/actionadvisor/RealTimeActionAdvisorService_v2_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com/v2-1/mso/campaignmgmt/actionadvisor/RealTimeActionAdvisorService_v2_1_vs0" />			
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com/v2-1/mso/campaignmgmt/actionadvisor/RealTimeActionAdvisorService_v2_1_vs0" />			
+			</entry>
+		</entry>
+		<entry name="ProductOfferingService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/CMO/SelfMgmt/ProductOfferingService_v2_2_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/CMO/SelfMgmt/ProductOfferingService_v2_2_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/CMO/SelfMgmt/ProductOfferingService_v2_2_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/SelfMgmt/ProductOfferingService_v2_2_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/SelfMgmt/ProductOfferingService_v2_2_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/SelfMgmt/ProductOfferingService_v2_2_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/CMO/SelfMgmt/ProductOfferingService_v2_2_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/SelfMgmt/ProductOfferingService_v2_2_vs0" />
+			</entry>
+		</entry>
+		<entry name="SubscriptionBalanceMgmtService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/CMO/ReceivablesMgmt/SubscriptionBalanceMgmtService_v1_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/CMO/ReceivablesMgmt/SubscriptionBalanceMgmtService_v1_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/CMO/ReceivablesMgmt/SubscriptionBalanceMgmtService_v1_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/ReceivablesMgmt/SubscriptionBalanceMgmtService_v1_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/ReceivablesMgmt/SubscriptionBalanceMgmtService_v1_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/ReceivablesMgmt/SubscriptionBalanceMgmtService_v1_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/CMO/ReceivablesMgmt/SubscriptionBalanceMgmtService_v1_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/ReceivablesMgmt/SubscriptionBalanceMgmtService_v1_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="SubscriptionManagementService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/CMO/BillingAccountMgmt/SubscriptionManagementService_v3_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/CMO/BillingAccountMgmt/SubscriptionManagementService_v3_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/CMO/BillingAccountMgmt/SubscriptionManagementService_v3_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/BillingAccountMgmt/SubscriptionManagementService_v3_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/BillingAccountMgmt/SubscriptionManagementService_v3_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/BillingAccountMgmt/SubscriptionManagementService_v3_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/CMO/BillingAccountMgmt/SubscriptionManagementService_v3_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/BillingAccountMgmt/SubscriptionManagementService_v3_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="SubscriptionService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/CMO/SelfMgmt/SubscriptionService_v2_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/CMO/SelfMgmt/SubscriptionService_v2_1_vs0" /> <!-- service not defined in DV101 -->
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/CMO/SelfMgmt/SubscriptionService_v2_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/SelfMgmt/SubscriptionService_v2_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/SelfMgmt/SubscriptionService_v2_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/SelfMgmt/SubscriptionService_v2_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/CMO/SelfMgmt/SubscriptionService_v2_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/SelfMgmt/SubscriptionService_v2_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="SummaryDataServicesUsageService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/CMO/BillingInquiryMgmt/DSUsageServiceSummary/SummaryDataServicesUsageService_v5_0_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/CMO/BillingInquiryMgmt/DSUsageServiceSummary/SummaryDataServicesUsageService_v5_0_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/CMO/BillingInquiryMgmt/DSUsageServiceSummary/SummaryDataServicesUsageService_v5_0_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/BillingInquiryMgmt/DSUsageServiceSummary/SummaryDataServicesUsageService_v5_0_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/BillingInquiryMgmt/DSUsageServiceSummary/SummaryDataServicesUsageService_v5_0_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/BillingInquiryMgmt/DSUsageServiceSummary/SummaryDataServicesUsageService_v5_0_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/CMO/BillingInquiryMgmt/DSUsageServiceSummary/SummaryDataServicesUsageService_v5_0_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/BillingInquiryMgmt/DSUsageServiceSummary/SummaryDataServicesUsageService_v5_0_vs0" />
+			</entry>
+		</entry>
+		<entry name="VoucherValidationService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/CMO/BillingAccountMgmt/VoucherValidationService_v2_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/CMO/BillingAccountMgmt/VoucherValidationService_v2_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/CMO/BillingAccountMgmt/VoucherValidationService_v2_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/BillingAccountMgmt/VoucherValidationService_v2_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/BillingAccountMgmt/VoucherValidationService_v2_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/BillingAccountMgmt/VoucherValidationService_v2_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/CMO/BillingAccountMgmt/VoucherValidationService_v2_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/BillingAccountMgmt/VoucherValidationService_v2_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="ActivatePortInRequestService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-kidcoss-dv03.tsl.telus.com/RMO/ResourceMgmt/ActivatePortInRequestService_v1_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-kidcoss-dv01.tsl.telus.com/RMO/ResourceMgmt/ActivatePortInRequestService_v1_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-kidcoss-it02.tsl.telus.com/RMO/ResourceMgmt/ActivatePortInRequestService_v1_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-kidcoss-it01.tsl.telus.com/RMO/ResourceMgmt/ActivatePortInRequestService_v1_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-kidcoss-it03.tsl.telus.com/RMO/ResourceMgmt/ActivatePortInRequestService_v1_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-kidcoss-it03.tsl.telus.com/RMO/ResourceMgmt/ActivatePortInRequestService_v1_1_vs0" />
+				<value environment="st101" value="https://soa-mp-kidcoss-it04.tsl.telus.com/RMO/ResourceMgmt/ActivatePortInRequestService_v1_1_vs0" />
+				<value environment="pr" value="https://soa-mp-kidcoss-pr.tsl.telus.com/RMO/ResourceMgmt/ActivatePortInRequestService_v1_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="CancelPortInRequestService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-kidcoss-dv03.tsl.telus.com:443/RMO/ResourceMgmt/CancelPortInRequestService_v1_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-kidcoss-dv01.tsl.telus.com:443/RMO/ResourceMgmt/CancelPortInRequestService_v1_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-kidcoss-it02.tsl.telus.com:443/RMO/ResourceMgmt/CancelPortInRequestService_v1_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-kidcoss-it01.tsl.telus.com:443/RMO/ResourceMgmt/CancelPortInRequestService_v1_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-kidcoss-it03.tsl.telus.com:443/RMO/ResourceMgmt/CancelPortInRequestService_v1_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-kidcoss-it03.tsl.telus.com:443/RMO/ResourceMgmt/CancelPortInRequestService_v1_1_vs0" />
+				<value environment="st101" value="https://soa-mp-kidcoss-it04.tsl.telus.com:443/RMO/ResourceMgmt/CancelPortInRequestService_v1_1_vs0" />
+				<value environment="pr" value="https://soa-mp-kidcoss-pr.tsl.telus.com:443/RMO/ResourceMgmt/CancelPortInRequestService_v1_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="CreatePortInRequestService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-kidcoss-dv03.tsl.telus.com/RMO/ResourceMgmt/CreatePortInRequestService_v1_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-kidcoss-dv01.tsl.telus.com/RMO/ResourceMgmt/CreatePortInRequestService_v1_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-kidcoss-it02.tsl.telus.com/RMO/ResourceMgmt/CreatePortInRequestService_v1_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-kidcoss-it01.tsl.telus.com/RMO/ResourceMgmt/CreatePortInRequestService_v1_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-kidcoss-it03.tsl.telus.com/RMO/ResourceMgmt/CreatePortInRequestService_v1_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-kidcoss-it03.tsl.telus.com/RMO/ResourceMgmt/CreatePortInRequestService_v1_1_vs0" />
+				<value environment="st101" value="https://soa-mp-kidcoss-it04.tsl.telus.com/RMO/ResourceMgmt/CreatePortInRequestService_v1_1_vs0" />
+				<value environment="pr" value="https://soa-mp-kidcoss-pr.tsl.telus.com/RMO/ResourceMgmt/CreatePortInRequestService_v1_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="DeactivateMvneSubscriberService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/RMO/ResourceMgmt/DeactivateMVNESubscriberService_v1_0_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/RMO/ResourceMgmt/DeactivateMVNESubscriberService_v1_0_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/RMO/ResourceMgmt/DeactivateMVNESubscriberService_v1_0_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/RMO/ResourceMgmt/DeactivateMVNESubscriberService_v1_0_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/DeactivateMVNESubscriberService_v1_0_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/DeactivateMVNESubscriberService_v1_0_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/RMO/ResourceMgmt/DeactivateMVNESubscriberService_v1_0_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/RMO/ResourceMgmt/DeactivateMVNESubscriberService_v1_0_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="RedKneeSubscriptionManagementService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com/RMO/ResourceMgmt/Vendor/Redknee/SubscriptionManagementService_v1_0_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com/RMO/ResourceMgmt/Vendor/Redknee/SubscriptionManagementService_v1_0_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com/RMO/ResourceMgmt/Vendor/Redknee/SubscriptionManagementService_v1_0_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com/RMO/ResourceMgmt/Vendor/Redknee/SubscriptionManagementService_v1_0_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com/RMO/ResourceMgmt/Vendor/Redknee/SubscriptionManagementService_v1_0_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com/RMO/ResourceMgmt/Vendor/Redknee/SubscriptionManagementService_v1_0_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com/RMO/ResourceMgmt/Vendor/Redknee/SubscriptionManagementService_v1_0_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com/RMO/ResourceMgmt/Vendor/Redknee/SubscriptionManagementService_v1_0_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="ConsumerBillingAccountDataManagementService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-toll-dv03.tsl.telus.com:443/CMO/InformationMgmt/BillingAccountManagement/ConsumerBillingAccountDataManagementService_v2_4_vs0" />
+				<value environment="dv101" value="https://soa-mp-toll-dv01.tsl.telus.com:443/CMO/InformationMgmt/BillingAccountManagement/ConsumerBillingAccountDataManagementService_v2_4_vs0" />
+				<value environment="pt148" value="https://soa-mp-toll-at02.tsl.telus.com:443/CMO/InformationMgmt/BillingAccountManagement/ConsumerBillingAccountDataManagementService_v2_4_vs0" />
+				<value environment="pt168" value="https://soa-mp-toll-at01.tsl.telus.com:443/CMO/InformationMgmt/BillingAccountManagement/ConsumerBillingAccountDataManagementService_v2_4_vs0" />
+				<value environment="ps101" value="https://soa-mp-toll-pt05.tsl.telus.com/CMO/InformationMgmt/BillingAccountManagement/ConsumerBillingAccountDataManagementService_v2_4_vs0" />
+				<value environment="pt140" value="https://soa-mp-toll-pt05.tsl.telus.com/CMO/InformationMgmt/BillingAccountManagement/ConsumerBillingAccountDataManagementService_v2_4_vs0" />
+				<value environment="st101" value="https://soa-mp-toll-st01.tsl.telus.com:443/CMO/InformationMgmt/BillingAccountManagement/ConsumerBillingAccountDataManagementService_v2_4_vs0" />
+				<value environment="pr" value="https://soa-mp-toll-pr.tsl.telus.com:443/CMO/InformationMgmt/BillingAccountManagement/ConsumerBillingAccountDataManagementService_v2_4_vs0" />
+			</entry>
+		</entry>
+		<entry name="EligibilityCheckService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/RMO/ResourceMgmt/EligibilityCheckService/PortEligibilityAndServiceAvailabilityCheck_v1_1_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/RMO/ResourceMgmt/EligibilityCheckService/PortEligibilityAndServiceAvailabilityCheck_v1_1_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/RMO/ResourceMgmt/EligibilityCheckService/PortEligibilityAndServiceAvailabilityCheck_v1_1_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/RMO/ResourceMgmt/EligibilityCheckService/PortEligibilityAndServiceAvailabilityCheck_v1_1_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/EligibilityCheckService/PortEligibilityAndServiceAvailabilityCheck_v1_1_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/RMO/ResourceMgmt/EligibilityCheckService/PortEligibilityAndServiceAvailabilityCheck_v1_1_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/RMO/ResourceMgmt/EligibilityCheckService/PortEligibilityAndServiceAvailabilityCheck_v1_1_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/RMO/ResourceMgmt/EligibilityCheckService/PortEligibilityAndServiceAvailabilityCheck_v1_1_1_vs0" />			
+			</entry>
+		</entry>
+		<entry name="PortabilityService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-toll-dv01.tsl.telus.com:443/RMO/OrderMgmt/PortabilityService_v1_0_vs0" />
+				<value environment="dv101" value="https://soa-mp-toll-dv03.tsl.telus.com:443/RMO/OrderMgmt/PortabilityService_v1_0_vs0" />
+				<value environment="pt148" value="https://soa-mp-toll-pt01.tsl.telus.com:443/RMO/OrderMgmt/PortabilityService_v1_0_vs0" />
+				<value environment="pt168" value="https://soa-mp-toll-pt02.tsl.telus.com:443/RMO/OrderMgmt/PortabilityService_v1_0_vs0" />
+				<value environment="ps101" value="https://soa-mp-toll-ps.tsl.telus.com:443/RMO/OrderMgmt/PortabilityService_v1_0_vs0" />
+				<value environment="pt140" value="https://soa-mp-toll-ps.tsl.telus.com:443/RMO/OrderMgmt/PortabilityService_v1_0_vs0" />
+				<value environment="st101" value="https://soa-mp-toll-st01.tsl.telus.com:443/RMO/OrderMgmt/PortabilityService_v1_0_vs0" />
+				<value environment="pr" value="https://soa-mp-toll-pr.tsl.telus.com:443/RMO/OrderMgmt/PortabilityService_v1_0_vs0" />
+			</entry>
+		</entry>
+		<entry name="PortRequestInformationService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/v1/rmo/resourcemgmt/resource/portrequestinformationservice-v1-0_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/v1/rmo/resourcemgmt/resource/portrequestinformationservice-v1-0_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/v1/rmo/resourcemgmt/resource/portrequestinformationservice-v1-0_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/v1/rmo/resourcemgmt/resource/portrequestinformationservice-v1-0_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/v1/rmo/resourcemgmt/resource/portrequestinformationservice-v1-0_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/v1/rmo/resourcemgmt/resource/portrequestinformationservice-v1-0_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/v1/rmo/resourcemgmt/resource/portrequestinformationservice-v1-0_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/v1/rmo/resourcemgmt/resource/portrequestinformationservice-v1-0_vs0" />
+			</entry>
+		</entry>
+		<entry name="SubmitPortInRequestService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-kidcoss-dv03.tsl.telus.com/RMO/ResourceMgmt/SubmitPortInRequestService_v1_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-kidcoss-dv01.tsl.telus.com/RMO/ResourceMgmt/SubmitPortInRequestService_v1_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-kidcoss-it02.tsl.telus.com/RMO/ResourceMgmt/SubmitPortInRequestService_v1_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-kidcoss-it01.tsl.telus.com/RMO/ResourceMgmt/SubmitPortInRequestService_v1_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-kidcoss-it03.tsl.telus.com/RMO/ResourceMgmt/SubmitPortInRequestService_v1_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-kidcoss-it03.tsl.telus.com/RMO/ResourceMgmt/SubmitPortInRequestService_v1_1_vs0" />
+				<value environment="st101" value="https://soa-mp-kidcoss-it04.tsl.telus.com/RMO/ResourceMgmt/SubmitPortInRequestService_v1_1_vs0" />
+				<value environment="pr" value="https://soa-mp-kidcoss-pr.tsl.telus.com/RMO/ResourceMgmt/SubmitPortInRequestService_v1_1_vs0" />			
+			</entry>
+		</entry>
+		<entry name="BillNotificationManagementService">
+			<entry name="v3_1">
+				<entry name="url">
+					<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com/CMO/InteractionMgmt/BillNotification/BillNotificationManagementService_v3_1_vs1" />
+					<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com/CMO/InteractionMgmt/BillNotification/BillNotificationManagementService_v3_1_vs1" />
+					<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com/CMO/InteractionMgmt/BillNotification/BillNotificationManagementService_v3_1_vs1" />
+					<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com/CMO/InteractionMgmt/BillNotification/BillNotificationManagementService_v3_1_vs1" />
+					<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com/CMO/InteractionMgmt/BillNotification/BillNotificationManagementService_v3_1_vs1" />
+					<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com/CMO/InteractionMgmt/BillNotification/BillNotificationManagementService_v3_1_vs1" />
+					<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com/CMO/InteractionMgmt/BillNotification/BillNotificationManagementService_v3_1_vs1" />
+					<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com/CMO/InteractionMgmt/BillNotification/BillNotificationManagementService_v3_1_vs1" />
+				</entry>
+			</entry>
+			<entry name="v4_0">
+				<entry name="url">
+					<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com/CMO/BillFormatMgmt/BillNotification/BillNotificationManagementSvc_v4_0_vs0" />
+					<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com/CMO/BillFormatMgmt/BillNotification/BillNotificationManagementSvc_v4_0_vs0" />
+					<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com/CMO/BillFormatMgmt/BillNotification/BillNotificationManagementSvc_v4_0_vs0" />
+					<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com/CMO/BillFormatMgmt/BillNotification/BillNotificationManagementSvc_v4_0_vs0" />
+					<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com/CMO/BillFormatMgmt/BillNotification/BillNotificationManagementSvc_v4_0_vs0" />
+					<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com/CMO/BillFormatMgmt/BillNotification/BillNotificationManagementSvc_v4_0_vs0" />
+					<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com/CMO/BillFormatMgmt/BillNotification/BillNotificationManagementSvc_v4_0_vs0" />
+					<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com/CMO/BillFormatMgmt/BillNotification/BillNotificationManagementSvc_v4_0_vs0" />
+				</entry>
+			</entry>
+		</entry>
+		<entry name="CardPaymentService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com/EO/FinancialMgmt/CardPaymentService_v1_4_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com/EO/FinancialMgmt/CardPaymentService_v1_4_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com/EO/FinancialMgmt/CardPaymentService_v1_4_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com/EO/FinancialMgmt/CardPaymentService_v1_4_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com/EO/FinancialMgmt/CardPaymentService_v1_4_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com/EO/FinancialMgmt/CardPaymentService_v1_4_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com/EO/FinancialMgmt/CardPaymentService_v1_4_vs0" /> 
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com/EO/FinancialMgmt/CardPaymentService_v1_4_vs0" />
+			</entry>
+		</entry>
+		<entry name="ConsumerProductDataManagementService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-toll-dv03.tsl.telus.com:443/CMO/InformationMgmt/ProductManagement/ConsumerProductDataManagementService_v1_0_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-toll-dv01.tsl.telus.com:443/CMO/InformationMgmt/ProductManagement/ConsumerProductDataManagementService_v1_0_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-toll-at02.tsl.telus.com:443/CMO/InformationMgmt/ProductManagement/ConsumerProductDataManagementService_v1_0_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-toll-at01.tsl.telus.com:443/CMO/InformationMgmt/ProductManagement/ConsumerProductDataManagementService_v1_0_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-toll-pt05.tsl.telus.com:443/CMO/InformationMgmt/ProductManagement/ConsumerProductDataManagementService_v1_0_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-toll-pt05.tsl.telus.com:443/CMO/InformationMgmt/ProductManagement/ConsumerProductDataManagementService_v1_0_1_vs0" />
+				<value environment="st101" value="https://soa-mp-toll-st01.tsl.telus.com:443/CMO/InformationMgmt/ProductManagement/ConsumerProductDataManagementService_v1_0_1_vs0" />
+				<value environment="pr" value="https://soa-mp-toll-pr.tsl.telus.com:443/CMO/InformationMgmt/ProductManagement/ConsumerProductDataManagementService_v1_0_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="CreditProfileSvc">
+			<entry name="v2_1">
+				<entry name="url">
+					<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v2_1_vs0" />
+					<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v2_1_vs0" />
+					<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v2_1_vs0" />
+					<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v2_1_vs0" />
+					<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v2_1_vs0" />
+					<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v2_1_vs0" />
+					<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v2_1_vs0" />
+					<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v2_1_vs0" />
+				</entry>
+			</entry>
+			<entry name="v3_0">
+				<entry name="url">
+					<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v3_0_vs0" />
+					<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v3_0_vs0" />
+					<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v3_0_vs0" />
+					<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v3_0_vs0" />
+					<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v3_0_vs0" />
+					<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v3_0_vs0" />
+					<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v3_0_vs0" />
+					<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com/CMO/OrderMgmt/CreditProfile/CreditProfileSvc_v3_0_vs0" />
+				</entry>
+			</entry>
+		</entry>
+		<entry name="EnterpriseAddressValidationService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com/LAIRD/CMO/BillingAccountMgmt/EnterpriseAddressValidationSvc_v1_0_LAIRD_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com/LAIRD/CMO/BillingAccountMgmt/EnterpriseAddressValidationSvc_v1_0_LAIRD_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com/LAIRD/CMO/BillingAccountMgmt/EnterpriseAddressValidationSvc_v1_0_LAIRD_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com/LAIRD/CMO/BillingAccountMgmt/EnterpriseAddressValidationSvc_v1_0_LAIRD_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com/LAIRD/CMO/BillingAccountMgmt/EnterpriseAddressValidationSvc_v1_0_LAIRD_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com/LAIRD/CMO/BillingAccountMgmt/EnterpriseAddressValidationSvc_v1_0_LAIRD_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com/LAIRD/CMO/BillingAccountMgmt/EnterpriseAddressValidationSvc_v1_0_LAIRD_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com/LAIRD/CMO/BillingAccountMgmt/EnterpriseAddressValidationSvc_v1_0_LAIRD_vs0" />
+			</entry>
+		</entry>
+		<entry name="EnterpriseConsumerProfileRegistrationService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-kidc-dv03.tsl.telus.com/v1-1/cmo/informationmgmt/registration/EnterpriseConsumerProfileRegistrationSvc_v1_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-kidc-dv01.tsl.telus.com/v1-1/cmo/informationmgmt/registration/EnterpriseConsumerProfileRegistrationSvc_v1_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-kidc-it02.tsl.telus.com/v1-1/cmo/informationmgmt/registration/EnterpriseConsumerProfileRegistrationSvc_v1_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-kidc-it01.tsl.telus.com/v1-1/cmo/informationmgmt/registration/EnterpriseConsumerProfileRegistrationSvc_v1_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-kidc-it03.tsl.telus.com/v1-1/cmo/informationmgmt/registration/EnterpriseConsumerProfileRegistrationSvc_v1_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-kidc-it03.tsl.telus.com/v1-1/cmo/informationmgmt/registration/EnterpriseConsumerProfileRegistrationSvc_v1_1_vs0" />
+				<value environment="st101" value="https://soa-mp-kidc-it04.tsl.telus.com/v1-1/cmo/informationmgmt/registration/EnterpriseConsumerProfileRegistrationSvc_v1_1_vs0" />
+				<value environment="pr" value="https://soa-mp-kidc-pr.tsl.telus.com/v1-1/cmo/informationmgmt/registration/EnterpriseConsumerProfileRegistrationSvc_v1_1_vs0" />
+			</entry>
+		</entry>
+		<entry name="WirelessSubscriberOfferInformationService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/CMO/OrderMgmt/WirelessSubscriberOfferInformationService_v2_10_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/CMO/OrderMgmt/WirelessSubscriberOfferInformationService_v2_10_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/CMO/OrderMgmt/WirelessSubscriberOfferInformationService_v2_10_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/OrderMgmt/WirelessSubscriberOfferInformationService_v2_10_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/OrderMgmt/WirelessSubscriberOfferInformationService_v2_10_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/CMO/OrderMgmt/WirelessSubscriberOfferInformationService_v2_10_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/CMO/OrderMgmt/WirelessSubscriberOfferInformationService_v2_10_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/OrderMgmt/WirelessSubscriberOfferInformationService_v2_10_vs0" />
+			</entry>
+		</entry>
+		<entry name="PenaltyCalculationService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com/CMO/ContactMgmt/PenaltyCalculation/PenaltyCalculationService_v3_0_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com/CMO/ContactMgmt/PenaltyCalculation/PenaltyCalculationService_v3_0_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com/CMO/ContactMgmt/PenaltyCalculation/PenaltyCalculationService_v3_0_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com/CMO/ContactMgmt/PenaltyCalculation/PenaltyCalculationService_v3_0_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com/CMO/ContactMgmt/PenaltyCalculation/PenaltyCalculationService_v3_0_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com/CMO/ContactMgmt/PenaltyCalculation/PenaltyCalculationService_v3_0_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com/CMO/ContactMgmt/PenaltyCalculation/PenaltyCalculationService_v3_0_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com/CMO/ContactMgmt/PenaltyCalculation/PenaltyCalculationService_v3_0_vs0" />
+			</entry>
+		</entry>		
+		<entry name="VoipSupplementaryService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/SMO/Activation/VoipSupplementaryService_v1_1_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/SMO/Activation/VoipSupplementaryService_v1_1_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/SMO/Activation/VoipSupplementaryService_v1_1_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/SMO/Activation/VoipSupplementaryService_v1_1_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/SMO/Activation/VoipSupplementaryService_v1_1_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/SMO/Activation/VoipSupplementaryService_v1_1_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/SMO/Activation/VoipSupplementaryService_v1_1_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/SMO/Activation/VoipSupplementaryService_v1_1_vs0" />
+			</entry>
+		</entry>	
+		<entry name="VoipLicensePurchaseService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/SMO/Activation/VoipLicensePurchaseSvc/VoipLicensePurchaseSvc_v1_0_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/SMO/Activation/VoipLicensePurchaseSvc/VoipLicensePurchaseSvc_v1_0_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/SMO/Activation/VoipLicensePurchaseSvc/VoipLicensePurchaseSvc_v1_0_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/SMO/Activation/VoipLicensePurchaseSvc/VoipLicensePurchaseSvc_v1_0_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/SMO/Activation/VoipLicensePurchaseSvc/VoipLicensePurchaseSvc_v1_0_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/SMO/Activation/VoipLicensePurchaseSvc/VoipLicensePurchaseSvc_v1_0_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/SMO/Activation/VoipLicensePurchaseSvc/VoipLicensePurchaseSvc_v1_0_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/SMO/Activation/VoipLicensePurchaseSvc/VoipLicensePurchaseSvc_v1_0_vs0" />
+			</entry>
+		</entry>	
+		<entry name="WirelessProvisioningService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/v1/smo/activation/serviceactivationmgmt/wirelessprovisioningservice-v1-0_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/v1/smo/activation/serviceactivationmgmt/wirelessprovisioningservice-v1-0_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/v1/smo/activation/serviceactivationmgmt/wirelessprovisioningservice-v1-0_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/v1/smo/activation/serviceactivationmgmt/wirelessprovisioningservice-v1-0_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/v1/smo/activation/serviceactivationmgmt/wirelessprovisioningservice-v1-0_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/v1/smo/activation/serviceactivationmgmt/wirelessprovisioningservice-v1-0_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/v1/smo/activation/serviceactivationmgmt/wirelessprovisioningservice-v1-0_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/v1/smo/activation/serviceactivationmgmt/wirelessprovisioningservice-v1-0_vs0" />
+			</entry>
+		</entry>
+		<entry name="ServiceDetailRetrievalService">
+			<entry name="url">
+				<value environment="dv103" value="http://smosr-servicespecmgmt-dv103.tmi.telus.com:80/SMO/SpecificationMgmt/srservice/ServiceDetailRetrievalService_v1_0" />
+				<value environment="dv101" value="http://smosr-servicespecmgmt-dv103.tmi.telus.com:80/SMO/SpecificationMgmt/srservice/ServiceDetailRetrievalService_v1_0" />
+				<value environment="pt148" value="http://smosr-servicespecmgmt-pt148.tmi.telus.com:80/SMO/SpecificationMgmt/srservice/ServiceDetailRetrievalService_v1_0" />
+				<value environment="pt168" value="http://smosr-servicespecmgmt-pt168.tmi.telus.com:80/SMO/SpecificationMgmt/srservice/ServiceDetailRetrievalService_v1_0" />
+				<value environment="ps101" value="http://smosr-servicespecmgmt-ps101.tmi.telus.com:80/SMO/SpecificationMgmt/srservice/ServiceDetailRetrievalService_v1_0" />
+				<value environment="pt140" value="http://smosr-servicespecmgmt-ps101.tmi.telus.com:80/SMO/SpecificationMgmt/srservice/ServiceDetailRetrievalService_v1_0" />
+				<value environment="st101" value="http://smosr-servicespecmgmt-st101.tmi.telus.com:80/SMO/SpecificationMgmt/srservice/ServiceDetailRetrievalService_v1_0" />
+				<value environment="pr" value="http://smosr-servicespecmgmt-pr.tmi.telus.com:80/SMO/SpecificationMgmt/srservice/ServiceDetailRetrievalService_v1_0" />
+			</entry>
+		</entry>		
+		<entry name="kafkaEventPublisher">
+			<entry name="url">
+				<value environment="dv101" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/DV101.Party.Customer.BillingAccount"/>
+				<value environment="dv103" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/DV103.Party.Customer.BillingAccount"/>
+  				<value environment="pt148" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT148.Party.Customer.BillingAccount"/>
+				<value environment="pt168" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT168.Party.Customer.BillingAccount"/>
+				<value environment="ps101" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT140.Party.Customer.BillingAccount"/>
+				<value environment="pt140" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT140.Party.Customer.BillingAccount"/>
+				<value environment="st101" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/ST101.Party.Customer.BillingAccount"/>
+				<value environment="pr" value="https://enterprisemessagewebk-prn.tsl.telus.com/publisher/publish/Party.Customer.BillingAccount"/>
+			</entry>
+		<entry name="kafkaPartyEventCustomerOrderWireless">
+			<entry name="url">
+				<value environment="dv101" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/DV101.PartyEvent.CustomerOrder.Wireless"/>
+				<value environment="dv103" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/DV103.PartyEvent.CustomerOrder.Wireless"/>
+  				<value environment="pt148" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT148.PartyEvent.CustomerOrder.Wireless"/>
+				<value environment="pt168" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT168.PartyEvent.CustomerOrder.Wireless"/>
+				<value environment="ps101" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT140.PartyEvent.CustomerOrder.Wireless"/>
+				<value environment="pt140" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT140.PartyEvent.CustomerOrder.Wireless"/>
+				<value environment="st101" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/ST101.PartyEvent.CustomerOrder.Wireless"/>
+				<value environment="pr" value="https://enterprisemessagewebk-prn.tsl.telus.com/publisher/publish/PartyEvent.CustomerOrder.Wireless"/>
+			  </entry>
+		   </entry>
+		   <entry name="kafkaPartyCustomerBillingAccountWireless">
+			<entry name="url">
+				<value environment="dv101" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/DV101.Party.Customer.BillingAccount.Wireless"/>
+				<value environment="dv103" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/DV103.Party.Customer.BillingAccount.Wireless"/>
+  				<value environment="pt148" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT148.Party.Customer.BillingAccount.Wireless"/>
+				<value environment="pt168" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT168.Party.Customer.BillingAccount.Wireless"/>
+				<value environment="ps101" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT140.Party.Customer.BillingAccount.Wireless"/>
+				<value environment="pt140" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT140.Party.Customer.BillingAccount.Wireless"/>
+				<value environment="st101" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/ST101.Party.Customer.BillingAccount.Wireless"/>
+				<value environment="pr" value="https://enterprisemessagewebk-prn.tsl.telus.com/publisher/publish/Party.Customer.BillingAccount.Wireless"/>
+			  </entry>
+		   </entry>
+		</entry>
+		<entry name="ProductDeviceService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com:443/PMO/CatalogMgmt/ProductDeviceServiceV5/ProductDeviceService_v5_0_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com:443/PMO/CatalogMgmt/ProductDeviceServiceV5/ProductDeviceService_v5_0_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com:443/PMO/CatalogMgmt/ProductDeviceServiceV5/ProductDeviceService_v5_0_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com:443/PMO/CatalogMgmt/ProductDeviceServiceV5/ProductDeviceService_v5_0_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com:443/PMO/CatalogMgmt/ProductDeviceServiceV5/ProductDeviceService_v5_0_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com:443/PMO/CatalogMgmt/ProductDeviceServiceV5/ProductDeviceService_v5_0_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com:443/PMO/CatalogMgmt/ProductDeviceServiceV5/ProductDeviceService_v5_0_vs0" />
+				<value environment="pr" value="https://soa-mp-laird-pr.tsl.telus.com:443/PMO/CatalogMgmt/ProductDeviceServiceV5/ProductDeviceService_v5_0_vs0" />
+			</entry>
+		</entry>
+		<entry name="ProfileManagementRESTSvc">
+			<entry name="url">
+				<value environment="dv101" value="https://soa-mp-rmsk-dv103.tsl.telus.com/v3/cmo/selfmgmt/profilemanagement" />
+				<value environment="dv103" value="https://soa-mp-rmsk-dv103.tsl.telus.com/v3/cmo/selfmgmt/profilemanagement" />
+				<value environment="pt148" value="https://soa-mp-rmsk-it02.tsl.telus.com/v3/cmo/selfmgmt/profilemanagement" />
+				<value environment="pt168" value="https://soa-mp-rmsk-it01.tsl.telus.com/v3/cmo/selfmgmt/profilemanagement" />
+				<value environment="ps101" value="https://soa-mp-rmsk-it03.tsl.telus.com/v3/cmo/selfmgmt/profilemanagement" />
+				<value environment="pt140" value="https://soa-mp-rmsk-it03.tsl.telus.com/v3/cmo/selfmgmt/profilemanagement" />
+				<value environment="st101" value="https://soa-mp-rmsk-it04.tsl.telus.com/v3/cmo/selfmgmt/profilemanagement" />
+				<value environment="pr" value="https://soa-mp-rmsk-pr.tsl.telus.com/v3/cmo/selfmgmt/profilemanagement" />
+			</entry>
+		</entry>
+		<entry name="WLSCreditAssessmentProxyService">
+			<entry name="v1_0">
+				<entry name="url">
+					<value environment="dv103" value="https://soa-mp-rmsk-dv103.tsl.telus.com/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v1_0_vs0" />
+					<value environment="dv101" value="https://soa-mp-rmsk-dv01.tsl.telus.com/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v1_0_vs0" />
+					<value environment="pt148" value="https://soa-mp-rmsk-it02.tsl.telus.com/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v1_0_vs0" />
+					<value environment="pt168" value="https://soa-mp-rmsk-it01.tsl.telus.com/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v1_0_vs0" />
+					<value environment="ps101" value="https://soa-mp-rmsk-it03.tsl.telus.com/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v1_0_vs0" />
+					<value environment="pt140" value="https://soa-mp-rmsk-it03.tsl.telus.com/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v1_0_vs0" />
+					<value environment="st101" value="https://soa-mp-rmsk-it04.tsl.telus.com/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v1_0_vs0" />
+					<value environment="pr" value="https://soa-mp-rmsk-pr.tsl.telus.com/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v1_0_vs0" />
+				</entry>
+			</entry>
+			<entry name="v2_0">
+				<entry name="url">
+					<value environment="dv103" value="https://soa-mp-rmsk-dv103.tsl.telus.com/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v2_0_vs0" />
+					<value environment="dv101" value="https://soa-mp-rmsk-dv01.tsl.telus.com/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v2_0_vs0" />
+					<value environment="pt148" value="https://apigw-soap-st.tsl.telus.com/soap/it02/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v2_0_RP" />
+					<value environment="pt168" value="https://apigw-soap-st.tsl.telus.com/soap/it01/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v2_0_RP" />
+					<value environment="ps101" value="https://apigw-soap-st.tsl.telus.com/soap/it03/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v2_0_RP" />
+					<value environment="pt140" value="https://apigw-soap-st.tsl.telus.com/soap/it03/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v2_0_RP" />
+					<value environment="st101" value="https://apigw-soap-st.tsl.telus.com/soap/its04/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v2_0_RP" />
+					<value environment="pr" value="https://apigw-soap-pr.tsl.telus.com/soap/CMO/OrderMgmt/WLSCreditAssessmentProxy/WLSCreditAssessmentProxySvc_v2_0_RP" />
+				</entry>
+			</entry>
+		</entry>
+		<entry name="WLSCreditManagementService">
+			<entry name="v1_0">
+				<entry name="url">
+					<value environment="dv103" value="https://soa-mp-rmsk-dv103.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v1_0_vs0" />
+					<value environment="dv101" value="https://soa-mp-rmsk-dv01.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v1_0_vs0" />
+					<value environment="pt148" value="https://soa-mp-rmsk-it02.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v1_0_vs0" />
+					<value environment="pt168" value="https://soa-mp-rmsk-it01.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v1_0_vs0" />
+					<value environment="ps101" value="https://soa-mp-rmsk-it03.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v1_0_vs0" />
+					<value environment="pt140" value="https://soa-mp-rmsk-it03.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v1_0_vs0" />
+					<value environment="st101" value="https://soa-mp-rmsk-it04.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v1_0_vs0" />
+					<value environment="pr" value="https://soa-mp-rmsk-pr.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v1_0_vs0" />
+				</entry>
+			</entry>
+			<entry name="v2_0">
+				<entry name="url">
+					<value environment="dv103" value="https://soa-mp-rmsk-dv103.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v2_0_vs0" />
+					<value environment="dv101" value="https://soa-mp-rmsk-dv01.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v2_0_vs0" />
+					<value environment="pt148" value="https://soa-mp-rmsk-it02.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v2_0_vs0" />
+					<value environment="pt168" value="https://soa-mp-rmsk-it01.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v2_0_vs0" />
+					<value environment="ps101" value="https://soa-mp-rmsk-it03.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v2_0_vs0" />
+					<value environment="pt140" value="https://soa-mp-rmsk-it03.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v2_0_vs0" />
+					<value environment="st101" value="https://soa-mp-rmsk-it04.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v2_0_vs0" />
+					<value environment="pr" value="https://soa-mp-rmsk-pr.tsl.telus.com/CMO/OrderMgmt/WLSCreditManagement/WLSCreditManagementSvc_v2_0_vs0" />
+				</entry>
+			</entry>
+		</entry>
+		<entry name="OnlineChargingSubscriberAccountService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com/cmo/billinginquirymgmt/ocsservice/OnlineChargingSubscriberAccountService_v3_2_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com/cmo/billinginquirymgmt/ocsservice/OnlineChargingSubscriberAccountService_v3_2_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com/cmo/billinginquirymgmt/ocsservice/OnlineChargingSubscriberAccountService_v3_2_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com/cmo/billinginquirymgmt/ocsservice/OnlineChargingSubscriberAccountService_v3_2_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com/cmo/billinginquirymgmt/ocsservice/OnlineChargingSubscriberAccountService_v3_2_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com/cmo/billinginquirymgmt/ocsservice/OnlineChargingSubscriberAccountService_v3_2_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com/cmo/billinginquirymgmt/ocsservice/OnlineChargingSubscriberAccountService_v3_2_vs0" />
+				<value environment="pr"    value="https://soa-mp-laird-pr.tsl.telus.com/cmo/billinginquirymgmt/ocsservice/OnlineChargingSubscriberAccountService_v3_2_vs0" />
+			</entry>
+		</entry>
+		<entry name="OnlineChargingSubscriberAccountMgmtService">
+			<entry name="url">
+				<value environment="dv103" value="https://soa-mp-laird-dv103.tsl.telus.com/cmo/billingaccountmgmt/ocssamservice/OnlineChargingSubscriberAccountMgmtService_v3_2_vs0" />
+				<value environment="dv101" value="https://soa-mp-laird-dv101.tsl.telus.com/cmo/billingaccountmgmt/ocssamservice/OnlineChargingSubscriberAccountMgmtService_v3_2_vs0" />
+				<value environment="pt148" value="https://soa-mp-laird-pt148.tsl.telus.com/cmo/billingaccountmgmt/ocssamservice/OnlineChargingSubscriberAccountMgmtService_v3_2_vs0" />
+				<value environment="pt168" value="https://soa-mp-laird-pt168.tsl.telus.com/cmo/billingaccountmgmt/ocssamservice/OnlineChargingSubscriberAccountMgmtService_v3_2_vs0" />
+				<value environment="ps101" value="https://soa-mp-laird-pt140.tsl.telus.com/cmo/billingaccountmgmt/ocssamservice/OnlineChargingSubscriberAccountMgmtService_v3_2_vs0" />
+				<value environment="pt140" value="https://soa-mp-laird-pt140.tsl.telus.com/cmo/billingaccountmgmt/ocssamservice/OnlineChargingSubscriberAccountMgmtService_v3_2_vs0" />
+				<value environment="st101" value="https://soa-mp-laird-st101.tsl.telus.com/cmo/billingaccountmgmt/ocssamservice/OnlineChargingSubscriberAccountMgmtService_v3_2_vs0" />
+				<value environment="pr"    value="https://soa-mp-laird-pr.tsl.telus.com/cmo/billingaccountmgmt/ocssamservice/OnlineChargingSubscriberAccountMgmtService_v3_2_vs0" />
+			</entry>
+		</entry>
+		<entry name="CommunicationSuiteMgmtRestService">
+			<entry name="url">
+				<value environment="dv103" value="http://smintegration-customer-dv03.tsl.telus.com/customer/communicationSuiteMgmt/v1" />
+				<value environment="dv101" value="http://smintegration-customer-dv01.tsl.telus.com/customer/communicationSuiteMgmt/v1" />
+				<value environment="pt148" value="http://smintegration-customer-its02.tsl.telus.com/customer/communicationSuiteMgmt/v1" />
+				<value environment="pt168" value="http://smintegration-customer-its01.tsl.telus.com/customer/communicationSuiteMgmt/v1" />
+				<value environment="ps101" value="http://smintegration-customer-its03.tsl.telus.com/customer/communicationSuiteMgmt/v1" />
+				<value environment="pt140" value="http://smintegration-customer-its03.tsl.telus.com/customer/communicationSuiteMgmt/v1" />
+				<value environment="st101" value="http://smintegration-customer-its04.tsl.telus.com/customer/communicationSuiteMgmt/v1" />
+				<value environment="pr"    value="http://smintegration-customer-pr.tsl.telus.com/customer/communicationSuiteMgmt/v1" />
+			</entry>
+		</entry>
+	</entry>
+</environment-config>

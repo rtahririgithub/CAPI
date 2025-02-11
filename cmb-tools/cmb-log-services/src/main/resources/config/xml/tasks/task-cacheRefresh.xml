@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<task name="Reference Cache Refresh Notification" shortname="cacheRefresh" type="cacheRefresh">
+
+<!-- There are two options here:                                                                                                        -->
+<!--     1. Enable/disable the PR A/B side every time we do a flipper-managed major release by updating the "schedule" component below. -->
+<!--     2. Activate both sides and remember which side is the active side.  Start the appropriate scheduler on the monitoring page.    -->
+
+	<taskEnvironment shortname="pra" schedule="capiCacheRefresh">
+		<taskApplication shortname="capiejbs">
+			<taskComponent name="CMB Reference EJB">
+				<taskGrepString value="\[CACHE\] Refresh ends..total time=\["/>
+			</taskComponent>
+		</taskApplication>
+		<notifyParty email="wilson.cheong@telus.com"/>
+		<notifyParty email="dlClientAPIPRODSupport@telus.com" onSuccess="true" onFailure="true"/>
+		<notifyParty email="Amanpreet.Singh@telus.com" onSuccess="true" onFailure="false"/>
+		<notifyParty email="Mary.Polimeni@telus.com" onSuccess="true" onFailure="false"/>
+		<notifyParty email="dlChocolateMousse@telus.com" onSuccess="true" onFailure="false"/>
+		<notifyParty email="dlApplicationSupport@telus.com" onSuccess="true" onFailure="false"/>
+		<taskParam name="retryCount" value="15"/>
+		<taskParam name="retryDelay" value="60000"/>
+	</taskEnvironment>
+	
+	<taskEnvironment shortname="prb" schedule="capiCacheRefresh">
+		<taskApplication shortname="capiejbs">
+			<taskComponent name="CMB Reference EJB">
+				<taskGrepString value="\[CACHE\] Refresh ends..total time=\["/>
+			</taskComponent>
+		</taskApplication>
+		<notifyParty email="wilson.cheong@telus.com"/>
+		<notifyParty email="dlClientAPIPRODSupport@telus.com" onSuccess="true" onFailure="true"/>
+		<notifyParty email="Amanpreet.Singh@telus.com" onSuccess="true" onFailure="false"/>
+		<notifyParty email="Mary.Polimeni@telus.com" onSuccess="true" onFailure="false"/>
+		<notifyParty email="dlChocolateMousse@telus.com" onSuccess="true" onFailure="false"/>
+		<notifyParty email="dlApplicationSupport@telus.com" onSuccess="true" onFailure="false"/>
+		<taskParam name="retryCount" value="15"/>
+		<taskParam name="retryDelay" value="60000"/>
+	</taskEnvironment>
+	
+</task>	

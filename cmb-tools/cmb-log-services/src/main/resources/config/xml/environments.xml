@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE environments>
+
+<environments>	
+		
+	<environment emValue="PRA" shortname="pra" name="Production Side A - JUL 2020" production="true" current="true">
+		<ldap url="ldaps://ldapread-pra.tmi.telus.com:636" principal="uid=armxpr,ou=administrators,o=telusconfiguration_a" credential="armxpr" flipper="true"/>
+	</environment>
+	
+	<environment emValue="PRB" shortname="prb" name="Production Side B - FEB 2020" production="true">
+		<ldap url="ldaps://ldapread-prb.tmi.telus.com:636" principal="uid=armxpr,ou=administrators,o=telusconfiguration_b" credential="armxpr" flipper="true"/>
+	</environment>	
+	
+	<environment emValue="ITS02" shortname="pt148" name="PT148" aliasname="it02">
+		<ldap url="ldaps://ldapread-qa.tmi.telus.com:636" principal="uid=armxnonpr,ou=administrators,o=telusconfiguration" credential="armxnonpr"/>
+	</environment>	
+	
+	<environment emValue="ITS01" shortname="pt168" name="PT168" aliasname="it01">
+		<ldap url="ldaps://ldapread-pt168.tmi.telus.com:636" principal="uid=armxnonpr,ou=administrators,o=telusconfiguration" credential="armxnonpr"/>
+	</environment>
+	
+	<environment emValue="ITS03" shortname="pt140" name="PT140" aliasname="it03">
+		<ldap url="ldaps://ldapread-qa2.tmi.telus.com:636" principal="uid=armxnonpr,ou=administrators,o=telusconfiguration" credential="armxnonpr"/>
+	</environment>
+	
+	<environment emValue="ITS04B" shortname="st101b" name="Staging Side B - FEB 2020" aliasname="it04">
+		<ldap url="ldaps://ldapread-st101b.tmi.telus.com:636" principal="uid=armxnonpr,ou=administrators,o=telusconfiguration_b" credential="armxnonpr" flipper="true"/>
+	</environment>
+	
+	<environment emValue="ITS04A" shortname="st101a" name="Staging Side A - JUN 2020" aliasname="it04">
+		<ldap url="ldaps://ldapread-st101a.tmi.telus.com:636" principal="uid=armxnonpr,ou=administrators,o=telusconfiguration_a" credential="armxnonpr" flipper="true"/>
+	</environment>
+	
+	<environment emValue="DV103" shortname="dv103" name="Development (D3)">
+		<ldap url="ldapread-d3.tmi.telus.com"/>
+	</environment>
+	
+	<environment emValue="ITS04" shortname="st" name="Staging Test"/>	
+	<environment emValue="PRS" shortname="pr" name="Production Non-Flipper" production="true"/>
+</environments>

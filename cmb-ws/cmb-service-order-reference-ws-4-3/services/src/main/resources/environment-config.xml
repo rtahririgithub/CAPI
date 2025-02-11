@@ -1,0 +1,3 @@
+<environment-config>
+	<entry name="cmb-service-order-reference-ws-4-3" path="/cmb-ns"/>
+</environment-config>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>BillingInquiryService</Name>
+		<Documentation>Provides the ability to retrieve and update deposits, credits and payments</Documentation>
+		<TAM_LevelZeroAndOne>CMO/BillingInquiryMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/BillingInquiry</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmbilling-billinginquiry-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>BillingInquiryServiceRequestResponse_1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/BillingInquiryServiceRequestResponse_1</NameSpace>
+		<nsAbbrev>bis</nsAbbrev>
+		<OutputDir></OutputDir>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>		
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getPaymentHistory</OperationName>
+		<Documentation>Retrieves Payment History.</Documentation>
+		<InputType wsp="True">getPaymentHistory</InputType>
+		<OutputType>getPaymentHistoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>recordPayment</OperationName>
+		<Documentation>Records Payment.</Documentation>
+		<InputType wsp="True">recordPayment</InputType>
+		<OutputType>recordPaymentResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>processCreditCard</OperationName>
+		<Documentation>Process CreditCard.</Documentation>
+		<InputType wsp="True">processCreditCard</InputType>
+		<OutputType>processCreditCardResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation>
+			<type>UserHeader</type>
+			<soapHeaderType>explicit</soapHeaderType>
+		</InputSoapHeaderType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>
+
+

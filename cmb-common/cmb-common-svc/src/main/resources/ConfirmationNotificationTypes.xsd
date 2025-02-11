@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2012 rel. 2 sp1 (x64) (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ect="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8" xmlns="http://common.cmb.telus.com/ConfirmationNotification" targetNamespace="http://common.cmb.telus.com/ConfirmationNotification" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="ConfirmationNotification">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="transactionType" type="xs:string"/>
+				<xs:element name="transactionDate" type="xs:date"/>
+				<xs:element name="auditInfo" type="AuditInfo" minOccurs="0"/>
+				<xs:element name="emailAddress" type="xs:string"/>
+				<xs:element name="language" type="xs:string"/>
+				<xs:element name="billingAccount" type="BillingAccount"/>
+				<xs:element name="subscriber" type="Subscriber" minOccurs="0"/>
+				<xs:element name="payment" type="Payment" minOccurs="0"/>
+				<xs:element name="paymentArrangement" type="PaymentArrangement" minOccurs="0"/>
+				<xs:element name="paymentNotification" type="PaymentNotification" minOccurs="0"/>
+				<xs:element name="paymentMethod" type="PaymentMethod" minOccurs="0"/>
+				<xs:element name="adjustment" type="Adjustment" minOccurs="0"/>
+				<xs:element name="serviceChange" type="ServiceChange" minOccurs="0"/>
+				<xs:element name="transferOwnership" type="TransferOwnership" minOccurs="0"/>
+				<xs:element name="serviceCancellation" type="ServiceCancellation" minOccurs="0"/>
+				<xs:element name="marketingInfo" type="MarketingInfo" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="BillingAccount">
+		<xs:sequence>
+			<xs:element name="accountNumber" type="xs:string"/>
+			<xs:element name="accountMasterSrcId" type="xs:long" minOccurs="0"/>
+			<xs:element name="status" type="xs:string" minOccurs="0"/>
+			<xs:element name="delinquentInd" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="hotlinedInd" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="clpInd" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="currentCycleCloseDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="accountType" type="xs:string" minOccurs="0"/>
+			<xs:element name="accountSubType" type="xs:string" minOccurs="0"/>
+			<xs:element name="brandId" type="xs:int" minOccurs="0"/>
+			<xs:element name="segment" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Subscriber">
+		<xs:sequence>
+			<xs:element name="productType" type="xs:string"/>
+			<xs:element name="subscriberId" type="xs:string"/>
+			<xs:element name="subscriptionId" type="xs:string"/>
+			<xs:element name="subscriberPhoneNumber" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Payment">
+		<xs:sequence>
+			<xs:element name="amount" type="xs:double"/>
+			<xs:element name="authorizationNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="paymentMethod" type="PaymentMethod"/>
+			<xs:element name="debtSummary" type="DebtSummaryInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaymentNotification">
+		<xs:sequence>
+			<xs:element name="payDate" type="xs:date"/>
+			<xs:element name="amount" type="xs:double"/>
+			<xs:element name="referenceNumber" type="xs:string"/>
+			<xs:element name="paymentDueDate" type="xs:date"/>
+			<xs:element name="debtSummary" type="DebtSummaryInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaymentArrangement">
+		<xs:sequence>
+			<xs:element name="payDate" type="xs:date"/>
+			<xs:element name="amount" type="xs:double"/>
+			<xs:element name="accountStatus" type="xs:string"/>
+			<xs:element name="referenceNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="paymentDueDate" type="xs:date"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaymentMethod">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string"/>
+			<xs:element name="creditCardLast4" type="xs:string" minOccurs="0"/>
+			<xs:element name="bankAccountNumber" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Adjustment">
+		<xs:sequence>
+			<xs:element name="amount" type="xs:double"/>
+			<xs:element name="gst" type="xs:double"/>
+			<xs:element name="pst" type="xs:double"/>
+			<xs:element name="hst" type="xs:double"/>
+			<xs:element name="effectiveDate" type="xs:date"/>
+			<xs:element name="numberOfRecurring" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ServiceCancellation">
+		<xs:sequence>
+			<xs:element name="effectiveDate" type="xs:date"/>
+			<xs:element name="phoneNumberList" type="xs:string" minOccurs="1" maxOccurs="50"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TransferOwnership">
+		<xs:sequence>
+			<xs:element name="targetAccountNumber" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FavoriteNumber">
+		<xs:sequence>
+			<xs:element name="serviceCode" type="xs:string"/>
+			<xs:element name="featureCode" type="xs:string"/>
+			<xs:element name="effectiveDate" type="xs:date"/>
+			<xs:element name="phoneNumberList" type="xs:string" minOccurs="0" maxOccurs="20"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Service">
+		<xs:sequence>
+			<xs:element name="serviceCode" type="xs:string"/>
+			<xs:element name="englishDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="frenchDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="price" type="xs:double"/>
+			<xs:element name="effectiveDate" type="xs:date"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="proratedCharge" type="xs:double" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ServiceChange">
+		<xs:sequence>
+			<xs:element name="addedServices" type="Service" minOccurs="0" maxOccurs="50"/>
+			<xs:element name="removedServices" type="Service" minOccurs="0" maxOccurs="50"/>
+			<xs:element name="favoriteNumber" type="FavoriteNumber" minOccurs="0" maxOccurs="5"/>
+			<xs:element name="proratedCharge" type="xs:double" minOccurs="0"/>
+			<xs:element name="containNewCallingCircleService" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AuditInfo">
+		<xs:sequence>
+			<xs:element name="userId" type="xs:string" minOccurs="0"/>
+			<xs:element name="userTypeCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="salesRepresentativeId" type="xs:string" minOccurs="0"/>
+			<xs:element name="channelOrganizationId" type="xs:string" minOccurs="0"/>
+			<xs:element name="outletId" type="xs:string" minOccurs="0"/>
+			<xs:element name="originatorApplicationId" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Captures the upstream/downstream application identity (i.e. not necessarily the one that is authenticating to use the service as a client)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="correlationId" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Used to correlate the client side log event to the request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="timestamp" type="xs:dateTime" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MarketingInfo">
+		<xs:sequence>
+			<xs:element name="offerCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="promoCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="offerDescriptionEn" type="xs:string" minOccurs="0"/>
+			<xs:element name="offerDescriptionFr" type="xs:string" minOccurs="0"/>
+			<xs:element name="marketingTextEn" type="xs:string" minOccurs="0"/>
+			<xs:element name="marketingTextFr" type="xs:string" minOccurs="0"/>
+			<xs:element name="rank" type="xs:string" minOccurs="0"/>
+			<xs:element name="validationCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="marketingServiceList" type="Service" minOccurs="0" maxOccurs="10"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="DebtSummaryInfo">
+		<xs:sequence>
+			<xs:element name="pastDue" type="xs:double" minOccurs="0"/>
+			<xs:element name="currentDue" type="xs:double" minOccurs="0"/>
+			<xs:element name="amountDue" type="xs:double" minOccurs="0"/>
+			<xs:element name="accountRealTimeBalance" type="xs:double" minOccurs="0"/>
+			<xs:element name="pastDue1to30Days" type="xs:double" minOccurs="0"/>
+			<xs:element name="pastDue31to60Days" type="xs:double" minOccurs="0"/>
+			<xs:element name="pastDue61to90Days" type="xs:double" minOccurs="0"/>
+			<xs:element name="pastDueOver90Days" type="xs:double" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

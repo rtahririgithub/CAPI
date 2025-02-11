@@ -1,0 +1,3 @@
+<environment-config>
+	<entry name="cmb-framework" path="/cmb-ns"/>
+</environment-config>

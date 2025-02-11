@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>telus.cust.cmb.svc.account</groupId>
+		<artifactId>pom-cmb-account-svc</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cmb-account-svc-app-full</artifactId>
+	<packaging>ear</packaging>
+
+	<build>
+		<finalName>cmb-account-svc</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-ear</id>
+						<configuration>
+							<modules>
+								<ejbModule>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>cmb-account-svc-services</artifactId>
+									<bundleFileName>cmb-account-svc-services.jar</bundleFileName>
+								</ejbModule>
+								<ejbModule>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>cmb-account-svc-async</artifactId>
+									<bundleFileName>cmb-account-svc-async.jar</bundleFileName>
+								</ejbModule>
+    						</modules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>cmb-account-svc-services</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>cmb-account-svc-async</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+	</dependencies>
+	
+</project>

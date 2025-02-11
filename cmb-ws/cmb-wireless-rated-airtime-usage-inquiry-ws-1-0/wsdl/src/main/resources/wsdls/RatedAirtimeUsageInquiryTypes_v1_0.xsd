@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" xmlns="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/RatedAirtimeUsageInquiryTypes_v1" xmlns:ns1="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/RatedAirtimeInquiryUsageTypes_v1" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/RatedAirtimeUsageInquiryTypes_v1" elementFormDefault="qualified">
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4_0.xsd"/>
+	<xs:complexType name="VoiceUsageSummary">
+	<xs:complexContent>
+		<xs:extension base="UsageSummary">
+		<xs:sequence>
+			<xs:element name="voiceUsageService" type="VoiceUsageService" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="UsageSummary">
+		<xs:sequence>
+			<xs:element name="serviceFeature" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+English: aka feature code
+Code: This column == serviceFeature INPARM to this method.
+It is selected from a KB Accumulated Usage (AUnnnn) table.AIRTIME_FEATURE_CD column and joins as follows: select f.feature_code from au0411 a, service_feature f where a.airtime_feature_cd = f.feature_code;
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="unitOfMeasureCode" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+English: If (serviceFeature == MMMAIL)
+   S: for seconds
+Else
+   M: for minutes
+Code: 
+min( ' ||
+      -- ensure unit of measure is NOT NULL
+      -- if unit of measure is NULL, return by default 'M'
+      -- or 'S' when airtime_feature_cd is 'MMMMAIL'
+     '  decode( trim(UNIT_MEASUR_CODE), null, ' ||
+      -- when null
+      -- 'S' only if airtime feature code is 'MMMAIL', otherwise 'M'
+     '   	 decode(airtime_feature_cd,''MMMAIL'',''s'',''m''), ' ||
+      -- normal scenario
+     '   	 trim(UNIT_MEASUR_CODE) ' ||
+     '  	 ) ' ||
+     '  ) unit_of_measure
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="subscriberNumber" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+English: aka subscriberId
+Code: This column == subscriberNumber INPARM to this method.
+It is selected from a KB Accumulated Usage (AUnnnn) table SUBSCRIBER_NO column and joins as follows: select s.subscriber_no from au0411 a, subscriber s where a.subscriber_no = s.subscriber_no;
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VoiceUsageService">
+		<xs:sequence>
+			<xs:element name="serviceCode" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+English: aka price plan code
+Code: This column is Selected from a KB Accumulated Usage (AUnnnn) table PRICE_PLAN_CODE column and joins as follows: select s.soc from au0411 a, soc s where a.price_plan_code = s.soc;
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="usageRecordTypeCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="includedMinutesAllocationCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:sequence>
+				<xs:element name="voiceUsageServiceDirection" type="VoiceUsageServiceDirection" minOccurs="0" maxOccurs="100"/>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VoiceUsageServiceDirection">
+		<xs:sequence>
+			<xs:element name="directionCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="lastCallDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:sequence>
+				<xs:element name="voiceUsageServicePeriod" type="VoiceUsageServicePeriod" minOccurs="0" maxOccurs="100"/>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VoiceUsageServicePeriod">
+		<xs:sequence>
+			<xs:element name="periodCode" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+If (imAllocationIndicator == P)
+x = [01, 02, 03, 04, 05, 06]	
+
+If (imAllocationIndicator != P)
+x = imAllocationIndicator
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="calls" type="xs:int" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+If (imAllocationIndicator == P)
+English: sum of the number of calls during period x
+Code: sum( NUM_OF_CALLS_PRD_x )	
+
+If (imAllocationIndicator != P)
+English: sum of all of the calls during all 6 periods
+Code: sum( NUM_OF_CALLS_PRD_1 + 
+NUM_OF_CALLS_PRD_2 + 
+NUM_OF_CALLS_PRD_3 + 
+NUM_OF_CALLS_PRD_4 + 
+NUM_OF_CALLS_PRD_5 + 
+NUM_OF_CALLS_PRD_6 + 
+NUM_OF_CALLS )
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="totalUsedMinuteAmt" type="xs:double" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+If (imAllocationIndicator == P)
+English: sum of the included minutes for period x
+Code: sum( CTN_MINS_PRD_x )	
+
+If (imAllocationIndicator != P)
+English: sum of all included minutes during all 6 periods
+Code: sum( CTN_MINS_PRD_1 +   CTN_MINS_PRD_2 + 
+CTN_MINS_PRD_3 + 
+CTN_MINS_PRD_4 + 
+CTN_MINS_PRD_5 + 
+CTN_MINS_PRD_6 + 
+CTN_MINS )
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="includedMinuteAmt" type="xs:double" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+If (imAllocationIndicator == P)
+English: 
+Code: sum (nvl(IM_ALLOWED_PRD_x,0) * decode (nvl(PRORATION_FACTOR,0),0,1,PRORATION_FACTOR) )	
+
+If (imAllocationIndicator != P)
+English: : 
+Code: sum(
+      -- 1. needs to be prorated using proration factor
+      -- 2. if combined is NULL, then return agregation of periods
+decode(nvl(IM_ALLOWED_COMBD,0), 0 , ( (nvl(IM_ALLOWED_PRD_1,0) + nvl(IM_ALLOWED_PRD_2,0) + 
+nvl(IM_ALLOWED_PRD_3,0) + 
+nvl(IM_ALLOWED_PRD_4,0) + 
+nvl(IM_ALLOWED_PRD_5,0) + 
+nvl(IM_ALLOWED_PRD_6,0) ) * 
+      -- 3. if proration_factor is null, then set it to 1
+decode (nvl(PRORATION_FACTOR,0),0,1,PRORATION_FACTOR) ),
+      -- 4. otherwise return only combined.
+( nvl(IM_ALLOWED_COMBD,0) * 
+      -- 5. if proration_factor is null, then set it to 1
+decode (nvl(PRORATION_FACTOR,0),0,1,PRORATION_FACTOR) ) ) )
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="includedUsedMinuteAmt" type="xs:double" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+If (imAllocationIndicator == P)
+English: 
+Code: sum( CTN_IM_USED_PRD_x )	
+
+If (imAllocationIndicator != P)
+English: 
+Code: decode( CTN_IM_USED_COMBD, 0 , 
+( CTN_IM_USED_PRD_1 + 
+CTN_IM_USED_PRD_2 + 
+CTN_IM_USED_PRD_3 + 
+CTN_IM_USED_PRD_4 + 
+CTN_IM_USED_PRD_5 + 
+CTN_IM_USED_PRD_6
+), CTN_IM_USED_COMBD ) )
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="free" type="xs:double" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+If (imAllocationIndicator == P)
+English: sum of all free minutes used during period x
+Code: sum( FREE_MIN_USED_PRD_x )	
+
+If (imAllocationIndicator != P)
+English: sum of all free minutes used during all 6 periods
+Code: sum (
+FREE_MIN_USED_PRD_1 +
+FREE_MIN_USED_PRD_2 +
+FREE_MIN_USED_PRD_3 +
+FREE_MIN_USED_PRD_4 +
+FREE_MIN_USED_PRD_5 + 
+FREE_MIN_USED_PRD_6 )
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="remaining" type="xs:double" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+If (imAllocationIndicator == P)
+English: 
+Code: decode( IM_ALLOWED_COMBD, 0, GREATEST(IM_ALLOWED_x - IM_USED_x ,0), 0 )	
+
+If (imAllocationIndicator != P)
+English: 
+Code: decode( record_type,7,0,(GREATEST(IM_ALLOWED_COMBD - IM_USED,0)) )
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="chargeable" type="xs:double" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+If (imAllocationIndicator == P)
+English: 
+
+Code: decode( upper(UNIT_OF_MEASURE),''M'', 
+decode( IM_ALLOWED_COMBD, IM_USED_COMBD, (TOTAL_USED_x - IM_USED_x - FREE_x), 0 ), 
+(NUM_OF_CALLS_x - IM_USED_x ) )
+If (imAllocationIndicator != P)
+English: 
+
+Code: decode( upper(UNIT_OF_MEASURE),''M'', 
+decode( IM_ALLOWED_COMBD, IM_USED_COMBD, (TOTAL_USED - IM_USED - FREE), 0 ), 
+(TOTAL_CALLS - IM_USED ) )
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="chargeAmount" type="xs:double" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+If (imAllocationIndicator == P)
+English: Sum of all charge amounts for period x
+Code: sum (CHRG_AMT_PRD_x)
+
+If (imAllocationIndicator != P)
+English : sum of all charge amounts for all 6 periods
+Code: sum ( CHRG_AMT_PRD_1 + 
+CHRG_AMT_PRD_2 + 
+CHRG_AMT_PRD_3 + 
+CHRG_AMT_PRD_4 + 
+CHRG_AMT_PRD_5 + 
+CHRG_AMT_PRD_6 + 
+CHRG_AMT )
+                                        </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChargeInfo">
+		<xs:sequence>
+			<xs:element name="chargeRecordType" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>1 - Airtime Charges
+2 - Additional Charges
+4 - Roaming Toll Charges
+5 - Toll Charges
+6 - Free minutes
+7 - Minimum commitment stepped charges
+8 - Pooling charges
+9 - BCIC (Bill Cycle Independent Charge) carry over charges</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="chargeAmount" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AirtimeUsageChargeInfo">
+		<xs:sequence>
+			<xs:element name="totalChargeAmount" type="xs:double"/>
+			<xs:element name="chargeInfo" type="ChargeInfo" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

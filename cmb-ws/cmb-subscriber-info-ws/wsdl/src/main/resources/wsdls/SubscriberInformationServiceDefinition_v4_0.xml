@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp1 U (http://www.altova.com) by KIM WHEATON-FUERST (TME COMMUNICATIONS INC) -->
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>SubscriberInformationService</Name>
+		<Documentation>This web service provides access to subscriber information operations.</Documentation>
+		<TAM_LevelZeroAndOne>CMO/InformationMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/SubscriberInformationService</ServiceTaxonomy>
+		<MajorVersion>4</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmosr-custinfomgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>SubscriberInformationServiceRequestResponse_v4_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/SubscriberInformationServiceRequestResponse_v4</NameSpace>
+		<nsAbbrev>csm</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>createMemo</OperationName>
+		<Documentation>This operation creates of memos for wireless subscribers which will be stored in the KB database.</Documentation>
+		<InputType wsp="true">createMemo</InputType>
+		<OutputType>createMemoResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberIdentifierByPhoneNumberAndAccountNumber</OperationName>
+		<Documentation>This operation retrieves subscriber identifiers by phone number and account number.</Documentation>
+		<InputType wsp="true">getSubscriberIdentifierByPhoneNumberAndAccountNumber</InputType>
+		<OutputType>getSubscriberIdentifierByPhoneNumberAndAccountNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberIdentifierListByAccountNumber</OperationName>
+		<Documentation>This operation retrieves subscriber identifiers by account number.</Documentation>
+		<InputType wsp="true">getSubscriberIdentifierListByAccountNumber</InputType>
+		<OutputType>getSubscriberIdentifierListByAccountNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberListByAccountNumber</OperationName>
+		<Documentation>This operation retrieves all subscribers associated with the account number.</Documentation>
+		<InputType wsp="true">getSubscriberListByAccountNumber</InputType>
+		<OutputType>getSubscriberListByAccountNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberListByImsi</OperationName>
+		<Documentation>This operation retrieves all subscribers associated with the specified IMSI.</Documentation>
+		<InputType wsp="true">getSubscriberListByImsi</InputType>
+		<OutputType>getSubscriberListByImsiResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberListByPhoneNumber</OperationName>
+		<Documentation>This operation retrieves all subscribers associated with a phone number.</Documentation>
+		<InputType wsp="true">getSubscriberListByPhoneNumber</InputType>
+		<OutputType>getSubscriberListByPhoneNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberByPhoneNumber</OperationName>
+		<Documentation>This operation retrieves single active or suspended subscriber by phone number.</Documentation>
+		<InputType wsp="true">getSubscriberByPhoneNumber</InputType>
+		<OutputType>getSubscriberByPhoneNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>checkPortOutEligibility</OperationName>
+		<Documentation>This operation checks to see if a phoneNumber is eligible for port out and if it is "transferable blocked".</Documentation>
+		<InputType wsp="true">checkPortOutEligibility</InputType>
+		<OutputType>checkPortOutEligibilityResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getCallingCircleInformation</OperationName>
+		<Documentation>This operation retrieves calling circle information.</Documentation>
+		<InputType wsp="true">getCallingCircleInformation</InputType>
+		<OutputType>getCallingCircleInformationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberListByDataSharingGroupList</OperationName>
+		<Documentation>This operation returns a list of subscribers representing only active and suspended subscribers (Subscriber.status == SubscriberStatus.A || Subscriber.status == SubscriberStatus.S) on an account where the subscriber has a SOC that belongs in the given data sharing group codes</Documentation>
+		<InputType wsp="true">getSubscriberListByDataSharingGroupList</InputType>
+		<OutputType>getSubscriberListByDataSharingGroupListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberIdListByServiceGroupFamily</OperationName>
+		<Documentation>This operation returns all subscriber Ids (both active and suspended subscribers) on the given billingAccountNumber where the subscriber has a SOC with a SOC group belonging to the specified familyType</Documentation>
+		<InputType wsp="true">getSubscriberIdListByServiceGroupFamily</InputType>
+		<OutputType>getSubscriberIdListByServiceGroupFamilyResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberBySubscriberId</OperationName>
+		<Documentation>This operation returns a Subscriber given a subscriberId</Documentation>
+		<InputType wsp="true">getSubscriberBySubscriberId</InputType>
+		<OutputType>getSubscriberBySubscriberIdResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getLatestSubscriberByPhoneNumber</OperationName>
+		<Documentation>This operation returns the latest subscriber that is associated with the phone number, including if the subscriber is in cancelled state. The only difference between this new operation and existing operation getSubscriberByPhoneNumber is that the new operation can return the subscriber currently in cancelled state but getSubscriberByPhoneNumber does not.</Documentation>
+		<InputType wsp="true">getLatestSubscriberByPhoneNumber</InputType>
+		<OutputType>getLatestSubscriberByPhoneNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberIdentifierBySubscriptionId</OperationName>
+		<Documentation>This operation returns the subscriber identifier that is associated with the subscription id.</Documentation>
+		<InputType wsp="true">getSubscriberIdentifierBySubscriptionId</InputType>
+		<OutputType>getSubscriberIdentifierBySubscriptionIdResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberBySubscriptionId</OperationName>
+		<Documentation>This operation returns the latest subscriber that is associated with the subscription Id.  Including if the subscriber is in cancelled state.</Documentation>
+		<InputType wsp="true">getSubscriberBySubscriptionId</InputType>
+		<OutputType>getSubscriberBySubscriptionIdResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAirTimeAllocationList</OperationName>
+		<Documentation>This operation returns the voice allocation information based on subscriber profile and/or the soc configuration data.    
+- In the case of the input list of service code is provided, the operation will calculate estimated effective and/or expiration date. It has an extra logic to retrieve the voice allocation for the related service if the related service is not in the input list of service code. The related services include promotional service, bounded and sequentially bounded service. However this operation does not deal with any missing included service. There is no logic of dropping conflicting service or incompatible service as it would have been done via contract save.
+		</Documentation>
+		<InputType wsp="true">getAirTimeAllocationList</InputType>
+		<OutputType>getAirTimeAllocationListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberDataSharingInfoList</OperationName>
+		<Documentation>This operation returns a list of subscribers data sharing info including only active and suspended subscribers. The data sharing info includes data sharing groups that the subscribers are contributing or participating in, the charge they are spending for contributing the data sharing SOCs, the rate plan and other non-data-sharing SOCs.</Documentation>
+		<InputType wsp="true">getSubscriberDataSharingInfoList</InputType>
+		<OutputType>getSubscriberDataSharingInfoListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

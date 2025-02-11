@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<log4j:configuration reset="true">
+	<appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] %c - %m%n" />
+		</layout>
+	</appender>
+	<appender name="LifeCycleAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="%loggingRoot%/lifecycle.log" />
+		<param name="Append" value="true" />
+		<param name="MaxBackupIndex" value="4" />
+		<param name="MaxFileSize" value="100MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] %c - %m%n" />
+		</layout>
+	</appender>
+	<appender name="RollingAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="%loggingRoot%/rolling.log" />
+		<param name="Append" value="true" />
+		<param name="MaxBackupIndex" value="5" />
+		<param name="MaxFileSize" value="15MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] %c - %m%n" />
+		</layout>
+	</appender>
+	<appender name="FailureQueueAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="%loggingRoot%/FailureQueue.log" />
+		<param name="Append" value="true" />
+		<param name="MaxBackupIndex" value="4" />
+		<param name="MaxFileSize" value="100MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+	</appender>
+	<appender name="CMBEjbAppExceptionAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="%loggingRoot%/ApplicationException.log" />
+		<param name="Append" value="true" />
+		<param name="MaxBackupIndex" value="4" />
+		<param name="MaxFileSize" value="20MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss} %m%n" />
+		</layout>
+	</appender>
+	<appender name="CMBEjbExceptionParamAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="%loggingRoot%/ExceptionParameter.log" />
+		<param name="Append" value="true" />
+		<param name="MaxBackupIndex" value="4" />
+		<param name="MaxFileSize" value="100MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss} %m%n" />
+		</layout>
+	</appender>
+	<appender name="KafkaInfoAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="%loggingRoot%/KafkaInfo.log" />
+		<param name="Append" value="true" />
+		<param name="MaxBackupIndex" value="4" />
+		<param name="MaxFileSize" value="100MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss}%-4r %-5p - %m%n" />
+		</layout>
+	</appender>
+	<appender name="SLAFailureAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="%loggingRoot%/SLAFailures.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="MaxBackupIndex" value="4" />
+		<param name="MaxFileSize" value="20MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd|HH:mm:ss}|%m%n" />
+		</layout>
+	</appender>
+	<appender name="methodInvocationAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="%loggingRoot%/methodInvocations.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="MaxBackupIndex" value="5" />
+		<param name="MaxFileSize" value="50MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] %c - %m%n" />
+		</layout>
+	</appender>
+	<appender name="usageSummaryAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="%loggingRoot%/usageMethodInvocations.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="MaxBackupIndex" value="30" />
+		<param name="MaxFileSize" value="200MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] %c - %m%n" />
+		</layout>
+	</appender>
+	<logger name="cmbejb.exception.parameter" additivity="false">
+		<level value="info" />
+		<appender-ref ref="CMBEjbExceptionParamAppender" />
+	</logger>
+	<logger name="cmbejb.application.exception" additivity="false">
+		<level value="info" />
+		<appender-ref ref="CMBEjbAppExceptionAppender" />
+	</logger>
+	<logger name="failure.queue">
+		<level value="info" />
+		<appender-ref ref="FailureQueueAppender" />
+	</logger>
+	<logger name="org.quartz">
+		<level value="warn" />
+	</logger>
+	<logger name="org.apache.commons">
+		<level value="info" />
+	</logger>
+	<logger name="kafkaLogger" additivity="false">
+		<level value="info" />
+		<appender-ref ref="KafkaInfoAppender" />
+	</logger>
+	<logger name="slaFailureLogger" additivity="false">
+		<level value="info" />
+		<appender-ref ref="SLAFailureAppender" />
+	</logger>
+	<logger name="methodInvocationLogger" additivity="false">
+		<level value="info" />
+		<appender-ref ref="methodInvocationAppender" />
+	</logger>
+	<logger name="usageSummaryInvocation" additivity="false">
+		<level value="info" />
+		<appender-ref ref="usageSummaryAppender" />
+	</logger>
+	<root>
+		<priority value="debug" />
+		<appender-ref ref="LifeCycleAppender" />
+		<appender-ref ref="RollingAppender" />
+	</root>
+</log4j:configuration>

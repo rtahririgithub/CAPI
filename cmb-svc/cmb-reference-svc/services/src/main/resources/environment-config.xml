@@ -1,0 +1,30 @@
+<environment-config>
+	<entry name="cmb-reference-svc" path="/cmb-ns"/>
+	<entry name="cmb-reference-svc" path="/ARMX/reference-versions" value="${label}"/>
+	<entry name="cache-refresh-schedule" path="/CMB/services/ReferenceDataFacade">
+		<value environment="dv103" value="0 0 4 * * ?" />
+		<value environment="pt140" value="0 0 4 * * ?" />
+		<value environment="pt148" value="0 0 4 * * ?" />
+		<value environment="pt168" value="0 0 4 * * ?" />
+		<value environment="st101" value="0 0 4 * * ?" />
+		<value environment="pr" value="0 0 4 * * ?" />
+	</entry>
+	<entry name="refpds-refresh-schedule" path="/CMB/services/ReferenceDataFacade">
+		<value environment="dv103" value="0 30 4 * * ?" />
+		<value environment="pt140" value="0 30 4 * * ?" />
+		<value environment="pt148" value="0 30 4 * * ?" />
+		<value environment="pt168" value="0 30 4 * * ?" />
+		<value environment="st101" value="0 30 4 * * ?" />
+		<value environment="pr" value="0 0 4 * * ?" />
+	</entry>
+	<entry name="logical-date-refresh-schedule" path="/CMB/services/ReferenceDataFacade" value="0 0 20 * * ?">
+		<value environment="pr" value="0 0 2 * * ?" />
+	</entry>
+	<entry name="logical-date-refresh-timeout" path="/CMB/services/ReferenceDataFacade" value="60">
+	</entry>
+	<entry name="logical-date-refresh-duration" path="/CMB/services/ReferenceDataFacade" value="7200">
+		<value environment="pr" value="3600" />
+	</entry>	
+	<entry name="tallboyComboPlanRollback" path="/CMB/services/ReferenceDataFacade" value="false"/>
+	
+</environment-config>

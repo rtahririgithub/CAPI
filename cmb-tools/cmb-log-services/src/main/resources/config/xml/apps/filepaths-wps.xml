@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<application name="Wireless Payment Services" shortname="wps">
+
+	<component name="WPS Payment EAS" path="/${root}/${host}/logs/${node}/applications/WPS-Telus-PaymentEAS/">
+		<artifact name="WirelessPaymentServicesEAS">
+			<overridePath path="/${root}/${host}/wls/8.1/P/logs/applications/" environments="pra,prb"/>
+			<overridePath path="/${root}/${host}/wls/8.1/S1/logs/applications/" environments="st101a,st101b"/>
+		</artifact>
+	</component>
+	
+</application>

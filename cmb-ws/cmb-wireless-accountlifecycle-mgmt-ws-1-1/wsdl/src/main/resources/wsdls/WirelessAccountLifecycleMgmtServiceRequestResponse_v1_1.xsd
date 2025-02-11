@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by Telus Communications (Telus Communications) -->
+<xsd:schema xmlns="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/WirelessAccountLifecycleMgmtServiceRequestResponse_v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:typ="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" xmlns:acc="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" xmlns:ect="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v4" xmlns:avalon="http://schemas.telus.com/avalon/common/v1_0" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/WirelessAccountLifecycleMgmtServiceRequestResponse_v1" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v4" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v4_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/ResourceOrderReferenceTypes_1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3_0.xsd"/>
+	<xsd:import namespace="http://schemas.telus.com/avalon/common/v1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/AvalonCommonSchema_v1_0.xsd"/>
+	<xsd:complexType name="BaseWirelessAccount">
+		<xsd:sequence>
+			<xsd:element name="accountType" type="typ:AccountTypeCode"/>
+			<xsd:element name="accountSubType" type="typ:AccountSubTypeCode"/>
+			<xsd:element name="accountCategory" type="acc:BanCategory" minOccurs="0"/>
+			<xsd:element name="brandId" type="common:BrandId"/>
+			<xsd:element name="billCycle" type="common:BillCycle" minOccurs="0"/>
+			<xsd:element name="ixcCode" type="acc:IxcCode" minOccurs="0"/>
+			<xsd:element name="address" type="common:Address"/>
+			<xsd:element name="homeProvince" type="common:ProvinceCode"/>
+			<xsd:element name="otherPhoneType" type="common:OtherPhoneType" minOccurs="0"/>
+			<xsd:element name="otherPhone" type="common:PhoneNumber" minOccurs="0"/>
+			<xsd:element name="otherPhoneExtension" type="common:PhoneNumberExtension" minOccurs="0"/>
+			<xsd:element name="homePhone" type="common:PhoneNumber" minOccurs="0"/>
+			<xsd:element name="businessPhone" type="common:PhoneNumber" minOccurs="0"/>
+			<xsd:element name="businessPhoneExtension" type="common:PhoneNumberExtension" minOccurs="0"/>
+			<xsd:element name="pin" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="email" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="language" type="common:Language"/>
+			<xsd:element name="dealerCode" type="common:DealerCode"/>
+			<xsd:element name="salesRepCode" type="common:SalesRepCode"/>
+			<xsd:element name="invoicePropertyList" type="acc:InvoicePropertyListType" minOccurs="0"/>
+			<xsd:element name="clientConsentIndicatorCode" type="ClientConsentIndCodeList" minOccurs="0"/>
+			<xsd:element name="gstExemptInd" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="pstExemptInd" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="hstExemptInd" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="gstExemptEffDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="pstExemptEffDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="hstExemptEffDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="gstExemptExpDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="pstExemptExpDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="hstExemptExpDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="gstExemptCertNo" type="common:TaxExemptCertNumber" minOccurs="0"/>
+			<xsd:element name="name" type="common:ConsumerName" minOccurs="0"/>
+			<xsd:element name="legalBusinessName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tradeNameAttention" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contactName" type="common:ConsumerName" minOccurs="0"/>
+			<xsd:element name="contactPhone" type="common:PhoneNumber" minOccurs="0"/>
+			<xsd:element name="contactExtension" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="personalCreditInformation" type="common:PersonalCreditInformation" minOccurs="0"/>
+			<xsd:element name="businessCreditInformation" type="common:BusinessCreditInformation" minOccurs="0"/>
+			<xsd:element name="paymentMethod" type="common:PaymentMethod" minOccurs="0"/>
+			<xsd:element name="billingNameFormat" type="common:NameFormat" minOccurs="0"/>
+			<xsd:element name="banSegment" type="acc:BanSegment" minOccurs="0"/>
+			<xsd:element name="banSubSegment" type="acc:BanSubSegment" minOccurs="0"/>
+			<xsd:element name="noOfInvoice" type="xsd:int" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ClientConsentIndCodeList">
+		<xsd:sequence>
+			<xsd:element name="item" type="xsd:string" minOccurs="0" maxOccurs="1000"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BusinessCreditIdentityList">
+		<xsd:sequence>
+			<xsd:element name="item" type="common:BusinessCreditIdentity" minOccurs="0" maxOccurs="1000"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostpaidAccountRequest">
+		<xsd:sequence>
+			<xsd:element name="baseAccount" type="BaseWirelessAccount"/>
+			<xsd:element name="compassCustomerId" type="common:CustomerId" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is compass customer id, not the KB one.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="businessCreditIdentityList" type="BusinessCreditIdentityList" minOccurs="0" >
+				<xsd:annotation>
+					<xsd:documentation>List of business identity which are identified by external credit bureau as similar to the input busines account. This information is required for business account only, used for credit check. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="selectedBusinessCreditIdentity" type="common:BusinessCreditIdentity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Selected business identity from provided business identity list. This information is required for business account only, used for credit check. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AccountCreationResult">
+		<xsd:sequence>
+			<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+			<xsd:element name="creditCheckResult" type="common:CreditCheckResult" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PrepaidAccountRequest">
+		<xsd:sequence>
+			<xsd:element name="baseAccount" type="BaseWirelessAccount"/>
+			<xsd:element name="compassCustomerId" type="common:CustomerId" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is compass customer id, not the KB one.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="serialNumber" type="common:EquipmentSerialNumber"/>
+			<xsd:element name="handsetIMEI" type="common:EquipmentSerialNumber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the handset IMEI associated with USIM card. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="activationType" type="xsd:string"/>
+			<xsd:element name="activationCode" type="xsd:string"/>
+			<xsd:element name="activationCreditCard" type="common:CreditCard" minOccurs="0"/>
+			<xsd:element name="activationAmount" type="xsd:double" minOccurs="0"/>
+			<xsd:element name="businessRole" type="common:BusinessRole"/>
+			<xsd:element name="birthDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="topUpCreditCard" type="common:CreditCard" minOccurs="0"/>
+			<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="createPostpaidAccount">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="baseAccountRequest" type="PostpaidAccountRequest"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createPostpaidAccountResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountCreationResult" type="AccountCreationResult" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createPrepaidAccount">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="prepaidAccounttRequest" type="PrepaidAccountRequest"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createPrepaidAccountResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UserHeader" type="avalon:OriginatingUserType"/>
+	<xsd:element name="restoreAccountFromPayment">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="paymentAmount" type="common:PaymentAmount"/>
+				<xsd:element name="authorizationNumber" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="restoreAccountFromPaymentResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+			<xsd:annotation>
+					<xsd:documentation>responseCode returns codes that indicates reasons why account could't not been restored, description will be populated in response message as follows:
+					WALM_RA_000 Account restored successfully.
+					WALM_RA_001 Account is not suspended.
+					WALM_RA_002 Account is suspended but can’t be restored. 
+					WALM_RA_003 Account is delinquent and can't be restored.
+					WALM_RA_004 Account suspended due to CLM but paid amount is smaller than minimal payment. Account can't be restored.
+					WALM_RA_005 Account suspended due to nonpayment, but amount paid is smaller than past due balance. Account can't be restored.
+					</xsd:documentation>
+				</xsd:annotation>
+                <xsd:extension base="ect:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="responseCode" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

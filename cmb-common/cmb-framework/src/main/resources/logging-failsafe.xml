@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<log4j:configuration>
+
+	<appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="LifeCycleAppender" class="org.apache.log4j.FileAppender">
+		<param name="File" value="%loggingRoot%/lifecycle.log" />
+		<param name="Append" value="false" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="RollingAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="%loggingRoot%/rolling.log" />
+		<param name="Append" value="true" />
+		<param name="MaxBackupIndex" value="4" />
+		<param name="MaxFileSize" value="5000KB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p %c - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="org.quartz">
+		<level value="warn"/> 
+	</logger>
+
+	<root>
+		<priority value="info" />
+		<appender-ref ref="ConsoleAppender" />
+		<appender-ref ref="LifeCycleAppender" />
+		<appender-ref ref="RollingAppender" />
+	</root>
+
+</log4j:configuration>

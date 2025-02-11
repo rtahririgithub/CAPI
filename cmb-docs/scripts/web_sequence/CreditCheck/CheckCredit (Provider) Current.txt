@@ -1,0 +1,28 @@
+title CheckCredit (Provider) Current
+
+
+alt ConsumerAccount
+FrontEnd->TMPostpaidConsumerAccount: checkCredit
+TMPostpaidConsumerAccount->HCDAPI: performCreditCheck
+TMPostpaidConsumerAccount->ReferenceDataHelper: retrieveCreditMessageByCode
+ReferenceDataHelper->ReferenceDataRefDao:retrieveCreditMessageByCode
+alt manualCreditRequest.transformed
+TMPostpaidConsumerAccount->AccountLifecycleManager: saveCreditCheckInfo
+AccountLifecycleManager->CreditCheckDao: saveCreditCheckInfo (with manual flag)
+CreditCheckDao->KB: setCreditEvaluationInfo 
+else else
+TMPostpaidConsumerAccount->AccountLifecycleManager: saveCreditCheckInfo
+AccountLifecycleManager->CreditCheckDao: saveCreditCheckInfo
+CreditCheckDao->KB: setCreditEvaluationInfo
+end
+TMPostpaidConsumerAccount->FrontEnd: return checkResult
+
+else BusinessAccount
+FrontEnd->TMPostpaidBusinessRegularAccount: checkCredit
+TMPostpaidBusinessRegularAccount->HCDAPI: performCreditCheckForBusiness
+TMPostpaidBusinessRegularAccount->ReferenceDataHelper: retrieveCreditMessageByCode
+TMPostpaidBusinessRegularAccount->AccountLifecycleManager: saveCreditCheckInfoForBusiness
+AccountLifecycleManager->CreditCheckDao: saveCreditCheckInfoForBusiness
+CreditCheckDao->KB: setCreditEvaluationInfo
+TMPostpaidBusinessRegularAccount->FrontEnd: return checkResultInfo
+end

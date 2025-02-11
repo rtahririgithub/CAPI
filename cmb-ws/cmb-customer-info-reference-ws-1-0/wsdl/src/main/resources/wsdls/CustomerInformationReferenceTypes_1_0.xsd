@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:common="http://schemas.telus.com/eca/common_types_2_1"
+           xmlns="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0"
+           targetNamespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0"
+           elementFormDefault="qualified">
+
+	<xs:import namespace="http://schemas.telus.com/eca/common_types_2_1" 
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/legacy/ECA_CommonTypes_2_1.xsd"/>
+
+	<xs:complexType name="Reference" abstract="true">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string"/>
+			<xs:element name="description" type="xs:string" nillable="true"/>
+			<xs:element name="descriptionFrench" type="xs:string" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AccountType">
+		<xs:complexContent>
+			<xs:extension base="Reference">
+				<xs:sequence>
+					<xs:element name="accountTypeCode" type="xs:string"/>
+					<xs:element name="accountSubTypeCode" type="xs:string"/>
+					<xs:element name="defaultDealer" type="common:DealerCode" nillable="true"/>
+					<xs:element name="defaultSalesRepCode" type="common:SalesRepCode" nillable="true"/>
+					<xs:element name="isCreditCheckRequired" type="xs:boolean" default="false"/>
+					<xs:element name="minimumSubscribersForFleet" type="xs:nonNegativeInteger"/>
+					<xs:element name="billingNameFormat" type="common:NameFormat"/>
+					<xs:element name="brandId" type="common:BrandId" nillable="true"/>
+					<xs:element name="isDuplicateBANCheck" type="xs:boolean" default="false"/>
+					<xs:element name="isPostpaidConsumer" type="xs:boolean" default="false"/>
+					<xs:element name="isPostpaidBusinessRegular" type="xs:boolean" default="false"/>
+					<xs:element name="isPostpaidBusinessPersonal" type="xs:boolean" default="false"/>
+					<xs:element name="isPostpaidBusinessDealer" type="xs:boolean" default="false"/>
+					<xs:element name="isPostpaidOfficial" type="xs:boolean" default="false"/>
+					<xs:element name="isPostpaidBusinessOfficial" type="xs:boolean" default="false"/>
+					<xs:element name="isPostpaidEmployee" type="xs:boolean" default="false"/>
+					<xs:element name="isPostpaidCorporatePersonal" type="xs:boolean" default="false"/>
+					<xs:element name="isAutotel" type="xs:boolean" default="false"/>
+					<xs:element name="isCorporate" type="xs:boolean" default="false"/>
+					<xs:element name="isCorporateIDEN" type="xs:boolean" default="false"/>
+					<xs:element name="isCorporatePCS" type="xs:boolean" default="false"/>
+					<xs:element name="isCorporatePrivateNetworkPlus" type="xs:boolean" default="false"/>
+					<xs:element name="isCorporateRegional" type="xs:boolean" default="false"/>
+					<xs:element name="isCorporateRegular" type="xs:boolean" default="false"/>
+					<xs:element name="isIDEN" type="xs:boolean" default="false"/>
+					<xs:element name="isPager" type="xs:boolean" default="false"/>
+					<xs:element name="isPCS" type="xs:boolean" default="false"/>
+					<xs:element name="isPCSPostpaidCorporateRegularAccount" type="xs:boolean" default="false"/>
+					<xs:element name="isPostpaid" type="xs:boolean" default="false"/>
+					<xs:element name="isPostpaidBoxedConsumer" type="xs:boolean" default="false"/>
+					<xs:element name="isPostpaidCorporateRegular" type="xs:boolean" default="false"/>
+					<xs:element name="isPrepaidConsumer" type="xs:boolean" default="false"/>
+					<xs:element name="isQuebectelPrepaidConsumer" type="xs:boolean" default="false"/>
+					<xs:element name="isWesternPrepaidConsumer" type="xs:boolean" default="false"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="MemoType">
+		<xs:complexContent>
+			<xs:extension base="Reference">
+				<xs:sequence>
+					<xs:element name="category" type="common:MemoTypeCategory"/>
+					<xs:element name="systemText" type="xs:string" nillable="true"/>
+					<xs:element name="systemTextFrench" type="xs:string" nillable="true"/>
+					<xs:element name="numberOfParameters" type="xs:int" nillable="true"/>
+					<xs:element name="manualInd" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+  <xs:complexType name="Segmentation">
+		<xs:complexContent>
+			<xs:extension base="Reference">
+				<xs:sequence>
+					<xs:element name="segment" type="xs:string"/>
+					<xs:element name="subSegment" type="xs:string"/>
+                </xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+  </xs:complexType>
+	
+</xs:schema>

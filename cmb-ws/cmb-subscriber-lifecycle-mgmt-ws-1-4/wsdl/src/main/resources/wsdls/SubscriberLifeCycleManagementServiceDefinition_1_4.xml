@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>SubscriberLifeCycleManagementService</Name>
+		<Documentation>Manages subscriber lifecycle for activating, cancelling and resuming a subscriber</Documentation>
+		<TAM_LevelZeroAndOne>CMO/OrderMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/SubscriberLifeCycleManagement</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>4</MinorVersion>
+		<soapAddress>http://cmf-ordermgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>SubscriberLifeCycleManagementServiceRequestResponse_v1_4.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberLifeCycleManagementServiceRequestResponse_v1</NameSpace>
+		<nsAbbrev>slc</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>cancelSubscriber</OperationName>
+		<Documentation>Cancel a subscriber.</Documentation>
+		<InputType wsp="True">cancelSubscriber</InputType>
+		<OutputType>cancelSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>resumeCancelledSubscriber</OperationName>
+		<Documentation>Resume a subscriber from cancel state.</Documentation>
+		<InputType wsp="True">resumeCancelledSubscriber</InputType>
+		<OutputType>resumeCancelledSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>restoreSuspendedSubscriber</OperationName>
+		<Documentation>Resume a subscriber from cancel state.</Documentation>
+		<InputType wsp="True">restoreSuspendedSubscriber</InputType>
+		<OutputType>restoreSuspendedSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>cancelPortOutSubscriber</OperationName>
+		<Documentation>This operation attempts to cancel a subscriber due to a port out.  If the cancelled subscriber results in no active subscribers on the account and the remaining subscribers are all cancelled, the account is cancelled.  If the cancelled subscriber results in no active subscribers on the account and there is at least one subscriber that is suspended, then the account is suspended.  RCM is called to release the telephone number after the subscriber is cancelled and a log entry is recorded in SRPDS for this subscriber cancellation event.</Documentation>
+		<InputType wsp="True">cancelPortOutSubscriber</InputType>
+		<OutputType>cancelPortOutSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>suspendSubscriber</OperationName>
+		<Documentation>This operation will suspend all subscribers in the LIST, and if the count of subscribers provided equals all the subscribers in the account, then the Account will also be suspended..</Documentation>
+		<InputType wsp="True">suspendSubscriber</InputType>
+		<OutputType>suspendSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>reservePhoneNumberForSubscriber</OperationName>
+		<Documentation>This operation reserves phone number in KB table. This is only required for ACTIVATION flow.</Documentation>
+		<InputType wsp="True">reservePhoneNumberForSubscriber</InputType>
+		<OutputType>reservePhoneNumberForSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>releaseSubscriber</OperationName>
+		<Documentation>This operation releases the subscriber and  their reserved phone number.</Documentation>
+		<InputType wsp="True">releaseSubscriber</InputType>
+		<OutputType>releaseSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>activateSavedSubscriber</OperationName>
+		<Documentation>This operation activates the saved subscriber.</Documentation>
+		<InputType wsp="True">activateSavedSubscriber</InputType>
+		<OutputType>activateSavedSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

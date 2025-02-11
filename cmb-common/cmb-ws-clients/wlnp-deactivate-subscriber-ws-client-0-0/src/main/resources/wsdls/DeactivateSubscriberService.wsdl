@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<s0:definitions targetNamespace="http://services.telus.com/wlnp/prm/services" xmlns="" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://schemas.telus.com/wlnp/core/client" xmlns:s2="http://services.telus.com/wlnp/prm/services" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/">
+  <s0:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.telus.com/wlnp/core/client" xmlns:cli="http://schemas.telus.com/wlnp/core/client" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s0="http://services.telus.com/wlnp/prm/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="deactivateMVNESubscriber">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="cli:DeactivateSubscriberData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deactivateSubscriberDataResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeactivateSubscriberData">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="cli:DeactivateSubscriberDataType">
+              <xs:attribute default="1.0" name="SchemaVersion" type="xs:string"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="DeactivateSubscriberDataBodyType">
+        <xs:sequence>
+          <xs:element ref="cli:PhoneNumber"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DeactivateSubscriberDataType">
+        <xs:sequence>
+          <xs:element ref="cli:Header"/>
+          <xs:element ref="cli:DeactivateSubscriberBody"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DeactivateSubscriberBody" type="cli:DeactivateSubscriberDataBodyType"/>
+      <xs:element name="DeactivateSubscriberResponseData">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="cli:DeactivateSubscriberResponseDataType">
+              <xs:attribute default="1.0" name="SchemaVersion" type="xs:string"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="DeactivateSubscriberResponseDataBodyType">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="cli:ConfirmationID"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DeactivateSubscriberResponseDataType">
+        <xs:sequence>
+          <xs:element ref="cli:DeactivateSubscriberResponseBody"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DeactivateSubscriberResponseBody" type="cli:DeactivateSubscriberResponseDataBodyType"/>
+      <xs:element name="PRMFaultDetail" type="cli:PRMFaultDetail">
+        <xs:annotation>
+          <xs:documentation>PRM SOAP Fault Details</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:complexType name="PRMFaultDetail">
+        <xs:sequence maxOccurs="unbounded">
+          <xs:element name="PRMFault">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="cli:PRMFault"/>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute default="1.0" name="SchemaVersion"/>
+      </xs:complexType>
+      <xs:complexType name="PRMFault">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string"/>
+          <xs:element name="reason" type="xs:string"/>
+          <xs:element name="reason_fr" type="xs:string"/>
+          <xs:element minOccurs="0" name="FaultCause" type="cli:PRMFault"/>
+        </xs:sequence>
+        <xs:attribute name="type" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="policy"/>
+              <xs:enumeration value="service"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://schemas.telus.com/wlnp/core/client" xmlns:cli="http://schemas.telus.com/wlnp/core/client" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s0="http://services.telus.com/wlnp/prm/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://schemas.telus.com/wlnp/core/client" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="Types.TimestampType">
+        <xs:restriction base="xs:string">
+          <xs:annotation>
+            <xs:documentation>
+	        Format: MMDDYYYYHHmm
+	        </xs:documentation>
+          </xs:annotation>
+          <xs:pattern value="\d{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="ConfirmationID" type="xs:string"/>
+      <xs:element name="Header" type="tns:Types.HeaderType"/>
+      <xs:complexType name="Types.HeaderType">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:RequestId"/>
+          <xs:element ref="tns:Originator"/>
+          <xs:element ref="tns:Destination"/>
+          <xs:element ref="tns:Timestamp"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="NPDI" type="tns:Types.NPDIType"/>
+      <xs:simpleType name="Types.NPDIType">
+        <xs:restriction base="xs:NMTOKEN">
+          <xs:length value="1"/>
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="B"/>
+          <xs:enumeration value="C"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="BaseTN" type="tns:Types.BaseTNType"/>
+      <xs:simpleType name="Types.BaseTNType">
+        <xs:restriction base="xs:string">
+          <xs:length value="10"/>
+          <xs:pattern value="\d{10}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="PhoneNumber" type="tns:Types.PhoneNumberType"/>
+      <xs:simpleType name="Types.PhoneNumberType">
+        <xs:restriction base="xs:string">
+          <xs:minLength value="10"/>
+          <xs:maxLength value="17"/>
+          <xs:pattern value="\d{3}-\d{3}-\d{4}|\d{10}|\d{3}-\d{3}-\d{4}-\d{4}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="RequestId" type="xs:string"/>
+      <xs:element name="Originator">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+            <xs:maxLength value="8"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Destination">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+            <xs:maxLength value="8"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Timestamp" type="xs:string"/>
+    </xs:schema>
+  </s0:types>
+  <s0:message name="deactivateMVNESubscriberRequestSoapIn">
+    <s0:part element="s1:deactivateMVNESubscriber" name="parameters"/>
+  </s0:message>
+  <s0:message name="deactivateMVNESubscriberRequestSoapOut">
+    <s0:part element="s1:deactivateSubscriberDataResponse" name="parameters"/>
+  </s0:message>
+  <s0:message name="faultDetails">
+    <s0:part element="s1:PRMFaultDetail" name="parameter"/>
+  </s0:message>
+  <s0:portType name="DeactivateMVNESubscriberRequestSoapPortType">
+    <s0:operation name="deactivateMVNESubscriber">
+      <s0:input message="s2:deactivateMVNESubscriberRequestSoapIn"/>
+      <s0:output message="s2:deactivateMVNESubscriberRequestSoapOut"/>
+      <s0:fault message="s2:faultDetails" name="PRMSoapFault"/>
+    </s0:operation>
+  </s0:portType>
+  <s0:binding name="DeactivateMVNESubscriberRequestSoap" type="s2:DeactivateMVNESubscriberRequestSoapPortType">
+    <s3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <s0:operation name="deactivateMVNESubscriber">
+      <s3:operation soapAction="http://www.telus.com/deactivateMVNESubscriber" style="document"/>
+      <s0:input>
+        <s3:body use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s3:body use="literal"/>
+      </s0:output>
+      <s0:fault name="PRMSoapFault">
+        <s3:fault name="PRMSoapFault" use="literal"/>
+      </s0:fault>
+    </s0:operation>
+  </s0:binding>
+  <s0:service name="DeactivateMVNESubscriberService">
+    <s0:port binding="s2:DeactivateMVNESubscriberRequestSoap" name="DeactivateMVNESubscriberServiceSoapHttp">
+      <s3:address location="http://cctoolsd3.tmi.telus.com:80/PortRequestProcesses/wlnp/services/prm/DeactivateSubscriberService.jws"/>
+    </s0:port>
+  </s0:service>
+</s0:definitions>

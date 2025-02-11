@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CMBResponseCommonTypes_v1" xmlns:ect="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CMBResponseCommonTypes_v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9_1.xsd"/>
+	<xs:complexType name="ContextMap">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The name of an input parameter or the context of the error (i.e. soc/feature that failed the transaction).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="xs:string" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The value of an input parameter or the context of the error (i.e. soc/feature that failed the transaction).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContextMapList">
+		<xs:sequence>
+			<xs:element name="contextMap" type="tns:ContextMap" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of name-value pairs that allow Client API to log the input parameters as well as the context of the error (i.e. soc/feature that failed the transaction).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubSystemError">
+		<xs:sequence>
+			<xs:element name="source" type="xs:string" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The name of the sub-system that passed the error to Client API - i.e. AMDOCS, PREPAID, SEMS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="id" type="xs:string" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The error ID Client API receives from the subsystem - i.e. VAL00001.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="message" type="xs:string" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The actual error message Client API receives from the subsystem.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubSystemErrorList">
+		<xs:sequence>
+			<xs:element name="subSystemError" type="tns:SubSystemError" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>All errors that Client API receives from Client API downstream systems. In the event that the subsystem also returns the subsystem error detail, Client API will have the option to propagate the error list.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ServiceResponseMessage">
+		<xs:annotation>
+			<xs:documentation>This construct is to be returned by a ClientAPI service operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ect:ResponseMessage">
+				<xs:sequence>
+					<xs:element name="startTime" type="xs:dateTime" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The timestamp that Client API receives the request - includes the date, time and timezone.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="subSystemErrorList" type="tns:SubSystemErrorList" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>All errors that Client API receives from Client API downstream systems. In the event that the subsystem also returns the subsystem error detail, Client API will have the option to propagate the error list.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="contextMapList" type="tns:ContextMapList" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>List of name-value pairs that allow Client API to log the input parameters as well as the context of the error (i.e. soc/feature that failed the transaction).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="runtimeInfo" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>This element will be populated with server runtime info (as well as stack trace) in the same way that Client API populates the PolicyException.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

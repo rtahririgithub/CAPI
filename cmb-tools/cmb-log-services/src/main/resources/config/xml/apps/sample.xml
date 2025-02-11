@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<application name="Client API EJBs" shortname="capiejbs" path="/${root}/${host}/logs/${node}/applications/${artifact}${suffix}-1.0/" filenames="rolling.log*,lifecycle.log*">
+
+	<component name="CMB Account EJB" path="/${root}/${host}/logs/${node}/applications/${artifact}-1.0/">
+		<artifact name="cmb-account-svc"/>
+		<artifact name="cmb-account-svc-lite">
+			<overrideValue name="suffix" value="" environments="pra"/>
+		</artifact>
+	</component>
+	<component name="CMB Subscriber EJB">
+		<artifact name="cmb-subscriber-svc" appMap="cmb-subscriber-svc.ear"/>
+		<artifact name="cmb-subscriber-svc-lite" appMap="cmb-subscriber-svc-lite"/>
+	</component>
+	<component name="CMB Equipment EJB">
+		<artifact name="cmb-equipment-svc"/>
+		<artifact name="cmb-equipment-svc-lite" version="1.0" path="/${root}/${host}/logs/${node}/applications/cmb-equipment-svc-lite-${version}/"/>
+	</component>
+	<component name="CMB Reference EJB">
+		<artifact name="cmb-reference-svc">
+			<overridePath path="/${root}/${host}/logs/${node}/applications/${artifact}-1.0/" environments="pra,prb"/>
+		</artifact>
+	</component>
+	<component name="CMB Utility EJB">
+		<artifact name="cmb-utility-svc" appMap="Utility EJB"/>
+	</component>
+	<component name="Kafka" filenames="KafkaInfo.log*">
+		<artifact name="cmb-account-svc"/>
+		<artifact name="cmb-account-svc-lite"/>
+	</component>
+	<component name="Queues" filenames="FailureQueue.log*">
+		<artifact name="cmb-account-svc"/>
+		<artifact name="cmb-subscriber-svc" appMap="cmb-subscriber-svc.ear"/>
+		<artifact name="cmb-equipment-svc"/>
+	</component>
+	
+</application>
+
+
+<!-------------------------------------------------------------------------------------------->
+<!--                              MANDATORY TAGS AND ATTRIBUTES                             -->
+<!-------------------------------------------------------------------------------------------->
+<!--                                                                                        -->
+<!-- <application name="My Application Name" shortname="myapp" path="/${root}/logs/">       -->
+<!--   This is the root tag of the configuration file.  There's only one per xml file.      -->
+<!--     *name: The name of your application, it will be used in the GUI.                   -->
+<!--     *shortname:  A unique alphanumeric short name of your application, it will be used -->
+<!--                  in the url.                                                           -->
+<!--     *path:  The filepath template for all components and artifacts that are configured -->
+<!--             for this application.  You can use subsitution values that are described   -->
+<!--             below under "KEYWORDS".  This path value can be overridden if another path -->
+<!--             value is specified in either the component or artifact tags.  This value   -->
+<!--             is mandatory unless every component has a path value or all artifacts of   -->
+<!--             each component has a path value.                                           -->
+<!--     *filenames: A list of filename regex patterns for filtering on the log file.       --> 
+<!--                 The values are delimited by "," and can be overridden on the component -->
+<!--                 or artifact levels.                                                    -->
+<!--                                                                                        -->
+<!-- <component name="My Component Name">                                                   -->
+<!--   The different components of your application - you can have as many as you like.     -->
+<!--     *name:  The name of your component, it will be used in the GUI.  Mandatory.        -->
+<!--     *path:  The filepath template for this particular component.  It will override the -->
+<!--             application path if specified.  This value is optional.                    -->
+<!--     *filenames: A list of filename regex patterns for filtering on the log file.       --> 
+<!--                 The values are delimited by "," and overwrites the application         --> 
+<!--                 filename list and also can be overridden on the artifact level.        --> 
+<!--                                                                                        -->
+<!-- <artifact name="my_application_name" appMap="ApplicationMappingName">                  -->
+<!--   This is the artifact(s) (ear, war, etc) of your application component.               -->
+<!--     *name:  The name of your artifact, it can be used as a substitution value for your -->
+<!--             path value.  It will also be used as the application mapping name if you   -->
+<!--             don't specify an appMap value.  This value is mandatory.                   -->
+<!--     *version:  The version of your artifact, it can be used as a substitution value    -->
+<!--                for your path value.  This value is optional.                           -->
+<!--     *appMap:  The name of your application mapping.  This value will be used to        -->
+<!--               determine where your application is deployed and its details (like the   -->
+<!--               domain, cluster, node, host names).  If there is no value specified here -->
+<!--               then the default value will take the artifact name.                      -->
+<!--     *path:  The filepath template for this particular artifact.  It will override the  -->
+<!--             component and/or application path if specified.  This value is optional.   -->
+<!--     *filenames: A list of filename regex patterns for filtering on the log file.       --> 
+<!--                 The values are delimited by "," and overwrites both the application    --> 
+<!--                 and component level values.                                            --> 
+<!--                                                                                        -->
+<!-- <overrideValue name="key" value="value">                                               -->
+<!--   You can override any keywords in your path declaration.  This is optional.           -->
+<!--   This tag can exist within the application, component or artifact - the value gets    -->
+<!--   substituted for the scope of the parent tag - i.e. if it exists under application,   -->
+<!--   then substitution value will be propagated in all components and artifacts under the -->
+<!--   application.  Override values in a lower tier will always override any higher tier   -->
+<!--   value.  i.e. component overrideValues take precedence over application override      -->
+<!--   values.                                                                              -->
+<!--     *name:  The name of the substitution value in the path.  This can override any     -->
+<!--             existing value from artifact, component and application.  Mandatory.       -->
+<!--     *value:  The value of the substitution value in the path.  Mandatory.              -->
+<!--     *environments:  The environment(s) that you want to use the override value.  It's  -->
+<!--                     optional and if it's not specified, it will be used for all        -->
+<!--                     environments.  You can also specify multiple environments - use    -->
+<!--                     comma delimited values (i.e. pra,prb) - no spaces.                 -->
+<!--                                                                                        -->
+<!-- <overridePath path="newPath" environment="envShortname">                               -->
+<!--   You can override your path on the artifact level per environment level. Optional.    -->
+<!--     *path:  The substitution path on the artifact level that is configured to a        -->
+<!--             specific environment.  Mandatory.                                          -->
+<!--     *environments:  The environment(s) that the override path will be used.  Multiple  -->
+<!--                     values (comma delimited) are accepted - no spaces.  Mandatory.     -->
+<!--                                                                                        -->
+<!-------------------------------------------------------------------------------------------->
+<!--                                        KEYWORDS                                        -->
+<!-------------------------------------------------------------------------------------------->
+<!--                                                                                        -->
+<!-- ${root}                                                                                -->
+<!--   Determined based on rootFolders.xml and the mapped server name of artifact based     -->
+<!--   on the application mapping.                                                          -->
+<!--                                                                                        -->
+<!-- ${domain}                                                                              -->
+<!--   The name of the domain of where the artifact's deployed.  Determined based on        -->
+<!--   application mapping.                                                                 -->
+<!--                                                                                        -->
+<!-- ${cluster}                                                                             -->
+<!--   The name of the cluster of where the artifact's deployed. (application mapping)      -->
+<!--                                                                                        -->
+<!-- ${node}                                                                                -->
+<!--   The name of the cluster node of where the artifact's deployed. (application mapping) -->
+<!--                                                                                        -->
+<!-- ${host}                                                                                -->
+<!--   The name of the server of the node where the artifact is deployed.  This does not    -->
+<!--   include ".corp.ads" suffix (i.e. lp99508).                                           -->
+<!--                                                                                        -->
+<!-- ${artifact}                                                                            -->
+<!--   The name of the artifact.                                                            -->
+<!--                                                                                        -->
+<!-- ${version}                                                                             -->
+<!--   The version of the artifact.                                                         -->
+<!--                                                                                        -->
+<!-- ${_custom_}                                                                            -->
+<!--   You create a custom key-value pair to be replaced in your log file path.  You can    --> 
+<!--   specify this value in the <override name="key" value="value"/> tag within artifact.  -->
+<!--     i.e. ...path="/${root}/${host}/logs/${node}/applications/${artifact}-{suffix}/"    -->
+<!--       <artifact name="some-application">                                               -->
+<!--       <override name="suffix" value="lite"/>                                           -->
+<!--                                                                                        -->
+<!-------------------------------------------------------------------------------------------->

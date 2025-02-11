@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>WirelessAccountLifecycleMgmtService</Name>
+		<Documentation>Provides the ability to create wireless account in KB</Documentation>
+		<TAM_LevelZeroAndOne>CMO/OrderMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/WirelessAccountLifecycleMgmtService</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmf-ordermgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>WirelessAccountLifecycleMgmtServiceRequestResponse_v1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/WirelessAccountLifecycleMgmtServiceRequestResponse_v1</NameSpace>
+		<nsAbbrev>wlsalc</nsAbbrev>
+		<OutputDir></OutputDir>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>		
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>createPostpaidAccount</OperationName>
+		<Documentation>Creates Post Paid Account.</Documentation>
+		<InputType wsp="True">createPostpaidAccount</InputType>
+		<OutputType>createPostpaidAccountResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation>
+			<type>UserHeader</type>
+			<soapHeaderType>explicit</soapHeaderType>
+		</InputSoapHeaderType>	
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>createPrepaidAccount</OperationName>
+		<Documentation>Create Prepaid Account.</Documentation>
+		<InputType wsp="True">createPrepaidAccount</InputType>
+		<OutputType>createPrepaidAccountResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation>
+			<type>UserHeader</type>
+			<soapHeaderType>explicit</soapHeaderType>
+		</InputSoapHeaderType>		
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>
+
+

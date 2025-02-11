@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>WirelessRatedAirtimeUsageInquiryService</Name>
+		<Documentation>Service will manage retrievals of airtime usage information.</Documentation>
+		<TAM_LevelZeroAndOne>CMO/BillingInquiryMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/WirelessRatedAirtimeUsageInquiry</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmbilling-billinginquiry-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>WirelessRatedAirtimeUsageInquiryServiceRequestResponse_v1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/WirelessRatedAirtimeUsageInquiryServiceRequestResponse_v1</NameSpace>
+		<nsAbbrev>auis</nsAbbrev>
+		<OutputDir/>
+
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getAirtimeUsageSummary</OperationName>
+		<Documentation>Returns array of unbilled usage summary for the specified feature code.</Documentation>
+
+		<InputType wsp="True">getAirtimeUsageSummary</InputType>
+		<OutputType>getAirtimeUsageSummaryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>		
+	<Operation>
+		<OperationName>getUnpaidAirtimeUsageChargeInfo</OperationName>
+		<Documentation>Returns unpaid airtime charge information.</Documentation>
+
+		<InputType wsp="True">getUnpaidAirtimeUsageChargeInfo</InputType>
+		<OutputType>getUnpaidAirtimeUsageChargeInfoResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>		
+</Service>

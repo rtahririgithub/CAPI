@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<bean class="com.telus.cmb.framework.config.PlaceholderConfigurer" p:ignoreUnresolvablePlaceholders="true" p:nullValue="null"/>
+
+	<bean id="accountEventPublisher" class="com.telus.cmb.common.kafka.account.AccountEventPublisherImpl">
+		<property name="mapper" ref="kafkaEventMapper"/>
+		<property name="publisher" ref="kafkaMessagePublisher"/>
+	</bean>
+	
+	<bean id="kafkaMessagePublisher" class="com.telus.cmb.common.kafka.KafkaMessagePublisherImpl">
+		<!-- Staging -->
+		<!--<property name="endpointUrl" value="https://enterprisemessagewebk-itn04.tsl.telus.com/publisher/publish/ST01.Party.Customer.BillingAccount"/> -->
+		
+		<!-- Production -->
+		<!--<property name="endpointUrl" value="https://enterprisemessagewebk-prn.tsl.telus.com/publisher/publish/Party.Customer.BillingAccount"/>-->
+		
+		<!-- All PT -->
+		<property name="endpointUrl" value="http://btln000093.corp.ads:61010/publisher/publish/PT168.Party.Customer.BillingAccount"/>
+		<property name="enabledEventLdapKeys">
+			<list>
+				<value>KAFKA_ACCOUNT_EVENTS</value>
+			</list>
+		</property>
+		
+	</bean>
+
+	<bean id="kafkaEventMapper" class="com.telus.cmb.common.kafka.KafkaEventMapper">
+		<property name="sourceId" value="5284"/>
+		<property name="topic" value="Party.Customer.BillingAccount"/>
+	</bean>
+	
+</beans> 

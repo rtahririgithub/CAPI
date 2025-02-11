@@ -1,0 +1,37 @@
+<environment-config>
+
+	<entry name="SubscriberLifecycleFacade" path="/CMB/services">
+		<entry name="volteSocTelusEnabled" value="true"/>
+		<entry name="volteSocKoodoEnabled" value="true"/>
+		<entry name="volteSocTelus" value="SVOLTE"/>
+		<entry name="volteSocKoodo" value="3SVOLTE"/>
+		<entry name="volteTelusProductFeature" value="VOLTE"/>
+		<entry name="volteKoodoProductFeature" value="KVOLTE"/>
+		<entry name="volteSwitchCode" value="VOLTE"/>
+	</entry>
+	
+	<entry name="SubscriberLifecycleHelper" path="/CMB/services">
+		<!-- WRP Ph3 project for Sep 2019 -->
+		<entry name="wrpPh3GetResourceByBanAndOrPhoneNumRollback" value="false"/>
+		<entry name="wrpPh3GetSubByBANandPhoneNumberRollback" value="false"/>
+		<entry name="wrpPh3GetIdentifierRollback" value="false"/>
+		<entry name="wrpPh3GetSubscriberListByBANRollBack" value="false"/>
+		<entry name="wrpPH3GetSecondarySerialNumbersRollBack" value="false"/>
+		<entry name="wrpPH3GetIdenResourcesRollback" value="false"/>
+		<entry name="wrpPH3GetHSPAResourcesRollback" value="false"/>
+		<entry name="wrpPH3GetMarketProvincesByPhoneNumbersRollback" value="false"/>
+		<entry name="wrpPh3ExternalizedSqlRollback" value="false"/>
+		<entry name="wrpPh3GetVoiceUsageSummaryRollback" value="false"/>
+	</entry>
+	
+	<entry name="cmb-subscriber-svc" path="/cmb-ns">
+		<entry name="supportedDataSharingBrands" value="1"/>
+		<entry name="wrpPh3Rollback" value="false"/>
+		<!-- EAA Ebill project for Feb 2019, remove flag and its references any MAJ release afterwards -->
+		<entry name="eaaEbillRollback" value="false"/>	
+	</entry>
+	
+	<entry name="cmb-subscriber-svc" path="/ARMX/reference-versions" value="${label}"/>
+	<entry name="cmb-subscriber-svc-lite" path="/ARMX/reference-versions" value="${label}"/>
+	
+</environment-config>

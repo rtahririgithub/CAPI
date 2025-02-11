@@ -1,0 +1,4 @@
+Migrated services:
+
+EquipmentInfoService
+EquipmentLifecycleManagementService

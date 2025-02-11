@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS) -->
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>SubscriberManagementService</Name>
+		<Documentation>Maintenance release of the SubscriberManagementService, limited only to subscriber activation and migration.</Documentation>
+		<TAM_LevelZeroAndOne>CMO/OrderMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/SubscriberManagement</ServiceTaxonomy>
+		<MajorVersion>5</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmf-ordermgmt-dv103.tmi.telus.com</soapAddress>
+		<!-- <SchemaLocation>http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberManagementServiceRequestResponse_v5_0.xsd</SchemaLocation> -->
+		<SchemaLocation>SubscriberManagementServiceRequestResponse_v5_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberManagementServiceRequestResponse_v5</NameSpace>
+		<nsAbbrev>slc</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>activateSubscriber</OperationName>
+		<Documentation>This operation creates and activates a subscriber in KB. For port-in activations, see the 'activatePortInRequest' operation.</Documentation>
+		<InputType wsp="True">activateSubscriber</InputType>
+		<OutputType>activateSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>activatePortInRequest</OperationName>
+		<Documentation>This operation will port-in a subscriber (inter-carrier, brand or MVNE) and activate in KB.</Documentation>
+		<InputType wsp="True">activatePortInRequest</InputType>
+		<OutputType>activatePortInRequestResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>validateMigrateSubscriber</OperationName>
+		<Documentation>Validate the subscriber migration.</Documentation>
+		<InputType wsp="True">validateMigrateSubscriber</InputType>
+		<OutputType>validateMigrateSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>migrateSubscriber</OperationName>
+		<Documentation>Migrate a subscriber (pre-to-post, etc.).</Documentation>
+		<InputType wsp="True">migrateSubscriber</InputType>
+		<OutputType>migrateSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

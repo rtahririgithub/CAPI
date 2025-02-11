@@ -1,0 +1,3 @@
+<environment-config>
+	<entry name="cmb-billing-inquiry-ws-1-3" path="/cmb-ns"/>
+</environment-config>

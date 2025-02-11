@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>AccountInformationService</Name>
+		<Documentation>Provides the ability to retrieve and update Account Information Data</Documentation>
+		<TAM_LevelZeroAndOne>CMO/InformationMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/AccountInformation</ServiceTaxonomy>
+		<MajorVersion>2</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmosr-custinfomgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/AccountInformationServiceRequestResponse_2_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/AccountInformationServiceRequestResponse_2</NameSpace>
+		<nsAbbrev>ais</nsAbbrev>
+		<OutputDir></OutputDir>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>		
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getAccountByAccountNumber</OperationName>
+		<Documentation>Retrieves Account By Account Number.</Documentation>
+		<InputType wsp="True">getAccountByAccountNumber</InputType>
+		<OutputType>getAccountByAccountNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAccountByPhoneNumber</OperationName>
+		<Documentation>Retrieves Account By Phone Number.</Documentation>
+		<InputType wsp="True">getAccountByPhoneNumber</InputType>
+		<OutputType>getAccountByPhoneNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+	<Operation>
+		<OperationName>getAccountsByAccountNumbers</OperationName>
+		<Documentation>Retrieves Accounts By Account Numbers.</Documentation>
+		<InputType wsp="True">getAccountsByAccountNumbers</InputType>
+		<OutputType>getAccountsByAccountNumbersResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updateAccountPassword</OperationName>
+		<Documentation>Updates Account Password.</Documentation>
+		<InputType wsp="True">updateAccountPassword</InputType>
+		<OutputType>updateAccountPasswordResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getEmailAddress</OperationName>
+		<Documentation>Return Email Address on the Account</Documentation>
+		<InputType wsp="True">getEmailAddress</InputType>
+		<OutputType>getEmailAddressResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updateEmailAddress</OperationName>
+		<Documentation>Updates Email Address on the Account</Documentation>
+		<InputType wsp="True">updateEmailAddress</InputType>
+		<OutputType>updateEmailAddressResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getInvoiceProperties</OperationName>
+		<Documentation>Return Invoice Properties for Postpaid account</Documentation>
+		<InputType wsp="True">getInvoiceProperties</InputType>
+		<OutputType>getInvoicePropertiesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updateInvoiceProperties</OperationName>
+		<Documentation>Updates Invoice Properties on Postpaid Account</Documentation>
+		<InputType wsp="True">updateInvoiceProperties</InputType>
+		<OutputType>updateInvoicePropertiesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>
+
+

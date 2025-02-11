@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb.common</groupId>
+		<artifactId>pom-cmb-common</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cmb-common-prepaid</artifactId>
+
+	<dependencies>
+		
+		<dependency>
+			<groupId>telus.cust.cmb.common</groupId>
+			<artifactId>cmb-common-svc</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>product-offering-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>order-service-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>prepaid-subscriber-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>prepaid-wrls-customer-order-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>subscription-mgmt-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>subscription-balance-mgmt-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>subscription-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>voucher-validation-ws-client</artifactId>
+		</dependency>
+      
+      <dependency>
+         <groupId>org.jvnet.jaxb2_commons</groupId>
+         <artifactId>jaxb2-basics-runtime</artifactId>
+      </dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>jaxb2-xsdToJava</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<verbose>true</verbose>
+							<generateDirectory>target/generated-sources</generateDirectory>
+							<schemaIncludes>
+								<schemaInclude>ConfirmationNotificationTypes.xsd</schemaInclude>
+								<schemaInclude>Business_Connect_v1_0.xsd</schemaInclude>
+								<schemaInclude>BCX_SD_Fallout_v1_0.xsd</schemaInclude>
+								<schemaInclude>WirelessServiceInfo_v2_1.xsd</schemaInclude>
+								<schemaInclude>Exceptions_v1_0.xsd</schemaInclude>
+							</schemaIncludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<profiles>
+		<profile>
+			<id>Eclipse</id>
+			<dependencies>
+				<dependency>
+					<groupId>telus.cust.cmb</groupId>
+					<artifactId>app-config</artifactId>
+					<version>1.0.0-SNAPSHOT</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>	
+</project>

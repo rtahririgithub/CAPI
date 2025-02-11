@@ -1,0 +1,21 @@
+title Duplicate BAN Check (Provider) Current
+
+note left of FrontEnd
+2 Search Levels can be passed to TMAccount
+1) DEFAULT_DUPLICATE_BAN_SEARCH_LEVEL (default)  
+2) MIKE_TO_PCS_DUPLICATE_BAN_SEARCH_LEVEL
+end note
+FrontEnd->TMAccount: getDuplicateAccountBANs(duplicateSearchLevel)
+TMAccount->HCDAPI: performDuplicateAccountCheck
+HCDAPI->TMAccount: return Collection of accounts
+alt DEFAULT_DUPLICATE_BAN_SEARCH_LEVEL 
+TMAccount->HCDAPI: performFindMatchingAccount
+else MIKE_TO_PCS_DUPLICATE_BAN_SEARCH_LEVEL
+TMAccount->HCDAPI: performFindMatchingAccount
+HCDAPI->TMAccount: return Collection of accounts
+end
+alt Collection is empty
+TMAccount->FrontEnd: return new int[0]
+else Collection is not empty
+TMAccount->FrontEnd: return array of duplicate accounts
+end

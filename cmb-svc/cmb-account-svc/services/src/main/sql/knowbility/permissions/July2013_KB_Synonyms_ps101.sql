@@ -1,0 +1,8 @@
+--execute in basread2h
+CREATE OR REPLACE SYNONYM ACC_ATTRIB_RETRIEVAL_PKG FOR amdocs_exto2h.ACC_ATTRIB_RETRIEVAL_PKG;
+CREATE OR REPLACE SYNONYM INVOICE_PKG FOR amdocs_exto2h.INVOICE_PKG;
+CREATE OR REPLACE SYNONYM ACC_RETRIEVAL_PKG FOR amdocs_exto2h.ACC_RETRIEVAL_PKG;
+CREATE OR REPLACE SYNONYM CRDCHECK_RESULT_PKG FOR amdocs_exto2h.CRDCHECK_RESULT_PKG;
+CREATE OR REPLACE SYNONYM subscriber_count_pkg FOR amdocs_exto2h.subscriber_count_pkg;
+CREATE OR REPLACE SYNONYM sub_retrieval_pkg FOR amdocs_exto2h.sub_retrieval_pkg;
+CREATE OR REPLACE SYNONYM sub_attrib_retrieval_pkg FOR amdocs_exto2h.sub_attrib_retrieval_pkg;

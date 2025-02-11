@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<context:annotation-config/>
+
+	<bean id="amdocsSessionManager" class="com.telus.cmb.common.dao.amdocs.AmdocsSessionManager"/>
+
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"/>
+
+	<bean id="knowbilityJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="knowbilityDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+
+	<bean id="ecpcsJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="ecpcsDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+
+	<bean id="easJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="easDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+
+	<bean id="distJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="distDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+
+	<bean id="coneJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="coneDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+	
+	<bean id="codsJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="codsDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+	
+	<bean id="servJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="servDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+
+	<bean id="knowbilityNamedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg name="dataSource" ref="knowbilityDataSource" />		
+	</bean>
+
+	<bean id="helperMultipleJdbcDaoTemplateSupport" abstract="true" class="com.telus.cmb.common.dao.jdbctemplate.MultipleJdbcDaoTemplateSupport"
+		p:knowbilityJdbcTemplate-ref="knowbilityJdbcTemplate"
+		p:ecpcsJdbcTemplate-ref="ecpcsJdbcTemplate"
+		p:easJdbcTemplate-ref="easJdbcTemplate"
+		p:distJdbcTemplate-ref="distJdbcTemplate"
+		p:coneJdbcTemplate-ref="coneJdbcTemplate"
+		p:codsJdbcTemplate-ref="codsJdbcTemplate"
+		p:servJdbcTemplate-ref="servJdbcTemplate"
+		p:knowbilityNamedParameterJdbcTemplate-ref="knowbilityNamedParameterJdbcTemplate"
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.AccountDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.AddressDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+ 	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.DepositDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+ 	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.FleetDaoImpl"  parent="helperMultipleJdbcDaoTemplateSupport"/>
+ 	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.InvoiceDaoImpl"  parent="helperMultipleJdbcDaoTemplateSupport"/>
+ 	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.MemoDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>	
+ 	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.SubscriberEquipmentDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>	
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.PrepaidDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.ProvisioningDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.SubscriberDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.SubscriberInformationCodsDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.ServiceAgreementDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.UsageDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.AdjustmentDaoImpl"  parent="helperMultipleJdbcDaoTemplateSupport"/>
+   	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.SubscriptionServiceDaoImpl" />	
+   	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.CommunicationSuiteDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+   	   	
+
+	<bean class="com.telus.cmb.common.dao.testpoint.DataSourceTestPointDao" parent="helperMultipleJdbcDaoTemplateSupport"/>	
+	
+	<bean id="managerBaseDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.SubscriberDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager">
+		<property name="jdbcTemplateSupport" >
+			<bean class="com.telus.cmb.common.dao.jdbctemplate.MultipleJdbcDaoTemplateSupport" p:codsJdbcTemplate-ref="codsJdbcTemplate"/>
+		</property>
+	</bean>
+	
+	<bean id="idenSubscriberDaoHelper" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.IdenSubscriberDaoHelperImpl" parent="managerBaseDao"/>
+	<bean id="pcsSubscriberDaoHelper" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.PcsSubscriberDaoHelperImpl" parent="managerBaseDao"/>
+	<bean id="newCdpdSubscriberDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.NewCdpdSubscriberDaoImpl" parent="managerBaseDao"/>
+	<bean id="newIdenSubscriberDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.NewIdenSubscriberDaoImpl" p:idenSubscriberDaoHelper-ref="idenSubscriberDaoHelper" parent="managerBaseDao"/>
+	<bean id="newTangoSubscriberDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.NewTangoSubscriberDaoImpl" parent="managerBaseDao"/>	
+	<bean id="newPagerSubscriberDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.NewPagerSubscriberDaoImpl" parent="managerBaseDao"/>	
+	<bean id="newPcsSubscriberDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.NewPcsSubscriberDaoImpl" p:pcsSubscriberDaoHelper-ref="pcsSubscriberDaoHelper" parent="managerBaseDao"/>
+	<bean id="updateCdpdSubscriberDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.UpdateCdpdSubscriberDaoImpl" parent="managerBaseDao"/>	
+	<bean id="updateIdenSubscriberDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.UpdateIdenSubscriberDaoImpl" p:idenSubscriberDaoHelper-ref="idenSubscriberDaoHelper" parent="managerBaseDao"/>
+	<bean id="updateTangoSubscriberDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.UpdateTangoSubscriberDaoImpl" parent="managerBaseDao"/>	
+	<bean id="updatePagerSubscriberDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.UpdatePagerSubscriberDaoImpl" parent="managerBaseDao"/>	
+	<bean id="updatePcsSubscriberDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.UpdatePcsSubscriberDaoImpl" p:pcsSubscriberDaoHelper-ref="pcsSubscriberDaoHelper" parent="managerBaseDao"/>
+
+	<bean id="subscriberDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.SubscriberDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager">
+		<property name="jdbcTemplateSupport">
+			<bean class="com.telus.cmb.common.dao.jdbctemplate.MultipleJdbcDaoTemplateSupport"
+				p:codsJdbcTemplate-ref="codsJdbcTemplate"
+			/>
+		</property>
+	</bean>
+
+	<bean id="managerDaoFactory" class="com.telus.cmb.subscriber.lifecyclemanager.dao.SubscriberDaoFactory"
+		p:newIdenSubscriberDao-ref="newIdenSubscriberDao"
+		p:newCdpdSubscriberDao-ref="newCdpdSubscriberDao"
+		p:newPagerSubscriberDao-ref="newPagerSubscriberDao"
+		p:newTangoSubscriberDao-ref="newTangoSubscriberDao"
+		p:newPcsSubscriberDao-ref="newPcsSubscriberDao"
+		p:updateIdenSubscriberDao-ref="updateIdenSubscriberDao"
+		p:updateCdpdSubscriberDao-ref="updateCdpdSubscriberDao"
+		p:updatePagerSubscriberDao-ref="updatePagerSubscriberDao"
+		p:updateTangoSubscriberDao-ref="updateTangoSubscriberDao"
+		p:updatePcsSubscriberDao-ref="updatePcsSubscriberDao"
+		p:newPcsIdenPcsSubscriberDao-ref="newPcsSubscriberDao"
+		p:newIdenIdenPcsSubscriberDao-ref="newIdenSubscriberDao"
+		p:updateIdenIdenPcsSubscriberDao-ref="updateIdenSubscriberDao"
+		p:updatePcsIdenPcsSubscriberDao-ref="updatePcsSubscriberDao"
+		p:subscriberDao-ref="subscriberDao"
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.UsageDaoAmdocsImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.AddressDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.ServiceAgreementDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.FleetDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.DepositDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+
+</beans> 

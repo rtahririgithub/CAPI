@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+	<import resource="classpath*:/ldap-common.xml"/>
+
+	<bean id="wsConfigMap" class="com.telus.cmb.common.config.CmbConfigurationMap" parent="commonConfigMap">
+		<property name="ldapPathMap">
+			<map merge="true">
+				<entry key="ServiceOrderReferenceFacadeUrl" value="CMB, services, ServiceOrderReferenceFacade, url"/>
+				<entry key="CustomerInformationReferenceFacadeUrl" value="CMB, services, CustomerInformationReferenceFacade, url"/>
+				<entry key="CustomerOrderReferenceFacadeUrl" value="CMB, services, CustomerOrderReferenceFacade, url"/>
+				<entry key="EnterpriseReferenceFacadeUrl" value="CMB, services, EnterpriseReferenceFacade, url"/>
+			</map>
+		</property>
+		<property name="systemPropertyMap">
+			<map merge="true">
+				<entry key="ServiceOrderReferenceFacadeUrl" value="cmb.services.ServiceOrderReferenceFacade.url"/>
+				<entry key="CustomerInformationReferenceFacadeUrl" value="cmb.services.CustomerInformationReferenceFacade.url"/>
+				<entry key="CustomerOrderReferenceFacadeUrl" value="cmb.services.CustomerOrderReferenceFacade.url"/>
+				<entry key="EnterpriseReferenceFacadeUrl" value="cmb.services.EnterpriseReferenceFacade.url"/>
+				<entry key="BillingInquiryReferenceFacadeUrl" value="cmb.services.BillingInquiryReferenceFacade.url"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="configMap" parent="wsConfigMap"/>
+ 
+</beans>

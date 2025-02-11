@@ -1,0 +1,7 @@
+<environment-config>
+	<entry name="cmb-rdm" path="/cmb-ns">
+		<entry name="identityprofile">
+			<entry name="eligibiity-rule" value=""/>
+		</entry>
+	</entry>
+</environment-config>

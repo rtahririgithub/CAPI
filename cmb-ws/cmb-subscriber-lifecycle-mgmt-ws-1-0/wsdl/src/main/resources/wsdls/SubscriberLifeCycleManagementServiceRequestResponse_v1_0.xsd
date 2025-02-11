@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberLifeCycleManagementServiceRequestResponse_v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:srt="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" xmlns:slct="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberLifeCycleCommonTypes_v1" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberLifeCycleManagementServiceRequestResponse_v1" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberLifeCycleCommonTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberLifeCycleCommonTypes_v1_0.xsd"/>
+	<xsd:element name="resumeCancelledSubscriber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="resumeProperties" type="slct:ResumeCancelledSubscriberPropertiesType"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="resumeCancelledSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="restoreSuspendedSubscriber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="restoreProperties" type="slct:RestoreSuspendedSubscriberPropertiesType"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="restoreSuspendedSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cancelSubscriber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="cancelProperties" type="slct:CancelSubscriberPropertiesType"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cancelSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="WarningType" type="tns:WarningType"/>
+	<xsd:complexType name="WarningType">
+		<xsd:sequence>
+			<xsd:element name="systemCode" type="xsd:string"/>
+			<xsd:element name="warningType" type="xsd:string"/>
+			<xsd:element name="warning" type="tns:WarningBaseType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WarningBaseType">
+		<xsd:sequence>
+			<xsd:element name="messageId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningMessage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="variables" type="xsd:string" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

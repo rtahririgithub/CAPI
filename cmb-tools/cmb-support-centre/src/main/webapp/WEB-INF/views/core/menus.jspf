@@ -1,0 +1,32 @@
+
+<div
+	class="nav-collapse collapse navbar-collapse navbar-responsive-collapse">
+	<ul class="nav navbar-nav text-uppercase">
+		<li class="dropdown dropdown-fw open selected"><a href="javascript:;"> Administration </a>
+			<ul class="dropdown-menu dropdown-menu-fw">
+				<li class="active"><a href="inner.html">Users</a></li>
+				<li><a href="inner.html">Environments</a></li>
+				<li><a href="inner.html">Artifacts</a></li>
+			</ul></li>
+		<li class="dropdown dropdown-fw"><a href="javascript:;"> Development </a>
+			<ul class="dropdown-menu dropdown-menu-fw">
+				<li><a href="inner.html">Encryption</a></li>
+				<li><a href="inner.html">Configuration</a></li>
+			</ul></li>
+		<li class="dropdown dropdown-fw"><a href="javascript:;"> Maintenance </a>
+			<ul class="dropdown-menu dropdown-menu-fw">
+				<li><a href="inner.html">Marketplace</a></li>
+				<li><a href="inner.html">Support Forums</a></li>
+				<li><a href="inner.html">Dashboard</a></li>
+				<li><a href="inner.html">Author Blogs</a></li>
+				<li><a href="inner.html">Affiliate Programs</a></li>
+			</ul></li>
+		<li class="dropdown more-dropdown"><a href="javascript:;"
+			data-close-others="true"> More </a>
+			<ul class="dropdown-menu">
+				<li><a href="inner.html">Todo</a></li>
+				<li><a href="inner.html">FAQ</a></li>
+				<li><a href="inner.html">Contacts</a></li>
+			</ul></li>
+	</ul>
+</div>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+
+<application name="Client API CMB Subscriber Web Services" shortname="cmbsubws" path="/${root}/${host}/wls/8.1/${env}/logs/applications/${domain}/${node}/applications/${artifact}-${version}/">
+
+	<overrideValue name="env" value="P" environments="pra,prb"/>
+	<overrideValue name="env" value="S1" environments="st101a,st101b"/>
+	<overrideValue name="env" value="PT148" environments="pt148"/>
+	<overrideValue name="env" value="Q2" environments="pt140"/>
+	<overrideValue name="env" value="PT168" environments="pt168"/>
+	<overrideValue name="env" value="DV103" environments="dv103"/>
+	
+	<component name="SubscriberInformationHistoryService 1.0 (CC)">
+		<artifact name="cmb-subscriber-info-hist-service" version="10" appMap="cmb-subscriber-info-hist-service-10"/>
+	</component>	
+	<component name="SubscriberInformationHistoryService 1.1 (CC)">
+		<artifact name="cmb-subscriber-info-hist-service" version="11" appMap="cmb-subscriber-info-hist-service-10"/>
+	</component>	
+	<component name="SubscriberInformationService 3.4" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-subscriber-info-ws" version="3-4" appMap="cmb-subscriber-info-service-34"/>
+	</component>	
+	<component name="SubscriberInformationService 4.0" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-subscriber-info-ws" version="4_0" appMap="cmb-subscriber-info-service-34"/>
+	</component>	
+	<component name="SubscriberLifecycleManagementService 1.4 (CC)">
+		<artifact name="cmb-subscriber-life-cycle-mgmt-service" version="14" appMap="cmb-subscriber-life-cycle-mgmt-service-14"/>
+	</component>	
+	<component name="SubscriberLifecycleManagementService 1.5" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-subscriber-lifecycle-mgmt-ws" version="1-5" appMap="cmb-subscriber-lifecycle-mgmt-ws-1-5"/>
+	</component>	
+	<component name="SubscriberManagementService 4.1" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-subscriber-mgmt-ws" version="4_1" appMap="cmb-subscriber-mgmt-ws-4-1"/>
+	</component>	
+	<component name="SubscriberManagementService 4.2" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-subscriber-mgmt-ws" version="4_2"/>
+	</component>	
+	<component name="SubscriberManagementService 5.0" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-subscriber-mgmt-ws" version="5_0"/>
+	</component>	
+</application>
+	

@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb</groupId>
+		<artifactId>pom-cmb</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	
+	<groupId>telus.cust.cmb.cctest</groupId>
+	<artifactId>pom-cmb-cctest</artifactId>
+	<packaging>pom</packaging>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>telus.customer.clientapi</groupId>
+				<artifactId>TELUS-ClientAPI-J2EEProvider</artifactId>
+				<version>3.42-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.dspace.dependencies.jmockit</groupId>
+				<artifactId>dspace-jmockit</artifactId>
+				<version>0.999.4</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>1.9.5</version>
+			</dependency>
+			
+		</dependencies>
+	</dependencyManagement>
+	
+	<modules>
+		<module>cmb-cctest-common-svc</module>
+		<module>cmb-cctest-account-svc</module>
+		<module>cmb-cctest-subscriber-svc</module>
+		<module>cmb-cctest-equipment-svc</module>
+		<module>cmb-cctest-reference-svc</module>
+		<module>cmb-cctest-utility-svc</module>
+		<module>cmb-cctest-monitoring-svc</module>
+		<module>cmb-cctest-domain</module>
+		<module>cmb-cctest-provider</module>
+	</modules>
+	
+</project>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>AccountInformationService</Name>
+		<Documentation>Provides the ability to retrieve and update Account Information Data</Documentation>
+		<TAM_LevelZeroAndOne>CMO/InformationMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/AccountInformation</ServiceTaxonomy>
+		<MajorVersion>3</MajorVersion>
+		<MinorVersion>3</MinorVersion>
+		<soapAddress>http://cmosr-custinfomgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>AccountInformationServiceRequestResponse_v3_3.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/AccountInformationServiceRequestResponse_v3</NameSpace>
+		<nsAbbrev>ais</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getAccountByAccountNumber</OperationName>
+		<Documentation>Retrieves Account By Account Number.</Documentation>
+		<InputType wsp="True">getAccountByAccountNumber</InputType>
+		<OutputType>getAccountByAccountNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAccountByPhoneNumber</OperationName>
+		<Documentation>Retrieves Account By Phone Number.</Documentation>
+		<InputType wsp="True">getAccountByPhoneNumber</InputType>
+		<OutputType>getAccountByPhoneNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAccountListByAccountNumbers</OperationName>
+		<Documentation>Retrieves Accounts By Account Numbers.</Documentation>
+		<InputType wsp="True">getAccountListByAccountNumbers</InputType>
+		<OutputType>getAccountListByAccountNumbersResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAccountListByIMSI</OperationName>
+		<Documentation>Retrieves an account list for a given IMSI value</Documentation>
+		<InputType wsp="True">getAccountListByIMSI</InputType>
+		<OutputType>getAccountListByIMSIResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updateEmailAddress</OperationName>
+		<Documentation>Updates Email Address on the Account</Documentation>
+		<InputType wsp="True">updateEmailAddress</InputType>
+		<OutputType>updateEmailAddressResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getEmailAddress</OperationName>
+		<Documentation>Return Email Address on the Account</Documentation>
+		<InputType wsp="True">getEmailAddress</InputType>
+		<OutputType>getEmailAddressResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updateInvoicePropertyList</OperationName>
+		<Documentation>Updates Invoice Properties on Postpaid Account</Documentation>
+		<InputType wsp="True">updateInvoicePropertyList</InputType>
+		<OutputType>updateInvoicePropertyListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getInvoicePropertyList</OperationName>
+		<Documentation>Return Invoice Properties for Postpaid account</Documentation>
+		<InputType wsp="True">getInvoicePropertyList</InputType>
+		<OutputType>getInvoicePropertyListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getBillingInformation</OperationName>
+		<Documentation>Retrieve account billing information</Documentation>
+		<InputType wsp="True">getBillingInformation</InputType>
+		<OutputType>getBillingInformationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updateContactInformation</OperationName>
+		<Documentation>Updates personal contact information</Documentation>
+		<InputType wsp="True">updateContactInformation</InputType>
+		<OutputType>updateContactInformationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getContactInformation</OperationName>
+		<Documentation>Retrieve personal contact information</Documentation>
+		<InputType wsp="True">getContactInformation</InputType>
+		<OutputType>getContactInformationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getBillCyclePropertyList</OperationName>
+		<Documentation>Retrieve bill cycle propertly list</Documentation>
+		<InputType wsp="True">getBillCyclePropertyList</InputType>
+		<OutputType>getBillCyclePropertyList</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getLastMemo</OperationName>
+		<Documentation>Return last memo on the Account for given memoType</Documentation>
+		<InputType wsp="True">getLastMemo</InputType>
+		<OutputType>getLastMemoResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+	<Operation>
+		<OperationName>createMemo</OperationName>
+		<Documentation>Create account level memo</Documentation>
+		<InputType wsp="True">createMemo</InputType>
+		<OutputType>createMemoResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>checkInternationalServiceEligibility</OperationName>
+		<Documentation>Determines the international dialing and roaming eligibility and the deposit amount needed to fund it</Documentation>
+		<InputType wsp="True">checkInternationalServiceEligibility</InputType>
+		<OutputType>checkInternationalServiceEligibilityResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>		
+	<Operation>
+		<OperationName>getPersonalCreditInformation</OperationName>
+		<Documentation>retrieve personal credit profile</Documentation>
+		<InputType wsp="True">getPersonalCreditInformation</InputType>
+		<OutputType>getPersonalCreditInformationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>		
+	<Operation>
+		<OperationName>getBusinessCreditInformation</OperationName>
+		<Documentation>retrieve business credit profile</Documentation>
+		<InputType wsp="True">getBusinessCreditInformation</InputType>
+		<OutputType>getBusinessCreditInformationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+	<Operation>
+		<OperationName>updatePaymentMethod</OperationName>
+		<Documentation>Updates payment method.</Documentation>
+		<InputType wsp="True">updatePaymentMethod</InputType>
+		<OutputType>updatePaymentMethodResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation> 
+			<type>UserHeader</type> 
+		    <soapHeaderType>explicit</soapHeaderType> 
+		 </InputSoapHeaderType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>registerTopUpCreditCard</OperationName>
+		<Documentation>Registers Top Up Credit Card.</Documentation>
+		<InputType wsp="True">registerTopUpCreditCard</InputType>
+		<OutputType>registerTopUpCreditCardResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation> 
+			<type>UserHeader</type> 
+		    <soapHeaderType>explicit</soapHeaderType> 
+		 </InputSoapHeaderType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>removeTopUpCreditCard</OperationName>
+		<Documentation>Remove Top Up Credit Card.</Documentation>
+		<InputType wsp="True">removeTopUpCreditCard</InputType>
+		<OutputType>removeTopUpCreditCardResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+	<Operation>
+		<OperationName>createFollowUp</OperationName>
+		<Documentation>Create account level follow up, sync or async</Documentation>
+		<InputType wsp="True">createFollowUp</InputType>
+		<OutputType>createFollowUpResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+	<Operation>
+		<OperationName>getSubscriberEligibilitySupportingInfo</OperationName>
+		<Documentation>This operation provides ability to retrieve supporting data required by add-on subscriber eligibility check. Expected consumer is Risk Management team. Will return the last memo for each given memo type, the sum of actual amounts in customer payment history for given period, the sum of actual Deposit Paid Amount in customer deposit history for given period.</Documentation>
+		<InputType wsp="True">getSubscriberEligibilitySupportingInfo</InputType>
+		<OutputType>getSubscriberEligibilitySupportingInfoResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getCustomerNotificationPreferenceList</OperationName>
+		<Documentation>This operation provides ability to retrieve preferred contact type(s) for a given subscriber.</Documentation>
+		<InputType wsp="True">getCustomerNotificationPreferenceList</InputType>
+		<OutputType>getCustomerNotificationPreferenceListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updateCustomerNotificationPreferenceList</OperationName>
+		<Documentation>This operation provides ability to update preferred contact type(s) for a given subscriber.</Documentation>
+		<InputType wsp="True">updateCustomerNotificationPreferenceList</InputType>
+		<OutputType>updateCustomerNotificationPreferenceListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

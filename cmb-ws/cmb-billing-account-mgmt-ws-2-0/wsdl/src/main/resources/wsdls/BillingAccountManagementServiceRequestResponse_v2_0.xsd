@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/BillingAccountMgmt/BillingAccountManagementServiceRequestResponse_v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" xmlns:acc="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v2" xmlns:avalon="http://schemas.telus.com/avalon/common/v1_0" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/BillingAccountMgmt/BillingAccountManagementServiceRequestResponse_v2" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v2" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v2_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3_0.xsd"/>
+	<xsd:import namespace="http://schemas.telus.com/avalon/common/v1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/AvalonCommonSchema_v1_0.xsd"/>
+	<xsd:complexType name="CreditCardValidationType">
+		<xsd:sequence>
+			<xsd:element name="validateCreditCardInd" type="xsd:boolean"/>
+			<xsd:element name="businessRole" type="common:BusinessRole" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="updatePaymentMethod">
+		<xsd:annotation>
+			<xsd:documentation>Only applies to postpaid subscribers.  For prepaid subscribers use equivalent prepaid operations: registerTopUpCreditCard, removeTopUpCreditCard</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="paymentMethod" type="common:PaymentMethod"/>
+				<xsd:element name="paymentMethodValidation" type="tns:CreditCardValidationType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updatePaymentMethodResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="authorization" type="common:PaymentMethodAuthorizationType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="registerTopUpCreditCard">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="creditCard" type="common:CreditCard"/>
+				<xsd:element name="creditCardValidation" type="tns:CreditCardValidationType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="registerTopUpCreditCardResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="authorization" type="common:PaymentMethodAuthorizationType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="removeTopUpCreditCard">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="removeTopUpCreditCardResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateCreditCheckResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="IDENInd" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="currentCreditCheckResult" type="common:CreditCheckResult"/>
+				<xsd:element name="newCreditCheckResult" type="common:CreditCheckResult"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateCreditCheckResultResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="saveCreditCheckResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="creditCheckResult" type="common:CreditCheckResult"/>
+				<xsd:element name="bureauFile" type="xsd:base64Binary" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="saveCreditCheckResultResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UserHeader" type="avalon:OriginatingUserType"/>
+</xsd:schema>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>BillingInquiryReferenceService</Name>
+		<Documentation>Provides the ability to retrieve Reference Data</Documentation>
+		<TAM_LevelZeroAndOne>CMO/BillingInquiryMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/BillingInquiryReference</ServiceTaxonomy>
+		<MajorVersion>2</MajorVersion>
+		<MinorVersion>1</MinorVersion>
+		<soapAddress>http://cmbilling-billinginquiry-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>BillingInquiryReferenceServiceRequestResponse_v2_1.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/BillingInquiryReferenceServiceRequestResponse_v2</NameSpace>
+		<nsAbbrev>bir</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getPaymentSourceTypeList</OperationName>
+		<Documentation>Retrieves Payment Source Types.</Documentation>
+		<InputType wsp="True">getPaymentSourceTypeList</InputType>
+		<OutputType>getPaymentSourceTypeListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPaymentMethodList</OperationName>
+		<Documentation>Retrieves Payment Methods.</Documentation>
+		<InputType wsp="True">getPaymentMethodList</InputType>
+		<OutputType>getPaymentMethodListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPrepaidRechargeDenominationList</OperationName>
+		<Documentation>Retrieves Prepaid Recharge Denominations.</Documentation>
+		<InputType wsp="True">getPrepaidRechargeDenominationList</InputType>
+		<OutputType>getPrepaidRechargeDenominationListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAdjustmentReasonList</OperationName>
+		<Documentation>Retrieves all the credits (adjustments) that can be applied to an account.</Documentation>
+		<InputType wsp="True">getAdjustmentReasonList</InputType>
+		<OutputType>getAdjustmentReasonListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAdjustmentReason</OperationName>
+		<Documentation>Retrieves the credit (adjustment) by code that can be applied to an account.</Documentation>
+		<InputType wsp="True">getAdjustmentReason</InputType>
+		<OutputType>getAdjustmentReasonResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getManualChargeTypeList</OperationName>
+		<Documentation>Retrieves the one-time charge details for all manual charge types.</Documentation>
+		<InputType wsp="True">getManualChargeTypeList</InputType>
+		<OutputType>getManualChargeTypeListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getManualChargeType</OperationName>
+		<Documentation>Retrieves the one-time charge details by code for a manual charge type.</Documentation>
+		<InputType wsp="True">getManualChargeType</InputType>
+		<OutputType>getManualChargeTypeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPaperBillChargeType</OperationName>
+		<Documentation>Retrieves the one-time charge details for paper bill on the account for a charge type.</Documentation>
+		<InputType wsp="True">getPaperBillChargeType</InputType>
+		<OutputType>getPaperBillChargeTypeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getTaxRateList</OperationName>
+		<Documentation>Retrieves applicable taxes by province code.</Documentation>
+		<InputType wsp="True">getTaxRateList</InputType>
+		<OutputType>getTaxRateListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getTaxRateListByProvince</OperationName>
+		<Documentation>Retrieves applicable taxes by province code.</Documentation>
+		<InputType wsp="True">getTaxRateListByProvince</InputType>
+		<OutputType>getTaxRateListByProvinceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getTaxCalculationListByProvince</OperationName>
+		<Documentation>Retrieves applicable tax charges for a predefined amount based on  province code.</Documentation>
+		<InputType wsp="True">getTaxCalculationListByProvince</InputType>
+		<OutputType>getTaxCalculationListByProvinceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getBillingCycleList</OperationName>
+		<Documentation>Retrieve all defined billing cycles and definitions of each.</Documentation>
+		<InputType wsp="True">getBillingCycleList</InputType>
+		<OutputType>getBillingCycleListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getBillingCycle</OperationName>
+		<Documentation>Retrieve billing cycle by billing cycle code.</Documentation>
+		<InputType wsp="True">getBillingCycle</InputType>
+		<OutputType>getBillingCycleResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>		
+	<Operation>
+		<OperationName>getDiscountPlan</OperationName>
+		<Documentation>Retrieves the discount details given a discount code.  These discounts are PricePlan independent.  This data is cached.</Documentation>
+		<InputType wsp="True">getDiscountPlan</InputType>
+		<OutputType>getDiscountPlanResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+		<Operation>
+		<OperationName>getDiscountPlanListByActiveInd</OperationName>
+		<Documentation>Retrieves a list of discount that are active, if the indicator is set.  Otherwise, returns all discounts.  These discounts are PricePlan independent.  This data is cached.</Documentation>
+		<InputType wsp="True">getDiscountPlanListByActiveInd</InputType>
+		<OutputType>getDiscountPlanListByActiveIndResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+		<Operation>
+		<OperationName>getDiscountPlanListByPricePlan</OperationName>
+		<Documentation>Retrieves a list of discounts based on PricePlan attributes.  This data is not cached.</Documentation>
+		<InputType wsp="True">getDiscountPlanListByPricePlan</InputType>
+		<OutputType>getDiscountPlanListByPricePlanResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+</Service>

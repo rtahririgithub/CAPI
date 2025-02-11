@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<application name="Client API CMB Reference Web Services" shortname="cmbrefws" path="/${root}/${host}/wls/8.1/${env}/logs/applications/${domain}/${node}/applications/${artifact}-${version}/">
+
+	<overrideValue name="env" value="P" environments="pra,prb"/>
+	<overrideValue name="env" value="S1" environments="st101a,st101b"/>
+	<overrideValue name="env" value="PT148" environments="pt148"/>
+	<overrideValue name="env" value="Q2" environments="pt140"/>
+	<overrideValue name="env" value="PT168" environments="pt168"/>
+	<overrideValue name="env" value="DV103" environments="dv103"/>
+	
+	<component name="CustomerInformationReferenceService 1.0 (CC)">
+		<artifact name="cmb-customer-information-reference-service" version="10" appMap="CustomerInformationReferenceService 10"/>	
+	</component>	
+	<component name="ResourceOrderReferenceService 1.0 (CC)">
+		<artifact name="cmb-resource-order-reference-service" version="10" appMap="ResourceOrderReferenceService 10"/>
+	</component>	
+	<component name="ResourceOrderReferenceService 1.1 (CC)">
+		<artifact name="cmb-resource-order-reference-service" version="11" appMap="cmb-resource-order-reference-service-11"/>
+	</component>	
+	<component name="ServiceOrderReferenceService 5.0" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-service-order-reference-ws" version="5_0" appMap="cmb-service-order-reference-ws-xx"/>	
+	</component>	
+	<component name="ServiceOrderReferenceService 5.1" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-service-order-reference-ws" version="5_1" appMap="cmb-service-order-reference-ws-xx"/>	
+	</component>	
+	<component name="ServiceOrderReferenceService 5.2" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-service-order-reference-ws" version="5_2" appMap="cmb-service-order-reference-ws-xx"/>	
+	</component>	
+	<component name="ServiceOrderReferenceService 5.3" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-service-order-reference-ws" version="5_3" appMap="cmb-service-order-reference-ws-xx"/>	
+	</component>		
+	<component name="ServiceOrderReferenceService 5.4" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-service-order-reference-ws" version="5_4" appMap="cmb-service-order-reference-ws-xx"/>	
+	</component>		
+		
+	<!--  Decommissioned -->
+	<!-- 
+	<component name="CustomerOrderReferenceService 1.0 (CC)">
+		<artifact name="cmb-customer-order-reference-service" version="10" appMap="CustomerOrderReferenceService 10"/>	
+	</component>
+	 -->		
+</application>
+
+	

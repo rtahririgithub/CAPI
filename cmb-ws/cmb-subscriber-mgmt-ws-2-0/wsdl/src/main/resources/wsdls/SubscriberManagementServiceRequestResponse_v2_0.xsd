@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2012 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberManagementServiceRequestResponse_v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:smc="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberManagementCommonTypes_v2" xmlns:srt="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" xmlns:serv="http://xmlschema.tmi.telus.com/xsd/Service/Service/SubscriberServiceAgreementTypes_v2" xmlns:acc="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3" xmlns:sub="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v2" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberManagementServiceRequestResponse_v2" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberManagementCommonTypes_v2" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberManagementCommonTypes_v2_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Service/Service/SubscriberServiceAgreementTypes_v2" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Service/Service/SubscriberServiceAgreementTypes_v2_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v2" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v2_0.xsd"/>
+	<xsd:element name="openSession">
+		<xsd:annotation>
+			<xsd:documentation>Open Amdocs Session using pricipal, credential and application code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="principal" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Amdocs KNOWBility Identifier</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="credential" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Amdocs KNOWBility encrypted password associated with pricipal.  Credential is encrypted using Frameworks utility com.telus.framework.crypto.EncryptionUtil encrypt(string)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="applicationCode" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Amdocs KNOWBility Application Code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="openSessionResponse">
+		<xsd:annotation>
+			<xsd:documentation>Open Amdocs Session returned session ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sessionIdentifier" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Encrypted session identifier assigned to Amdocs KNOWBility Session.  The session identifier should be utilized in all Amdocs KNOWBility related transactions.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="changePhoneNumber">
+		<xsd:annotation>
+			<xsd:documentation>Change phone number (applies to PCS only)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sessionIdentifier" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Encrypted session identifier assigned to Amdocs KNOWBility Session. If the session identifier is not specified, the Amdocs KNOWBility session will be opened leveraging SOA Application ID generic mapping to Amdocs KB ID.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="subscriberData" type="tns:SubscriberData">
+					<xsd:annotation>
+						<xsd:documentation>Current subscriber data - subscriber ID, billing account number, product type and if available, account info and subscriber info.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile">
+					<xsd:annotation>
+						<xsd:documentation>KB dealer code and sales rep code.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="phoneNumberChangeRequest" type="smc:PhoneNumberChangeRequest"/>
+				<xsd:element name="ServiceRequestHeader" type="srt:ServiceRequestHeader" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="changePhoneNumberResponse">
+		<xsd:annotation>
+			<xsd:documentation>Change phone number response (applies to PCS only)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="changePhoneNumberResponseType" type="tns:changePhoneNumberResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="changeEquipment">
+		<xsd:annotation>
+			<xsd:documentation>Change equipment (applies to PCS only)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sessionIdentifier" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Encrypted session identifier assigned to Amdocs KNOWBility Session. If the session identifier is not specified, the Amdocs KNOWBility session will be opened leveraging SOA Application ID generic mapping to Amdocs KB ID.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="subscriberData" type="tns:SubscriberData">
+					<xsd:annotation>
+						<xsd:documentation>Current subscriber data - subscriber ID, billing account number, product type and if available, account info and subscriber info.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile">
+					<xsd:annotation>
+						<xsd:documentation>KB dealer code and sales rep code.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="equipmentChangeRequest" type="smc:EquipmentChangeRequest"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="changeEquipmentResponse">
+		<xsd:annotation>
+			<xsd:documentation>Change equipment response (applies to PCS only)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="changeEquipmentResponseType" type="tns:changeEquipmentResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceAgreement">
+		<xsd:annotation>
+			<xsd:documentation>Retrieval of service agreement (light weight)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>One of combination of billing account number and subscriber number or subscriber number is required to identify the subscriber.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>One of combination of billing account number and subscriber number or subscriber number is required to identify the subscriber.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>One of phone number or combination of Billing Account Number and Subscriber Number is required.  If only phone number is required, the assumption is that the phone number is an active or suspended number.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceAgreementResponse">
+		<xsd:annotation>
+			<xsd:documentation>Retrieval of service agreement response (light weight)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceAgreement" type="smc:ServiceAgreement"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceAgreementForUpdate">
+		<xsd:annotation>
+			<xsd:documentation>Retrieval of service agreement, subscriber, account details.  Pre-requesite for calling prepopulateCallingCircleList, validateServiceAgreement, saveServiceAgreement.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>One of combination of billing account number and subscriber number or subscriber number is required to identify the subscriber.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>One of combination of billing account number and subscriber number or subscriber number is required to identify the subscriber.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>One of phone number or combination of Billing Account Number and Subscriber Number is required.  If only phone number is required, the assumption is that the phone number is an active or suspended number.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceAgreementForUpdateResponse">
+		<xsd:annotation>
+			<xsd:documentation>Retrieval of service agreement, subscriber, account details reponse.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getServiceAgreementForUpdateResponseType" type="tns:getServiceAgreementForUpdateResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="validateServiceAgreement">
+		<xsd:annotation>
+			<xsd:documentation>Validation of the new service agreement.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sessionIdentifier" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Encrypted session identifier assigned to Amdocs KNOWBility Session. If the session identifier is not specified, the Amdocs KNOWBility session will be opened leveraging SOA Application ID generic mapping to Amdocs KB ID.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="subscriberData" type="tns:SubscriberData">
+					<xsd:annotation>
+						<xsd:documentation>Current subscriber data - subscriber ID, billing account number, product type and if available, account info and subscriber info.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile">
+					<xsd:annotation>
+						<xsd:documentation>KB dealer code and sales rep code.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="currentServiceAgreement" type="smc:ServiceAgreement" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Curent Service Agreement object, if available.   If the current service agreement is not available, it will be retrieved, which will impact overall performance.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="newServiceAgreement" type="smc:ServiceAgreement">
+					<xsd:annotation>
+						<xsd:documentation>New Service Agreement or list of changes to current service agreement.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="equipmentChangeRequest" type="smc:EquipmentChangeRequest" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Equipment change request details, if included.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="validateServiceAgreementResponse">
+		<xsd:annotation>
+			<xsd:documentation>Validation of the new service agreement response.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="validateServiceAgreementResponseType" type="tns:validateServiceAgreementResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="saveServiceAgreement">
+		<xsd:annotation>
+			<xsd:documentation>Commitment of the new service agreement.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sessionIdentifier" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Encrypted session identifier assigned to Amdocs KNOWBility Session. If the session identifier is not specified, the Amdocs KNOWBility session will be opened leveraging SOA Application ID generic mapping to Amdocs KB ID.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="subscriberData" type="tns:SubscriberData">
+					<xsd:annotation>
+						<xsd:documentation>Current subscriber data - subscriber ID, billing account number, product type and if available, account info and subscriber info.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile">
+					<xsd:annotation>
+						<xsd:documentation>KB dealer code and sales rep code.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="currentServiceAgreement" type="smc:ServiceAgreement" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Current Service Agreement, if available.   If the current service agreement is not available, it will be retrieved, which will impact overall performance</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="newServiceAgreement" type="smc:ServiceAgreement">
+					<xsd:annotation>
+						<xsd:documentation>New Service Agreement or list of changes to the current service agreement.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="equipmentChangeRequest" type="smc:EquipmentChangeRequest" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>New equipment change request, if applicable</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ServiceRequestHeader" type="srt:ServiceRequestHeader" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>SRPDS Header details, if SRPDS message is required.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="saveServiceAgreementResponse">
+		<xsd:annotation>
+			<xsd:documentation>Commitment of the new service agreement response.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="saveServiceAgreementResponseType" type="tns:saveServiceAgreementResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="prepopulateCallingCircleList">
+		<xsd:annotation>
+			<xsd:documentation>Pre-populating calling circle list of the new service agreement.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sessionIdentifier" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Encrypted session identifier assigned to Amdocs KNOWBility Session. If the session identifier is not specified, the Amdocs KNOWBility session will be opened leveraging SOA Application ID generic mapping to Amdocs KB ID.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="subscriberData" type="tns:SubscriberData">
+					<xsd:annotation>
+						<xsd:documentation>Current subscriber data - subscriber ID, billing account number, product type and if available, account info and subscriber info.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="previousSubscriberData" type="tns:SubscriberData" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Current subscriber data - subscriber ID, billing account number, product type.  Only required in the case of a migration where the old subscriber number and account number are required.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile">
+					<xsd:annotation>
+						<xsd:documentation>KB dealer code and sales rep code.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="currentServiceAgreement" type="smc:ServiceAgreement" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Current Service Agreement object, if available.   If the current service agreement is not available, it will be retrieved, which will impact overall performance.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="newServiceAgreement" type="smc:ServiceAgreement">
+					<xsd:annotation>
+						<xsd:documentation>New Service Agreement or list of changes to current service agreement. </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="prepopulateCallingCircleListResponse">
+		<xsd:annotation>
+			<xsd:documentation>Pre-populating calling circle list of the new service agreement response.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="prepopulateCallingCircleListResponseType" type="tns:prepopulateCallingCircleListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="WarningType" type="tns:WarningType"/>
+	<xsd:complexType name="WarningType">
+		<xsd:sequence>
+			<xsd:element name="systemCode" type="xsd:string"/>
+			<xsd:element name="warningType" type="xsd:string"/>
+			<xsd:element name="warning" type="tns:WarningBaseType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ApplicationMessage">
+		<xsd:sequence>
+			<xsd:element name="messageId" type="xsd:long"/>
+			<xsd:element name="messageCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="applicationId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="audienceTypeId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="messageTypeId" type="xsd:int"/>
+			<xsd:element name="brandId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="messageText" type="tns:MessageTextType" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MessageTextType">
+		<xsd:sequence>
+			<xsd:element name="languageType" type="common:Language"/>
+			<xsd:element name="messageText" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WarningBaseType">
+		<xsd:sequence>
+			<xsd:element name="messageId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningMessage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="variables" type="xsd:string" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="changePhoneNumberResponseType">
+		<xsd:sequence>
+			<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="changeEquipmentResponseType">
+		<xsd:sequence>
+			<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			<xsd:element name="applicationMessageList" type="tns:ApplicationMessage" minOccurs="0" maxOccurs="1000"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="getServiceAgreementForUpdateResponseType">
+		<xsd:sequence>
+			<xsd:element name="account" type="acc:Account"/>
+			<xsd:element name="subscriber" type="sub:Subscriber"/>
+			<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+			<xsd:element name="serviceAgreement" type="smc:ServiceAgreement"/>
+			<xsd:element name="equipmentChangeRequest" type="smc:EquipmentChangeRequest" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="prepopulateCallingCircleListResponseType">
+		<xsd:sequence>
+			<xsd:element name="serviceAgreement" type="smc:ServiceAgreement">
+				<xsd:annotation>
+					<xsd:documentation>Updated service agreement object included changed, added and removed services.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="validateServiceAgreementResponseType">
+		<xsd:sequence>
+			<xsd:element name="validatedUserProfile" type="srt:UserServiceProfile"/>
+			<xsd:element name="validatedServiceAgreement" type="smc:ServiceAgreement"/>
+			<xsd:element name="validatedEquipmentChangeRequest" type="smc:EquipmentChangeRequest" minOccurs="0"/>
+			<xsd:element name="applicationMessageList" type="tns:ApplicationMessage" minOccurs="0" maxOccurs="1000"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="saveServiceAgreementResponseType">
+		<xsd:sequence>
+			<xsd:element name="savedUserProfile" type="srt:UserServiceProfile"/>
+			<xsd:element name="savedServiceAgreement" type="smc:ServiceAgreement"/>
+			<xsd:element name="savedEquipmentChangeRequest" type="smc:EquipmentChangeRequest" minOccurs="0"/>
+			<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			<xsd:element name="applicationMessageList" type="tns:ApplicationMessage" minOccurs="0" maxOccurs="1000"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubscriberData">
+		<xsd:sequence>
+			<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+			<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+			<xsd:element name="account" type="acc:Account" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Current account object, if available.  If the account object is not passed in, an account retrieval will be managed in the backend implementation, impacting service operation performance.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="subscriber" type="sub:Subscriber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Current subscriber object, if available. If the subscriber object is not passed in, an account retrieval will be managed in the backend implementation, impacting service operation performance.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="productType" type="common:ProductType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>KB product type.  Optional, if not provide it in this element or as part of SubscriberInfo object, it will require an additional retrieval in the backend service.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

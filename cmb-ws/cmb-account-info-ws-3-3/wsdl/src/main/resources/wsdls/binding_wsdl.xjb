@@ -1,0 +1,17 @@
+<bindings xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxws"
+	wsdlLocation="AccountInformationService_v3_3.wsdl" xmlns="http://java.sun.com/xml/ns/jaxws">
+
+	<enableWrapperStyle>true</enableWrapperStyle>
+
+	<package name="com.telus.cmb.jws" />
+
+	<bindings
+		node="wsdl:definitions/wsdl:portType[@name='AccountInformationServicePortType']">
+		<class name="AccountInformationServicePort" />
+	</bindings>
+	<bindings
+		node="wsdl:definitions/wsdl:service[@name='AccountInformationService_v3_3']">
+		<class name="AccountInformationService" />
+	</bindings>
+</bindings>

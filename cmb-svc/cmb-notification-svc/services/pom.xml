@@ -1,0 +1,110 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb.svc.notification</groupId>
+		<artifactId>pom-cmb-notification-svc</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cmb-notification-svc-services</artifactId>
+	<packaging>jar</packaging>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common</groupId>
+			<artifactId>cmb-common-svc</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>ent-form-letter-mgmt-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.TELUS_Reference_PDS</groupId>
+			<artifactId>telus-ref-rpds-access-client</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.TELUS_Reference_PDS</groupId>
+			<artifactId>telus-ref-rpds-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>weblogic</groupId>
+			<artifactId>wlfullclient</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>telus-maven.plugins.cis</groupId>
+				<artifactId>cis-ldifgen-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>jaxb2-xsdToJava</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<verbose>true</verbose>
+							<generateDirectory>target/generated-sources</generateDirectory>
+							<schemaIncludes>
+								<schemaInclude>AccountInfo_v1_0.xsd</schemaInclude>
+								<schemaInclude>AccountInfo_v2_0.xsd</schemaInclude>
+								<schemaInclude>AccountInfo_v3_0.xsd</schemaInclude>
+								<schemaInclude>WirelessServiceInfo_v1_0.xsd</schemaInclude>
+								<schemaInclude>WirelessServiceInfo_v2_0.xsd</schemaInclude>
+							</schemaIncludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+				<configuration>
+					<showWeaveInfo>false</showWeaveInfo>
+					<Xlint>ignore</Xlint>
+					<aspectLibraries>
+						<aspectLibrary>
+							<groupId>telus.cust.cmb.common</groupId>
+							<artifactId>cmb-framework</artifactId>
+						</aspectLibrary>
+					</aspectLibraries>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>BuildServer</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<excludes>
+								<exclude>**/*.java</exclude>
+							</excludes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<bean id="amdocsSessionManager" class="com.telus.cmb.common.dao.amdocs.AmdocsSessionManager"/>
+	
+	<bean
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject">
+			<!-- System.getProperties() -->
+			<bean
+				class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+				<property name="targetClass" value="java.lang.System" />
+				<property name="targetMethod" value="getProperties" />
+			</bean>
+		</property>
+		<property name="targetMethod" value="putAll" />
+		<property name="arguments">
+			<!-- The new Properties -->
+			<util:properties>
+            	<prop key="com.telusmobility.config.java.naming.factory.initial">com.sun.jndi.ldap.LdapCtxFactory</prop>
+            	<prop key="com.telusmobility.config.java.naming.provider.url">ldap://ldapread-d3.tmi.telus.com:489/cn=development3_81,o=telusconfiguration</prop>
+			</util:properties>
+		</property>
+	</bean>
+	
+	<bean id="ecmsDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@crab:41521:D2ECMS"/>
+		<property name="username" value="basread3"/>
+		<property name="password" value="basread3"/>
+	</bean>
+
+	<bean id="codsDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@crab:1521:DCODS"/>
+		<property name="username" value="portald3"/>
+		<property name="password" value="portald3"/>
+	</bean>
+ 
+	<bean id="coneDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@perch:1521:DSERV"/>
+		<property name="username" value="cone_app"/>
+		<property name="password" value="cone_app"/>
+	</bean>
+
+	<bean id="distDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@perch:1521:DDIST"/>
+		<property name="username" value="ivradm3"/>
+		<property name="password" value="ivradm3"/>
+	</bean>
+	
+	<bean id="easDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@zebra:1521:DEAS"/>
+		<property name="username" value="actv_app"/>
+		<property name="password" value="actvapp"/>
+	</bean>
+
+	<bean id="ecpcsDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@crab:1523:DECPCS"/>
+		<property name="username" value="basread"/>
+		<property name="password" value="basread"/>
+	</bean>
+	
+	<bean id="knowbilityDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@new-hippo:1521:dkb10"/>
+		<property name="username" value="basread3"/>
+		<property name="password" value="basread3"/>
+	</bean>
+	
+	<bean id="ecms3DataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@crab:1521:D3ECMS"/>
+		<property name="username" value="basread3"/>
+		<property name="password" value="basread3"/>
+	</bean>
+	
+	<bean id="cconDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@//rac-ln98290-scan.corp.ads:41521/CCONPSsv1.WORLD"/>
+		<property name="username" value="cc_fraud_app"/>
+		<property name="password" value="hcfa123"/>
+	</bean>	
+</beans>

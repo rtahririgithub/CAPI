@@ -1,0 +1,135 @@
+<environment-config xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<entry name="common" path="/cmb-ns">
+		<entry name="credentials">
+			<entry name="ejb">
+				<entry name="username" value="clientapi_ejb"/>
+				<entry name="password" value="soaorgid"/>
+			</entry>
+		</entry>
+		<entry name="crypto">
+			<entry name="key1" value="EbT5a8Fuq"/>
+			<entry name="key2" value="aYt2gv6R"/>
+			<entry name="key3" value="9bFp3Gz4k"/>
+		</entry>
+		<entry name="sso-corp">
+			<entry name="credential" value="ClientAPI"/>
+			<entry name="principal" value="uid=ClientAPI,ou=people,ou=systems,ou=internal,o=telus"/>
+			<entry name="url">
+				<value environment="dv103" value="ldap://dpsint-dv.tsl.telus.com:389"/>
+				<value environment="pt140" value="ldap://ldap-ps.tsl.telus.com:389"/>
+				<value environment="pt148" value="ldap://ldap-pt.tsl.telus.com:389"/>
+				<value environment="pt168" value="ldap://ldap-pt168.tsl.telus.com:389"/>
+				<value environment="st101" value="ldap://ldap-po.tsl.telus.com:389"/>
+				<value environment="pr" value="ldap://ldap-pr.tsl.telus.com:389"/>
+			</entry>			
+		</entry>		
+		<entry name="logs">
+			<entry name="root" value="/work/infra/logs/${weblogic.Name}/applications/${fw_appId}-${fw_appVersion}"/>
+			<entry name="config">
+				<value>
+					<xi:include href="logging/log4j-default.xml" parse="text"/>
+				</value>
+				<value environment="pr">
+					<xi:include href="logging/log4j-production.xml" parse="text"/>
+				</value>
+			</entry>
+		</entry>
+		<entry name="environment">
+			<value environment="dv103" value="dv103"/>
+			<value environment="pt140" value="pt140"/>
+			<value environment="pt148" value="pt148"/>
+			<value environment="pt168" value="pt168"/>
+			<value environment="st101" value="st101"/>
+			<value environment="pr" value="pr"/>			
+		</entry>
+	</entry>
+
+	<entry name="cmb-common-svc" path="/cmb-ns">		
+		<entry name="identity-profile-eligibility-policy" value="I:123BDEFJMQRWYZ,B:134ABFDGMNOPRWX,C:ABEIGKLNQUVXZ"/>		
+		<entry name="kafkaEventPublisherEnabled" value="true"/>		
+		<entry name="kafkaCredential" value="NTI4NDpDQVBJ"/>		
+		<entry name="kafkaEnabledEventTypes">
+			<value value="BILLING_ACCOUNT_ALL"/>
+			<value value="BILLING_ACCOUNT_UPDATED"/>
+			<value value="BILL_CYCLE"/>
+			<value value="BILLING_INFO"/>
+			<value value="CONTACT_INFO"/>
+			<value value="BILLING_CONTACT_EMAIL_ADDRESS"/>
+			<value value="PAYMENT_METHOD_CHANGE"/>
+			<value value="MAKE_PAYMENT"/>
+			<value value="CREATE_CREDIT"/>
+			<value value="FOLLOWUP_APPROVAL"/>
+			<value value="ACC_CANCEL"/>
+			<value value="ACC_CANCEL_PORT_OUT"/>
+			<value value="CREDIT_CHECK_CREATE"/>
+			<value value="CREDIT_CHECK_UPDATE"/>
+		</entry>
+		<entry name="kafkaEnabledSubscriberEventTypes">
+			<value value="SUBSCRIBER_ACTIVATE"/>
+			<value value="SERVICE_AGREEMENT_CHANGE"/>
+			<value value="SUB_CANCEL"/>		
+			<value value="SUB_CANCEL_PORT_OUT"/>			
+			<value value="MOVE"/>
+			<value value="EQUIPMENT_CHANGE"/>
+			<value value="PHONENUMBER_CHANGE_REGULAR"/>
+			<value value="PHONENUMBER_CHANGE_INTER_BRAND"/>
+			<value value="PHONENUMBER_CHANGE_INTER_CARRIER"/>
+			<value value="PHONENUMBER_CHANGE_INTER_MVNE"/>
+		</entry>
+		<entry name="query-timeout-in-seconds" value="120"/>
+	</entry>
+	
+	<entry name="services" path="/CMB">
+		<entry name="Amdocs">
+			<entry name="url">
+				<value environment="dv103" value="t3://amdocsapi-dv103.tmi.telus.com:12001"/>
+				<value environment="pt140" value="t3://amdocsapi-ps101.tmi.telus.com:32001"/>
+				<value environment="pt148" value="t3://amdocsapi-pt148.tmi.telus.com:30001"/>
+				<value environment="pt168" value="t3://amdocsapi-pt168.tmi.telus.com:31001"/>
+				<value environment="st101" value="t3://amdocsapi-its04.tsl.telus.com:40000"/>
+				<value environment="pr" value="t3://amdocsapi-pr.tsl.telus.com:50000"/>
+			</entry>			
+		</entry>		
+		<entry name="Uams">
+			<entry name="url">
+				<value environment="dv103" value="amdocsapi-dv103.tmi.telus.com:12001"/>
+				<value environment="pt140" value="amdocsapi-ps101.tmi.telus.com:32001"/>
+				<value environment="pt148" value="amdocsapi-pt148.tmi.telus.com:30001"/>
+				<value environment="pt168" value="amdocsapi-pt168.tmi.telus.com:31001"/>
+				<value environment="st101" value="amdocsapi-its04.tsl.telus.com:40000"/>
+				<value environment="pr" value="amdocsapi-pr.tsl.telus.com:50000"/>
+			</entry>			
+		</entry>		
+		<entry name="SubscriberLifecycleFacade">
+			<entry name="supportedSharedSIMIncomingBrands" value="3"/>
+			<entry name="supportedSharedSIMOutgoingBrands" value="1,3,6,7"/>
+		</entry>		
+	</entry>
+	
+	
+	
+	<entry name="ClientAPI" path="/Telus-ECA">
+		<entry name="international-service-eligibility">
+			<value>
+				<xi:include href="serviceRules/international-service-eligibility.xml" parse="text" />
+			</value>
+		</entry>
+		<entry name="sms-client-notification-eligibility">
+			<value>
+				<xi:include href="serviceRules/sms-client-notification-eligibility.xml" parse="text" />
+			</value>
+		</entry>
+		<entry name="communication-suite-eligibility">
+			<value>
+				<xi:include href="serviceRules/communication-suite-eligibility.xml" parse="text" />
+			</value>
+		</entry>
+		<entry name="esim-device-swap-eligibility">
+			<value>
+				<xi:include href="serviceRules/esim-device-swap-eligibility.xml" parse="text" />
+			</value>
+		</entry>
+	</entry>
+		
+</environment-config>

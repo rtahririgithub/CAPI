@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<import resource="classpath*:application-context-wsclients-prepaid.xml"/>
+
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"/>
+
+	<bean id="knowbilityJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="knowbilityDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+
+	<bean id="distJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="distDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+
+	<bean id="multiDao" abstract="true" class="com.telus.cmb.common.dao.jdbctemplate.MultipleJdbcDaoTemplateSupport"
+		p:knowbilityJdbcTemplate-ref="knowbilityJdbcTemplate"
+		p:distJdbcTemplate-ref="distJdbcTemplate"
+	/>
+	
+	<bean id="productOfferingServiceDao" class="com.telus.cmb.productequipment.helper.dao.impl.ProductOfferingServiceDaoImpl"/>
+	<bean id="voucherValidationServiceDao" class="com.telus.cmb.productequipment.helper.dao.impl.VoucherValidationServiceDaoImpl" parent="multiDao"/>	
+	<bean id="equipmentHelperDao" class="com.telus.cmb.productequipment.helper.dao.impl.EquipmentHelperDaoImpl" parent="multiDao" />
+	<bean id="equipmentManagerDao" class="com.telus.cmb.productequipment.manager.dao.impl.EquipmentManagerDaoImpl" parent="multiDao"/>
+	<bean id="cardHelperDao" class="com.telus.cmb.productequipment.helper.dao.impl.CardHelperDaoImpl" parent="multiDao" />
+	<bean id="cardManagerDao" class="com.telus.cmb.productequipment.manager.dao.impl.CardManagerDaoImpl" parent="multiDao"/>
+	<bean id="creditAndPricingHelperDao" class="com.telus.cmb.productequipment.helper.dao.impl.CreditAndPricingHelperDaoImpl" parent="multiDao" />
+	
+	<bean id="testPointDao" class="com.telus.cmb.common.dao.testpoint.DataSourceTestPointDao" parent="multiDao" />
+
+	<bean id="jaxWsPortProxyBase" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" abstract="true"
+		p:lookupServiceOnStartup="false" 
+		p:username="${credentials/ejb/username}" 
+		p:password="${credentials/ejb/password}" 
+	/>
+
+	<bean id="equipmentActivationSupportSvcDao" class="com.telus.cmb.productequipment.lifecyclefacade.dao.impl.EquipmentActivationSupportSvcDaoImpl"/>
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.EquipmentActivationSupportServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/EquipmentActivationSupportService_v1_2.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/RMO/ResourceMgmt/EquipmentActivationSupportService_1"
+		p:serviceName="EquipmentActivationSupportService_v1_2" 
+		p:endpointAddress="${endpoints/EquipmentActivationSupportService/url}" 
+	/>
+
+	<bean id="equipmentLifecycleManagementSvcDao" class="com.telus.cmb.productequipment.lifecyclefacade.dao.impl.EquipmentLifecycleManagementSvcDaoImpl"/>
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.EquipmentLifeCycleManagementServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/EquipmentLifeCycleManagementService_v2_1.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/RMO/ResourceMgmt/EquipmentLifeCycleManagementService_2"
+		p:serviceName="EquipmentLifeCycleManagementService_v2_1" 
+		p:endpointAddress="${endpoints/EquipmentLifeCycleManagementService/url}" 
+	/>
+
+	<bean id="equipmentInfoSvcDao" class="com.telus.cmb.productequipment.lifecyclefacade.dao.impl.EquipmentInfoSvcDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.EquipmentInfoServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/EquipmentInfoService_v2_0.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/RMO/ResourceMgmt/EquipmentInfoService_2"
+		p:serviceName="EquipmentInfoService_v2_0" 
+		p:endpointAddress="${endpoints/EquipmentInfoService/url}" 
+	/>
+	
+	<bean id="productDeviceServiceDao" class="com.telus.cmb.productequipment.lifecyclefacade.dao.impl.ProductDeviceServiceDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.ProductDeviceServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/ProductDeviceService_v5_0.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/PMO/CatalogMgmt/ProductDeviceService_5"
+		p:serviceName="ProductDeviceService_v5_0" 
+		p:endpointAddress="${endpoints/ProductDeviceService/url}" 
+	/>
+
+</beans>

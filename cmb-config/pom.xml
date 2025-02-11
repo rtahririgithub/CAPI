@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>telus.cust</groupId>
+	<artifactId>cmb-config</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>telus-maven.plugins.cis</groupId>
+				<artifactId>cis-ldifgen-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<id>commons</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>ldifgen</goal>
+						</goals>
+						<configuration>
+							<environments>
+								<environment>dv103:cn=development3_81,o=telusconfiguration</environment>
+								<environment>pt148:cn=qa_81,o=telusconfiguration</environment>
+								<environment>pt168:cn=pt168_81,o=telusconfiguration</environment>
+								<environment>ps101:cn=qa2_81,o=telusconfiguration</environment>
+								<environment>pt140:cn=qa2_81,o=telusconfiguration</environment>
+								<environment>st101:cn=s_81,o=telusconfiguration</environment>
+								<environment>pr:cn=prod_81,o=telusconfiguration</environment>
+							</environments>
+							<targetDirName>${project.build.directory}/config</targetDirName>
+							<targetFileName>ldap-config-</targetFileName>
+							<includes>
+								<include>src/main/common.xml</include>
+								<include>src/main/endpoints.xml</include>
+								<include>src/main/rollback-flags.xml</include>
+							</includes>
+							<baseDir>${basedir}</baseDir>
+						</configuration>
+					</execution>
+					<execution>
+						<id>identities</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>ldifgen</goal>
+						</goals>
+						<configuration>
+							<environments>
+								<environment>dv103:cn=development3_81,o=telusconfiguration</environment>
+								<environment>pt148:cn=qa_81,o=telusconfiguration</environment>
+								<environment>pt168:cn=pt168_81,o=telusconfiguration</environment>
+								<environment>ps101:cn=qa2_81,o=telusconfiguration</environment>
+								<environment>pt140:cn=qa2_81,o=telusconfiguration</environment>
+								<environment>st101:cn=s_81,o=telusconfiguration</environment>
+								<environment>pr:cn=prod_81,o=telusconfiguration</environment>
+							</environments>
+							<targetDirName>${project.build.directory}/config</targetDirName>
+							<targetFileName>ldap-identities-</targetFileName>
+							<includes>
+								<include>src/main/identities.xml</include>
+							</includes>
+							<baseDir>${basedir}</baseDir>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>

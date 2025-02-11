@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<task name="Penalty Failure Report" shortname="penFailRpt" type="simple">
+
+	<taskEnvironment shortname="pra" schedule="dailyBeforeStartOfDay">
+		<taskApplication shortname="cisws">
+			<taskComponent name="PhoneNumberMgmtRESTSvc - Penalty Failures" daysbefore="1">
+				<taskGrepString value="*"/>
+			</taskComponent>
+		</taskApplication>
+		<notifyParty email="dlClientAPIPRODSupport@telus.com"/>
+		<notifyParty email="dlRWMS@telus.com"/>
+		<taskParam name="frequency" value="1"/>
+		<taskParam name="emailTemplate" value="penaltyFailure"/>
+		<taskParam name="description" value="Sends out a report on any penalty failures from the previous day."/>
+		<taskParam name="excludeSearch" value="no ACTIVE commitment found"/>
+	</taskEnvironment>
+	
+	<taskEnvironment shortname="prb" schedule="dailyBeforeStartOfDay">
+		<taskApplication shortname="cisws">
+			<taskComponent name="PhoneNumberMgmtRESTSvc - Penalty Failures" daysbefore="1">
+				<taskGrepString value="*"/>
+			</taskComponent>
+		</taskApplication>
+		<notifyParty email="dlClientAPIPRODSupport@telus.com"/>
+		<notifyParty email="dlRWMS@telus.com"/>
+		<taskParam name="frequency" value="1"/>
+		<taskParam name="description" value="Sends out a report on any penalty failures from the previous day."/>
+		<taskParam name="emailTemplate" value="penaltyFailure"/>
+		<taskParam name="excludeSearch" value="no ACTIVE commitment found"/>
+	</taskEnvironment>
+	
+</task>	

@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberManagementServiceRequestResponse_v5"
+	xmlns:smc="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberManagementCommonTypes_v3"
+	xmlns:srt="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1"
+	xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5"
+	xmlns:acc="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3"
+	xmlns:ect="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9"
+	xmlns:srm="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CMBResponseCommonTypes_v1"
+	xmlns:sub="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3"
+	xmlns:comm="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/ResourceOrderServiceCommonTypes_v2"
+	targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberManagementServiceRequestResponse_v5"
+	elementFormDefault="qualified">
+	<xsd:import
+		namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5"
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5_0.xsd" />
+	<xsd:import
+		namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberManagementCommonTypes_v3"
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberManagementCommonTypes_v3_1.xsd" />
+	<xsd:import
+		namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1"
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1_0.xsd" />
+	<xsd:import
+		namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3"
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3_0.xsd" />
+	<xsd:import
+		namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3"
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3_2.xsd" />
+	<xsd:import
+		namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9"
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9_1.xsd" />
+	<xsd:import
+		namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CMBResponseCommonTypes_v1"
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CMBResponseCommonTypes_v1_0.xsd" />
+	<xsd:import
+		namespace="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/ResourceOrderServiceCommonTypes_v2"
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/ResourceOrderServiceCommonTypes_v2_0.xsd" />
+	<xsd:element name="activateSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>This operation creates and activates a subscriber in KB if activationRequiredInd = TRUE, otherwise the subscriber is	saved without being activated. 
+			For port-in activations, see the 'activatePortInRequest' operation.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile">
+					<xsd:annotation>
+						<xsd:documentation>KB dealer code and sales rep code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="activationOption" type="tns:ActivationOption" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Applicable to subscribers where the response from performing a subscriber eligibility check provides deposit / credit options</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="dealerHasDepositInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Optional - defaulted to false</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="activityReasonCode" type="xsd:string"/>
+				<xsd:element name="startServiceDate" type="xsd:date">
+					<xsd:annotation>
+						<xsd:documentation>No date implies immediate activation</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="activationFeeChargeCode" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>The charge code to use when activating the newly created subscriber or null if the fee is waived</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="waiveSearchFeeInd" type="xsd:boolean" default="true" minOccurs="0"/>
+				<xsd:element name="memoText" type="xsd:string"/>
+				<xsd:element name="subscriberData" type="tns:ActivationSubscriberData">
+					<xsd:annotation>
+						<xsd:documentation>Current subscriber data - subscriber ID, billing account number, product type and if available, account info and subscriber info</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="servicesValidation" type="tns:ServicesValidation">
+					<xsd:annotation>
+						<xsd:documentation>Services validation - all defaulted to true implies validation will not be skipped</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="serviceAgreement" type="smc:ServiceAgreement">
+					<xsd:annotation>
+						<xsd:documentation>New service agreement or list of changes to current service agreement</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="equipmentRequest" type="tns:EquipmentActivated">
+					<xsd:annotation>
+						<xsd:documentation>Equipment </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="prepaidPaymentArrangement" type="tns:PrepaidPaymentArrangement" minOccurs="0"/>
+				<xsd:element name="subscriptionRoleCd" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Subscription Role </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>SRPDS header details, if SRPDS event logging is required</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="activateSubscriberResponse">
+		<xsd:annotation>
+			<xsd:documentation>Subscriber activation response</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+						<xsd:sequence>
+						<xsd:element name="activateSubscriberResponseData" type="tns:ActivateResponseDataType"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="activatePortInRequest">
+		<xsd:annotation>
+			<xsd:documentation>This operation will port-in a subscriber (inter-carrier, brand or MVNE) and activate in KB.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile">
+					<xsd:annotation>
+						<xsd:documentation>KB dealer code and sales rep code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="activationOption" type="tns:ActivationOption" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Applicable to subscribers where the response from performing a subscriber eligibility check provides deposit / credit options</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="dealerHasDepositInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Optional - defaulted to false</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="activityReasonCode" type="xsd:string"/>
+				<xsd:element name="startServiceDate" type="xsd:date">
+					<xsd:annotation>
+						<xsd:documentation>No date implies immediate activation</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="activationFeeChargeCode" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Charge code to use when activating the newly created subscriber or null if the fee is waived</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="waiveSearchFeeInd" type="xsd:boolean" default="true" minOccurs="0"/>
+				<xsd:element name="memoText" type="xsd:string"/>
+				<xsd:element name="portDataheader" type="comm:HeaderType">
+					<xsd:annotation>
+						<xsd:documentation>Request ID = PortRequestId, originator name = AppId, destination name will default to SMG, header timestamp will default to current date</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="portInEligibility" type="tns:PortInEligibility" minOccurs="0"/>
+				<xsd:element name="portRequest" type="tns:PortRequestData" minOccurs="0"/>
+				<xsd:element name="subscriberData" type="tns:ActivationSubscriberData">
+					<xsd:annotation>
+						<xsd:documentation>Current subscriber data - subscriber ID, billing account number, product type and if available, account info and subscriber info</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="servicesValidation" type="tns:ServicesValidation">
+					<xsd:annotation>
+						<xsd:documentation>Services validation - all defaulted to true implies validation will not be skipped</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="serviceAgreement" type="smc:ServiceAgreement">
+					<xsd:annotation>
+						<xsd:documentation>New service agreement or list of changes to current service agreement</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="equipmentRequest" type="tns:EquipmentActivated">
+					<xsd:annotation>
+						<xsd:documentation>Equipment change request</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="prepaidPaymentArrangement" type="tns:PrepaidPaymentArrangement" minOccurs="0"/>
+				<xsd:element name="resetCscSubscription">
+					<xsd:annotation>
+						<xsd:documentation>Reset Converged Service Client's subscription</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="subscriberData" type="tns:SubscriberData">
+								<xsd:annotation>
+									<xsd:documentation>Current subscriber data - subscriber ID, billing account number, product type and if available, account info and subscriber info</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="subscriptionRoleCd" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Subscription role</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>SRPDS header details, if SRPDS event logging is required</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="activatePortInRequestResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="activatePortInRequestResponseData" type="tns:ActivateResponseDataType"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="validateMigrateSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>Subscriber migration validation parameters</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile">
+					<xsd:annotation>
+						<xsd:documentation>KB dealer code and sales rep code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="subscriberData" type="tns:SubscriberData">
+					<xsd:annotation>
+						<xsd:documentation>Current subscriber data - subscriber ID, billing account number, product type and if available, account info and subscriber info</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="migrationTypeCode" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Valid migration types [PPRO, POPR, MKPO, MKPR, POMK, PRMK] - use ServiceOrderReference.getValidMigrationTypes to retrieve valid values</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="pricePlanCode" type="common:ServiceCode">
+					<xsd:annotation>
+						<xsd:documentation>New price plan code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="newEquipment" type="smc:Equipment" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>New equipment, if included</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="newAssociatedHandset" type="smc:Equipment" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>New associated handset, if included</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="requestorId" type="xsd:string"/>
+				<xsd:element name="activationOption" type="tns:ActivationOption" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Activation option</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="anyToPrepaidMigrationOption" type="tns:AnyToPrepaidMigrationOption" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Prepaid options</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="dealerAcceptedDepositInd" type="xsd:boolean" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Dealer has kept deposit amount</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="depositTransferInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="phoneOnlyInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>For PCS to MIKE migration</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="activityDate" type="xsd:date" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Reserved for future use</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="validateMigrateSubscriberResponse">
+		<xsd:annotation>
+			<xsd:documentation>Subscriber migration validation response</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="validateMigrateSubscriberResponseData" type="tns:MigrateResponseDataType"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="migrateSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>Subscriber migration parameters</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile">
+					<xsd:annotation>
+						<xsd:documentation>KB dealer code and sales rep code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="subscriberData" type="tns:SubscriberData">
+					<xsd:annotation>
+						<xsd:documentation>Current subscriber data - subscriber ID, billing account number, product type and if available, account info and subscriber info</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="migrationTypeCode" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Valid migration types [PPRO, POPR, MKPO, MKPR, POMK, PRMK] - use ServiceOrderReference.getValidMigrationTypes to retrieve valid values</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="pricePlanCode" type="common:ServiceCode">
+					<xsd:annotation>
+						<xsd:documentation>New price plan code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="newEquipment" type="smc:Equipment" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>New equipment, if included</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="newAssociatedHandset" type="smc:Equipment" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>New associated handset, if included</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="requestorId" type="xsd:string"/>
+				<xsd:element name="activationOption" type="tns:ActivationOption" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Activation option</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="anyToPrepaidMigrationOption" type="tns:AnyToPrepaidMigrationOption" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Prepaid options</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="dealerAcceptedDepositInd" type="xsd:boolean" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Dealer has kept deposit amount</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="depositTransferInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="phoneOnlyInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>For PCS to MIKE migration</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="activityDate" type="xsd:date" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Reserved for future use</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>SRPDS header details, if SRPDS event logging is required</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="memoText" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="migrateSubscriberResponse">
+		<xsd:annotation>
+			<xsd:documentation>Subscriber migration response</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="migrateSubscriberResponseData" type="tns:MigrateResponseDataType"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="ActivateResponseDataType">
+		<xsd:sequence>
+			<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100" />
+			<xsd:element name="applicationMessageList" type="tns:ApplicationMessage" minOccurs="0" maxOccurs="1000" />
+			<xsd:element name="subscriberInfo" type="sub:Subscriber" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MigrateResponseDataType">
+		<xsd:sequence>
+			<xsd:element name="account" type="acc:Account" />
+			<xsd:element name="newSubscriber" type="sub:Subscriber" />
+			<xsd:element name="userProfile" type="srt:UserServiceProfile" />
+			<xsd:element name="serviceAgreement" type="smc:ServiceAgreement" />
+			<xsd:element name="equipmentChangeRequest" type="smc:EquipmentChangeRequest" minOccurs="0" />
+			<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100" />
+			<xsd:element name="applicationMessageList" type="tns:ApplicationMessage" minOccurs="0" maxOccurs="1000" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubscriberData">
+		<xsd:sequence>
+			<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+			<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+			<xsd:element name="account" type="acc:Account" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Current account object, if available - if the account object is not passed in, an account retrieval will be required in the backend</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="subscriber" type="sub:Subscriber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Current subscriber object, if available - if the subscriber object is not passed in, a subscriber retrieval will be required in the backend</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="productType" type="common:ProductType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>KB product type - if not provided in this element or as part of SubscriberInfo object, it will require an additional retrieval in the backend</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ActivationSubscriberData">
+		<xsd:sequence>
+			<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+			<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+			<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+			<xsd:element name="productType" type="common:ProductType">
+				<xsd:annotation>
+					<xsd:documentation>KB product type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="marketProvince" type="common:ProvinceCode"/>
+			<xsd:element name="brandId" type="common:BrandId"/>
+			<xsd:element name="consumerName" type="common:ConsumerName" minOccurs="0"/>
+			<xsd:element name="address" type="common:Address" minOccurs="0"/>
+			<xsd:element name="emailAddressText" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="language" type="common:Language" minOccurs="0"/>
+			<xsd:element name="memberIdentity" type="sub:MemberIdentity" minOccurs="0"/>
+			<xsd:element name="seatData" type="tns:SeatData" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServicesValidation">
+		<xsd:sequence>
+			<xsd:element name="validatePricePlanServiceGroupingInd" type="xsd:boolean" default="true"/>
+			<xsd:element name="validateProvinceServiceMatchInd" type="xsd:boolean" default="true"/>
+			<xsd:element name="validateEquipmentServiceMatchInd" type="xsd:boolean" default="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EquipmentActivated">
+		<xsd:sequence>
+			<xsd:element name="primaryEquipment" type="smc:Equipment"/>
+			<xsd:element name="secondaryEquipmentList" type="smc:Equipment" minOccurs="0" maxOccurs="10"/>
+			<xsd:element name="associatedHandsetEquipment" type="smc:Equipment" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SeatData">
+		<xsd:sequence>
+			<xsd:element name="seatTypeCd" type="xsd:string"/>
+			<xsd:element name="seatGroupCd" type="xsd:string"/>
+			<xsd:element name="seatResourceList" type="tns:SeatResource" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SeatResource">
+		<xsd:sequence>
+			<xsd:element name="seatResourceNumber" type="xsd:string"/>
+			<xsd:element name="seatResourceTypeCd" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PortInEligibility">
+		<xsd:sequence>
+			<xsd:element name="portProcessTypeCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="portVisibilityCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="currentServiceProviderCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="idenCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="portDirectionCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="incommingBrandCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="outgoingBrandCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="phoneNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="cdmaCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="hspaCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="cdmaPrePaidCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="hspaPrePaidCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="cdmaPostPaidCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="hspaPostPaidCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="platformId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PortRequestData">
+		<xsd:sequence>
+			<xsd:element name="numberPortabilityDirectionCd" type="xsd:string"/>
+			<xsd:element name="portRequestAddress" type="comm:BillingAddressType"/>
+			<xsd:element name="agentAuthorityCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="agentAuthorityDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="agentAuthorityName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="alternateContactNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="desiredDueDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="ospAccountInfoType" type="comm:AccountInfoType" minOccurs="0"/>
+			<xsd:element name="remarksTxt" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="activateAndHoldCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="phoneNumber" type="common:PhoneNumber" minOccurs="0"/>
+			<xsd:element name="billingAccountNumber" type="common:AccountNumber" minOccurs="0"/>
+			<xsd:element name="portRequestId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="creationDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="digitalSubscriberLineCd" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>New element to replace digitalSubscriberInd after v4.1</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="digitalSubscriberLineNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="endUserMovingInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="oldResellerName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="platformId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="platformIdUpdatedInd" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnyToPrepaidMigrationOption">
+		<xsd:sequence>
+			<xsd:element name="activationTopUp" type="tns:ActivationTopUp" minOccurs="0"/>
+			<xsd:element name="activationCreditCard" type="common:CreditCard" minOccurs="0"/>
+			<xsd:element name="activationAirtimeCardNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="activationCreditAmount" type="xsd:double" minOccurs="0"/>
+			<xsd:element name="activationTypeText" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Prepaid activation type - ACTIVATION_TYPE_CREDIT_CARD, ACTIVATION_TYPE_AIRTIME_CARD, ACTIVATIONTUPE_NORMAL, ACTIVATION_TYPE_VIRTUAL_WITH_CHRGE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ActivationTopUp">
+		<xsd:sequence>
+			<xsd:element name="topUpAmount" type="xsd:double"/>
+			<xsd:element name="airTimeRateAmount" type="xsd:double"/>
+			<xsd:element name="expiryDaysAmount" type="xsd:double"/>
+			<xsd:element name="reasonCode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PrepaidPaymentArrangement">
+		<xsd:annotation>
+			<xsd:documentation>Prepaid restrictions - can only have combination of CreditCard / AirtimeCard or DebitCard / AirtimeCard</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="preRegisteredCreditCard" type="tns:PreRegisteredCreditCard" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Pre-registered credit card</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="debitCard" type="tns:DebitCard" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Debit card one-time top-up</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="airtimeCard" type="tns:AirtimeCard" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Airtime card / voucher</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PreRegisteredCreditCard">
+		<xsd:sequence>
+			<xsd:element name="creditCard" type="common:CreditCard" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Pre-registered credit card</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="activationTopUpAmount" type="xsd:double" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>One-time top-up amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="automaticRechargeThresholdAmount" type="xsd:double" minOccurs="0"/>
+			<xsd:element name="automaticRechargeAmount" type="xsd:double" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DebitCard">
+		<xsd:sequence>
+			<xsd:element name="activationTopUpAmount" type="xsd:double" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>One-time top-up amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AirtimeCard">
+		<xsd:sequence>
+			<xsd:element name="serialNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Last 8 digits</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="pinNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>4 digits</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="denominationAmount" type="xsd:double" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ActivationOption">
+		<xsd:annotation>
+			<xsd:documentation>Activation option to be applied to the subscriber, if eligible</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="activationOptionName" type="xsd:string"/>
+			<xsd:element name="creditClass" type="common:CreditClass"/>
+			<xsd:element name="creditLimitAmount" type="xsd:double" minOccurs="0"/>
+			<xsd:element name="depositAmount" type="xsd:double" minOccurs="0"/>
+			<xsd:element name="maxClpContractTermCount" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Maximum CLP contract term length allowed (in months)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WarningType">
+		<xsd:sequence>
+			<xsd:element name="systemCode" type="xsd:string"/>
+			<xsd:element name="warningTypeText" type="xsd:string"/>
+			<xsd:element name="warning" type="tns:WarningBaseType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WarningBaseType">
+		<xsd:sequence>
+			<xsd:element name="messageId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningMessageText" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="variableList" type="xsd:string" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ApplicationMessage">
+		<xsd:sequence>
+			<xsd:element name="messageId" type="xsd:long"/>
+			<xsd:element name="messageCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="applicationId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="audienceTypeId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="messageTypeId" type="xsd:int"/>
+			<xsd:element name="brandId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="messageTextList" type="tns:MessageTextType" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MessageTextType">
+		<xsd:sequence>
+			<xsd:element name="languageType" type="common:Language"/>
+			<xsd:element name="messageText" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

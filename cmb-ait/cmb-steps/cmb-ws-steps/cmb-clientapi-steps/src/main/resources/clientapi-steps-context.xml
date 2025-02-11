@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <bean id="configurationFramework"
+          class="com.telus.framework.config.spring.PlaceholderConfigurer">
+    </bean>
+
+    <context:component-scan base-package="com.telus.ait.steps" />
+
+    <bean id="logHandlerResolver" class="com.telus.framework.ws.jaxws.DefaultHandlerResolver">
+        <property name="handlerList">
+            <list>
+                <bean class="com.telus.ait.fwk.logging.LoggingHandler" />
+            </list>
+        </property>    
+    </bean>
+    <bean id="accountInformationServicePort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.telus.wsdl.cmo.informationmgmt.accountinformationservice_3.AccountInformationServicePortType" />
+        <property name="wsdlDocumentUrl"
+                  value=" classpath:wsdls/AccountInformationService/AccountInformationService_v3_5.wsdl" />
+        <property name="endpointAddress" value="${connections/webServices/accountinformation/endpointAddress}" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/CMO/InformationMgmt/AccountInformationService_3" />
+        <property name="serviceName" value="AccountInformationService_v3_5" />
+        <property name="portName" value="AccountInformationServicePort" />
+        <property name="lookupServiceOnStartup" value="false" />
+        <property name="username" value="${connections/webServices/accountinformation/username}" />
+        <property name="password" value="${connections/webServices/accountinformation/password}" />
+        <property name="handlerResolver" ref="logHandlerResolver" />
+    </bean>    
+    <bean id="billingInquiryServicePort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.telus.wsdl.cmo.billinginquirymgmt.billinginquiryservice_1.BillingInquiryServicePortType" />
+        <property name="wsdlDocumentUrl"
+                  value=" classpath:wsdls/BillingInquiryService/BillingInquiryService_v1_7.wsdl" />
+        <property name="endpointAddress" value="${connections/webServices/billinginquiry/endpointAddress}" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/CMO/BillingInquiryMgmt/BillingInquiryService_1" />
+        <property name="serviceName" value="BillingInquiryService_v1_7" />
+        <property name="portName" value="BillingInquiryServicePort" />
+        <property name="lookupServiceOnStartup" value="false" />
+        <property name="username" value="${connections/webServices/billinginquiry/username}" />
+        <property name="password" value="${connections/webServices/billinginquiry/password}" />
+        <property name="handlerResolver" ref="logHandlerResolver" />
+    </bean>    
+    <bean id="resourceOrderReferenceServicePort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+        <property name="serviceInterface"        				 
+                  value="com.telus.wsdl.rmo.ordermgmt.resourceorderreferenceservice_1.ResourceOrderReferenceServicePortType" />
+        <property name="wsdlDocumentUrl"
+                  value=" classpath:wsdls/ResourceOrderReferenceService/ResourceOrderReferenceService_v1_1.wsdl" />
+        <property name="endpointAddress" value="${connections/webServices/resourceorderreference/endpointAddress}" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/RMO/OrderMgmt/ResourceOrderReferenceService_1" />
+        <property name="serviceName" value="ResourceOrderReferenceService_v1_1" />
+        <property name="portName" value="ResourceOrderReferenceServicePort" />
+        <property name="lookupServiceOnStartup" value="false" />
+        <property name="username" value="${connections/webServices/resourceorderreference/username}" />
+        <property name="password" value="${connections/webServices/resourceorderreference/password}" />
+        <property name="handlerResolver" ref="logHandlerResolver" />
+    </bean>   
+    <bean id="serviceOrderReferenceServicePort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+        <property name="serviceInterface"        				 
+                  value="com.telus.wsdl.smo.ordermgmt.serviceorderreferenceservice_5.ServiceOrderReferenceServicePortType" />
+        <property name="wsdlDocumentUrl"
+                  value=" classpath:wsdls/ServiceOrderReferenceService/ServiceOrderReferenceService_v5_1.wsdl" />
+        <property name="endpointAddress" value="${connections/webServices/serviceorderreference/endpointAddress}" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/SMO/OrderMgmt/ServiceOrderReferenceService_5" />
+        <property name="serviceName" value="ServiceOrderReferenceService_v5_1" />
+        <property name="portName" value="ServiceOrderReferenceServicePort" />
+        <property name="lookupServiceOnStartup" value="false" />
+        <property name="username" value="${connections/webServices/serviceorderreference/username}" />
+        <property name="password" value="${connections/webServices/serviceorderreference/password}" />
+        <property name="handlerResolver" ref="logHandlerResolver" />
+    </bean>
+    <bean id="subscriberInformationServicePort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.telus.wsdl.cmo.informationmgmt.subscriberinformationservice_3.SubscriberInformationServicePortType" />
+        <property name="wsdlDocumentUrl"
+                  value=" classpath:wsdls/SubscriberInformationService/SubscriberInformationService_v3_4.wsdl" />
+        <property name="endpointAddress" value="${connections/webServices/subscriberinformation/endpointAddress}" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/CMO/InformationMgmt/SubscriberInformationService_3" />
+        <property name="serviceName" value="SubscriberInformationService_v3_4" />
+        <property name="portName" value="SubscriberInformationServicePort" />
+        <property name="lookupServiceOnStartup" value="false" />
+        <property name="username" value="${connections/webServices/subscriberinformation/username}" />
+        <property name="password" value="${connections/webServices/subscriberinformation/password}" />
+        <property name="handlerResolver" ref="logHandlerResolver" />
+    </bean>
+    <bean id="subscriberLifeCycleMgmtServicePort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.telus.wsdl.cmo.ordermgmt.subscriberlifecyclemanagementservice_1.SubscriberLifeCycleManagementServicePortType" />
+        <property name="wsdlDocumentUrl"
+                  value=" classpath:wsdls/SubscriberLifeCycleManagementService/SubscriberLifeCycleManagementService_v1_5.wsdl" />
+        <property name="endpointAddress" value="${connections/webServices/subscriberlifecyclemgmt/endpointAddress}" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/CMO/OrderMgmt/SubscriberLifeCycleManagementService_1" />
+        <property name="serviceName" value="SubscriberLifeCycleManagementService_v1_5" />
+        <property name="portName" value="SubscriberLifeCycleManagementServicePort" />
+        <property name="lookupServiceOnStartup" value="false" />
+        <property name="username" value="${connections/webServices/subscriberlifecyclemgmt/username}" />
+        <property name="password" value="${connections/webServices/subscriberlifecyclemgmt/password}" />
+        <property name="handlerResolver" ref="logHandlerResolver" />
+    </bean>
+    <bean id="subscriberManagementServicePort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.telus.wsdl.cmo.ordermgmt.subscribermanagementservice_4.SubscriberManagementServicePortType" />
+        <property name="wsdlDocumentUrl"
+                  value=" classpath:wsdls/SubscriberManagementService/SubscriberManagementService_v4_1.wsdl" />
+        <property name="endpointAddress" value="${connections/webServices/subscribermanagement/endpointAddress}" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/CMO/OrderMgmt/SubscriberManagementService_4" />
+        <property name="serviceName" value="SubscriberManagementService_v4_1" />
+        <property name="portName" value="SubscriberManagementServicePort" />
+        <property name="lookupServiceOnStartup" value="false" />
+        <property name="username" value="${connections/webServices/subscribermanagement/username}" />
+        <property name="password" value="${connections/webServices/subscribermanagement/password}" />
+        <property name="handlerResolver" ref="logHandlerResolver" />
+    </bean>
+    <bean id="wirelessAccountLifecycleMgmtServicePort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+        <property name="serviceInterface"        				 
+                  value="com.telus.wsdl.cmo.ordermgmt.wirelessaccountlifecyclemgmtservice_1.WirelessAccountLifecycleMgmtServicePortType" />
+        <property name="wsdlDocumentUrl"
+                  value=" classpath:wsdls/WirelessAccountLifecycleMgmtService/WirelessAccountLifecycleMgmtService_v1_3.wsdl" />
+        <property name="endpointAddress" value="${connections/webServices/wirelessaccountlifecyclemgmt/endpointAddress}" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/CMO/OrderMgmt/WirelessAccountLifecycleMgmtService_1" />
+        <property name="serviceName" value="WirelessAccountLifecycleMgmtService_v1_3" />
+        <property name="portName" value="WirelessAccountLifecycleMgmtServicePort" />
+        <property name="lookupServiceOnStartup" value="false" />
+        <property name="username" value="${connections/webServices/wirelessaccountlifecyclemgmt/username}" />
+        <property name="password" value="${connections/webServices/wirelessaccountlifecyclemgmt/password}" />
+        <property name="handlerResolver" ref="logHandlerResolver" />
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="session">
+                    <bean class="org.springframework.context.support.SimpleThreadScope" />
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+</beans>

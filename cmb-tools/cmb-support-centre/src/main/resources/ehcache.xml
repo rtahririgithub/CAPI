@@ -1,0 +1,57 @@
+<ehcache xsi:noNamespaceSchemaLocation="ehcache.xsd" name="cmbscCacheManager" updateCheck="false">
+
+	<defaultCache 
+		eternal="false" 
+		maxElementsInMemory="1000"
+        overflowToDisk="false" 
+        diskPersistent="false" 
+        timeToIdleSeconds="0"
+        timeToLiveSeconds="600" 
+        memoryStoreEvictionPolicy="LRU"
+	/>
+
+	<cache 
+		name="artifactNotifications" 
+		eternal="false"
+        maxElementsInMemory="50000" 
+        overflowToDisk="false" 
+        diskPersistent="false"
+        timeToIdleSeconds="0" 
+        timeToLiveSeconds="300"
+        memoryStoreEvictionPolicy="LRU" 
+	/>
+
+	<cache 
+		name="artifacts" 
+		eternal="false"
+        maxElementsInMemory="50000" 
+        overflowToDisk="false" 
+        diskPersistent="false"
+        timeToIdleSeconds="0" 
+        timeToLiveSeconds="10000"
+        memoryStoreEvictionPolicy="LRU" 
+	/>
+
+	<cache 
+		name="environments" 
+		eternal="false"
+        maxElementsInMemory="50000" 
+        overflowToDisk="false" 
+        diskPersistent="false"
+        timeToIdleSeconds="0" 
+        timeToLiveSeconds="10000"
+        memoryStoreEvictionPolicy="LRU" 
+	/>
+
+	<cache 
+		name="referenceVersions" 
+		eternal="false"
+        maxElementsInMemory="50000" 
+        overflowToDisk="false" 
+        diskPersistent="false"
+        timeToIdleSeconds="0" 
+        timeToLiveSeconds="10000"
+        memoryStoreEvictionPolicy="LRU" 
+	/>
+
+</ehcache>

@@ -1,0 +1,58 @@
+#README {
+	font-family: "Arial";
+	background-color: #666666;
+	margin: 1.0em;
+}
+
+.readme.title {
+	background-color: #E2E2E2;
+	color: #49166D;
+}
+
+.logSearch.title {
+	background-color: #66CC00;
+	color: #FFFFFF;
+}
+
+.logReader.title {
+	background-color: #49166D;
+	color: #FFFFFF;
+}
+
+.changelog.title {
+	background-color: #333333;
+	color: #66CC00;
+}
+
+.unix.title {
+	background-color: #66CC00;
+	color: #000000;
+}
+
+#TOC {
+	font-size: 1.4em;
+}
+
+#TOC a {
+	color: #66CC00;
+	font-weight: bold;
+}
+
+#TOC a:hover {
+	color: #448207;
+}
+
+.icon.button {
+	background-color: #66CC00;
+	color: #FFFFFF;
+}
+
+.icon.button:hover {
+	background-color: #448207;
+	color: #FFFFFF;
+}
+
+.icon.button:focus {
+	background-color: #448207;
+	color: #FFFFFF;
+}

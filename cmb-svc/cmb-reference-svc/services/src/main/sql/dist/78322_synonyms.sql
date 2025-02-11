@@ -1,0 +1,15 @@
+create or replace public synonym P3MS_CONFIG for DISTADM.P3MS_CONFIG;
+create or replace public synonym USIM for DISTADM.USIM;
+create or replace public synonym USIM_STATUS for DISTADM.USIM_STATUS;
+create or replace public synonym USIM_CREDENTIAL for DISTADM.USIM_CREDENTIAL; 
+create or replace public synonym SUBSCRIBER_NETWORK_NUM for DISTADM.SUBSCRIBER_NETWORK_NUM;
+create or replace public synonym USIM_SUBSCRIBER_PROFILE for DISTADM.USIM_SUBSCRIBER_PROFILE;
+create or replace public synonym USIM_PCS_DEVICE_ASSOC for DISTADM.USIM_PCS_DEVICE_ASSOC;
+create or replace public synonym USIM_CREDENTIAL_PURPOSE for DISTADM.USIM_CREDENTIAL_PURPOSE;
+create or replace public synonym SUBSCRIBER_PROFILE_TYPE for DISTADM.SUBSCRIBER_PROFILE_TYPE;
+create or replace public synonym NON_TELUS_PCS_EQUIP for DISTADM.NON_TELUS_PCS_EQUIP;
+create or replace public synonym NON_TELUS_PRODUCT for DISTADM.NON_TELUS_PRODUCT;
+create or replace public synonym DEVICE_SOURCE_TYPE for DISTADM.DEVICE_SOURCE_TYPE;
+create or replace public synonym USIM_FRAUD_INFO for DISTADM.USIM_FRAUD_INFO;
+create or replace public synonym CARD_TYPE_RATE for DISTADM.CARD_TYPE_RATE;
+COMMIT;

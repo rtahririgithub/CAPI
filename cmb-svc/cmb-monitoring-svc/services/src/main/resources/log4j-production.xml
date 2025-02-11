@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log4j:configuration>
+  <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p %c - %m%n" />
+    </layout>
+  </appender>
+  <appender name="RollingAppender" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="%loggingRoot%/monitoring_output_rolling.txt" />
+    <param name="Append" value="true" />
+    <param name="MaxBackupIndex" value="10" />
+    <param name="MaxFileSize" value="100MB" />
+    <layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern" value="%m%n" />
+    </layout>
+  </appender>
+  <appender name="DailyRollingAppender" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="File" value="%loggingRoot%/monitoring_output.txt" />
+    <param name="Append" value="true" />
+    <param name="DatePattern" value="'.'yyyy-MM-dd" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%m%n" />
+    </layout>
+  </appender>
+  <root>
+    <priority value="debug" />
+    <appender-ref ref="DailyRollingAppender" />
+  </root>
+  <logger name="com.telus.cmb.monitoring.svc.dao.MonitoringDataDaoLog4jImpl">
+    <level value="info" />
+    <appender-ref ref="RollingAppender" />
+  </logger>
+</log4j:configuration>

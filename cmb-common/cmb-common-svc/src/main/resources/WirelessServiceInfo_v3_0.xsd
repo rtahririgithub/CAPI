@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/WirelessServiceInfo_v3" xmlns:ns1="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/WirelessServiceInfo_v3" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/WirelessServiceInfo_v3" elementFormDefault="qualified">
+	<xs:element name="CustomerAccount">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="accountInfo" type="AccountInfo"/>
+				<xs:element name="transactionDate" type="xs:date"/>
+				<xs:element name="serviceAgreementInfo" type="ServiceAgreementInfo" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>To be used for service change notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="transferOwnershipInfo" type="TransferOwnershipInfo" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>To be used for TOWN notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cancellationInfo" type="CancellationInfo" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>To be used for cancellation notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="marketingOfferInfo" type="MarketingOfferInfo" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="AccountInfo">
+		<xs:sequence>
+			<xs:element name="billingAccountNumber" type="xs:string"/>
+			<xs:element name="subscriberPhoneNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="billCycleCloseDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="marketingInd" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Set to true if customer is opted in for marketing content.  If element is false or empty, assume customer is not opted in for marketing.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountFirstName" type="xs:string" minOccurs="0"/>
+			<xs:element name="accountLastName" type="xs:string" minOccurs="0"/>
+			<xs:element name="subscriberFirstName" type="xs:string" minOccurs="0"/>
+			<xs:element name="subscriberLastName" type="xs:string" minOccurs="0"/>
+			<xs:element name="accountType" type="xs:string" minOccurs="0"/>
+			<xs:element name="accountSubType" type="xs:string" minOccurs="0"/>
+			<xs:element name="productType" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="segmentation" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FavoriteNumberInfo">
+		<xs:sequence>
+			<xs:element name="phoneNumber" type="xs:string" maxOccurs="50"/>
+			<xs:element name="effectiveDate" type="xs:date"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ServiceInfo">
+		<xs:sequence>
+			<xs:element name="serviceDescriptionEnglish" type="xs:string"/>
+			<xs:element name="serviceDescriptionFrench" type="xs:string"/>
+			<xs:element name="transactionType">
+				<xs:annotation>
+					<xs:documentation>ADD, REMOVE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="REMOVE"/>
+						<xs:enumeration value="ADD"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="effectiveDate" type="xs:date"/>
+			<xs:element name="expiryDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="serviceCost" type="xs:double" minOccurs="0"/>
+			<xs:element name="prorationCharge" type="xs:double" minOccurs="0"/>
+			<xs:element name="formattedEffectiveDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="formattedExpiryDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="durationService" type="DurationServiceInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ServiceAgreementInfo">
+		<xs:sequence>
+			<xs:element name="serviceInfo" type="ServiceInfo" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="favoriteNumberInd" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>To be set to true if favorite number service is included in  added services</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="favoriteNumberInfo" type="FavoriteNumberInfo" minOccurs="0"/>
+			<xs:element name="totalProrationCharge" type="xs:double" minOccurs="0"/>
+			<xs:element name="earliestEffectiveDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="roamingServiceList" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>To be used for roaming service change notification</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="roamingServiceInfo" type="RoamingServiceInfo"  minOccurs="0" maxOccurs="100"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RoamingServiceInfo">
+		<xs:sequence>
+			<xs:element name="serviceCode" type="xs:string"/>
+			<xs:element name="serviceDescriptionEnglish" type="xs:string" minOccurs="0"/>
+			<xs:element name="serviceDescriptionFrench" type="xs:string" minOccurs="0"/>
+			<xs:element name="socFamilyTypeList" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="socFamilyType" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="coverageType" type="xs:string" minOccurs="0"/>
+			<xs:element name="rlhInd" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>KB SOC TABLE , possible values 'I','U','Y','N',''</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ppAcRate" type="xs:string" minOccurs="0"/>
+			<xs:element name="ppRcRate" type="xs:string" minOccurs="0"/>
+			<xs:element name="serviceType" type="xs:string"/>
+			<xs:element name="durationInd" type="xs:string" minOccurs="0"/>
+			<xs:element name="duration" type="xs:string" minOccurs="0"/>
+			<xs:element name="billCycleTreatmentCD" type="xs:string" minOccurs="0"/>
+			<xs:element name="purchaseDate" type="xs:date"/>
+			<xs:element name="socEffDate" type="xs:date"/>
+			<xs:element name="socExpDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CancellationInfo">
+		<xs:sequence>
+			<xs:element name="subscriberPhoneNumber" type="xs:string" maxOccurs="50"/>
+			<xs:element name="effectiveDate" type="xs:date"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TransferOwnershipInfo">
+		<xs:sequence>
+			<xs:element name="subscriberPhoneNumber" type="xs:string" maxOccurs="50"/>
+			<xs:element name="effectiveDate" type="xs:date"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MarketingOfferInfo">
+		<xs:sequence>
+			<xs:element name="offerCd" type="xs:string" minOccurs="0"/>
+			<xs:element name="promoCd" type="xs:string" minOccurs="0"/>
+			<xs:element name="descriptionEN" type="xs:string" minOccurs="0"/>
+			<xs:element name="descriptionFR" type="xs:string" minOccurs="0"/>
+			<xs:element name="offerNameEN" type="xs:string" minOccurs="0"/>
+			<xs:element name="offerNameFR" type="xs:string" minOccurs="0"/>
+			<xs:element name="rank" type="xs:string" minOccurs="0"/>
+			<xs:element name="validationCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DurationServiceInfo">
+		<xs:annotation>
+			<xs:documentation>Added for x-hour SOC for Roam Like Home project</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="effectiveTime" type="xs:time"/>
+			<xs:element name="formattedEffectiveTime" type="xs:string" minOccurs="0"/>
+			<xs:element name="expiryTime" type="xs:time"/>
+			<xs:element name="formattedExpiryTime" type="xs:string" minOccurs="0"/>
+			<xs:element name="hoursBeforeExpiry" type="xs:int" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

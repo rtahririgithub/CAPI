@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- telus.archetype.version:210140321.Application.Complete -->
+
+	<parent>
+		<groupId>telus.customer.wireless.cmb-web-services.cmb-resource-order-reference-jws</groupId>
+		<artifactId>pom-cmb-resource-order-reference-jws</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+    </parent>
+	
+	<artifactId>cmb-resource-order-reference-jws-services</artifactId>
+	<packaging>war</packaging>
+
+	<build>
+		<finalName>cmb-resource-order-reference-jws-1.0</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+    		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>cmb-resource-order-reference-jws-wsdl</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<!-- end of  internal project dependencies-->
+
+		<dependency>
+			<groupId>telus.customer.wireless.cmb-common</groupId>
+			<artifactId>cmb-common-jws</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.customer.wireless.cmb-ejb-services.cmb-reference-data-svc</groupId>
+			<artifactId>cmb-reference-data-svc-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		
+	  <!-- scope:test required by JUnit -->
+
+      <dependency>
+         <groupId>weblogic</groupId>
+         <artifactId>wlfullclient</artifactId>
+         <scope>test</scope>
+      </dependency>
+		
+	</dependencies>
+	
+	<!--
+		Use Eclipse profile to add Configuration Frameworks files to the classpath when installing within
+		the Eclipse IDE environment.
+	-->
+	<profiles>
+		<profile>
+			<id>Eclipse</id>
+			<dependencies>
+				<dependency>
+					<groupId>telus.customer.wireless</groupId>
+					<artifactId>cmb-app-config</artifactId>
+					<version>1.0.0-SNAPSHOT</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
+</project>

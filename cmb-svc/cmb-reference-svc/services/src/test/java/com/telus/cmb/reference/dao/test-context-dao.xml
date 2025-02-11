@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<bean class="com.telus.cmb.framework.config.PlaceholderConfigurer"/>
+	
+	<bean id="jaxWsPortProxyBase" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" abstract="true"
+		p:lookupServiceOnStartup="false" 
+		p:username="${credentials/ejb/username}" 
+		p:password="${credentials/ejb/password}" 
+	/>
+	
+	<bean class="com.telus.cmb.reference.dao.ReferenceDataOcssaDao"/>
+	<bean id="ocssaPort" parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.OnlineChargingSubscriberAccountServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/OnlineChargingSubscriberAccountService_v3_2.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/BillingInquiryMgmt/OnlineChargingSubscriberAccountService_3"
+		p:serviceName="OnlineChargingSubscriberAccountService_v3_2" 
+		p:endpointAddress="${endpoints/OnlineChargingSubscriberAccountService/url}"
+	/>
+	
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"/>
+	
+	<bean id="knowbilityDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin://@KBPT-scan:41521/KBQA148sv3.WORLD"/>
+		<property name="username" value="basread2"/>
+		<property name="password" value="basread2"/>
+	</bean>
+	<!-- 
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="knowbilityDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+			 -->
+	<bean class="com.telus.cmb.reference.dao.ReferenceDataRefDao" 
+		p:dataSource-ref="knowbilityDataSource"
+	/>
+	
+</beans> 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>WirelessAccountMgmtService</Name>
+		<Documentation>Provides the ability to update wireless acount information data.  Service should only be consumed by Enterprise Billing Management Service</Documentation>
+		<TAM_LevelZeroAndOne>CMO/InformationMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/AccountInformation</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmosr-custinfomgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>WirelessAccountMgmtServiceRequestResponse_v1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/WirelessAccountMgmtServiceRequestResponse_v1</NameSpace>
+		<nsAbbrev>ais</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>updateAccountPassword</OperationName>
+		<Documentation>Updates Account Password.</Documentation>
+		<InputType wsp="True">updateAccountPassword</InputType>
+		<OutputType>updateAccountPasswordResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updateBillingInformation</OperationName>
+		<Documentation>Updates account billing information</Documentation>
+		<InputType wsp="True">updateBillingInformation</InputType>
+		<OutputType>updateBillingInformationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+    </Operation>	
+	<Operation>
+		<OperationName>updateBillCycle</OperationName>
+		<Documentation>Updates bill cycle</Documentation>
+		<InputType wsp="True">updateBillCycle</InputType>
+		<OutputType>updateBillCycleResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updatePersonalCreditInformation</OperationName>
+		<Documentation>update personal credit profile</Documentation>
+		<InputType wsp="True">updatePersonalCreditInformation</InputType>
+		<OutputType>updatePersonalCreditInformationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>		
+	<Operation>
+		<OperationName>updateBusinessCreditInformation</OperationName>
+		<Documentation>update business credit profile</Documentation>
+		<InputType wsp="True">updateBusinessCreditInformation</InputType>
+		<OutputType>updateBusinessCreditInformationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>		
+</Service>

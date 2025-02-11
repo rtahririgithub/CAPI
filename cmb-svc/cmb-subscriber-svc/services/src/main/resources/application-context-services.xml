@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<context:annotation-config/>	
+	
+	<context:component-scan base-package="com.telus.cmb.common, com.telus.cmb.subscriber"/>
+	
+	<!-- this bean is created so that ConfigurationManagerImpl can be destroyed properly upon shutdown -->
+	<bean id="configurationManagerFactory" class="com.telus.cmb.framework.config.ConfigurationManagerFactory" destroy-method="destroy"/>
+	
+	<bean class="com.telus.cmb.framework.config.PlaceholderConfigurer" p:ignoreUnresolvablePlaceholders="true" p:nullValue="null"/>
+
+	<bean id="encryptUtil" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod">
+			<value>com.telus.framework.crypto.EncryptionUtil.setCrypto</value>
+		</property>
+
+		<property name="arguments">
+			<list>
+				<ref bean="cryptoImpl"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="cryptoImpl" class="com.telus.framework.crypto.impl.pilot.PilotCryptoImpl" init-method="init"
+		p:key1="${crypto/key1}" p:key2="${crypto/key2}" p:key3="${crypto/key3}"
+	/>
+	
+	<bean id="ejbController" class="com.telus.cmb.common.util.EJBController"/>
+	
+	<jee:remote-slsb id="accountHelper" lookup-home-on-startup="false" resource-ref="false"
+		business-interface="com.telus.cmb.account.informationhelper.svc.AccountInformationHelper" 
+		jndi-name="AccountInformationHelper#com.telus.cmb.account.informationhelper.svc.AccountInformationHelper">
+		<jee:environment>
+			java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+			java.naming.provider.url=${services/AccountInformationHelper/url}
+			java.naming.security.principal=ejb_user
+			java.naming.security.credentials=ejb_user
+		</jee:environment>
+	</jee:remote-slsb>
+
+	<jee:remote-slsb id="minMdnService" lookup-home-on-startup="false" resource-ref="false"
+		business-interface="com.telusmobility.rcm.common.ejb.MinMdnService" refresh-home-on-connect-failure="true"
+		jndi-name="rcm.ejb.session.minmdnservice">
+		<jee:environment>
+			java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+			java.naming.provider.url=${MinMdnServiceUrl}
+			java.naming.security.principal=ejb_user
+			java.naming.security.credentials=ejb_user
+		</jee:environment>
+	</jee:remote-slsb>
+	
+	<bean id="brandTransitionMatrix" class="com.telus.cmb.subscriber.utilities.transition.BrandTransitionMatrix" lazy-init="true"/>
+	<bean id="equipmentTransitionMatrix" class="com.telus.cmb.subscriber.utilities.transition.EquipmentTransitionMatrix" lazy-init="true"/>
+
+	<bean id="profileRegistrationPolicy" class="com.telus.cmb.common.svc.identityprofile.ConfigurableProfileRegistrationPolicy">
+		<constructor-arg value="${identity-profile-eligibility-policy}"/>
+	</bean>
+
+	<bean id="identityProfileService" class="com.telus.cmb.common.svc.identityprofile.IdentityProfileServiceImpl"/>
+	
+	<bean id="externalizedSqlUtil" class="com.telus.cmb.subscriber.utilities.ExternalizedSqlUtil"/>
+	
+	<bean id="kafkaMessagePublisher" class="com.telus.cmb.common.kafka.KafkaMessagePublisherImpl">
+		<property name="endpointUrl" value="${endpoints/kafkaEventPublisher/kafkaPartyEventCustomerOrderWireless/url}"/>
+		<property name="enabledEventLdapKeys">
+			<list>
+				<value>KAFKA_SUBSCRIBER_EVENTS</value>
+			</list>
+		</property>	
+	</bean>
+
+	<bean id="subscriberEventPublisher" class="com.telus.cmb.subscriber.kafka.SubscriberEventPublisherImpl">
+		<property name="publisher" ref="kafkaMessagePublisher" />
+	</bean>
+	
+	<bean id="serviceAgreementEventPublisher" class="com.telus.cmb.subscriber.kafka.ServiceAgreementEventPublisherImpl">
+		<property name="publisher" ref="kafkaMessagePublisher" />
+	</bean>
+
+	<bean id="changePhoneNumberPublisher" class="com.telus.cmb.subscriber.kafka.ChangePhoneNumberPublisherImpl">
+		<property name="publisher" ref="kafkaMessagePublisher" />
+	</bean>
+		
+</beans> 

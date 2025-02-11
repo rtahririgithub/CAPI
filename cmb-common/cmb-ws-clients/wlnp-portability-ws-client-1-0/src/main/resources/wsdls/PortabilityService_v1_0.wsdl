@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<s0:definitions targetNamespace="http://www.telus.com/WLNP-PortabilityService" xmlns="" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://www.w3.org/2001/XMLSchema" xmlns:s2="http://www.telus.com/WLNP-PortabilityService" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/">
+  <s0:types>
+    <xsd:schema targetNamespace="http://www.telus.com/WLNP-PortabilityService" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://www.w3.org/2001/XMLSchema" xmlns:s2="http://www.telus.com/WLNP-PortabilityService" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.telus.com/WLNP-PortabilityService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="PortabilityByWtnRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="wtn" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetLocalServiceProviderAndPortabilityByWtnResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="lspType" type="xsd:string"/>
+            <xsd:element name="lspId" type="xsd:string"/>
+            <xsd:element name="lrn" type="xsd:string"/>
+            <xsd:element name="portabilityIndicator" type="xsd:boolean">
+      			</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetLocalServiceProviderAndPortabilityByWtnRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="wtn" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </s0:types>
+  <s0:message name="PortabilityByWtnResponse">
+    <s0:part name="PortabilityByWtnResponse" type="s1:boolean"/>
+  </s0:message>
+  <s0:message name="GetLocalServiceProviderAndPortabilityByWtnResponse">
+    <s0:part element="s2:GetLocalServiceProviderAndPortabilityByWtnResponse" name="GetLocalServiceProviderAndPortabilityByWtnResponse"/>
+  </s0:message>
+  <s0:message name="PortabilityByWtnRequest">
+    <s0:part element="s2:PortabilityByWtnRequest" name="PortabilityByWtnRequest"/>
+  </s0:message>
+  <s0:message name="GetLocalServiceProviderAndPortabilityByWtnRequest">
+    <s0:part element="s2:GetLocalServiceProviderAndPortabilityByWtnRequest" name="GetLocalServiceProviderAndPortabilityByWtnRequest"/>
+  </s0:message>
+  <s0:portType name="WLNP-PortabilityService">
+    <s0:operation name="PortabilityByWtn">
+      <s0:input message="s2:PortabilityByWtnRequest"/>
+      <s0:output message="s2:PortabilityByWtnResponse"/>
+    </s0:operation>
+    <s0:operation name="GetLocalServiceProviderAndPortabilityByWtn">
+      <s0:input message="s2:GetLocalServiceProviderAndPortabilityByWtnRequest"/>
+      <s0:output message="s2:GetLocalServiceProviderAndPortabilityByWtnResponse"/>
+    </s0:operation>
+  </s0:portType>
+  <s0:binding name="WLNP-PortabilityServiceSOAP" type="s2:WLNP-PortabilityService">
+    <s3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <s0:operation name="GetLocalServiceProviderAndPortabilityByWtn">
+      <s3:operation soapAction="http://www.telus.com/WLNP-PortabilityService/GetLocalServiceProviderAndPortabilityByWtn"/>
+      <s0:input>
+        <s3:body parts="GetLocalServiceProviderAndPortabilityByWtnRequest" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s3:body parts="GetLocalServiceProviderAndPortabilityByWtnResponse" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="PortabilityByWtn">
+      <s3:operation soapAction="http://www.telus.com/WLNP-PortabilityService/PortabilityByWtn"/>
+      <s0:input>
+        <s3:body parts="PortabilityByWtnRequest" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s3:body parts="PortabilityByWtnResponse" use="literal"/>
+      </s0:output>
+    </s0:operation>
+  </s0:binding>
+  <s0:service name="WLNP-PortabilityService_vs0">
+    <s0:documentation>Validates if a TN is portable or not and retrieves who is the current local service provider.</s0:documentation>
+    <s0:port binding="s2:WLNP-PortabilityServiceSOAP" name="WLNP-PortabilityServiceSOAP">
+      <s3:address location="https://servicemngr-dv03.tsl.telus.com:443/RMO/OrderMgmt/PortabilityService_v1_0_vs0"/>
+    </s0:port>
+  </s0:service>
+</s0:definitions>

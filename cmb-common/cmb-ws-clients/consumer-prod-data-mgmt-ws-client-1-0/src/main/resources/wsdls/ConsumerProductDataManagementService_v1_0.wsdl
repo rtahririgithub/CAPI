@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<s0:definitions name="ConsumerProductDataManagementService_v1_0.wsdl" targetNamespace="http://telus.com/wsdl/CMO/InformationMgmt/ConsumerProductDataManagementService_1" xmlns="" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/ConsumerProductDataMgmtSvcRequestResponse_v1" xmlns:s2="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1" xmlns:s3="http://xmlschema.tmi.telus.com/xsd/common/exceptions/Exceptions_v1_0" xmlns:s4="http://telus.com/wsdl/CMO/InformationMgmt/ConsumerProductDataManagementService_1" xmlns:s5="http://schemas.xmlsoap.org/wsdl/soap/">
+  <s0:documentation>
+            This service provides management services for consumer products.
+        </s0:documentation>
+  <s0:types>
+    <xs:schema targetNamespace="http://telus.com/wsdl/CMO/InformationMgmt/ConsumerProductDataManagementService_1" xmlns:ex="http://xmlschema.tmi.telus.com/xsd/common/exceptions/Exceptions_v1_0" xmlns:iface="http://telus.com/wsdl/CMO/InformationMgmt/ConsumerProductDataManagementService_1" xmlns:ping="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1" xmlns:rr="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/ConsumerProductDataMgmtSvcRequestResponse_v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wss="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/ConsumerProductDataMgmtSvcRequestResponse_v1" schemaLocation="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/ConsumerProductDataMgmtSvcRequestResponse_v1_0.xsd"/>
+      <xs:import namespace="http://xmlschema.tmi.telus.com/xsd/common/exceptions/Exceptions_v1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/common/exceptions/Exceptions_v1_0.xsd"/>
+      <xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1.xsd"/>
+    </xs:schema>
+  </s0:types>
+  <s0:message name="insertProductInstance">
+    <s0:part element="s1:insertProductInstance" name="parameters"/>
+  </s0:message>
+  <s0:message name="insertProductInstanceResponse">
+    <s0:part element="s1:insertProductInstanceResponse" name="result"/>
+  </s0:message>
+  <s0:message name="updateProductInstance">
+    <s0:part element="s1:updateProductInstance" name="parameters"/>
+  </s0:message>
+  <s0:message name="updateProductInstanceResponse">
+    <s0:part element="s1:updateProductInstanceResponse" name="result"/>
+  </s0:message>
+  <s0:message name="manageProductParameters">
+    <s0:part element="s1:manageProductParameters" name="parameters"/>
+  </s0:message>
+  <s0:message name="manageProductParametersResponse">
+    <s0:part element="s1:manageProductParametersResponse" name="result"/>
+  </s0:message>
+  <s0:message name="manageProductResources">
+    <s0:part element="s1:manageProductResources" name="parameters"/>
+  </s0:message>
+  <s0:message name="manageProductResourcesResponse">
+    <s0:part element="s1:manageProductResourcesResponse" name="result"/>
+  </s0:message>
+  <s0:message name="ping">
+    <s0:part element="s2:ping" name="parameters"/>
+  </s0:message>
+  <s0:message name="pingResponse">
+    <s0:part element="s2:pingResponse" name="result"/>
+  </s0:message>
+  <s0:message name="ServiceException">
+    <s0:part element="s3:ServiceException" name="fault"/>
+  </s0:message>
+  <s0:message name="PolicyException">
+    <s0:part element="s3:PolicyException" name="fault"/>
+  </s0:message>
+  <s0:portType name="ConsumerProductDataManagementServicePortType">
+    <s0:operation name="insertProductInstance">
+      <s0:input message="s4:insertProductInstance"/>
+      <s0:output message="s4:insertProductInstanceResponse"/>
+      <s0:fault message="s4:ServiceException" name="ServiceException"/>
+      <s0:fault message="s4:PolicyException" name="PolicyException"/>
+    </s0:operation>
+    <s0:operation name="updateProductInstance">
+      <s0:input message="s4:updateProductInstance"/>
+      <s0:output message="s4:updateProductInstanceResponse"/>
+      <s0:fault message="s4:ServiceException" name="ServiceException"/>
+      <s0:fault message="s4:PolicyException" name="PolicyException"/>
+    </s0:operation>
+    <s0:operation name="manageProductParameters">
+      <s0:input message="s4:manageProductParameters"/>
+      <s0:output message="s4:manageProductParametersResponse"/>
+      <s0:fault message="s4:ServiceException" name="ServiceException"/>
+      <s0:fault message="s4:PolicyException" name="PolicyException"/>
+    </s0:operation>
+    <s0:operation name="manageProductResources">
+      <s0:input message="s4:manageProductResources"/>
+      <s0:output message="s4:manageProductResourcesResponse"/>
+      <s0:fault message="s4:ServiceException" name="ServiceException"/>
+      <s0:fault message="s4:PolicyException" name="PolicyException"/>
+    </s0:operation>
+    <s0:operation name="ping">
+      <s0:input message="s4:ping"/>
+      <s0:output message="s4:pingResponse"/>
+      <s0:fault message="s4:ServiceException" name="ServiceException"/>
+      <s0:fault message="s4:PolicyException" name="PolicyException"/>
+    </s0:operation>
+  </s0:portType>
+  <s0:binding name="ConsumerProductDataManagementServiceSOAP" type="s4:ConsumerProductDataManagementServicePortType">
+    <s5:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <s0:operation name="insertProductInstance">
+      <s0:documentation>
+        	insert product instance
+        </s0:documentation>
+      <s5:operation soapAction="insertProductInstance"/>
+      <s0:input>
+        <s5:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s5:body parts="result" use="literal"/>
+      </s0:output>
+      <s0:fault name="ServiceException">
+        <s5:fault name="ServiceException" use="literal"/>
+      </s0:fault>
+      <s0:fault name="PolicyException">
+        <s5:fault name="PolicyException" use="literal"/>
+      </s0:fault>
+    </s0:operation>
+    <s0:operation name="updateProductInstance">
+      <s0:documentation>
+        	update product instance
+        </s0:documentation>
+      <s5:operation soapAction="updateProductInstance"/>
+      <s0:input>
+        <s5:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s5:body parts="result" use="literal"/>
+      </s0:output>
+      <s0:fault name="ServiceException">
+        <s5:fault name="ServiceException" use="literal"/>
+      </s0:fault>
+      <s0:fault name="PolicyException">
+        <s5:fault name="PolicyException" use="literal"/>
+      </s0:fault>
+    </s0:operation>
+    <s0:operation name="manageProductParameters">
+      <s0:documentation>
+        	manage product parameters
+        </s0:documentation>
+      <s5:operation soapAction="manageProductParameters"/>
+      <s0:input>
+        <s5:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s5:body parts="result" use="literal"/>
+      </s0:output>
+      <s0:fault name="ServiceException">
+        <s5:fault name="ServiceException" use="literal"/>
+      </s0:fault>
+      <s0:fault name="PolicyException">
+        <s5:fault name="PolicyException" use="literal"/>
+      </s0:fault>
+    </s0:operation>
+    <s0:operation name="manageProductResources">
+      <s0:documentation>
+        	manage product resource
+        </s0:documentation>
+      <s5:operation soapAction="manageProductResources"/>
+      <s0:input>
+        <s5:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s5:body parts="result" use="literal"/>
+      </s0:output>
+      <s0:fault name="ServiceException">
+        <s5:fault name="ServiceException" use="literal"/>
+      </s0:fault>
+      <s0:fault name="PolicyException">
+        <s5:fault name="PolicyException" use="literal"/>
+      </s0:fault>
+    </s0:operation>
+    <s0:operation name="ping">
+      <s0:documentation>
+         
+         
+            
+         
+         
+            
+         
+         
+            
+         
+         
+            
+         
+      
+   
+   
+      
+         
+      
+   
+</s0:documentation>
+      <s5:operation soapAction="ping"/>
+      <s0:input>
+        <s5:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s5:body parts="result" use="literal"/>
+      </s0:output>
+      <s0:fault name="ServiceException">
+        <s5:fault name="ServiceException" use="literal"/>
+      </s0:fault>
+      <s0:fault name="PolicyException">
+        <s5:fault name="PolicyException" use="literal"/>
+      </s0:fault>
+    </s0:operation>
+  </s0:binding>
+  <s0:service name="ConsumerProductDataManagementService_v1_0">
+    <s0:port binding="s4:ConsumerProductDataManagementServiceSOAP" name="ConsumerProductDataManagementServicePort">
+      <s5:address location="http://ln98420:41111/CMO/InformationMgmt/ProductManagement/ConsumerProductDataManagementService_v1_0"/>
+    </s0:port>
+  </s0:service>
+</s0:definitions>

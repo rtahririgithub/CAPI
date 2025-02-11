@@ -1,0 +1,1555 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<environment-config>
+
+    <entry name="ClientAgent" path="/Infra">
+        
+        <entry name="FIGARO_TEST">
+            <entry name="applicationCode">
+                <value environment="pt168" value="FIGARO_TEST"/>
+                <value environment="st101" value="FIGARO_TEST"/>
+                <value environment="dv103" value="SMARTDESKTOP"/>
+                <value environment="ps101" value="FIGARO_TEST"/>
+                <value environment="pt140" value="FIGARO_TEST"/>
+                <value environment="pt148" value="FIGARO_TEST"/>
+                <value environment="pr" value="FIGARO_TEST"/>
+            </entry>
+            <entry name="principal" value="18654"/>
+            <entry name="credential" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+        </entry>
+        <entry name="TVC">
+            <entry name="applicationCode" value="TVC"/>
+            <entry name="principal" value="75847"/>
+            <entry name="credential" value="40b6b7039f2ea13fdf9d630b4fee43029ce20e784bf814d5a84f155427794d8a499c3941508d15266e7ad6de26d4512434c9e71ce4bc96c6680b71e7740de91b0a7c21f082587dfec22b3b9e0d75b0d945eccbf7433c1aa43590b7d1a1a81131c9149229e75fb290d402022b16f928dcf6ba48c731c9a4e4c2d135894a6d230f"/>
+        </entry>
+        <entry name="TELUS_CREDIT_PROFILE_SVC">
+            <entry name="applicationCode" value="HCD"/>
+            <entry name="principal" value="22000"/>
+            <entry name="credential" value="4a93d779d82ec00152f4c77cd34599732abb306407d8c21870e8213bf411bffe95ea58257dcc0a001efb0f7d5ecc1cfd29aaee6b3641e9400022d3f73dce4ea35865e79bc0b93c61d8b2fed46175f4950b8fb8ef9b19c8c746f42dc09cdd0a70da4b041c6d4833bdd248b178b6c752585a40bdab0f86e09fd03f281c41b770ed"/>
+        </entry>
+        <entry name="TELUS_WEBSTORE">
+            <entry name="applicationCode" value="TELUS_WEBSTORE"/>
+            <entry name="principal">
+                <value environment="pt168" value="911356"/>
+                <value environment="dv103" value="911356"/>
+                <value environment="ps101" value="911356"/>
+                <value environment="pt140" value="911356"/>
+                <value environment="pt148" value="911356"/>
+                <value environment="st101" value="911356"/>
+                <value environment="pr" value="75762"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="dv103" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="ps101" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="pt140" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="pt148" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="st101" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="pr" value="344f1ba514c852989b38127ac90a04fb02fc71718ba798e955712d5179207f98b1a024d1885ea9173f02079a18b3f73cb0806b7927c38a2af779a45d8d8969da05da2b7c5b4eac2464455c35d34f3500d212a23c553dab692f3993ae8a99618398cb405dcd11c510c0b7b9192365677a0a32adc01d566f7091aa37448cb95ce7"/>
+            </entry>
+        </entry>
+        <entry name="TELUS_SELF_SERVE_PORTAL">
+            <entry name="applicationCode" value="TELUS_SELF_SERVE_PORTAL"/>
+            <entry name="principal">
+                <value environment="pt168" value="911358"/>
+                <value environment="dv103" value="911358"/>
+                <value environment="ps101" value="911358"/>
+                <value environment="pt140" value="911358"/>
+                <value environment="pt148" value="911358"/>
+                <value environment="st101" value="911358"/>
+                <value environment="pr" value="75761"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="dv103" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="ps101" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+				<value environment="pt140" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="pt148" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="st101" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="pr" value="12f8390c2ccea6276c0514db63aa6fcd62f2705ddfb4f424546b9861dff9786ba2a795118672aa9de1f9a3fccd9db754a7c738c2e976fa47b1c71380794cee9f767af814d8688c1f3eb8d53ae125a8962f734d0b7bd79300e73b174346bbaa3f2c1e5d7c30825e8c45745856ae103a7f75621e5f4e114bc2d20db7298cf821a8"/>
+            </entry>
+        </entry>
+        <entry name="FIGARO">
+            <entry name="applicationCode">
+                <value environment="pt168" value="FIGARO"/>
+                <value environment="dv103" value="SMARTDESKTOP"/>
+                <value environment="ps101" value="FIGARO"/>
+                <value environment="pt140" value="FIGARO"/>
+                <value environment="pt148" value="FIGARO"/>
+                <value environment="st101" value="FIGARO"/>
+                <value environment="pr" value="FIGARO"/>
+            </entry>
+            <entry name="principal" value="18654"/>
+            <entry name="credential" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+        </entry>
+        <entry name="PREPAID_IVR">
+            <entry name="applicationCode" value="PREPAID"/>
+            <entry name="principal">
+                <value environment="pt168" value="12271"/>
+                <value environment="dv103" value="12271"/>
+                <value environment="ps101" value="12271"/>
+                <value environment="pt140" value="12271"/>
+                <value environment="pt148" value="12271"/>
+                <value environment="st101" value="12271"/>
+                <value environment="pr" value="19282"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-6d4601712293c475ba6be6c361a7ade73afda167d7f603509dd32150cf11a092290153186bb237f09035bb5500b09b613cc6634fe9a79c5429aec1a6c3db670bfec5fb1840486887c315546b45f830420c1e253d54bfefd6b1b7bf3c9f9b6bb558a10edb6b0ec5f985f3e7d064ef65e79b0093fb006837324780a282b9f3e422"/>
+                <value environment="dv103" value="-6d4601712293c475ba6be6c361a7ade73afda167d7f603509dd32150cf11a092290153186bb237f09035bb5500b09b613cc6634fe9a79c5429aec1a6c3db670bfec5fb1840486887c315546b45f830420c1e253d54bfefd6b1b7bf3c9f9b6bb558a10edb6b0ec5f985f3e7d064ef65e79b0093fb006837324780a282b9f3e422"/>
+                <value environment="ps101" value="-6d4601712293c475ba6be6c361a7ade73afda167d7f603509dd32150cf11a092290153186bb237f09035bb5500b09b613cc6634fe9a79c5429aec1a6c3db670bfec5fb1840486887c315546b45f830420c1e253d54bfefd6b1b7bf3c9f9b6bb558a10edb6b0ec5f985f3e7d064ef65e79b0093fb006837324780a282b9f3e422"/>
+                <value environment="pt140" value="-6d4601712293c475ba6be6c361a7ade73afda167d7f603509dd32150cf11a092290153186bb237f09035bb5500b09b613cc6634fe9a79c5429aec1a6c3db670bfec5fb1840486887c315546b45f830420c1e253d54bfefd6b1b7bf3c9f9b6bb558a10edb6b0ec5f985f3e7d064ef65e79b0093fb006837324780a282b9f3e422"/>
+                <value environment="pt148" value="-6d4601712293c475ba6be6c361a7ade73afda167d7f603509dd32150cf11a092290153186bb237f09035bb5500b09b613cc6634fe9a79c5429aec1a6c3db670bfec5fb1840486887c315546b45f830420c1e253d54bfefd6b1b7bf3c9f9b6bb558a10edb6b0ec5f985f3e7d064ef65e79b0093fb006837324780a282b9f3e422"/>
+                <value environment="st101" value="-6d4601712293c475ba6be6c361a7ade73afda167d7f603509dd32150cf11a092290153186bb237f09035bb5500b09b613cc6634fe9a79c5429aec1a6c3db670bfec5fb1840486887c315546b45f830420c1e253d54bfefd6b1b7bf3c9f9b6bb558a10edb6b0ec5f985f3e7d064ef65e79b0093fb006837324780a282b9f3e422"/>
+                <value environment="pr" value="1e2634bae0c625f4351fd22d96bb5a6b448ea6f464b34968bbbf7b0f3688343b65944a570103c3e86da5c9e5763ff76b0c0ffd58abd38f94f16a84cd901af7e54fcdefc28b229f599a1ec27e3ab210ec519ebe406026af76dc44671f2fe544bb56f8057bea727df770cf6785631815597e05ec20b5007e613957443e61ccf437"/>
+            </entry>
+        </entry>
+        <entry name="SDF_External_Portal">
+            <entry name="applicationCode" value="SDF_External_Portal"/>
+            <entry name="principal" value="911382"/>
+            <entry name="credential" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+        </entry>
+        <entry name="SDF_Internal_Portal">
+            <entry name="applicationCode" value="SDF_Internal_Portal"/>
+            <entry name="principal" value="911383"/>
+            <entry name="credential" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+        </entry>
+        <entry name="TELUS_SDF_PORTAL_EXT">
+            <entry name="applicationCode" value="TELUS_SDF_PORTAL_EXT"/>
+            <entry name="principal">
+                <value environment="pt168" value="911382"/>
+                <value environment="ps101" value="911382"/>
+                <value environment="pt140" value="911382"/>
+                <value environment="pt148" value="911382"/>
+                <value environment="st101" value="911382"/>
+                <value environment="pr" value="26316"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="ps101" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pt140" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pt148" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="st101" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pr" value="-62c1be655a558409277ebd9d1872473f15fe8745b0bc3af76e475fbe924f4c2f723430c0119b706c42ad27bd982826fa5a9379902503e74ff83c5ca54c59e83053dd9f14bc9cf1f1dd88d74e97f2fe11833ab4bdb706eee1d2cac8a2d8ba1445312953b6d2be8c9d4c5b2c6dad200af3067a90312283bb02e018c1916eaa3f10"/>
+            </entry>
+        </entry>
+        <entry name="TELUS_SDF_PORTAL_INT">
+            <entry name="applicationCode" value="TELUS_SDF_PORTAL_INT"/>
+            <entry name="principal">
+                <value environment="pt168" value="911383"/>
+                <value environment="ps101" value="911383"/>
+                <value environment="pt140" value="911383"/>
+                <value environment="pt148" value="911383"/>
+                <value environment="st101" value="911383"/>
+                <value environment="pr" value="26135"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="ps101" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pt140" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pt148" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="st101" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pr" value="-62c1be655a558409277ebd9d1872473f15fe8745b0bc3af76e475fbe924f4c2f723430c0119b706c42ad27bd982826fa5a9379902503e74ff83c5ca54c59e83053dd9f14bc9cf1f1dd88d74e97f2fe11833ab4bdb706eee1d2cac8a2d8ba1445312953b6d2be8c9d4c5b2c6dad200af3067a90312283bb02e018c1916eaa3f10"/>
+            </entry>
+        </entry>
+        <entry name="TELUS_WNP_WLI">
+            <entry name="applicationCode" value="TELUS_WNP_WLI"/>
+            <entry name="principal">
+                <value environment="pt168" value="1863"/>
+                <value environment="dv103" value="1863"/>
+                <value environment="ps101" value="1863"/>
+                <value environment="pt140" value="1863"/>
+                <value environment="pt148" value="1863"/>
+                <value environment="st101" value="1863"/>
+                <value environment="pr" value="24849"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="65cdc97424ee0f7ba5bbba04e2becd54f842f984affa8ebe9e08ca36625d63c16fb4b2409b60c4293e7589df2ba56bcdb55f1c7cf5a78079dc628e04c1c99debf4c07143040ca1f064b3dbb3f12559bcc227c4fa17334276f0acb76fa6cd66017d00ec150942057cc80d28e20bf0ba06587ab25d7ae032cd0e52589fcd189118"/>
+                <value environment="dv103" value="65cdc97424ee0f7ba5bbba04e2becd54f842f984affa8ebe9e08ca36625d63c16fb4b2409b60c4293e7589df2ba56bcdb55f1c7cf5a78079dc628e04c1c99debf4c07143040ca1f064b3dbb3f12559bcc227c4fa17334276f0acb76fa6cd66017d00ec150942057cc80d28e20bf0ba06587ab25d7ae032cd0e52589fcd189118"/>
+                <value environment="ps101" value="65cdc97424ee0f7ba5bbba04e2becd54f842f984affa8ebe9e08ca36625d63c16fb4b2409b60c4293e7589df2ba56bcdb55f1c7cf5a78079dc628e04c1c99debf4c07143040ca1f064b3dbb3f12559bcc227c4fa17334276f0acb76fa6cd66017d00ec150942057cc80d28e20bf0ba06587ab25d7ae032cd0e52589fcd189118"/>
+                <value environment="pt140" value="65cdc97424ee0f7ba5bbba04e2becd54f842f984affa8ebe9e08ca36625d63c16fb4b2409b60c4293e7589df2ba56bcdb55f1c7cf5a78079dc628e04c1c99debf4c07143040ca1f064b3dbb3f12559bcc227c4fa17334276f0acb76fa6cd66017d00ec150942057cc80d28e20bf0ba06587ab25d7ae032cd0e52589fcd189118"/>
+                <value environment="pt148" value="65cdc97424ee0f7ba5bbba04e2becd54f842f984affa8ebe9e08ca36625d63c16fb4b2409b60c4293e7589df2ba56bcdb55f1c7cf5a78079dc628e04c1c99debf4c07143040ca1f064b3dbb3f12559bcc227c4fa17334276f0acb76fa6cd66017d00ec150942057cc80d28e20bf0ba06587ab25d7ae032cd0e52589fcd189118"/>
+                <value environment="st101" value="65cdc97424ee0f7ba5bbba04e2becd54f842f984affa8ebe9e08ca36625d63c16fb4b2409b60c4293e7589df2ba56bcdb55f1c7cf5a78079dc628e04c1c99debf4c07143040ca1f064b3dbb3f12559bcc227c4fa17334276f0acb76fa6cd66017d00ec150942057cc80d28e20bf0ba06587ab25d7ae032cd0e52589fcd189118"/>
+                <value environment="pr" value="-731a4ba8e1a70841fcede637af16506d8efd978d062b85c35c68fa06128a2728524caf58509b95960abfae611218d4286dbf8593f79039ffb0bfcd39a71c4ba5849950cdc218d13e19307774b5dd53ffae7619153348e4551aa5d03c035dccfb6cb8004b865696ad665438532ae45e38f3df87d29beccb7cc1b0788623a370c7"/>
+            </entry>
+        </entry>
+        <entry name="TELUS_SDF_PORTAL">
+            <entry name="applicationCode" value="TELUS_SDF_PORTAL"/>
+            <entry name="principal">
+                <value environment="pt168" value="911382"/>
+                <value environment="dv103" value="911382"/>
+                <value environment="ps101" value="911382"/>
+                <value environment="pt140" value="911382"/>
+                <value environment="pt148" value="911382"/>
+                <value environment="st101" value="911382"/>
+                <value environment="pr" value="26316"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="dv103" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="ps101" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pt140" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pt148" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="st101" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pr" value="-62c1be655a558409277ebd9d1872473f15fe8745b0bc3af76e475fbe924f4c2f723430c0119b706c42ad27bd982826fa5a9379902503e74ff83c5ca54c59e83053dd9f14bc9cf1f1dd88d74e97f2fe11833ab4bdb706eee1d2cac8a2d8ba1445312953b6d2be8c9d4c5b2c6dad200af3067a90312283bb02e018c1916eaa3f10"/>
+            </entry>
+        </entry>
+        <entry name="SMARTDESKTOP">
+            <entry name="applicationCode" value="SMARTDESKTOP"/>
+            <entry name="principal" value="911245"/>
+            <entry name="credential" value="147de2d7e150e02dd5d2ddf41c95b5be61fd65ffe78e47866c1e56ddab14a04b27968b6bef2d22e9dd4a170da2bde719d79b7325c85ebe2cd2ea565a75b0c986743d428faf11bd028ceb0675094c8111396fff7f737b005709a57f84a1c8c640affeb90a80a94241d87404e172f0d4d6397d7e40fab40137dbed11150345a054"/>
+        </entry>
+        <entry name="KOODO_SELF_SERVE_PORTAL">
+            <entry name="applicationCode" value="KOODOSSP"/>
+            <entry name="principal">
+                <value environment="pt168" value="911498"/>
+                <value environment="dv103" value="911498"/>
+                <value environment="ps101" value="911498"/>
+                <value environment="pt140" value="911498"/>
+                <value environment="pt148" value="911498"/>
+                <value environment="st101" value="911498"/>
+                <value environment="pr" value="75761"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="dv103" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="ps101" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="pt140" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="pt148" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="st101" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="pr" value="12f8390c2ccea6276c0514db63aa6fcd62f2705ddfb4f424546b9861dff9786ba2a795118672aa9de1f9a3fccd9db754a7c738c2e976fa47b1c71380794cee9f767af814d8688c1f3eb8d53ae125a8962f734d0b7bd79300e73b174346bbaa3f2c1e5d7c30825e8c45745856ae103a7f75621e5f4e114bc2d20db7298cf821a8"/>
+            </entry>
+        </entry>
+        <entry name="TELUS_SMARTDESKTOP_WEB">
+            <entry name="applicationCode" value="SMARTDESKTOP"/>
+            <entry name="principal">
+                <value environment="pt168" value="911245"/>
+                <value environment="dv103" value="911245"/>
+                <value environment="ps101" value="911245"/>
+                <value environment="pt140" value="911245"/>
+                <value environment="pt148" value="911245"/>
+                <value environment="st101" value="911245"/>
+                <value environment="pr" value="51588"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="147de2d7e150e02dd5d2ddf41c95b5be61fd65ffe78e47866c1e56ddab14a04b27968b6bef2d22e9dd4a170da2bde719d79b7325c85ebe2cd2ea565a75b0c986743d428faf11bd028ceb0675094c8111396fff7f737b005709a57f84a1c8c640affeb90a80a94241d87404e172f0d4d6397d7e40fab40137dbed11150345a054"/>
+                <value environment="dv103" value="147de2d7e150e02dd5d2ddf41c95b5be61fd65ffe78e47866c1e56ddab14a04b27968b6bef2d22e9dd4a170da2bde719d79b7325c85ebe2cd2ea565a75b0c986743d428faf11bd028ceb0675094c8111396fff7f737b005709a57f84a1c8c640affeb90a80a94241d87404e172f0d4d6397d7e40fab40137dbed11150345a054"/>
+                <value environment="ps101" value="147de2d7e150e02dd5d2ddf41c95b5be61fd65ffe78e47866c1e56ddab14a04b27968b6bef2d22e9dd4a170da2bde719d79b7325c85ebe2cd2ea565a75b0c986743d428faf11bd028ceb0675094c8111396fff7f737b005709a57f84a1c8c640affeb90a80a94241d87404e172f0d4d6397d7e40fab40137dbed11150345a054"/>
+                <value environment="pt140" value="147de2d7e150e02dd5d2ddf41c95b5be61fd65ffe78e47866c1e56ddab14a04b27968b6bef2d22e9dd4a170da2bde719d79b7325c85ebe2cd2ea565a75b0c986743d428faf11bd028ceb0675094c8111396fff7f737b005709a57f84a1c8c640affeb90a80a94241d87404e172f0d4d6397d7e40fab40137dbed11150345a054"/>
+                <value environment="pt148" value="147de2d7e150e02dd5d2ddf41c95b5be61fd65ffe78e47866c1e56ddab14a04b27968b6bef2d22e9dd4a170da2bde719d79b7325c85ebe2cd2ea565a75b0c986743d428faf11bd028ceb0675094c8111396fff7f737b005709a57f84a1c8c640affeb90a80a94241d87404e172f0d4d6397d7e40fab40137dbed11150345a054"/>
+                <value environment="st101" value="147de2d7e150e02dd5d2ddf41c95b5be61fd65ffe78e47866c1e56ddab14a04b27968b6bef2d22e9dd4a170da2bde719d79b7325c85ebe2cd2ea565a75b0c986743d428faf11bd028ceb0675094c8111396fff7f737b005709a57f84a1c8c640affeb90a80a94241d87404e172f0d4d6397d7e40fab40137dbed11150345a054"/>
+                <value environment="pr" value="-785f5dadfc734cb4bb73ae0155ce75dea6a690cd5f2b3a1f87f2bb164a01fa4f5d3ccd0f7ab69af93b98afed40d45f1e8fa5ffe46081ab89bb5ba8b621cebf1686ed9050aa02d74068e23c702364372877f429eddb377a7c744913068422dc677e249ac8610da52e59d248847bb35c0ab07c303e49082b7cded6f0d32531fde8"/>
+            </entry>
+        </entry>
+        <entry name="ClientAPI_ESB">
+            <entry name="applicationCode" value="ClientAPI_ESB"/>
+            <entry name="principal" value="18654"/>
+            <entry name="credential" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+        </entry>
+        <entry name="HCD">
+            <entry name="applicationCode" value="HCD"/>
+            <entry name="principal" value="22000"/>
+            <entry name="credential" value="4a93d779d82ec00152f4c77cd34599732abb306407d8c21870e8213bf411bffe95ea58257dcc0a001efb0f7d5ecc1cfd29aaee6b3641e9400022d3f73dce4ea35865e79bc0b93c61d8b2fed46175f4950b8fb8ef9b19c8c746f42dc09cdd0a70da4b041c6d4833bdd248b178b6c752585a40bdab0f86e09fd03f281c41b770ed"/>
+        </entry>
+        <entry name="TELUS_PORTAL">
+            <entry name="applicationCode" value="TELUS_PORTAL"/>
+            <entry name="principal">
+                <value environment="pt168" value="911358"/>
+                <value environment="dv103" value="911358"/>
+                <value environment="ps101" value="911358"/>
+                <value environment="pt140" value="911358"/>
+                <value environment="pt148" value="911358"/>
+                <value environment="st101" value="911358"/>
+                <value environment="pr" value="911359"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="dv103" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="ps101" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="pt140" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="pt148" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="st101" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+                <value environment="pr" value="61f2f3052262f3385f38b67de3f525adf800d3e7970b553af3f6e6d9801af7f1dc6e8873908e09c5fb1b33225eb13a5822f0e525fb9d2688711763da03e49ab3171314ce01eb27cfd99707bbe7f7a7a23642bf93ecc7d6fe5435dfcd53c1c4001ddb646b577e8d6d9fd6f4944a74f405f48fceea97df77d8de50ab206fa87a8b"/>
+            </entry>
+        </entry>
+        <entry name="KOODO_PORTAL">
+            <entry name="applicationCode" value="KOODOSSP"/>
+            <entry name="principal">
+                <value environment="pt168" value="911498"/>
+                <value environment="dv103" value="911498"/>
+                <value environment="ps101" value="911498"/>
+                <value environment="pt140" value="911498"/>
+                <value environment="pt148" value="911498"/>
+                <value environment="st101" value="911498"/>
+                <value environment="pr" value="911499"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="dv103" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="ps101" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="pt140" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="pt148" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="st101" value="1463191f7697672f63b40847797bb6391f67ec00fd12ad6d78c7d201a9761dc205b86cb35c1158c055b21cf0832d5f2673efb657109eed0aac5e398360c0d4f9cb5225604425f0fe7ced134735a8492561e77bb7302f4e210c7e8fe4b24dbeb65d259d4f49c89ed576b397c288c8b3d662fe5e683af05bc3a40a9c018ffca054"/>
+                <value environment="pr" value="61f2f3052262f3385f38b67de3f525adf800d3e7970b553af3f6e6d9801af7f1dc6e8873908e09c5fb1b33225eb13a5822f0e525fb9d2688711763da03e49ab3171314ce01eb27cfd99707bbe7f7a7a23642bf93ecc7d6fe5435dfcd53c1c4001ddb646b577e8d6d9fd6f4944a74f405f48fceea97df77d8de50ab206fa87a8b"/>
+            </entry>
+        </entry>
+        <entry name="CPSIS">
+            <entry name="applicationCode" value="CPSIS"/>
+            <entry name="principal" value="911382"/>
+            <entry name="credential" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+        </entry>
+        <entry name="CHANNEL_ACQUISITION_SYSTEMS">
+            <entry name="applicationCode" value="CHANNEL_ACQUISITION_SYSTEMS"/>
+            <entry name="principal" value="911521"/>
+            <entry name="credential" value="105122790ad335d2066350dad5addbbbbc6223e1083e7bb70cfcdbc7cf57e224b2c324a4a1f86fcde7c06c68e43d5352b1c40c6fdf0deacb7178ae913f5f6223c21547c93b5095bb24e633009e128acffbb6d27f8877b09a7562cbd0db217eba63a8060cc319dc9fb85e43b1f476a8b55e026a10792ef7cf6edbcb630cef86bd"/>
+        </entry>
+        <entry name="CustomerEmailSyncService_ESB">
+            <entry name="applicationCode" value="CustomerEmailSyncService_ESB"/>
+            <entry name="principal" value="41420">
+                <value environment="pr" value="863163"/>
+        </entry>
+            <entry name="credential" value="6f0179d3c475a91311373b0a395e5ad628513c4b6148e143c1cfc6b3bbac88309b8fd95e9ec31c91f5bddd17e90128f640109aaed400ab351087677e4ff3eabc69de03ffbb0414913650e2ba8f4a04d2f203ba38129cf6b074f048920d46fdc990c61dbf72d0c164c7acc99b9de46105e159a140dc8616c43c92afa5f4e82d63">
+                <value environment="pr" value="34b9b547834d2f2dff8235d75325b2ec4b4dd2ebebb1d8c244179914c1903280d2a2d0a6f648efc9de309c566b0a22f69a82b5b6b57b1cb9c9daebef734b6a6fb7d5526786072a2d5933c28b2c40b74d33eba6591d757957b86d8e6e1937b6ee590a161062dcc4fa0e66280ea2bc57a726996711b27f6a2061dcc8d6b2a368f3"/>
+            </entry>
+        </entry>
+        <entry name="KOODO_WEBSTORE">
+            <entry name="applicationCode" value="KOODO_WEBSTORE"/>
+            <entry name="principal" value="911356"/>
+            <entry name="credential" value="-6d55be2ae8b94c05771e006cf6a9dfe2543e972c7ac0333e4f469f314a210a64e653466c6deb29ed36db0e736e97f9f67c57084fdb708f3a2f516198a7eedfe39acd020392aa15ed8dabb341e7af850bd15021ca1a58d140ec0835e349cf2a26a577cbbbb35efd342664ca27daa2d7b797d96b419abc863f9adc71b21f3ef255"/>
+        </entry>
+        <entry name="BILL_NM">
+            <entry name="applicationCode" value="BILL_NM"/>
+            <entry name="principal">
+                <value environment="pt168" value="12406"/>
+                <value environment="dv103" value="12453"/>
+                <value environment="ps101" value="12406"/>
+                <value environment="pt140" value="12406"/>
+                <value environment="pt148" value="12406"/>
+                <value environment="st101" value="12406"/>
+                <value environment="pr" value="12406"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-56e37be2d48468e08fab1170ce854e7ec02e85ab96e7cb15f7fed90f34098e4078aeab332317bf37a851e67434dad869c95f1ce3dff4cb47a0c399b215ef5b19107b043e382df015a2a4fe0e9cc9af3977ab4724eb8616103d010e19cb9aa4578b288c2dc2bb8a2953d26e3fa9b09d577418156cb445e76b39a8aa4323e24ee6"/>
+                <value environment="dv103" value="214c07eaa5ded78de6b41445e84c82bba277c57e62d8c0f4640bbd2705562020f79d0f26cef8b045ed6dc572bd4cc804c791de3b0b1392021b9c9d48bce4ecd073b42d9d9b86606551ef70c16f4897939fba4cc81f1814e30934d96a5334cd85c7ffa40ecf187c56eafd935dd5bcbff42386d5d6b9307333980f1f0b2f27312"/>
+                <value environment="ps101" value="-56e37be2d48468e08fab1170ce854e7ec02e85ab96e7cb15f7fed90f34098e4078aeab332317bf37a851e67434dad869c95f1ce3dff4cb47a0c399b215ef5b19107b043e382df015a2a4fe0e9cc9af3977ab4724eb8616103d010e19cb9aa4578b288c2dc2bb8a2953d26e3fa9b09d577418156cb445e76b39a8aa4323e24ee6"/>
+                <value environment="pt140" value="-56e37be2d48468e08fab1170ce854e7ec02e85ab96e7cb15f7fed90f34098e4078aeab332317bf37a851e67434dad869c95f1ce3dff4cb47a0c399b215ef5b19107b043e382df015a2a4fe0e9cc9af3977ab4724eb8616103d010e19cb9aa4578b288c2dc2bb8a2953d26e3fa9b09d577418156cb445e76b39a8aa4323e24ee6"/>
+                <value environment="pt148" value="-56e37be2d48468e08fab1170ce854e7ec02e85ab96e7cb15f7fed90f34098e4078aeab332317bf37a851e67434dad869c95f1ce3dff4cb47a0c399b215ef5b19107b043e382df015a2a4fe0e9cc9af3977ab4724eb8616103d010e19cb9aa4578b288c2dc2bb8a2953d26e3fa9b09d577418156cb445e76b39a8aa4323e24ee6"/>
+                <value environment="st101" value="-56e37be2d48468e08fab1170ce854e7ec02e85ab96e7cb15f7fed90f34098e4078aeab332317bf37a851e67434dad869c95f1ce3dff4cb47a0c399b215ef5b19107b043e382df015a2a4fe0e9cc9af3977ab4724eb8616103d010e19cb9aa4578b288c2dc2bb8a2953d26e3fa9b09d577418156cb445e76b39a8aa4323e24ee6"/>
+                <value environment="pr" value="-56e37be2d48468e08fab1170ce854e7ec02e85ab96e7cb15f7fed90f34098e4078aeab332317bf37a851e67434dad869c95f1ce3dff4cb47a0c399b215ef5b19107b043e382df015a2a4fe0e9cc9af3977ab4724eb8616103d010e19cb9aa4578b288c2dc2bb8a2953d26e3fa9b09d577418156cb445e76b39a8aa4323e24ee6"/>
+            </entry>
+        </entry>
+        <entry name="DIRECT_FULFILLMENT">
+            <entry name="applicationCode" value="DIRECT_FULFILLMENT"/>
+            <entry name="principal">
+                <value environment="pt168" value="22804"/>
+                <value environment="dv103" value="18654"/>
+                <value environment="ps101" value="17982"/>
+                <value environment="pt140" value="17982"/>
+                <value environment="pt148" value="22804"/>
+                <value environment="st101" value="22804"/>
+                <value environment="pr" value="22804"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-65baa9d68778cfa0dc1097f4e409fb7ed19daf7719b29b0f90773263f48c9dcc3736dcff307d4475fcbea197808e052868bf2cda7c49b7a0df47d9047d5675ae2fb2e3b9adfebbde359356984838f7e48c0379239b749fe6cab47c14de783f9a61d7cbe279e785b444fb78a59db1f200ce5caf03bac89b0f3db6cd4b969f39c2"/>
+                <value environment="dv103" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+                <value environment="ps101" value="4963309bca7f22a1e13ad9b2901af8fea5051e29495178fdaee7a33ac0a72cea5818abe04b0faa1743b86ced50a67de69f07f1629feafee3f44cf999ea0048d495aed2ed991ea38910d66e372ffb70317f7111680610a86b23d63df8130dd3c3834b3074ea6b2e10966c9353566b02f9cccc37faf03ec8af10bc887aba2864e8"/>
+                <value environment="pt140" value="4963309bca7f22a1e13ad9b2901af8fea5051e29495178fdaee7a33ac0a72cea5818abe04b0faa1743b86ced50a67de69f07f1629feafee3f44cf999ea0048d495aed2ed991ea38910d66e372ffb70317f7111680610a86b23d63df8130dd3c3834b3074ea6b2e10966c9353566b02f9cccc37faf03ec8af10bc887aba2864e8"/>
+                <value environment="pt148" value="-65baa9d68778cfa0dc1097f4e409fb7ed19daf7719b29b0f90773263f48c9dcc3736dcff307d4475fcbea197808e052868bf2cda7c49b7a0df47d9047d5675ae2fb2e3b9adfebbde359356984838f7e48c0379239b749fe6cab47c14de783f9a61d7cbe279e785b444fb78a59db1f200ce5caf03bac89b0f3db6cd4b969f39c2"/>
+                <value environment="st101" value="-65baa9d68778cfa0dc1097f4e409fb7ed19daf7719b29b0f90773263f48c9dcc3736dcff307d4475fcbea197808e052868bf2cda7c49b7a0df47d9047d5675ae2fb2e3b9adfebbde359356984838f7e48c0379239b749fe6cab47c14de783f9a61d7cbe279e785b444fb78a59db1f200ce5caf03bac89b0f3db6cd4b969f39c2"/>
+                <value environment="pr" value="-65baa9d68778cfa0dc1097f4e409fb7ed19daf7719b29b0f90773263f48c9dcc3736dcff307d4475fcbea197808e052868bf2cda7c49b7a0df47d9047d5675ae2fb2e3b9adfebbde359356984838f7e48c0379239b749fe6cab47c14de783f9a61d7cbe279e785b444fb78a59db1f200ce5caf03bac89b0f3db6cd4b969f39c2"/>
+            </entry>
+        </entry>
+        <entry name="HP_SAML_TESTING">
+            <entry name="applicationCode" value="HP_SAML_TESTING"/>
+            <entry name="principal" value="18654"/>
+            <entry name="credential" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+        </entry>
+        <entry name="SMART_DESKTOP_SOA_ID">
+            <entry name="applicationCode" value="SMART_DESKTOP_SOA_ID"/>
+            <entry name="principal" value="18654"/>
+            <entry name="credential" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+        </entry>
+        <entry name="CAMBIO_PORTAL">
+            <entry name="applicationCode" value="IPADPORTAL"/>
+            <entry name="principal">
+                <value environment="pt168" value="911668"/>
+                <value environment="dv103" value="911668"/>
+                <value environment="ps101" value="911668"/>
+                <value environment="pt140" value="911668"/>
+                <value environment="pt148" value="911668"/>
+                <value environment="st101" value="911668"/>
+                <value environment="pr" value="77542"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="517e6dc483fbfbf8b0549ba8c550a7821217dd8c649ef2431dc6813aab201df6909f3b1cea427295098f9c18d318c2ffd179aa9d79a2e7d83693ce5e9863fad792778c6b7f1f383198281c437ae479274431434917f0f436bedba9569a46ab22e1f411e471eb3e98caa5fad48d921025c1f61c7651dd952366444e435b6b941d"/>
+                <value environment="dv103" value="517e6dc483fbfbf8b0549ba8c550a7821217dd8c649ef2431dc6813aab201df6909f3b1cea427295098f9c18d318c2ffd179aa9d79a2e7d83693ce5e9863fad792778c6b7f1f383198281c437ae479274431434917f0f436bedba9569a46ab22e1f411e471eb3e98caa5fad48d921025c1f61c7651dd952366444e435b6b941d"/>
+                <value environment="ps101" value="517e6dc483fbfbf8b0549ba8c550a7821217dd8c649ef2431dc6813aab201df6909f3b1cea427295098f9c18d318c2ffd179aa9d79a2e7d83693ce5e9863fad792778c6b7f1f383198281c437ae479274431434917f0f436bedba9569a46ab22e1f411e471eb3e98caa5fad48d921025c1f61c7651dd952366444e435b6b941d"/>
+                <value environment="pt140" value="517e6dc483fbfbf8b0549ba8c550a7821217dd8c649ef2431dc6813aab201df6909f3b1cea427295098f9c18d318c2ffd179aa9d79a2e7d83693ce5e9863fad792778c6b7f1f383198281c437ae479274431434917f0f436bedba9569a46ab22e1f411e471eb3e98caa5fad48d921025c1f61c7651dd952366444e435b6b941d"/>
+                <value environment="pt148" value="517e6dc483fbfbf8b0549ba8c550a7821217dd8c649ef2431dc6813aab201df6909f3b1cea427295098f9c18d318c2ffd179aa9d79a2e7d83693ce5e9863fad792778c6b7f1f383198281c437ae479274431434917f0f436bedba9569a46ab22e1f411e471eb3e98caa5fad48d921025c1f61c7651dd952366444e435b6b941d"/>
+                <value environment="st101" value="517e6dc483fbfbf8b0549ba8c550a7821217dd8c649ef2431dc6813aab201df6909f3b1cea427295098f9c18d318c2ffd179aa9d79a2e7d83693ce5e9863fad792778c6b7f1f383198281c437ae479274431434917f0f436bedba9569a46ab22e1f411e471eb3e98caa5fad48d921025c1f61c7651dd952366444e435b6b941d"/>
+                <value environment="pr" value="5d0b25eba7ba45b5064628eeb3d121b0c06f75b9ac37c62f6222e72be7f030e0c92cec6f466f305b9bcadb372277e3bfe1bd7d5297acbd1758e4399d8499cbda7b9939df097573d61b09f2e799e9aae1fe2599a8fc989c5e6ef5564e2cbb37efa354e45482a86e90111856dc6f4772791190502dd8596ea502edd831505f4106"/>
+            </entry>
+        </entry>
+        <entry name="WNP_WLI">
+            <entry name="applicationCode" value="WNP_WLI"/>
+            <entry name="principal">
+                <value environment="pt168" value="911231"/>
+                <value environment="dv103" value="1022"/>
+                <value environment="ps101" value="911231"/>
+                <value environment="pt140" value="911231"/>
+                <value environment="pt148" value="911231"/>
+                <value environment="st101" value="911231"/>
+                <value environment="pr" value="91648"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="dv103" value="-5648113a6f23fce5c515bb90b7a4627b4d491157caca3365488215fac007f660ee162e11f4f6945c70d53f7e360f3e9b13015973b0275c66370f5647fb0919e6eb319e55025937468591c617ea0398df8426fdd48c4c49c7c68953c12185ea5c6d7866c411f94c3048bdba6e9cbec578513da0ff00acacd1f9dbc384ae23bd8b"/>
+                <value environment="ps101" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="pt140" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+				<value environment="pt148" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="st101" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="pr" value="209c73584c37a79ce658ac26c356648b4c497a65892384090d8feea7a284904beb21ed9d0da91836f7393a8ce604941bed15f3bf38325dfc1cb482c4a5b59eb7d83daabfdc723bd82fd478eba2bff3bd58c5ab8140ea7478b9e7f14215cf417ad2809b8167d01c2cee3ae8dfb2d58b18b3f4e3abd78c09721ffe4eac77c01d9f"/>
+            </entry>
+        </entry>
+		 <entry name="APP_TOCP">
+            <entry name="applicationCode" value="TOCP"/>
+            <entry name="principal">
+                <value environment="pt168" value="911231"/>
+                <value environment="dv103" value="1022"/>
+                <value environment="ps101" value="911231"/>
+                <value environment="pt140" value="911231"/>
+                <value environment="pt148" value="911231"/>
+                <value environment="st101" value="911231"/>
+                <value environment="pr" value="91648"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="dv103" value="-5648113a6f23fce5c515bb90b7a4627b4d491157caca3365488215fac007f660ee162e11f4f6945c70d53f7e360f3e9b13015973b0275c66370f5647fb0919e6eb319e55025937468591c617ea0398df8426fdd48c4c49c7c68953c12185ea5c6d7866c411f94c3048bdba6e9cbec578513da0ff00acacd1f9dbc384ae23bd8b"/>
+                <value environment="ps101" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="pt140" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+				<value environment="pt148" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="st101" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="pr" value="209c73584c37a79ce658ac26c356648b4c497a65892384090d8feea7a284904beb21ed9d0da91836f7393a8ce604941bed15f3bf38325dfc1cb482c4a5b59eb7d83daabfdc723bd82fd478eba2bff3bd58c5ab8140ea7478b9e7f14215cf417ad2809b8167d01c2cee3ae8dfb2d58b18b3f4e3abd78c09721ffe4eac77c01d9f"/>
+            </entry>
+        </entry>
+        <entry name="M2MORDER">
+            <entry name="applicationCode" value="M2M"/>
+            <entry name="principal">
+                <value environment="pt168" value="123"/>
+                <value environment="dv103" value="123"/>
+                <value environment="ps101" value="123"/>
+                <value environment="pt140" value="123"/>
+                <value environment="pt148" value="123"/>
+                <value environment="st101" value="123"/>
+                <value environment="pr" value="91996"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="60c0163fa2b37aab02cde88df7eb0992a6a6ed045988dda5caba34b6aa1a96fc4020a22f7756db5bb5f0a7b53fcc674fbd2b120a913e3b29f9baaea4d4fa3b9add3b90aec01e1e2c551a13046451096ef2537207c355a911c7cc5f9f9b43b058cb53262bfec122d3817112cce90f5acb32c4c1d682d84a0ff531fc80054e9177"/>
+                <value environment="dv103" value="60c0163fa2b37aab02cde88df7eb0992a6a6ed045988dda5caba34b6aa1a96fc4020a22f7756db5bb5f0a7b53fcc674fbd2b120a913e3b29f9baaea4d4fa3b9add3b90aec01e1e2c551a13046451096ef2537207c355a911c7cc5f9f9b43b058cb53262bfec122d3817112cce90f5acb32c4c1d682d84a0ff531fc80054e9177"/>
+                <value environment="ps101" value="60c0163fa2b37aab02cde88df7eb0992a6a6ed045988dda5caba34b6aa1a96fc4020a22f7756db5bb5f0a7b53fcc674fbd2b120a913e3b29f9baaea4d4fa3b9add3b90aec01e1e2c551a13046451096ef2537207c355a911c7cc5f9f9b43b058cb53262bfec122d3817112cce90f5acb32c4c1d682d84a0ff531fc80054e9177"/>
+                <value environment="pt140" value="60c0163fa2b37aab02cde88df7eb0992a6a6ed045988dda5caba34b6aa1a96fc4020a22f7756db5bb5f0a7b53fcc674fbd2b120a913e3b29f9baaea4d4fa3b9add3b90aec01e1e2c551a13046451096ef2537207c355a911c7cc5f9f9b43b058cb53262bfec122d3817112cce90f5acb32c4c1d682d84a0ff531fc80054e9177"/>
+                <value environment="pt148" value="60c0163fa2b37aab02cde88df7eb0992a6a6ed045988dda5caba34b6aa1a96fc4020a22f7756db5bb5f0a7b53fcc674fbd2b120a913e3b29f9baaea4d4fa3b9add3b90aec01e1e2c551a13046451096ef2537207c355a911c7cc5f9f9b43b058cb53262bfec122d3817112cce90f5acb32c4c1d682d84a0ff531fc80054e9177"/>
+                <value environment="st101" value="60c0163fa2b37aab02cde88df7eb0992a6a6ed045988dda5caba34b6aa1a96fc4020a22f7756db5bb5f0a7b53fcc674fbd2b120a913e3b29f9baaea4d4fa3b9add3b90aec01e1e2c551a13046451096ef2537207c355a911c7cc5f9f9b43b058cb53262bfec122d3817112cce90f5acb32c4c1d682d84a0ff531fc80054e9177"/>
+                <value environment="pr" value="-74f8c655729b1da0b6344220833a8d0bc0bd6e1626ba8b30e349bbd04dc133b914634a30be97de1795766ee56cb5b2e745316b42356d921e40d1ff0b8b8697f7bf5577f88e91e7fc6165f1612657e95b6190201531d0dd287bcb2979f2084a9da82f23d2f70ff6682635bd4dfb6843b15a89d65cc8060a65e1e38ed1c50c31ff"/>
+            </entry>
+        </entry>
+        <entry name="CHANNEL_ACTIVATION_SYSTEMS">
+            <entry name="applicationCode" value="APOLLO"/>
+            <entry name="principal" value="18654"/>
+            <entry name="credential" value="2de77c9d5993bbfa0898a74c42a684ab7f021c34a49f6a91b15bd0aa9464cc1c5cb63933e4c958d93b0b51c9e7c85ba42e9294a4a4fad541763653911d47a22f7973151ee342307b85c1c69b659257cb37adb4ca4f1ad7a8b38507f222cf885ac0d833dc5f132a0edb14acd4d88be37d1957f0ab195ee7c1002f31ef7f6109ba"/>
+        </entry>
+        <entry name="CHANNEL_ACTIVATION_SYSTEMS_TELUS_RETAILER">
+            <entry name="applicationCode" value="ARES"/>
+            <entry name="principal">
+                <value environment="pt168" value="9100000"/>
+                <value environment="ps101" value="9100000"/>
+                <value environment="pt140" value="9100000"/>
+                <value environment="pt148" value="9100000"/>
+                <value environment="st101" value="9100000"/>
+                <value environment="pr" value="21000"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="6e1ecf255fd38d1256431e8ec42e98bfce7e632a9751e14bc18bbb665d59c643571a3e970057fff08dd9d479001571f2d30559a36d0e155d3d08d5c261c6b586155051bc693c5b5da8ea5523258bebe029b65dfc9c45c6f33def8c3ba31400ce51ff59310cecbe5fef9ae5d08538733c35953aa4be2a58440df84f4b2c3adba"/>
+                <value environment="ps101" value="6e1ecf255fd38d1256431e8ec42e98bfce7e632a9751e14bc18bbb665d59c643571a3e970057fff08dd9d479001571f2d30559a36d0e155d3d08d5c261c6b586155051bc693c5b5da8ea5523258bebe029b65dfc9c45c6f33def8c3ba31400ce51ff59310cecbe5fef9ae5d08538733c35953aa4be2a58440df84f4b2c3adba"/>
+                <value environment="pt140" value="6e1ecf255fd38d1256431e8ec42e98bfce7e632a9751e14bc18bbb665d59c643571a3e970057fff08dd9d479001571f2d30559a36d0e155d3d08d5c261c6b586155051bc693c5b5da8ea5523258bebe029b65dfc9c45c6f33def8c3ba31400ce51ff59310cecbe5fef9ae5d08538733c35953aa4be2a58440df84f4b2c3adba"/>
+                <value environment="pt148" value="6e1ecf255fd38d1256431e8ec42e98bfce7e632a9751e14bc18bbb665d59c643571a3e970057fff08dd9d479001571f2d30559a36d0e155d3d08d5c261c6b586155051bc693c5b5da8ea5523258bebe029b65dfc9c45c6f33def8c3ba31400ce51ff59310cecbe5fef9ae5d08538733c35953aa4be2a58440df84f4b2c3adba"/>
+                <value environment="st101" value="6e1ecf255fd38d1256431e8ec42e98bfce7e632a9751e14bc18bbb665d59c643571a3e970057fff08dd9d479001571f2d30559a36d0e155d3d08d5c261c6b586155051bc693c5b5da8ea5523258bebe029b65dfc9c45c6f33def8c3ba31400ce51ff59310cecbe5fef9ae5d08538733c35953aa4be2a58440df84f4b2c3adba"/>
+                <value environment="pr" value="4699d9ede848c39f709850f76267755bdadeb16a722b361b79dbdd707543754a33ce4b4f0e9b1133f825936842d0b86eca4aa6fa2b59d600d89e731a791b6216312e100f1a09f321b18068b194f4daf153a36b57f9d0bea01e649a6fd6737a209a137cdfb25579b420fcf8403555cb9afc9f03e546c3722620a6109c60960e20"/>
+            </entry>
+        </entry>
+        <entry name="ATLANTIS">
+            <entry name="applicationCode" value="GEMINI"/>
+            <entry name="principal" value="92200"/>
+            <entry name="credential" value="-5e87f5e43d2d0e8d3d6e3f2e9d8adc1633e143a2e55b60afdd8400ea4af695f4559269334de4a10a5b7f051a482c1d21a6c9b631dd5a44b9c6eb69ff5174f7f88a65ef9ddefaacaf94a53dd3ca8ac20eea1cba1e120d16a0d4945a7f03c818404ed7d633ee575f99ec6d97d30dcf41dd10f33b789962af5444cdbacee14325a9"/>
+        </entry>
+        <entry name="GEMINI">
+            <entry name="applicationCode" value="GEMINI"/>
+            <entry name="principal" value="92199"/>
+            <entry name="credential" value="-5e87f5e43d2d0e8d3d6e3f2e9d8adc1633e143a2e55b60afdd8400ea4af695f4559269334de4a10a5b7f051a482c1d21a6c9b631dd5a44b9c6eb69ff5174f7f88a65ef9ddefaacaf94a53dd3ca8ac20eea1cba1e120d16a0d4945a7f03c818404ed7d633ee575f99ec6d97d30dcf41dd10f33b789962af5444cdbacee14325a9"/>
+        </entry>
+        <entry name="MERCURY">
+            <entry name="applicationCode" value="MERCRY"/>
+            <entry name="principal" value="92198"/>
+            <entry name="credential" value="-5e87f5e43d2d0e8d3d6e3f2e9d8adc1633e143a2e55b60afdd8400ea4af695f4559269334de4a10a5b7f051a482c1d21a6c9b631dd5a44b9c6eb69ff5174f7f88a65ef9ddefaacaf94a53dd3ca8ac20eea1cba1e120d16a0d4945a7f03c818404ed7d633ee575f99ec6d97d30dcf41dd10f33b789962af5444cdbacee14325a9"/>
+        </entry>
+        <entry name="CSA">
+            <entry name="applicationCode" value="CSA"/>
+            <entry name="principal" value="19992"/>
+            <entry name="credential" value="355dcb05be831ece1066ea6a69c48ef0d0aac82e42161a10a8166d02e6742ef700bc955adea53de6264b88655250c981c90a940fb8a56cb9b0f34bcda85ec6675b9f3a3b8db890e2cfeac80674b35b8edeafbb55d1eeeede1d9a79c706db87c208cdb954793e39d29ca82b04a3f89412f946e585874bd686b0b9328c689f6968"/>
+        </entry>
+        <entry name="APP_CSAGSVC">
+            <entry name="applicationCode" value="CSAGSVC"/>            
+            <entry name="principal" value="911693">
+                <value environment="pr" value="999888"/>
+            </entry>
+            <entry name="credential" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4">
+                <value environment="pr" value="348e1468df48a4a4ac0f38443a61f65da556ae7d0aca65e9c8fec05f81cce090123b46ce4ce5c51bba6e60c641f6968310fa633444766a77313716de209ba80bc9e27c18a9e3ccd0fc283fc1fcb8048711a0bd62419c7c626ae75ead6e32db9256390ad443daa1beff4080a8ad90a8e5fb2d071f59f3b3cef4ca34cb3fc695da"/>
+            </entry>
+        </entry>
+        <entry name="KSA">
+            <entry name="applicationCode" value="KSA"/>
+            <entry name="principal" value="19992"/>
+            <entry name="credential" value="355dcb05be831ece1066ea6a69c48ef0d0aac82e42161a10a8166d02e6742ef700bc955adea53de6264b88655250c981c90a940fb8a56cb9b0f34bcda85ec6675b9f3a3b8db890e2cfeac80674b35b8edeafbb55d1eeeede1d9a79c706db87c208cdb954793e39d29ca82b04a3f89412f946e585874bd686b0b9328c689f6968"/>
+        </entry>
+        <entry name="APP_CODS">
+            <entry name="CODS" value="APP_CODS"/>
+            <entry name="principal" value="9841795"/>
+            <entry name="credential" value="-5e87f5e43d2d0e8d3d6e3f2e9d8adc1633e143a2e55b60afdd8400ea4af695f4559269334de4a10a5b7f051a482c1d21a6c9b631dd5a44b9c6eb69ff5174f7f88a65ef9ddefaacaf94a53dd3ca8ac20eea1cba1e120d16a0d4945a7f03c818404ed7d633ee575f99ec6d97d30dcf41dd10f33b789962af5444cdbacee14325a9"/>
+            <entry name="applicationCode" value="CODS"/>
+        </entry>
+        <entry name="APP_DESKTOPONE">
+            <entry name="DT1" value="APP_DESKTOPONE"/>
+            <entry name="principal" value="9841795"/>
+            <entry name="credential" value="-5e87f5e43d2d0e8d3d6e3f2e9d8adc1633e143a2e55b60afdd8400ea4af695f4559269334de4a10a5b7f051a482c1d21a6c9b631dd5a44b9c6eb69ff5174f7f88a65ef9ddefaacaf94a53dd3ca8ac20eea1cba1e120d16a0d4945a7f03c818404ed7d633ee575f99ec6d97d30dcf41dd10f33b789962af5444cdbacee14325a9"/>
+            <entry name="applicationCode" value="DT1"/>
+        </entry>
+        <entry name="APP_CASTLS_RETAILER">
+            <entry name="applicationCode" value="ARES"/>
+            <entry name="principal">
+                <value environment="pt168" value="9100000"/>
+                <value environment="dv103" value="9100000"/>
+                <value environment="ps101" value="9100000"/>
+                <value environment="pt140" value="9100000"/>
+                <value environment="pt148" value="9100000"/>
+                <value environment="st101" value="9100000"/>
+                <value environment="pr" value="21000"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="6e1ecf255fd38d1256431e8ec42e98bfce7e632a9751e14bc18bbb665d59c643571a3e970057fff08dd9d479001571f2d30559a36d0e155d3d08d5c261c6b586155051bc693c5b5da8ea5523258bebe029b65dfc9c45c6f33def8c3ba31400ce51ff59310cecbe5fef9ae5d08538733c35953aa4be2a58440df84f4b2c3adba"/>
+                <value environment="dv103" value="6e1ecf255fd38d1256431e8ec42e98bfce7e632a9751e14bc18bbb665d59c643571a3e970057fff08dd9d479001571f2d30559a36d0e155d3d08d5c261c6b586155051bc693c5b5da8ea5523258bebe029b65dfc9c45c6f33def8c3ba31400ce51ff59310cecbe5fef9ae5d08538733c35953aa4be2a58440df84f4b2c3adba"/>
+                <value environment="ps101" value="6e1ecf255fd38d1256431e8ec42e98bfce7e632a9751e14bc18bbb665d59c643571a3e970057fff08dd9d479001571f2d30559a36d0e155d3d08d5c261c6b586155051bc693c5b5da8ea5523258bebe029b65dfc9c45c6f33def8c3ba31400ce51ff59310cecbe5fef9ae5d08538733c35953aa4be2a58440df84f4b2c3adba"/>
+                <value environment="pt140" value="6e1ecf255fd38d1256431e8ec42e98bfce7e632a9751e14bc18bbb665d59c643571a3e970057fff08dd9d479001571f2d30559a36d0e155d3d08d5c261c6b586155051bc693c5b5da8ea5523258bebe029b65dfc9c45c6f33def8c3ba31400ce51ff59310cecbe5fef9ae5d08538733c35953aa4be2a58440df84f4b2c3adba"/>
+                <value environment="pt148" value="6e1ecf255fd38d1256431e8ec42e98bfce7e632a9751e14bc18bbb665d59c643571a3e970057fff08dd9d479001571f2d30559a36d0e155d3d08d5c261c6b586155051bc693c5b5da8ea5523258bebe029b65dfc9c45c6f33def8c3ba31400ce51ff59310cecbe5fef9ae5d08538733c35953aa4be2a58440df84f4b2c3adba"/>
+                <value environment="st101" value="6e1ecf255fd38d1256431e8ec42e98bfce7e632a9751e14bc18bbb665d59c643571a3e970057fff08dd9d479001571f2d30559a36d0e155d3d08d5c261c6b586155051bc693c5b5da8ea5523258bebe029b65dfc9c45c6f33def8c3ba31400ce51ff59310cecbe5fef9ae5d08538733c35953aa4be2a58440df84f4b2c3adba"/>
+                <value environment="pr" value="4699d9ede848c39f709850f76267755bdadeb16a722b361b79dbdd707543754a33ce4b4f0e9b1133f825936842d0b86eca4aa6fa2b59d600d89e731a791b6216312e100f1a09f321b18068b194f4daf153a36b57f9d0bea01e649a6fd6737a209a137cdfb25579b420fcf8403555cb9afc9f03e546c3722620a6109c60960e20"/>
+            </entry>
+        </entry>
+        <entry name="APP_ENTBILLACCT">
+            <entry name="applicationCode" value="EntBillAcct"/>
+            <entry name="principal" value="9999999"/>
+            <entry name="credential" value="-5e87f5e43d2d0e8d3d6e3f2e9d8adc1633e143a2e55b60afdd8400ea4af695f4559269334de4a10a5b7f051a482c1d21a6c9b631dd5a44b9c6eb69ff5174f7f88a65ef9ddefaacaf94a53dd3ca8ac20eea1cba1e120d16a0d4945a7f03c818404ed7d633ee575f99ec6d97d30dcf41dd10f33b789962af5444cdbacee14325a9"/>
+        </entry>
+        <entry name="ACTIVESUPPOPRT_EJB">
+            <entry name="applicationCode" value="ACTIVESUPPOPRT_EJB"/>
+            <entry name="credential">
+                <value environment="pt168" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="dv103" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="ps101" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="pt140" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="pt148" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="st101" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="pr" value="-5b6b7591bcf3c1c29e8d85c412a434851ae5e4afa9207a7e4933bf1c980491af819a94f4663ec78c862ad3d852931181e3aa931af93561ccf6c9f9ad0335eed6afae5b1b62ea01b423c00898570b4903d3c923ab8ad052ba8d5b314a6b3a5bfd5fa7fb9f264637620b377781f08e7d7ca261dfe32e2308d8f6b2dba25951a809"/>
+            </entry>
+            <entry name="principal">
+                <value environment="pt168" value="911692"/>
+                <value environment="dv103" value="911692"/>
+                <value environment="ps101" value="911692"/>
+                <value environment="pt140" value="911692"/>
+                <value environment="pt148" value="911692"/>
+                <value environment="st101" value="911692"/>
+                <value environment="pr" value="9811764"/>
+            </entry>
+        </entry>
+        <entry name="ACTIVATION_SUPPORT_SYSTEMS">
+            <entry name="applicationCode" value="ACTIVATION_SUPPORT_SYSTEMS"/>
+            <entry name="principal">
+                <value environment="pt168" value="911693"/>
+                <value environment="dv103" value="911693"/>
+                <value environment="ps101" value="911693"/>
+                <value environment="pt140" value="911693"/>
+                <value environment="pt148" value="911693"/>
+                <value environment="st101" value="911693"/>
+                <value environment="pr" value="9811764"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="dv103" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="ps101" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="pt140" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="pt148" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="st101" value="23239636441f19267a3b736640b50f4de05b105d375fa3ff19b84d730c9f6f5502ef9dbd77368b289e6feb2f4e38a29f0bb25e6d1daca3a65a8d647ebb1f4f6edc6d68bafa8ad31f1e4ec8681fecebd522d57ec0b61636336a9bc889e9898163f126b62ca5822f795a746902e0b7b76dfa4abbe804b724f66d40c2419155a8f4"/>
+                <value environment="pr" value="-5b6b7591bcf3c1c29e8d85c412a434851ae5e4afa9207a7e4933bf1c980491af819a94f4663ec78c862ad3d852931181e3aa931af93561ccf6c9f9ad0335eed6afae5b1b62ea01b423c00898570b4903d3c923ab8ad052ba8d5b314a6b3a5bfd5fa7fb9f264637620b377781f08e7d7ca261dfe32e2308d8f6b2dba25951a809"/>
+            </entry>
+        </entry>
+        <entry name="PREPAID_ESB_SVC">
+            <entry name="applicationCode" value="PREPAID_ESB_SVC"/>
+            <entry name="principal">
+                <value environment="pt168" value="18654"/>
+                <value environment="dv103" value="18654"/>
+                <value environment="ps101" value="18654"/>
+                <value environment="pt140" value="18654"/>
+                <value environment="pt148" value="18654"/>
+                <value environment="st101" value="18654"/>
+                <value environment="pr" value="19282"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="dv103" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="ps101" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="pt140" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="pt148" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="st101" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="pr" value="6c14cf5e221fdaa93cc08f3047d859cb3871943d12cb4a575b3ba5a9651fc8970675b936d6e8cf7b7c1cacfb83face959754bae3c9b1bf274ac6a71392565a51e251e3ea11d7b204237ffcf3b943591fb2f60f1f8346a949412329131d1a9f667a0654f7f568571005229703a5b4861257e1177a36002a9ee0b88e4bb3bcb799"/>
+            </entry>
+        </entry>
+        <entry name="PREPAID_MEDIATION_ESB">
+            <entry name="applicationCode" value="PREPAID_MEDIATION_ESB"/>
+            <entry name="principal">
+                <value environment="pt168" value="18654"/>
+                <value environment="dv103" value="18654"/>
+                <value environment="ps101" value="18654"/>
+                <value environment="pt140" value="18654"/>
+                <value environment="pt148" value="18654"/>
+                <value environment="st101" value="18654"/>
+                <value environment="pr" value="19282"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="dv103" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="ps101" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="pt140" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="pt148" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="st101" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+                <value environment="pr" value="6c14cf5e221fdaa93cc08f3047d859cb3871943d12cb4a575b3ba5a9651fc8970675b936d6e8cf7b7c1cacfb83face959754bae3c9b1bf274ac6a71392565a51e251e3ea11d7b204237ffcf3b943591fb2f60f1f8346a949412329131d1a9f667a0654f7f568571005229703a5b4861257e1177a36002a9ee0b88e4bb3bcb799"/>
+            </entry>
+        </entry>
+        <entry name="TVC_APP">
+            <entry name="applicationCode" value="SMARTDESKTOP"/>
+            <entry name="principal">
+                <value environment="pt168" value="911245"/>
+                <value environment="dv103" value="18654"/>
+                <value environment="ps101" value="911245"/>
+                <value environment="pt140" value="911245"/>
+                <value environment="pt148" value="911245"/>
+                <value environment="st101" value="911245"/>
+                <value environment="pr" value="51588"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="2f71d25eb9e97582eb7330a66c5150caac2c1836befd93f19b68dd3c716b43d3157457ffdc36bb2d62c40e4af8ff4f9723ab1f967a80baf023293dbffe37bab2842f8667ae7b8d325845c8f486ca7dbc16bd2ee25195849ac5b6fb53aaf72e5879d5d0a496b90e65934908bced0ed9af92fc9a7d8c808c6e4ec1e7ea8299b1ae"/>
+                <value environment="dv103" value="-5d3997db52657d08540c479a3e51cc04def0d848d40cc4494d5d9687fdd4aac0c2a256764bca638efdd4de59b4cf4af4eb59b9aa00003caefaf29dd3c9adc79aa904ca0a5555603e065a3fc32f99022af017cfa76ac8cb7bcb374f1d5432b5130829a7a0050bb9a870681b62e1fd9a588cde8d4c72b18d7587a080998a217208"/>
+                <value environment="ps101" value="2f71d25eb9e97582eb7330a66c5150caac2c1836befd93f19b68dd3c716b43d3157457ffdc36bb2d62c40e4af8ff4f9723ab1f967a80baf023293dbffe37bab2842f8667ae7b8d325845c8f486ca7dbc16bd2ee25195849ac5b6fb53aaf72e5879d5d0a496b90e65934908bced0ed9af92fc9a7d8c808c6e4ec1e7ea8299b1ae"/>
+                <value environment="pt140" value="2f71d25eb9e97582eb7330a66c5150caac2c1836befd93f19b68dd3c716b43d3157457ffdc36bb2d62c40e4af8ff4f9723ab1f967a80baf023293dbffe37bab2842f8667ae7b8d325845c8f486ca7dbc16bd2ee25195849ac5b6fb53aaf72e5879d5d0a496b90e65934908bced0ed9af92fc9a7d8c808c6e4ec1e7ea8299b1ae"/>
+                <value environment="pt148" value="2f71d25eb9e97582eb7330a66c5150caac2c1836befd93f19b68dd3c716b43d3157457ffdc36bb2d62c40e4af8ff4f9723ab1f967a80baf023293dbffe37bab2842f8667ae7b8d325845c8f486ca7dbc16bd2ee25195849ac5b6fb53aaf72e5879d5d0a496b90e65934908bced0ed9af92fc9a7d8c808c6e4ec1e7ea8299b1ae"/>
+                <value environment="st101" value="2f71d25eb9e97582eb7330a66c5150caac2c1836befd93f19b68dd3c716b43d3157457ffdc36bb2d62c40e4af8ff4f9723ab1f967a80baf023293dbffe37bab2842f8667ae7b8d325845c8f486ca7dbc16bd2ee25195849ac5b6fb53aaf72e5879d5d0a496b90e65934908bced0ed9af92fc9a7d8c808c6e4ec1e7ea8299b1ae"/>
+                <value environment="pr" value="4ac359858303a015c3e901edf6ec0cd842de4898d2e7dbd6adaba07993c8ceec7a86fa281cea5a72ed30e3e29225791891d8681c9bae1e7797499b6424ca5e5ea6108a30591fa8e427c24af363494197bc5ee191a75b3dd3cce7212f1333a38764bd9930dfa8f4cbffd06b5dfa852289883ad04193ff13d49cb8c7d24adc2768"/>
+            </entry>
+        </entry>
+        <entry name="APP_IPEM">
+            <entry name="applicationCode" value="APP_IPEM"/>
+            <entry name="principal">
+                <value environment="pt168" value="911700"/>
+                <value environment="dv103" value="911700"/>
+                <value environment="ps101" value="911700"/>
+                <value environment="pt140" value="911700"/>
+                <value environment="pt148" value="911700"/>
+                <value environment="st101" value="911700"/>
+                <value environment="pr" value="9152528"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="5a994a69d648f3cdf2c2953f4056de28690e63dba5779d10789ebb6fd37181d9e267f816d3677a77df046c82e78d951bf8ad323476da4bcafb9a1e05d73da943855139f9537fcd889e7fb3d727cb95ddc8b3f0ccd42fff2c1739bd6011b64dd3b8d503dfd8eb16cb5bd3692b9d7fd3b0e2049257ef9a7b3366597bf6018bf057"/>
+                <value environment="dv103" value="5a994a69d648f3cdf2c2953f4056de28690e63dba5779d10789ebb6fd37181d9e267f816d3677a77df046c82e78d951bf8ad323476da4bcafb9a1e05d73da943855139f9537fcd889e7fb3d727cb95ddc8b3f0ccd42fff2c1739bd6011b64dd3b8d503dfd8eb16cb5bd3692b9d7fd3b0e2049257ef9a7b3366597bf6018bf057"/>
+                <value environment="ps101" value="44880d2172e1f3a1410bcae17beb8bf6b24c22f1d7a805b574f4ebac6f55db6d2d518a471e8b8fed5c787bc020243868b318fbcd5f50848e392109f32136014a29bec37008a85d8637368747e3be351adff9eed58f5e03f8c1fee566ba0b7883c28baa7b8db574be161d8890f3c4108a28b618c0fcfee10b6d979237c67a1f02"/>
+                <value environment="pt140" value="44880d2172e1f3a1410bcae17beb8bf6b24c22f1d7a805b574f4ebac6f55db6d2d518a471e8b8fed5c787bc020243868b318fbcd5f50848e392109f32136014a29bec37008a85d8637368747e3be351adff9eed58f5e03f8c1fee566ba0b7883c28baa7b8db574be161d8890f3c4108a28b618c0fcfee10b6d979237c67a1f02"/>
+                <value environment="pt148" value="5a994a69d648f3cdf2c2953f4056de28690e63dba5779d10789ebb6fd37181d9e267f816d3677a77df046c82e78d951bf8ad323476da4bcafb9a1e05d73da943855139f9537fcd889e7fb3d727cb95ddc8b3f0ccd42fff2c1739bd6011b64dd3b8d503dfd8eb16cb5bd3692b9d7fd3b0e2049257ef9a7b3366597bf6018bf057"/>
+                <value environment="st101" value="e3020876e51cfcc148eed5e3c9afa331baa14244cd07c76a44d692cc4e5ec324e44ca4c50298f57b95cefd283493d2f84784569949fe16b511654a6de10e89e20ca88366f92ea0c34fc8da7475fd03b251cf36b286694e08dd3fa31573df3a5844046902beb2c055207e818b21b188990680e220f60f939089a64c2a0fffe75"/>
+                <value environment="pr" value="-6b3c043ed035eaf90c5a6b13fbab992c8dddb0c9797b98c8d647bd4db708130c78664a186c807a335118e474975506f2c99edbf9b54e109579eeaeb6f8a6f59e826240b53adf9dc8cf30b63b57e79abf4b404db12bef01eec1bf001bec2e2c69ab06e758289d08f9fd27bf18dadc58dffc4c5e8b62d3b82eb7714b7321c14614"/>
+            </entry>
+        </entry>
+        <entry name="APP_SDFWEBSVC">
+            <entry name="applicationCode" value="APP_SDFWEBSVC"/>
+            <entry name="principal" value="911382"/>
+            <entry name="credential">
+                <value environment="pt168" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="dv103" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="ps101" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pt140" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pt148" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="st101" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pr" value="33709f0af458b4e5b29becffb8bc3cd1baa6d6d2212e7874bbdd23668c496100b332dd7f0e0cbd833cecfdbb0ce946b4d905bbe403eacaa627ba19afc68d79c8b4f74727ac7e42b7e4834cad22955dc72c41c5bdf6724653168cb44802c1ae44140cbc268079dda048e6f412715aa6113b2073cb9d475bc5815a870bed1712ef"/>
+            </entry>
+        </entry>
+           <entry name="SDFAppID">
+            <entry name="applicationCode" value="SDFAppID"/>
+            <entry name="principal" value="911382"/>
+            <entry name="credential">
+                <value environment="pt168" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="dv103" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="ps101" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pt140" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pt148" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="st101" value="32f263386cd6b2bf486a34988226ae9848e345bbb89ba9aedee4e9ca979c464fb0bbe1b599cc455df4dfe4f65102b22ba7535242b68ed5b4736d56308465efb44de27cec880bb6686bc48405bf3979ec3017f12506906caf7611d1d7cb7d5f252bf05391f2f146c322614d4884187b0e5fa85d13445641c8da4f0be6d2db13b4"/>
+                <value environment="pr" value="33709f0af458b4e5b29becffb8bc3cd1baa6d6d2212e7874bbdd23668c496100b332dd7f0e0cbd833cecfdbb0ce946b4d905bbe403eacaa627ba19afc68d79c8b4f74727ac7e42b7e4834cad22955dc72c41c5bdf6724653168cb44802c1ae44140cbc268079dda048e6f412715aa6113b2073cb9d475bc5815a870bed1712ef"/>
+            </entry>
+        </entry>
+        <entry name="OOM">
+            <entry name="applicationCode" value="SCBCHG"/>
+            <entry name="principal">
+                <value environment="pt168" value="12460"/>
+                <value environment="dv103" value="26548"/>
+                <value environment="ps101" value="12460"/>
+                <value environment="pt140" value="12460"/>
+                <value environment="pt148" value="12460"/>
+                <value environment="st101" value="19866"/>
+                <value environment="pr" value="26548"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="5a255eb9d14981b24dfc599816229f3bbf8d7c8f63ff7c2ea3fd3f0eeb7d5b0e8a8b077154318a01bca5f1285c374eb368adca74e00f068cf8ba562960f220f20b6261bfdc3de50e131b21d70f18ae5a230a8aa9e02379838ea2e1735a3d126e355cb9b23484b6e054b401e376066e587052e8d13d722e320fac53bbdba794ad"/>
+                <value environment="dv103" value="2f340582562bb6f46b703410dc435bb6cb6d3121b9f89eee0147e875836b98f0f0ec225b6aa3221fa6f4221cf48602ab067401c279fab84d576033f2b5cb58dbe29d83faf19ef2267bf552c333809fcc5978ea43c6a3afbb1cf8c3ba1d269d6768bd3719549457218a35d934fd69a48fa4323b69a3e22bce78909946cd66b57a "/>
+                <value environment="ps101" value="5a255eb9d14981b24dfc599816229f3bbf8d7c8f63ff7c2ea3fd3f0eeb7d5b0e8a8b077154318a01bca5f1285c374eb368adca74e00f068cf8ba562960f220f20b6261bfdc3de50e131b21d70f18ae5a230a8aa9e02379838ea2e1735a3d126e355cb9b23484b6e054b401e376066e587052e8d13d722e320fac53bbdba794ad"/>
+                <value environment="pt140" value="5a255eb9d14981b24dfc599816229f3bbf8d7c8f63ff7c2ea3fd3f0eeb7d5b0e8a8b077154318a01bca5f1285c374eb368adca74e00f068cf8ba562960f220f20b6261bfdc3de50e131b21d70f18ae5a230a8aa9e02379838ea2e1735a3d126e355cb9b23484b6e054b401e376066e587052e8d13d722e320fac53bbdba794ad"/>
+                <value environment="pt148" value="5a255eb9d14981b24dfc599816229f3bbf8d7c8f63ff7c2ea3fd3f0eeb7d5b0e8a8b077154318a01bca5f1285c374eb368adca74e00f068cf8ba562960f220f20b6261bfdc3de50e131b21d70f18ae5a230a8aa9e02379838ea2e1735a3d126e355cb9b23484b6e054b401e376066e587052e8d13d722e320fac53bbdba794ad"/>
+                <value environment="st101" value="30ae2f5e6e3642f890c62803307298c2e4bf8635d875dca71c5dc5f2cfe9e3979f6b7f88aaaa3e2c90fb8a93ec7dc38c6695a384f0061cd71f470834905b2928e82cef896f729902e2f4b482dae58c8e30ea299787095b57507a1f624679facc165d828b7fa7e1226fe9df16d5ff5667175bbf0cddea7bcaa9aa981554707a57"/>
+                <value environment="pr" value="2f340582562bb6f46b703410dc435bb6cb6d3121b9f89eee0147e875836b98f0f0ec225b6aa3221fa6f4221cf48602ab067401c279fab84d576033f2b5cb58dbe29d83faf19ef2267bf552c333809fcc5978ea43c6a3afbb1cf8c3ba1d269d6768bd3719549457218a35d934fd69a48fa4323b69a3e22bce78909946cd66b57a"/>
+            </entry>
+        </entry>
+        <entry name="APP_HWREDTOOL">
+            <entry name="applicationCode" value="HWRDTL"/>
+            <entry name="principal">
+                <value environment="pt168" value="12460"/>
+                <value environment="dv103" value="26548"/>
+                <value environment="ps101" value="12460"/>
+                <value environment="pt140" value="12460"/>
+                <value environment="pt148" value="12460"/>
+                <value environment="st101" value="19866"/>
+                <value environment="pr" value="26548"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="5a255eb9d14981b24dfc599816229f3bbf8d7c8f63ff7c2ea3fd3f0eeb7d5b0e8a8b077154318a01bca5f1285c374eb368adca74e00f068cf8ba562960f220f20b6261bfdc3de50e131b21d70f18ae5a230a8aa9e02379838ea2e1735a3d126e355cb9b23484b6e054b401e376066e587052e8d13d722e320fac53bbdba794ad"/>
+                <value environment="dv103" value="2f340582562bb6f46b703410dc435bb6cb6d3121b9f89eee0147e875836b98f0f0ec225b6aa3221fa6f4221cf48602ab067401c279fab84d576033f2b5cb58dbe29d83faf19ef2267bf552c333809fcc5978ea43c6a3afbb1cf8c3ba1d269d6768bd3719549457218a35d934fd69a48fa4323b69a3e22bce78909946cd66b57a "/>
+                <value environment="ps101" value="5a255eb9d14981b24dfc599816229f3bbf8d7c8f63ff7c2ea3fd3f0eeb7d5b0e8a8b077154318a01bca5f1285c374eb368adca74e00f068cf8ba562960f220f20b6261bfdc3de50e131b21d70f18ae5a230a8aa9e02379838ea2e1735a3d126e355cb9b23484b6e054b401e376066e587052e8d13d722e320fac53bbdba794ad"/>
+                <value environment="pt140" value="5a255eb9d14981b24dfc599816229f3bbf8d7c8f63ff7c2ea3fd3f0eeb7d5b0e8a8b077154318a01bca5f1285c374eb368adca74e00f068cf8ba562960f220f20b6261bfdc3de50e131b21d70f18ae5a230a8aa9e02379838ea2e1735a3d126e355cb9b23484b6e054b401e376066e587052e8d13d722e320fac53bbdba794ad"/>
+                <value environment="pt148" value="5a255eb9d14981b24dfc599816229f3bbf8d7c8f63ff7c2ea3fd3f0eeb7d5b0e8a8b077154318a01bca5f1285c374eb368adca74e00f068cf8ba562960f220f20b6261bfdc3de50e131b21d70f18ae5a230a8aa9e02379838ea2e1735a3d126e355cb9b23484b6e054b401e376066e587052e8d13d722e320fac53bbdba794ad"/>
+                <value environment="st101" value="30ae2f5e6e3642f890c62803307298c2e4bf8635d875dca71c5dc5f2cfe9e3979f6b7f88aaaa3e2c90fb8a93ec7dc38c6695a384f0061cd71f470834905b2928e82cef896f729902e2f4b482dae58c8e30ea299787095b57507a1f624679facc165d828b7fa7e1226fe9df16d5ff5667175bbf0cddea7bcaa9aa981554707a57"/>
+                <value environment="pr" value="2f340582562bb6f46b703410dc435bb6cb6d3121b9f89eee0147e875836b98f0f0ec225b6aa3221fa6f4221cf48602ab067401c279fab84d576033f2b5cb58dbe29d83faf19ef2267bf552c333809fcc5978ea43c6a3afbb1cf8c3ba1d269d6768bd3719549457218a35d934fd69a48fa4323b69a3e22bce78909946cd66b57a"/>
+            </entry>
+        </entry>        
+        <entry name="Channel_Subscriber_Order_Web_Svc">
+            <entry name="applicationCode" value="Channel_Subscriber_Order_Web_Svc"/>
+            <entry name="principal">
+                <value environment="pt168" value="911554"/>
+                <value environment="dv103" value="21391"/>
+                <value environment="ps101" value="911554"/>
+                <value environment="pt140" value="911554"/>
+                <value environment="pt148" value="911554"/>
+                <value environment="st101" value="911554"/>
+                <value environment="pr" value="21391"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="1de5be8133e6c59d03b08c52f341c266351eb9d4f93a99531671135c1288d299f1f1a5f254c9be96dae431c6bf1c0cf25099451c93a7999a42d717ff0ba80ebb879a5504e74335545139a4d9c34174c8aefc5c5b4393ae4e6cf0061e6d32229e2bfa3a7c078d709ae439e026f187d1b1c3a515a3ccb2da64044ac0cb4bde8d5e"/>
+                <value environment="dv103" value="-48a332c18972b4906043b391285f468088f6a9e63abbecec904f6628aae1beb1ab5c49cf684ad4c3f7cc2d68d7952f82db3d896ae0d7841cad756cd82001c6398fb8288c2f946d449da3118b880ecb12581edf15b5a13d145b8b259f7168d38031dc71b488d06e70bc64700cf91443e86ff8c6902968a9487815a84a6a900d3e"/>
+                <value environment="ps101" value="1de5be8133e6c59d03b08c52f341c266351eb9d4f93a99531671135c1288d299f1f1a5f254c9be96dae431c6bf1c0cf25099451c93a7999a42d717ff0ba80ebb879a5504e74335545139a4d9c34174c8aefc5c5b4393ae4e6cf0061e6d32229e2bfa3a7c078d709ae439e026f187d1b1c3a515a3ccb2da64044ac0cb4bde8d5e"/>
+                <value environment="pt140" value="1de5be8133e6c59d03b08c52f341c266351eb9d4f93a99531671135c1288d299f1f1a5f254c9be96dae431c6bf1c0cf25099451c93a7999a42d717ff0ba80ebb879a5504e74335545139a4d9c34174c8aefc5c5b4393ae4e6cf0061e6d32229e2bfa3a7c078d709ae439e026f187d1b1c3a515a3ccb2da64044ac0cb4bde8d5e"/>
+                <value environment="pt148" value="1de5be8133e6c59d03b08c52f341c266351eb9d4f93a99531671135c1288d299f1f1a5f254c9be96dae431c6bf1c0cf25099451c93a7999a42d717ff0ba80ebb879a5504e74335545139a4d9c34174c8aefc5c5b4393ae4e6cf0061e6d32229e2bfa3a7c078d709ae439e026f187d1b1c3a515a3ccb2da64044ac0cb4bde8d5e"/>
+                <value environment="st101" value="1de5be8133e6c59d03b08c52f341c266351eb9d4f93a99531671135c1288d299f1f1a5f254c9be96dae431c6bf1c0cf25099451c93a7999a42d717ff0ba80ebb879a5504e74335545139a4d9c34174c8aefc5c5b4393ae4e6cf0061e6d32229e2bfa3a7c078d709ae439e026f187d1b1c3a515a3ccb2da64044ac0cb4bde8d5e"/>
+                <value environment="pr" value="-48a332c18972b4906043b391285f468088f6a9e63abbecec904f6628aae1beb1ab5c49cf684ad4c3f7cc2d68d7952f82db3d896ae0d7841cad756cd82001c6398fb8288c2f946d449da3118b880ecb12581edf15b5a13d145b8b259f7168d38031dc71b488d06e70bc64700cf91443e86ff8c6902968a9487815a84a6a900d3e"/>
+            </entry>
+        </entry>
+        <entry name="WNP_PRM">
+            <entry name="applicationCode" value="WNP_PRM"/>
+            <entry name="principal">
+                <value environment="pt168" value="911231"/>
+                <value environment="dv103" value="1022"/>
+                <value environment="ps101" value="911231"/>                
+                <value environment="pt140" value="911231"/>
+                <value environment="pt148" value="911231"/>
+                <value environment="st101" value="911231"/>
+                <value environment="pr" value="91648"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="dv103" value="-5648113a6f23fce5c515bb90b7a4627b4d491157caca3365488215fac007f660ee162e11f4f6945c70d53f7e360f3e9b13015973b0275c66370f5647fb0919e6eb319e55025937468591c617ea0398df8426fdd48c4c49c7c68953c12185ea5c6d7866c411f94c3048bdba6e9cbec578513da0ff00acacd1f9dbc384ae23bd8b"/>
+                <value environment="ps101" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="pt140" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="pt148" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="st101" value="6d239f97d97a62c7c12baad29d0be2a7a22f67d793a0e5ed0f6b117cdf60179bc0be1c9da4e1e54cb251478159e6a50cf833bcac0b4b431bc136dd4d03abbf3a3f7197212d5b5d85f1168e53970d446616815fa965e8c66c773b4f7b0b9fae0e5b9de2855ac40944f35500726bfa5090ff2037acf67f71e48fdd4068b52f2d22"/>
+                <value environment="pr" value="209c73584c37a79ce658ac26c356648b4c497a65892384090d8feea7a284904beb21ed9d0da91836f7393a8ce604941bed15f3bf38325dfc1cb482c4a5b59eb7d83daabfdc723bd82fd478eba2bff3bd58c5ab8140ea7478b9e7f14215cf417ad2809b8167d01c2cee3ae8dfb2d58b18b3f4e3abd78c09721ffe4eac77c01d9f"/>
+            </entry>
+        </entry>
+        <entry name="APP_PENALCALC">
+            <entry name="applicationCode" value="RWMS"/>
+            <entry name="principal">
+                <value environment="pt168" value="12218"/>
+                <value environment="dv103" value="12218"/>
+                <value environment="ps101" value="36014"/>                
+                <value environment="pt140" value="36014"/>
+                <value environment="pt148" value="12218"/>
+                <value environment="st101" value="12218"/>
+                <value environment="pr" value="36014"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="4eaeba670c685636f03ed11fa77d081b902fb713f15b8287a8fd0b2d6543fe96421940f44d9ea164ccc18e9924e289b357e2217c8265c54ae894c67ac9003f5687558be6b7a6ef7e47b0e62c8166cefccfbef41e83d668fcf0fd9ff3a2dfcc1c2b3edbc20f70fa4236c91599ceeea4bdf332accbdd9bc2b6d377f9e956f3c029"/>
+                <value environment="dv103" value="4eaeba670c685636f03ed11fa77d081b902fb713f15b8287a8fd0b2d6543fe96421940f44d9ea164ccc18e9924e289b357e2217c8265c54ae894c67ac9003f5687558be6b7a6ef7e47b0e62c8166cefccfbef41e83d668fcf0fd9ff3a2dfcc1c2b3edbc20f70fa4236c91599ceeea4bdf332accbdd9bc2b6d377f9e956f3c029"/>
+                <value environment="ps101" value="2db5dd727ae6535705a3c73b8cc57202cca5a0c8ca669a9578ac47620d9b4733b4e04bfd27a4f5ee9d952673a7c6f9c193c66276e821413d3a5de4447b259efb77b614d48612da80a8f6beb1ac7e5105787d6dcfb5e16629f1d3ce5b4b855704329382e78ae519502dc35a441b4518b41c6a17bfdf2857d060c9eee85d72d59e"/>
+                <value environment="pt140" value="2db5dd727ae6535705a3c73b8cc57202cca5a0c8ca669a9578ac47620d9b4733b4e04bfd27a4f5ee9d952673a7c6f9c193c66276e821413d3a5de4447b259efb77b614d48612da80a8f6beb1ac7e5105787d6dcfb5e16629f1d3ce5b4b855704329382e78ae519502dc35a441b4518b41c6a17bfdf2857d060c9eee85d72d59e"/>
+                <value environment="pt148" value="4eaeba670c685636f03ed11fa77d081b902fb713f15b8287a8fd0b2d6543fe96421940f44d9ea164ccc18e9924e289b357e2217c8265c54ae894c67ac9003f5687558be6b7a6ef7e47b0e62c8166cefccfbef41e83d668fcf0fd9ff3a2dfcc1c2b3edbc20f70fa4236c91599ceeea4bdf332accbdd9bc2b6d377f9e956f3c029"/>
+                <value environment="st101" value="-64e6598d7d3d7aa605624cf61f55095187694500a11bc3ea33b8b14b4b06e500b105264262fb43be80dec6a591f8787e9160388c0777f40c5b8450bb8379ac4fa60cf307781d26eb132996ee918e9bc5df83ea97906afd4022de1222dbbbf9f061f292645c0c61f290b2df1bb85bddb6ff789ce234aa5b862ba53a1f3848d6f8"/>
+                <value environment="pr" value="2db5dd727ae6535705a3c73b8cc57202cca5a0c8ca669a9578ac47620d9b4733b4e04bfd27a4f5ee9d952673a7c6f9c193c66276e821413d3a5de4447b259efb77b614d48612da80a8f6beb1ac7e5105787d6dcfb5e16629f1d3ce5b4b855704329382e78ae519502dc35a441b4518b41c6a17bfdf2857d060c9eee85d72d59e"/>
+            </entry>
+        </entry>
+        <entry name="PREPAID_WINPAS_API">
+            <entry name="applicationCode" value="PREPAID_WINPAS_API"/>
+            <entry name="principal" value="18654"/>
+            <entry name="credential" value="78bd74bbf77e5b1c0f43010e31b0bed9359fb14c17df5f1e9982554a48260264ad6a0d605850c8d5cff540ae21a1e235fbabdc979b8ae5e6882b2109ede9826d4c806e2ac841d993459a81ed0e502324b4c47043df63ea8bf05178f2da6a4693fee56d431cfc9c4433a1f16351c5bd5bf15d755f5a1d17570f6cce67a23e1f2a"/>
+        </entry>
+        <entry name="APP_ENTRSALESSVC">
+            <entry name="applicationCode" value="ENTRSALESSVC"/>
+            <entry name="principal">
+                <value environment="pt168" value="911840"/>
+                <value environment="dv103" value="911840"/>
+                <value environment="ps101" value="911840"/>
+                <value environment="pt140" value="911840"/>
+                <value environment="pt148" value="911521"/>
+                <value environment="st101" value="911840"/>
+                <value environment="pr" value="26548"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="10ab5259875b5aa6536eb1424f40c975a9fd7ffb70a7bd3f9cc995913a40292ea4f7ca03e8208345c9898bfc15cc865112b434dadaa76b33775a0d84a06a0404fce72d06b3eb4c7123a7fea2b216e2f50c7ef912737efa81bfa926a5df8da29385ad032568232f3f094fbd3e5f1e8b0a6bc79e0e66399c65197944df3617bf89"/>
+                <value environment="dv103" value="10ab5259875b5aa6536eb1424f40c975a9fd7ffb70a7bd3f9cc995913a40292ea4f7ca03e8208345c9898bfc15cc865112b434dadaa76b33775a0d84a06a0404fce72d06b3eb4c7123a7fea2b216e2f50c7ef912737efa81bfa926a5df8da29385ad032568232f3f094fbd3e5f1e8b0a6bc79e0e66399c65197944df3617bf89"/>
+                <value environment="ps101" value="10ab5259875b5aa6536eb1424f40c975a9fd7ffb70a7bd3f9cc995913a40292ea4f7ca03e8208345c9898bfc15cc865112b434dadaa76b33775a0d84a06a0404fce72d06b3eb4c7123a7fea2b216e2f50c7ef912737efa81bfa926a5df8da29385ad032568232f3f094fbd3e5f1e8b0a6bc79e0e66399c65197944df3617bf89"/>
+                <value environment="pt140" value="10ab5259875b5aa6536eb1424f40c975a9fd7ffb70a7bd3f9cc995913a40292ea4f7ca03e8208345c9898bfc15cc865112b434dadaa76b33775a0d84a06a0404fce72d06b3eb4c7123a7fea2b216e2f50c7ef912737efa81bfa926a5df8da29385ad032568232f3f094fbd3e5f1e8b0a6bc79e0e66399c65197944df3617bf89"/>
+                <value environment="pt148" value="105122790ad335d2066350dad5addbbbbc6223e1083e7bb70cfcdbc7cf57e224b2c324a4a1f86fcde7c06c68e43d5352b1c40c6fdf0deacb7178ae913f5f6223c21547c93b5095bb24e633009e128acffbb6d27f8877b09a7562cbd0db217eba63a8060cc319dc9fb85e43b1f476a8b55e026a10792ef7cf6edbcb630cef86bd"/>
+                <value environment="st101" value="10ab5259875b5aa6536eb1424f40c975a9fd7ffb70a7bd3f9cc995913a40292ea4f7ca03e8208345c9898bfc15cc865112b434dadaa76b33775a0d84a06a0404fce72d06b3eb4c7123a7fea2b216e2f50c7ef912737efa81bfa926a5df8da29385ad032568232f3f094fbd3e5f1e8b0a6bc79e0e66399c65197944df3617bf89"/>
+                <value environment="pr" value="220beff2a87e38132587861057c2930c9ed251b43a117c3b8ee9890d1b63b3d126c82af131fcc23b37d0f415e3c15d94756ae75c2303c71dd7c393f79691e392cedda5d4a0ced701316a5563c681022624650d742c833b029e4c0bccd43376f3205233893871b771a84e0ead2ee0806d2ab9051af2ddfacee2ff5e018f09034e"/>
+            </entry>
+        </entry>
+        <entry name="APP_HWPURCHASEACCT">
+            <entry name="applicationCode" value="APP_HWPURCHASEACCT"/>
+            <entry name="principal" value="74382"/>
+            <entry name="credential" value="8d4d83503043025e64d9e5a5ea1366d10b5188aab61ed26b317d6e20050fb875e63faf38d52ffa5a53f43d45b7eb9656812d71b35ec7f5755c54f8aa5f203834da240a163fdfd6f2a30e3b44b897b2deb5158db64d546c5ffd7645497b10d58d9716c92520edbb4f1654c9f92236063bc48fe967de1ec8f499cd3a38e15bb6e"/>
+        </entry>
+        <entry name="RTS_APP">
+            <entry name="applicationCode" value="RTS_APP"/>
+            <entry name="principal">
+                <value environment="pt168" value="30002"/>
+                <value environment="dv103" value="18654"/>
+                <value environment="ps101" value="30002"/>
+                <value environment="pt140" value="30002"/>
+                <value environment="pt148" value="30002"/>
+                <value environment="st101" value="18654"/>
+                <value environment="pr" value="19852"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="15a9ec58cfdb6b0b801aa8cc642f92909f964687e2b17a6c312a4bc6c2cc98d19c6abaec394ab3a7fd10a7b153597994887e1905393e45f2ecf65a031c108022d52d5c0b1331a12f813b3316521422e9b25ad14da14343dec51a72386ab7854e4e6d1e2a6ffdbab146be8dcdecedd1a02393250a59596ad829ff4078b1dc213"/>
+                <value environment="dv103" value="4802ffffd794ba9218cbebaec377c644c67ab4c725afef5d8fbe81c4adc9fe81a5134a7ad586d27310d400462e492a36ee0f35aed5db2b70e8cb97ae8688edfa3d027ec303313652d65a5ee61d846965781ea132e38bbf45b9461a736becfd6a0822413de1c1666eb08b3379fc0db71bb42c92212e924c93c83677b8d49cbb3"/>
+                <value environment="ps101" value="15a9ec58cfdb6b0b801aa8cc642f92909f964687e2b17a6c312a4bc6c2cc98d19c6abaec394ab3a7fd10a7b153597994887e1905393e45f2ecf65a031c108022d52d5c0b1331a12f813b3316521422e9b25ad14da14343dec51a72386ab7854e4e6d1e2a6ffdbab146be8dcdecedd1a02393250a59596ad829ff4078b1dc213"/>
+                <value environment="pt140" value="15a9ec58cfdb6b0b801aa8cc642f92909f964687e2b17a6c312a4bc6c2cc98d19c6abaec394ab3a7fd10a7b153597994887e1905393e45f2ecf65a031c108022d52d5c0b1331a12f813b3316521422e9b25ad14da14343dec51a72386ab7854e4e6d1e2a6ffdbab146be8dcdecedd1a02393250a59596ad829ff4078b1dc213"/>
+                <value environment="pt148" value="15a9ec58cfdb6b0b801aa8cc642f92909f964687e2b17a6c312a4bc6c2cc98d19c6abaec394ab3a7fd10a7b153597994887e1905393e45f2ecf65a031c108022d52d5c0b1331a12f813b3316521422e9b25ad14da14343dec51a72386ab7854e4e6d1e2a6ffdbab146be8dcdecedd1a02393250a59596ad829ff4078b1dc213"/>
+                <value environment="st101" value="59d6cca802b18c0a2e72e74ab37124ea6c556603544df3664f7265cc8ecf994a5d4461d3f8b85ede53b3b4734f2c2dc7f4e6a9ba76820fdc50eb00612deeac59435b63acdbdf39d44fdefef706b70a011c273207b80f688caf102c5b7394b3756cd30aac6453c03f52297881b3d942331a229308cac834726df1662e5f98c6be"/>
+                <value environment="pr" value="59d6cca802b18c0a2e72e74ab37124ea6c556603544df3664f7265cc8ecf994a5d4461d3f8b85ede53b3b4734f2c2dc7f4e6a9ba76820fdc50eb00612deeac59435b63acdbdf39d44fdefef706b70a011c273207b80f688caf102c5b7394b3756cd30aac6453c03f52297881b3d942331a229308cac834726df1662e5f98c6be"/>
+            </entry>
+        </entry>
+        <entry name="BT_TEST_ID">
+            <entry name="applicationCode" value="BT_TEST_ID"/>
+            <entry name="principal" value="18654"/>
+            <entry name="credential" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+        </entry>
+        <entry name="APP_CMRS">
+            <entry name="applicationCode" value="APP_CMRS"/>
+            <entry name="principal">
+                <value environment="pt168" value="12460"/>
+                <value environment="dv103" value="12460"/>
+                <value environment="ps101" value="12460"/>
+                <value environment="pt140" value="12460"/>
+                <value environment="pt148" value="12460"/>
+                <value environment="st101" value="19766"/>
+                <value environment="pr" value="20021"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-525fa0893a2dfdac80a63c34672ebcc9e5984a87b5be1361232b54e310b42b5bb25f5636fe821e433f615c36a02ed6650fe16d85a20e74aa106cd8c0f7e129595d162891c018f226d7b58983160bce6d56a5ef994e7851de98b28625bbe3cabe1136000a31ec90295084b157e99b3d6e15bd7745d49c519177f6b17bc11cecec"/>
+                <value environment="dv103" value="-525fa0893a2dfdac80a63c34672ebcc9e5984a87b5be1361232b54e310b42b5bb25f5636fe821e433f615c36a02ed6650fe16d85a20e74aa106cd8c0f7e129595d162891c018f226d7b58983160bce6d56a5ef994e7851de98b28625bbe3cabe1136000a31ec90295084b157e99b3d6e15bd7745d49c519177f6b17bc11cecec"/>
+                <value environment="ps101" value="-525fa0893a2dfdac80a63c34672ebcc9e5984a87b5be1361232b54e310b42b5bb25f5636fe821e433f615c36a02ed6650fe16d85a20e74aa106cd8c0f7e129595d162891c018f226d7b58983160bce6d56a5ef994e7851de98b28625bbe3cabe1136000a31ec90295084b157e99b3d6e15bd7745d49c519177f6b17bc11cecec"/>
+                <value environment="pt140" value="-525fa0893a2dfdac80a63c34672ebcc9e5984a87b5be1361232b54e310b42b5bb25f5636fe821e433f615c36a02ed6650fe16d85a20e74aa106cd8c0f7e129595d162891c018f226d7b58983160bce6d56a5ef994e7851de98b28625bbe3cabe1136000a31ec90295084b157e99b3d6e15bd7745d49c519177f6b17bc11cecec"/>
+                <value environment="pt148" value="-525fa0893a2dfdac80a63c34672ebcc9e5984a87b5be1361232b54e310b42b5bb25f5636fe821e433f615c36a02ed6650fe16d85a20e74aa106cd8c0f7e129595d162891c018f226d7b58983160bce6d56a5ef994e7851de98b28625bbe3cabe1136000a31ec90295084b157e99b3d6e15bd7745d49c519177f6b17bc11cecec"/>
+                <value environment="st101" value="513eeee6128689dca088f7be9f27449ee025613ec32fd1ebc013e7950bc916a94ead9cbbe983e6bd676bfb78a9bb130ec5b49dfa64bc16ab7ad80462c29972568952f36a16519bb94f7fc6464bf8bbbc562aa81f412297b0e129c1aa748c257ed58788e2ce65a1411d70a7a8f38b266a1ee9e0cbd9ba194e49f742a92a372206"/>
+                <value environment="pr" value="e6c1e36e7cb7bc3178d370ffc61f0bb7954c124a926c2ff8ee9e2a52381e2947d691cb5c88e4d429c37e7504ea72cd9bcd51bc2f7d5757677b86df2f74f25d3ff01c5e94a6e781ed8c66cb87a6bc3295c956f6ab2deb966b6a09a284a0100c1ce4714abd32e4ece37d8c35c96b50c5d18d001ed5ca9754e5c58c7df74218ef7"/>
+            </entry>
+        </entry>
+        <entry name="SELFSERVE_CLIENT">
+            <entry name="applicationCode" value="SELFSERVE_CLIENT"/>
+            <entry name="principal" value="12463"/>
+            <entry name="credential">
+                <value environment="pt168" value="-525fa0893a2dfdac80a63c34672ebcc9e5984a87b5be1361232b54e310b42b5bb25f5636fe821e433f615c36a02ed6650fe16d85a20e74aa106cd8c0f7e129595d162891c018f226d7b58983160bce6d56a5ef994e7851de98b28625bbe3cabe1136000a31ec90295084b157e99b3d6e15bd7745d49c519177f6b17bc11cecec"/>
+                <value environment="dv103" value="-525fa0893a2dfdac80a63c34672ebcc9e5984a87b5be1361232b54e310b42b5bb25f5636fe821e433f615c36a02ed6650fe16d85a20e74aa106cd8c0f7e129595d162891c018f226d7b58983160bce6d56a5ef994e7851de98b28625bbe3cabe1136000a31ec90295084b157e99b3d6e15bd7745d49c519177f6b17bc11cecec"/>
+                <value environment="ps101" value="-525fa0893a2dfdac80a63c34672ebcc9e5984a87b5be1361232b54e310b42b5bb25f5636fe821e433f615c36a02ed6650fe16d85a20e74aa106cd8c0f7e129595d162891c018f226d7b58983160bce6d56a5ef994e7851de98b28625bbe3cabe1136000a31ec90295084b157e99b3d6e15bd7745d49c519177f6b17bc11cecec"/>
+                <value environment="pt140" value="-525fa0893a2dfdac80a63c34672ebcc9e5984a87b5be1361232b54e310b42b5bb25f5636fe821e433f615c36a02ed6650fe16d85a20e74aa106cd8c0f7e129595d162891c018f226d7b58983160bce6d56a5ef994e7851de98b28625bbe3cabe1136000a31ec90295084b157e99b3d6e15bd7745d49c519177f6b17bc11cecec"/>
+                <value environment="pt148" value="-525fa0893a2dfdac80a63c34672ebcc9e5984a87b5be1361232b54e310b42b5bb25f5636fe821e433f615c36a02ed6650fe16d85a20e74aa106cd8c0f7e129595d162891c018f226d7b58983160bce6d56a5ef994e7851de98b28625bbe3cabe1136000a31ec90295084b157e99b3d6e15bd7745d49c519177f6b17bc11cecec"/>
+                <value environment="st101" value="709d4cd37d6c56d4cb397e58f5750f9791af3bf4cfa58aeb320eab666f2c147a8c4b0319c1d4091d61295e2026bdaff770679cfc157abb42b001b75746732df7f534eb5c4bab6b9faeac1cd9d3db1678c438c1a89c136f948b9409215c36dffe94ae552fcc026aa8200e33012021aceb0d500864d3174a02010044cc882ae3d1"/>
+                <value environment="pr" value="7a88a23365350a1aaf45d4915fe0f16e09696a740a149635ec217eb205d8089b05c10ee34d10f473e9c3c449799af63dd7908368bf71ea9062c964d43412a068c7b15240d5f0cd137249949133f0c1be52b68d8566787ee2da6af780ef98098433ee6e46ac47b72fed35d8686ee4e12d671c5107a7a6bac8963cdbdde3ee370a"/>
+            </entry>
+        </entry>
+        <entry name="APP_NOTIFMGMT">
+            <entry name="applicationCode">
+                <value environment="pt168" value="NTMGMT"/>
+                <value environment="dv103" value="NOTIMGMT"/>
+                <value environment="ps101" value="NTMGMT"/>
+                <value environment="pt140" value="NTMGMT"/>
+                <value environment="pt148" value="NTMGMT"/>
+                <value environment="st101" value="NTMGMT"/>
+                <value environment="pr" value="NTMGMT"/>
+            </entry>
+            <entry name="principal">
+                <value environment="pt168" value="911850"/>
+                <value environment="dv103" value="18654"/>
+                <value environment="ps101" value="911850"/>
+                <value environment="pt140" value="911850"/>
+                <value environment="pt148" value="911850"/>
+                <value environment="st101" value="911850"/>
+                <value environment="pr" value="789965"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-61379296d6c79afd9efafcf66d07765dd1f106de25e3e04550b31db20328ff4ab5f3c484c1c90d11ba97e758acf7545606a17ca604394a98eec69b59b45af1e29e2bb0cd318a64796a69ae5da5f83e0be2e18e94299bf635f114e32e1e686689a8f2ad608e644374ba3bd8a59a88a78066574203ddd776289d175f10298cf355"/>
+                <value environment="dv103" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+                <value environment="ps101" value="-61379296d6c79afd9efafcf66d07765dd1f106de25e3e04550b31db20328ff4ab5f3c484c1c90d11ba97e758acf7545606a17ca604394a98eec69b59b45af1e29e2bb0cd318a64796a69ae5da5f83e0be2e18e94299bf635f114e32e1e686689a8f2ad608e644374ba3bd8a59a88a78066574203ddd776289d175f10298cf355"/>
+                <value environment="pt140" value="-61379296d6c79afd9efafcf66d07765dd1f106de25e3e04550b31db20328ff4ab5f3c484c1c90d11ba97e758acf7545606a17ca604394a98eec69b59b45af1e29e2bb0cd318a64796a69ae5da5f83e0be2e18e94299bf635f114e32e1e686689a8f2ad608e644374ba3bd8a59a88a78066574203ddd776289d175f10298cf355"/>
+                <value environment="pt148" value="-61379296d6c79afd9efafcf66d07765dd1f106de25e3e04550b31db20328ff4ab5f3c484c1c90d11ba97e758acf7545606a17ca604394a98eec69b59b45af1e29e2bb0cd318a64796a69ae5da5f83e0be2e18e94299bf635f114e32e1e686689a8f2ad608e644374ba3bd8a59a88a78066574203ddd776289d175f10298cf355"/>
+                <value environment="st101" value="-61379296d6c79afd9efafcf66d07765dd1f106de25e3e04550b31db20328ff4ab5f3c484c1c90d11ba97e758acf7545606a17ca604394a98eec69b59b45af1e29e2bb0cd318a64796a69ae5da5f83e0be2e18e94299bf635f114e32e1e686689a8f2ad608e644374ba3bd8a59a88a78066574203ddd776289d175f10298cf355"/>
+                <value environment="pr" value="14cb31adbdacbc17d500a74698f17873b7f7c6eb1e40f9dc9d4b2ef6e104b9108845e53fb23682fae5f657be458c5bed34ce7ba5a530b54d32b71a4c3b1805f056d71a827f96097b5d7736b1113135bcfb063dda5545d8e2d46a5b19fbfb6600b49d7763506421a2b84b3e22a609d1e541058379317f2a881597ba6ac145593f"/>
+            </entry>
+        </entry>
+        <entry name="SELFSERVE_SERVICES">
+            <entry name="applicationCode" value="SELFSERVE_SERVICES"/>
+            <entry name="principal">
+                <value environment="pt168" value="12463"/>
+                <value environment="dv103" value="12463"/>
+                <value environment="ps101" value="12463"/>
+                <value environment="pt140" value="12463"/>
+                <value environment="pt148" value="12463"/>
+                <value environment="st101" value="19769"/>
+                <value environment="pr" value="124630"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-760363a021916af5026926f3a335d781bfb0fc3d2c9bdb99409210778093691b29b07aab5f2994eff7f822716df23d436a3332b748dca388824c61b603bc2b2d327f14321480328f784a2cbdfb04e59c9b115032ac97b9e753a79ea44070812ba417905edee2db0a3881ef888d4fbf566d6a4f9f1509f887df3a7dd2a3cb858d"/>
+                <value environment="dv103" value="-760363a021916af5026926f3a335d781bfb0fc3d2c9bdb99409210778093691b29b07aab5f2994eff7f822716df23d436a3332b748dca388824c61b603bc2b2d327f14321480328f784a2cbdfb04e59c9b115032ac97b9e753a79ea44070812ba417905edee2db0a3881ef888d4fbf566d6a4f9f1509f887df3a7dd2a3cb858d"/>
+                <value environment="ps101" value="-760363a021916af5026926f3a335d781bfb0fc3d2c9bdb99409210778093691b29b07aab5f2994eff7f822716df23d436a3332b748dca388824c61b603bc2b2d327f14321480328f784a2cbdfb04e59c9b115032ac97b9e753a79ea44070812ba417905edee2db0a3881ef888d4fbf566d6a4f9f1509f887df3a7dd2a3cb858d"/>
+                <value environment="pt140" value="-760363a021916af5026926f3a335d781bfb0fc3d2c9bdb99409210778093691b29b07aab5f2994eff7f822716df23d436a3332b748dca388824c61b603bc2b2d327f14321480328f784a2cbdfb04e59c9b115032ac97b9e753a79ea44070812ba417905edee2db0a3881ef888d4fbf566d6a4f9f1509f887df3a7dd2a3cb858d"/>
+                <value environment="pt148" value="-760363a021916af5026926f3a335d781bfb0fc3d2c9bdb99409210778093691b29b07aab5f2994eff7f822716df23d436a3332b748dca388824c61b603bc2b2d327f14321480328f784a2cbdfb04e59c9b115032ac97b9e753a79ea44070812ba417905edee2db0a3881ef888d4fbf566d6a4f9f1509f887df3a7dd2a3cb858d"/>
+                <value environment="st101" value="47cf7701740cd7fb91475088de5d9cb323fc757712eb7c507722755b82c3fcf0b77ba3c2385ad5e1d55ee34073fa5df87760f9769f22858ff6bff5a66c2d7b90b056a13efa33a915bb6faa03a249be6758d660f88247dd69b90b802ded74bdd29e30b653647434c4ede1ebf8e6cde50b1a77cdeecd281e2edffbc8baf376b872"/>
+                <value environment="pr" value="317acc94217dc02bc8e19359596b039b5ce967702bdaabea9f8fee643f650042897ed9129f7e1c684aa2ee0ba0ac3985ae9a821a3769fcc530c18d97a8a14784135de4dc447a3e2a398e2ca75d90bf93f01f897ba4ca8fcc96d3e10fdb28e6c6904682dc22c15f06551b965bccf13bfcf6d8383e3dfbabfe4b5403b0107c7d09"/>
+            </entry>
+        </entry>
+        <entry name="APP_ENTWEBSTORE">
+            <entry name="applicationCode">
+                <value environment="pt168" value="ENTWEBSTORE"/>
+                <value environment="dv103" value="SSERVE"/>
+                <value environment="ps101" value="ENTWEBSTORE"/>
+                <value environment="pt140" value="ENTWEBSTORE"/>
+                <value environment="pt148" value="ENTWEBSTORE"/>
+                <value environment="st101" value="ENTWEBSTORE"/>
+                <value environment="pr" value="ENTWEBSTORE"/>
+            </entry>
+            <entry name="principal" value="789966"/>
+            <entry name="credential">
+                <value environment="pt168" value="94b7652e4d4443fd1722d00336357683e057c852ddc93485bc516b947cf15ba4221d5bc2a8438ffa53a10ba55eab021bb336c0246cb98517f1153dfef16dfce0034c20987321460b521fd47a32a43160ad863000b9522f4b1f47f200b111cb5d4e2c5341ad89cfcbfae76e649677305f305283fbad0e8d26fae8d9ea5c54819"/>
+                <value environment="dv103" value="-4c6719d7cede0d712bc3c86c546899173ae2829dff9a7f6cdc69f152bb28978d5fd37eb499850988dde7d92d16bae4a1727df781c3f6d10386c2ae817825601a196347f10c07ee58be7237a6a03f2be2ee4ecfffb2629f957a394914168f2b84edb8763ff3682b7b673d1484347c7ed5b3b54c3b7cda445f0d7afef988dd0cf6"/>
+                <value environment="ps101" value="2edfd8aac8af4268cf24233ec2be3918350815dbcad9de6b38960f04b46ee2d6d157c22c9362538fc064a7053a73631dd65662698fb995b5b34e6fb904a3c490bdf850cc4ef5f80864b7ac2d41afa4506636f327808449b4b59790bf3756bc91ec3113d17d2b8a12aac705308d3673f3704d1fa9927dae7d12d0c613ae80018d"/>
+                <value environment="pt140" value="2edfd8aac8af4268cf24233ec2be3918350815dbcad9de6b38960f04b46ee2d6d157c22c9362538fc064a7053a73631dd65662698fb995b5b34e6fb904a3c490bdf850cc4ef5f80864b7ac2d41afa4506636f327808449b4b59790bf3756bc91ec3113d17d2b8a12aac705308d3673f3704d1fa9927dae7d12d0c613ae80018d"/>
+                <value environment="pt148" value="-75b20771ebd4b8288d3b43a5222077b4d610e4ffac2cbd1f567557207c1d8fe7d133200f896e98641fa12e823c97ff2026b924ad31ae695915c29a6e8627f8518ba00abc601be71b01246db836feef353cb472c430e58609ec05aebd58b070ab80e74ccf7d2aa330153d4eda5dd359f99a5774ef77e6b3f79323946193221160"/>
+                <value environment="st101" value="94b7652e4d4443fd1722d00336357683e057c852ddc93485bc516b947cf15ba4221d5bc2a8438ffa53a10ba55eab021bb336c0246cb98517f1153dfef16dfce0034c20987321460b521fd47a32a43160ad863000b9522f4b1f47f200b111cb5d4e2c5341ad89cfcbfae76e649677305f305283fbad0e8d26fae8d9ea5c54819"/>
+                <value environment="pr" value="64f9c4012c750713c3d6606f6cd59efc0819531db464ea8373d1a650858988b16797b7fb81414150792b4bf4d3f7a7c79fd7bf32758b3d5d69c438a06ab1e4ba3c4c66b43949bc0f42710b2c315932c5d6befaef2986dd3e6b70401678e0cbf47c3897c0379d6925602c96ff0fcba60baa865008f2ce4b0dfcd14a029e14e5b1"/>
+            </entry>
+        </entry>
+        <entry name="APP_SELFSERVEUSGBIZSVC">
+            <entry name="applicationCode" value="SS_SVC"/>
+            <entry name="principal">
+                <value environment="pt168" value="122019"/>
+                <value environment="dv103" value="122019"/>
+                <value environment="ps101" value="122019"/>
+                <value environment="pt140" value="122019"/>
+                <value environment="pt148" value="122019"/>
+                <value environment="st101" value="122019"/>
+                <value environment="pr" value="124630"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa"/>
+                <value environment="dv103" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa"/>
+                <value environment="ps101" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa"/>
+                <value environment="pt140" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa"/>
+                <value environment="pt148" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa"/>
+                <value environment="st101" value="-4c6719d7cede0d712bc3c86c546899173ae2829dff9a7f6cdc69f152bb28978d5fd37eb499850988dde7d92d16bae4a1727df781c3f6d10386c2ae817825601a196347f10c07ee58be7237a6a03f2be2ee4ecfffb2629f957a394914168f2b84edb8763ff3682b7b673d1484347c7ed5b3b54c3b7cda445f0d7afef988dd0cf6"/>
+                <value environment="pr" value="67488ff2c9bbf73a72938f12cf8da024c4aa57973729eec07ae719914df967852633c884c97d27c4c2c4fe643f7a0a52fb2620b90759c2985fa7dc6ff4f4e2f2462f426284ce598a52bd81db53da3f12dbd922a08923833a09bd443ca5ff4afffc31f5707227a667d17158b79fd87f9d48f2ab62a82a33790274078c20c3c809"/>
+            </entry>
+        </entry>
+		 <entry name="APP_SelfServeWalletPayment">
+            <entry name="applicationCode" value="SS_BP"/>
+            <entry name="principal">
+                <value environment="pt168" value="122019"/>
+                <value environment="dv103" value="122019"/>
+                <value environment="ps101" value="122019"/>
+                <value environment="pt140" value="122019"/>
+                <value environment="pt148" value="122019"/>
+                <value environment="st101" value="122019"/>
+                <value environment="pr" value="124630"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa"/>
+                <value environment="dv103" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa"/>
+                <value environment="ps101" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa"/>
+                <value environment="pt140" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa"/>
+                <value environment="pt148" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa"/>
+                <value environment="st101" value="-4c6719d7cede0d712bc3c86c546899173ae2829dff9a7f6cdc69f152bb28978d5fd37eb499850988dde7d92d16bae4a1727df781c3f6d10386c2ae817825601a196347f10c07ee58be7237a6a03f2be2ee4ecfffb2629f957a394914168f2b84edb8763ff3682b7b673d1484347c7ed5b3b54c3b7cda445f0d7afef988dd0cf6"/>
+                <value environment="pr" value="67488ff2c9bbf73a72938f12cf8da024c4aa57973729eec07ae719914df967852633c884c97d27c4c2c4fe643f7a0a52fb2620b90759c2985fa7dc6ff4f4e2f2462f426284ce598a52bd81db53da3f12dbd922a08923833a09bd443ca5ff4afffc31f5707227a667d17158b79fd87f9d48f2ab62a82a33790274078c20c3c809"/>
+            </entry>
+        </entry>
+        <entry name="APP_APLSALESMGTSVC">
+            <entry name="applicationCode" value="ESSASM"/>
+            <entry name="principal">
+                <value environment="pt168" value="911839"/>
+                <value environment="dv103" value="911839"/>
+                <value environment="ps101" value="911839"/>
+                <value environment="pt140" value="911839"/>
+                <value environment="pt148" value="911839"/>
+                <value environment="st101" value="911839"/>
+                <value environment="pr" value="789967"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="621f4c680262aae8ea87bbea1402d4b54a3f4ae47b82132156b36d4f6ef76bc2a1292b4701406fc71c29374c4bf0c5dbdad157dd9d31511c26212cf59e25ab7d8e020e3b65f2dd268dfae2623510f72010c7e4a8f89d097a9cf24d8831b7cb5e49d82a3055b396f3a5b37d487d1dcd2df30e43a5dbcb3f1213ff1ffd4564c9a0"/>
+                <value environment="dv103" value="621f4c680262aae8ea87bbea1402d4b54a3f4ae47b82132156b36d4f6ef76bc2a1292b4701406fc71c29374c4bf0c5dbdad157dd9d31511c26212cf59e25ab7d8e020e3b65f2dd268dfae2623510f72010c7e4a8f89d097a9cf24d8831b7cb5e49d82a3055b396f3a5b37d487d1dcd2df30e43a5dbcb3f1213ff1ffd4564c9a0"/>
+                <value environment="ps101" value="621f4c680262aae8ea87bbea1402d4b54a3f4ae47b82132156b36d4f6ef76bc2a1292b4701406fc71c29374c4bf0c5dbdad157dd9d31511c26212cf59e25ab7d8e020e3b65f2dd268dfae2623510f72010c7e4a8f89d097a9cf24d8831b7cb5e49d82a3055b396f3a5b37d487d1dcd2df30e43a5dbcb3f1213ff1ffd4564c9a0"/>
+                <value environment="pt140" value="621f4c680262aae8ea87bbea1402d4b54a3f4ae47b82132156b36d4f6ef76bc2a1292b4701406fc71c29374c4bf0c5dbdad157dd9d31511c26212cf59e25ab7d8e020e3b65f2dd268dfae2623510f72010c7e4a8f89d097a9cf24d8831b7cb5e49d82a3055b396f3a5b37d487d1dcd2df30e43a5dbcb3f1213ff1ffd4564c9a0"/>
+                <value environment="pt148" value="621f4c680262aae8ea87bbea1402d4b54a3f4ae47b82132156b36d4f6ef76bc2a1292b4701406fc71c29374c4bf0c5dbdad157dd9d31511c26212cf59e25ab7d8e020e3b65f2dd268dfae2623510f72010c7e4a8f89d097a9cf24d8831b7cb5e49d82a3055b396f3a5b37d487d1dcd2df30e43a5dbcb3f1213ff1ffd4564c9a0"/>
+                <value environment="st101" value="621f4c680262aae8ea87bbea1402d4b54a3f4ae47b82132156b36d4f6ef76bc2a1292b4701406fc71c29374c4bf0c5dbdad157dd9d31511c26212cf59e25ab7d8e020e3b65f2dd268dfae2623510f72010c7e4a8f89d097a9cf24d8831b7cb5e49d82a3055b396f3a5b37d487d1dcd2df30e43a5dbcb3f1213ff1ffd4564c9a0"/>
+                <value environment="pr" value="-56d8035fc7d27e393315be3ea644fc67ffe1277c667031a1dba5d55f89eee2b006e505d22da0ebc000a7e3f072959118b82962411b1cc96ac7a5afda2d55f77cb65a37294f76b64ea1ac0ffe938727a19818cc5d2d1076fddb00d2ee9d5c7fc99bbf73528cfc39d4ed60ea0e909f0dd4b99610c68bb71f8023a19b40aeee24d8"/>
+            </entry>
+        </entry>
+        <entry name="ESSTRL">
+            <entry name="applicationCode" value="ESSTRL"/>
+            <entry name="principal" value="19992"/>
+            <entry name="credential" value="-70b0085dfd56901342a0ed868b0b9655752c8e080825a0bbafd7352a4004aad42433e25923d94790ae2a871b729d7a748dcfb94a5494d469f52b4ac9b810f95645d54ab63488212de0b1c9194f1c011af924e7431758c9b945a90a59f22053374e9778a9cf291133132eaa2ff9c5f5d8df0f5a758ccd2febb33b3dac01680628"/>
+        </entry>
+        <entry name="APP_ESSTRL">
+            <entry name="applicationCode" value="APP_ESSTRL"/>
+            <entry name="principal">
+                <value environment="pt168" value="19992"/>
+                <value environment="dv103" value="19992"/>
+                <value environment="ps101" value="18654"/>
+                <value environment="pt140" value="18654"/>
+                <value environment="pt148" value="19992"/>
+                <value environment="st101" value="19992"/>
+                <value environment="pr" value="19992"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-70b0085dfd56901342a0ed868b0b9655752c8e080825a0bbafd7352a4004aad42433e25923d94790ae2a871b729d7a748dcfb94a5494d469f52b4ac9b810f95645d54ab63488212de0b1c9194f1c011af924e7431758c9b945a90a59f22053374e9778a9cf291133132eaa2ff9c5f5d8df0f5a758ccd2febb33b3dac01680628"/>
+                <value environment="dv103" value="-70b0085dfd56901342a0ed868b0b9655752c8e080825a0bbafd7352a4004aad42433e25923d94790ae2a871b729d7a748dcfb94a5494d469f52b4ac9b810f95645d54ab63488212de0b1c9194f1c011af924e7431758c9b945a90a59f22053374e9778a9cf291133132eaa2ff9c5f5d8df0f5a758ccd2febb33b3dac01680628"/>
+                <value environment="ps101" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+                <value environment="pt140" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+                <value environment="pt148" value="-70b0085dfd56901342a0ed868b0b9655752c8e080825a0bbafd7352a4004aad42433e25923d94790ae2a871b729d7a748dcfb94a5494d469f52b4ac9b810f95645d54ab63488212de0b1c9194f1c011af924e7431758c9b945a90a59f22053374e9778a9cf291133132eaa2ff9c5f5d8df0f5a758ccd2febb33b3dac01680628"/>
+                <value environment="st101" value="-70b0085dfd56901342a0ed868b0b9655752c8e080825a0bbafd7352a4004aad42433e25923d94790ae2a871b729d7a748dcfb94a5494d469f52b4ac9b810f95645d54ab63488212de0b1c9194f1c011af924e7431758c9b945a90a59f22053374e9778a9cf291133132eaa2ff9c5f5d8df0f5a758ccd2febb33b3dac01680628"/>
+                <value environment="pr" value="-70b0085dfd56901342a0ed868b0b9655752c8e080825a0bbafd7352a4004aad42433e25923d94790ae2a871b729d7a748dcfb94a5494d469f52b4ac9b810f95645d54ab63488212de0b1c9194f1c011af924e7431758c9b945a90a59f22053374e9778a9cf291133132eaa2ff9c5f5d8df0f5a758ccd2febb33b3dac01680628"/>
+            </entry>
+        </entry>
+        <entry name="APP_VOIPNOTIFSVC">
+            <entry name="applicationCode" value="APP_VOIPNOTIFSVC"/>
+            <entry name="principal">
+                <value environment="pt168" value="884343"/>
+                <value environment="dv103" value="884343"/>
+                <value environment="ps101" value="884343"/>
+                <value environment="pt140" value="884343"/>
+                <value environment="pt148" value="884343"/>
+                <value environment="st101" value="884343"/>
+                <value environment="pr" value="6092015"/>
+            </entry>
+            <entry name="credential" value="-6d606d3eea6dea657f020d1f16e7d5de173b6e065d785c3fca660a4e4602be3aff8043d250a6d7f1e67066e72805459f0f4b8d389ae2b9074a96849e7409c70f4496fc365b52dd72c25d3b01ba327ecb4fe8e72a60d6cbabc8f5876483ecc956d859310b4238b41ac6d9b4dc6c7f0688f8e01b61954ff29cf2cc6e82f048f07c"/>
+        </entry>
+        <entry name="APP_WIRELESSSALESWEB">
+            <entry name="applicationCode" value="APP_WIRELESSSALESWEB"/>
+            <entry name="principal">
+                <value environment="pt168" value="26548"/>
+                <value environment="dv103" value="26548"/>
+                <value environment="ps101" value="26548"/>
+                <value environment="pt140" value="26548"/>
+                <value environment="pt148" value="26548"/>
+                <value environment="st101" value="26548"/>
+                <value environment="pr" value="789963"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-7103a9039c348c8e761580b30329922a524dc8c648926c35ad941d1c820138cf6a3b2417df66aeb16b439104e229b43e94722178b23cdaed45255af54ec2472a2257b502b195ef921394e404c0d46e823e50b2b414d4721f8cb0f0527cf3ff631e755810fe126bbfd8dc7ad01b58bbeefa134bc3a5478cece3770b141d7f0ae2"/>
+                <value environment="dv103" value="10ab5259875b5aa6536eb1424f40c975a9fd7ffb70a7bd3f9cc995913a40292ea4f7ca03e8208345c9898bfc15cc865112b434dadaa76b33775a0d84a06a0404fce72d06b3eb4c7123a7fea2b216e2f50c7ef912737efa81bfa926a5df8da29385ad032568232f3f094fbd3e5f1e8b0a6bc79e0e66399c65197944df3617bf89"/>
+                <value environment="ps101" value="-7103a9039c348c8e761580b30329922a524dc8c648926c35ad941d1c820138cf6a3b2417df66aeb16b439104e229b43e94722178b23cdaed45255af54ec2472a2257b502b195ef921394e404c0d46e823e50b2b414d4721f8cb0f0527cf3ff631e755810fe126bbfd8dc7ad01b58bbeefa134bc3a5478cece3770b141d7f0ae2"/>
+                <value environment="pt140" value="-7103a9039c348c8e761580b30329922a524dc8c648926c35ad941d1c820138cf6a3b2417df66aeb16b439104e229b43e94722178b23cdaed45255af54ec2472a2257b502b195ef921394e404c0d46e823e50b2b414d4721f8cb0f0527cf3ff631e755810fe126bbfd8dc7ad01b58bbeefa134bc3a5478cece3770b141d7f0ae2"/>
+                <value environment="pt148" value="-7103a9039c348c8e761580b30329922a524dc8c648926c35ad941d1c820138cf6a3b2417df66aeb16b439104e229b43e94722178b23cdaed45255af54ec2472a2257b502b195ef921394e404c0d46e823e50b2b414d4721f8cb0f0527cf3ff631e755810fe126bbfd8dc7ad01b58bbeefa134bc3a5478cece3770b141d7f0ae2"/>
+                <value environment="st101" value="10ab5259875b5aa6536eb1424f40c975a9fd7ffb70a7bd3f9cc995913a40292ea4f7ca03e8208345c9898bfc15cc865112b434dadaa76b33775a0d84a06a0404fce72d06b3eb4c7123a7fea2b216e2f50c7ef912737efa81bfa926a5df8da29385ad032568232f3f094fbd3e5f1e8b0a6bc79e0e66399c65197944df3617bf89"/>
+                <value environment="pr" value="7566f47f087e0b22e2070535b46af931b1be1b2ac31850c9ffbb168556b97c4d3f68c2f3167ed69a665d1d4033753d2edcd2dde53e803b239052db3c4ecadfebe9eb20a55f30e419aa74d34dcd80867f98209de2059b29c6772df4c638c904dedd2ae2f87482e3756d8ad4f92c391b335e078c531ebf65c027dcf13142debea9"/>
+            </entry>
+        </entry>
+        <entry name="APP_MZONEBT">
+            <entry name="applicationCode" value="APP_MZONEBT"/>
+            <entry name="principal">
+                <value environment="pt168" value="114810"/>
+                <value environment="dv103" value="114810"/>
+                <value environment="pt148" value="114810"/>
+                <value environment="pr" value="9143777"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="2bdcd5f804df6d780df3d79168988622fccc8f7f8b81e13b3e3c09eaf9599f02b9f8f2a74b7d428e741e2dac9d9b570a99f526bfeadb8f383b83203bb56a581ce6bd9db744a69f4de15217c38dfeb9d09be764c2f5fff84a0316b52330b771592287fdd6188e80710ad28669390aeffaf318b32258a7572e15cb8737e277589c"/>
+                <value environment="dv103" value="2bdcd5f804df6d780df3d79168988622fccc8f7f8b81e13b3e3c09eaf9599f02b9f8f2a74b7d428e741e2dac9d9b570a99f526bfeadb8f383b83203bb56a581ce6bd9db744a69f4de15217c38dfeb9d09be764c2f5fff84a0316b52330b771592287fdd6188e80710ad28669390aeffaf318b32258a7572e15cb8737e277589c"/>
+                <value environment="pt148" value="2bdcd5f804df6d780df3d79168988622fccc8f7f8b81e13b3e3c09eaf9599f02b9f8f2a74b7d428e741e2dac9d9b570a99f526bfeadb8f383b83203bb56a581ce6bd9db744a69f4de15217c38dfeb9d09be764c2f5fff84a0316b52330b771592287fdd6188e80710ad28669390aeffaf318b32258a7572e15cb8737e277589c"/>
+                <value environment="pr" value="-664110b736f2bf54985a66ccc15a764695c246fca214bb9aac4c83ca6c156d572292f1ab367cf74533beace9fd5614a9c55fb732980f7ec23a63f16eced3691e97955a20948b23773e4e2df0ca737999cd5921935225dc551a3a2f377926c8c136186a727e8eb79bbea5ffc22662b85ab6303841c3f294ea45f199288be441be"/>
+            </entry>
+        </entry>
+        <entry name="SCOTT_WS">
+            <entry name="applicationCode" value="SCOTT_WS"/>
+            <entry name="principal" value="34116"/>
+            <entry name="credential" value="-4f260fbb48f11dc3628619e02f6a81c8197c90e9b79781cb775073e3c1b725f29bc72b919099e5e95fcdbfebe7ae98baee64d4fdb230813cf90da05a19119611e2edd1e3004be95b3c0dee9cae679912e79c8bc97e5cff6e7113c340ddeabd296883f7645a71e42b3d9f25ba505cfa8aabe948d0a4ee39c5a1a781331c439e65"/>
+        </entry>
+        <entry name="APP_SCOTT">
+            <entry name="applicationCode" value="APP_SCOTT"/>
+            <entry name="principal">
+                <value environment="pt168" value="34116"/>
+                <value environment="dv103" value="34116"/>
+                <value environment="ps101" value="34116"/>
+                <value environment="pt140" value="34116"/>
+                <value environment="pt148" value="34116"/>
+                <value environment="st101" value="34116"/>
+                <value environment="pr" value="18561"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-4f260fbb48f11dc3628619e02f6a81c8197c90e9b79781cb775073e3c1b725f29bc72b919099e5e95fcdbfebe7ae98baee64d4fdb230813cf90da05a19119611e2edd1e3004be95b3c0dee9cae679912e79c8bc97e5cff6e7113c340ddeabd296883f7645a71e42b3d9f25ba505cfa8aabe948d0a4ee39c5a1a781331c439e65"/>
+                <value environment="dv103" value="-4f260fbb48f11dc3628619e02f6a81c8197c90e9b79781cb775073e3c1b725f29bc72b919099e5e95fcdbfebe7ae98baee64d4fdb230813cf90da05a19119611e2edd1e3004be95b3c0dee9cae679912e79c8bc97e5cff6e7113c340ddeabd296883f7645a71e42b3d9f25ba505cfa8aabe948d0a4ee39c5a1a781331c439e65"/>
+                <value environment="ps101" value="-4f260fbb48f11dc3628619e02f6a81c8197c90e9b79781cb775073e3c1b725f29bc72b919099e5e95fcdbfebe7ae98baee64d4fdb230813cf90da05a19119611e2edd1e3004be95b3c0dee9cae679912e79c8bc97e5cff6e7113c340ddeabd296883f7645a71e42b3d9f25ba505cfa8aabe948d0a4ee39c5a1a781331c439e65"/>
+                <value environment="pt140" value="-4f260fbb48f11dc3628619e02f6a81c8197c90e9b79781cb775073e3c1b725f29bc72b919099e5e95fcdbfebe7ae98baee64d4fdb230813cf90da05a19119611e2edd1e3004be95b3c0dee9cae679912e79c8bc97e5cff6e7113c340ddeabd296883f7645a71e42b3d9f25ba505cfa8aabe948d0a4ee39c5a1a781331c439e65"/>
+                <value environment="pt148" value="-4f260fbb48f11dc3628619e02f6a81c8197c90e9b79781cb775073e3c1b725f29bc72b919099e5e95fcdbfebe7ae98baee64d4fdb230813cf90da05a19119611e2edd1e3004be95b3c0dee9cae679912e79c8bc97e5cff6e7113c340ddeabd296883f7645a71e42b3d9f25ba505cfa8aabe948d0a4ee39c5a1a781331c439e65"/>
+                <value environment="st101" value="-4f260fbb48f11dc3628619e02f6a81c8197c90e9b79781cb775073e3c1b725f29bc72b919099e5e95fcdbfebe7ae98baee64d4fdb230813cf90da05a19119611e2edd1e3004be95b3c0dee9cae679912e79c8bc97e5cff6e7113c340ddeabd296883f7645a71e42b3d9f25ba505cfa8aabe948d0a4ee39c5a1a781331c439e65"/>
+                <value environment="pr" value="78371ac06160106d20fbd2bdf012fc8303f67a696af0bd9ee0758468f6936792d2e89d34397f78bc80f4a0817b6521f59bc95530ed49b10a111f862749f563bf1ff16d022354cfa47ff20e2751923840b930c460116f7a169c00de0ccb87b8eaaf2bb41827b5576d1b32129d517e8af42c4273c7e3583099fd62943944f6dbd6"/>
+            </entry>
+        </entry>
+        <entry name="APP_WLESSIVR">
+            <entry name="applicationCode" value="APP_WLESSIVR"/>
+            <entry name="principal">
+                <value environment="pt168" value="18656"/>
+                <value environment="dv103" value="18656"/>
+                <value environment="ps101" value="18656"/>
+                <value environment="pt140" value="18656"/>
+                <value environment="pt148" value="18656"/>
+                <value environment="st101" value="18653"/>
+                <value environment="pr" value="18653"/>
+            </entry>
+            <entry name="credential" value="-4959825d66a036391ccd3e67fb8e52e03d93470b445d3fa13cac674aa6fe205dfa819cc7c0f2269383ebc34fddecc30a2edd6adc934b60b93d4379699e605aaea69829100489ad1ed8788f59f3b02648918a59567b6ad656b9e7162881df717eda7ec1adb4198b0fb172d24f980ea4c3725e736b5451a2850c32964737bd8b48"/>
+        </entry>
+        <entry name="APP_WLINEIVR">
+            <entry name="applicationCode" value="WLNIVR"/>
+            <entry name="principal">
+                <value environment="pt168" value="18656"/>
+                <value environment="dv103" value="18656"/>
+                <value environment="ps101" value="18656"/>
+                <value environment="pt140" value="18656"/>
+                <value environment="pt148" value="18656"/>
+                <value environment="st101" value="18653"/>
+                <value environment="pr" value="18653"/>
+            </entry>
+            <entry name="credential" value="-4959825d66a036391ccd3e67fb8e52e03d93470b445d3fa13cac674aa6fe205dfa819cc7c0f2269383ebc34fddecc30a2edd6adc934b60b93d4379699e605aaea69829100489ad1ed8788f59f3b02648918a59567b6ad656b9e7162881df717eda7ec1adb4198b0fb172d24f980ea4c3725e736b5451a2850c32964737bd8b48"/>
+        </entry>
+        <entry name="APP_FFHBOLTON">
+            <entry name="applicationCode" value="APP_FFHBOLTON"/>
+            <entry name="principal">
+                <value environment="pt168" value="12218"/>
+                <value environment="dv103" value="12218"/>
+                <value environment="ps101" value="12218"/>
+                <value environment="pt140" value="12218"/>
+                <value environment="pt148" value="12218"/>
+                <value environment="st101" value="12218"/>
+                <value environment="pr" value="36014"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="288d775f19b6c80a7b22940364cfd7d1a0de812ca1d3a7944635ab15385e33c93e597623366764396a8b0de919ea5d39700578cf87bbfcaab8922775bc79f82ef8b0876f3bf23f381da3fb8e8bd6d807b8bb792bc46890d337d9db82b330ca8a28a8833d1ade445df8fc9db602109c2f35292ec1b87416cb0f6ac734e4c7b6d8"/>
+                <value environment="dv103" value="288d775f19b6c80a7b22940364cfd7d1a0de812ca1d3a7944635ab15385e33c93e597623366764396a8b0de919ea5d39700578cf87bbfcaab8922775bc79f82ef8b0876f3bf23f381da3fb8e8bd6d807b8bb792bc46890d337d9db82b330ca8a28a8833d1ade445df8fc9db602109c2f35292ec1b87416cb0f6ac734e4c7b6d8"/>
+                <value environment="ps101" value="288d775f19b6c80a7b22940364cfd7d1a0de812ca1d3a7944635ab15385e33c93e597623366764396a8b0de919ea5d39700578cf87bbfcaab8922775bc79f82ef8b0876f3bf23f381da3fb8e8bd6d807b8bb792bc46890d337d9db82b330ca8a28a8833d1ade445df8fc9db602109c2f35292ec1b87416cb0f6ac734e4c7b6d8"/>
+                <value environment="pt140" value="288d775f19b6c80a7b22940364cfd7d1a0de812ca1d3a7944635ab15385e33c93e597623366764396a8b0de919ea5d39700578cf87bbfcaab8922775bc79f82ef8b0876f3bf23f381da3fb8e8bd6d807b8bb792bc46890d337d9db82b330ca8a28a8833d1ade445df8fc9db602109c2f35292ec1b87416cb0f6ac734e4c7b6d8"/>
+                <value environment="pt148" value="288d775f19b6c80a7b22940364cfd7d1a0de812ca1d3a7944635ab15385e33c93e597623366764396a8b0de919ea5d39700578cf87bbfcaab8922775bc79f82ef8b0876f3bf23f381da3fb8e8bd6d807b8bb792bc46890d337d9db82b330ca8a28a8833d1ade445df8fc9db602109c2f35292ec1b87416cb0f6ac734e4c7b6d8"/>
+                <value environment="st101" value="-64e6598d7d3d7aa605624cf61f55095187694500a11bc3ea33b8b14b4b06e500b105264262fb43be80dec6a591f8787e9160388c0777f40c5b8450bb8379ac4fa60cf307781d26eb132996ee918e9bc5df83ea97906afd4022de1222dbbbf9f061f292645c0c61f290b2df1bb85bddb6ff789ce234aa5b862ba53a1f3848d6f8"/>
+                <value environment="pr" value="4ea3fb8131edc3e2a4238d39f8a2b6a1411244d70de84451d442c5f0df247420a17da1e8deefe8db468028ac12e0bc35082c551c1a13591feaf017eeeec507eeacab70f2e5cefb73679a0bdd40f33a71d7a18f7adfe640ad64c62dfeca207f3b8d1cb0a5040edb522357475909956069a82c544863649b2e3f3156a6f6946ff4"/>
+            </entry>
+        </entry>
+        <entry name="APP_INTERACTWRKSPC">
+            <entry name="applicationCode" value="APP_INTERACTWRKSPC"/>
+            <entry name="principal">
+                <value environment="pt168" value="110003"/>
+                <value environment="dv103" value="110003"/>
+                <value environment="ps101" value="110003"/>
+                <value environment="pt140" value="110003"/>
+                <value environment="pt148" value="110003"/>
+                <value environment="st101" value="110003"/>
+                <value environment="pr" value="121313"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="-6d383a5f90079126ff45f6ce0021c6f475a895d7c3981e65d73d39ebb550158257786dfff428dd0142233d129fa9ba158e7b73aa609394a9d19d3c7b8d9691314bf28e582917928c37b89ed4ae0f075036144bb09737836f470640b475d49600d62bf955c9f2b109083c45116478245757cdaa0c504094655d1f32cab21195ed"/>
+                <value environment="dv103" value="-6d383a5f90079126ff45f6ce0021c6f475a895d7c3981e65d73d39ebb550158257786dfff428dd0142233d129fa9ba158e7b73aa609394a9d19d3c7b8d9691314bf28e582917928c37b89ed4ae0f075036144bb09737836f470640b475d49600d62bf955c9f2b109083c45116478245757cdaa0c504094655d1f32cab21195ed"/>
+                <value environment="ps101" value="-6d383a5f90079126ff45f6ce0021c6f475a895d7c3981e65d73d39ebb550158257786dfff428dd0142233d129fa9ba158e7b73aa609394a9d19d3c7b8d9691314bf28e582917928c37b89ed4ae0f075036144bb09737836f470640b475d49600d62bf955c9f2b109083c45116478245757cdaa0c504094655d1f32cab21195ed"/>
+                <value environment="pt140" value="-6d383a5f90079126ff45f6ce0021c6f475a895d7c3981e65d73d39ebb550158257786dfff428dd0142233d129fa9ba158e7b73aa609394a9d19d3c7b8d9691314bf28e582917928c37b89ed4ae0f075036144bb09737836f470640b475d49600d62bf955c9f2b109083c45116478245757cdaa0c504094655d1f32cab21195ed"/>
+                <value environment="pt148" value="-6d383a5f90079126ff45f6ce0021c6f475a895d7c3981e65d73d39ebb550158257786dfff428dd0142233d129fa9ba158e7b73aa609394a9d19d3c7b8d9691314bf28e582917928c37b89ed4ae0f075036144bb09737836f470640b475d49600d62bf955c9f2b109083c45116478245757cdaa0c504094655d1f32cab21195ed"/>
+                <value environment="st101" value="-6d383a5f90079126ff45f6ce0021c6f475a895d7c3981e65d73d39ebb550158257786dfff428dd0142233d129fa9ba158e7b73aa609394a9d19d3c7b8d9691314bf28e582917928c37b89ed4ae0f075036144bb09737836f470640b475d49600d62bf955c9f2b109083c45116478245757cdaa0c504094655d1f32cab21195ed"/>
+                <value environment="pr" value="2c299dcd73ba2e2976d79d8c94a942913d064fe8b826d5673722da9d0fe952a6cf97188b4844765adb7f687bb26ad7af1ded449150d5c631cfcf86f5a7ad67aa2bdd51dff40e4c887026ae361a11e6b5f162b61f56d337c9ef8c714ff0d19be9a9deca36c3bd052a5dc1d1438f2668babbfcf60ecc0f1fe35f6cc52dd258d68c"/>
+            </entry>
+        </entry>
+        <entry name="ClientAPI_EJB">
+            <entry name="applicationCode" value="SMARTDESKTOP"/>
+            <entry name="principal" value="18654"/>
+            <entry name="credential" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+        </entry>
+        <entry name="APP_MSITECOMM">
+            <entry name="applicationCode" value="APP_MSITECOMM"/>
+            <entry name="principal" value="1319316"/>
+            <entry name="credential">
+                <value environment="pt168" value="5bc374d61a47272b5a83f4a95687cede7312be8bfa1010e914ec0b7bc2ae382ebf9629a4646358b3587df9e4638a74b85317463b6d20bdda5be0bc04320dbe3e2713bcb87c9162ccfe7314afdc38b851536810767752311f824bb21fd4f8c2f406ddf358416048dfb163564407418e0c64bd1d5634faed2b07258675fa3b4106"/>
+                <value environment="pt148" value="5bc374d61a47272b5a83f4a95687cede7312be8bfa1010e914ec0b7bc2ae382ebf9629a4646358b3587df9e4638a74b85317463b6d20bdda5be0bc04320dbe3e2713bcb87c9162ccfe7314afdc38b851536810767752311f824bb21fd4f8c2f406ddf358416048dfb163564407418e0c64bd1d5634faed2b07258675fa3b4106"/>
+                <value environment="ps101" value="751c8a91ba748ec5b66fd713a5dac6bad3e705fdfae2a2d64220a1145c085f0245bc34f2f6a5520f3e0d6289b5397edf4bbbde0fdede5a69722b0cb0307a5a63d883fe8dedbf6e38f9e6b794991492aafc0b5ac50bfbf1baaa94cc3d9d69b2de835c338f7b3445e0a6bc9f65dd1cdabbebf3975375e239758f21cca458e13505"/>
+                <value environment="pt140" value="751c8a91ba748ec5b66fd713a5dac6bad3e705fdfae2a2d64220a1145c085f0245bc34f2f6a5520f3e0d6289b5397edf4bbbde0fdede5a69722b0cb0307a5a63d883fe8dedbf6e38f9e6b794991492aafc0b5ac50bfbf1baaa94cc3d9d69b2de835c338f7b3445e0a6bc9f65dd1cdabbebf3975375e239758f21cca458e13505"/>
+                <value environment="st101" value="5bc374d61a47272b5a83f4a95687cede7312be8bfa1010e914ec0b7bc2ae382ebf9629a4646358b3587df9e4638a74b85317463b6d20bdda5be0bc04320dbe3e2713bcb87c9162ccfe7314afdc38b851536810767752311f824bb21fd4f8c2f406ddf358416048dfb163564407418e0c64bd1d5634faed2b07258675fa3b4106"/>
+                <value environment="pr" value="352abec06cf51eb64aaf3120ef7f0b92d18cc5f1173554a6e20c9d926bf77a488ea205fbffcaf21f618e4e9ea510a32fc1af0a86c2d3688f539fa80a4c37b60a9c29cdcad36a9a0aea10297c655684b1018362671ac3cc09d84c172396ad348e42af8b2aceb16eeb6ec83fef899dfa0c5fe42f770841de724ed5a0bfe5991d14"/>
+            </entry>
+        </entry>
+        <entry name="APP_ENTEMAILSYNC">
+            <entry name="applicationCode" value="ENTEMAILSYNC"/>
+            <entry name="principal" value="41420">
+                <value environment="pr" value="863163"/>
+            </entry>
+            <entry name="credential" value="6f0179d3c475a91311373b0a395e5ad628513c4b6148e143c1cfc6b3bbac88309b8fd95e9ec31c91f5bddd17e90128f640109aaed400ab351087677e4ff3eabc69de03ffbb0414913650e2ba8f4a04d2f203ba38129cf6b074f048920d46fdc990c61dbf72d0c164c7acc99b9de46105e159a140dc8616c43c92afa5f4e82d63">
+                <value environment="pr" value="34b9b547834d2f2dff8235d75325b2ec4b4dd2ebebb1d8c244179914c1903280d2a2d0a6f648efc9de309c566b0a22f69a82b5b6b57b1cb9c9daebef734b6a6fb7d5526786072a2d5933c28b2c40b74d33eba6591d757957b86d8e6e1937b6ee590a161062dcc4fa0e66280ea2bc57a726996711b27f6a2061dcc8d6b2a368f3"/>
+            </entry>
+        </entry>
+        <entry name="APP_CHNLCUSTPROF">
+            <entry name="applicationCode" value="CPWEB"/>
+            <entry name="principal">
+                <value environment="pt168" value="3211920"/>
+                <value environment="ps101" value="110714"/>
+                <value environment="pt140" value="110714"/>
+                <value environment="pt148" value="3211920"/>
+                <value environment="st101" value="3211920"/>
+                <value environment="pr" value="110714"/>
+            </entry>
+            <entry name="credential">
+                <value environment="pt168" value="1f43a9f694d0916ea9617d25e2a8bd331d8780aaad1816719e3c899b94a14ef6258fea5050b7fe6d298d658124f8345e21d2edd314acbaf386f45fa75e60a0e546921c0b9e8466c2b0d0d8c72d37d96346034415403cbad104f4eb959e59afd2f9fb9b0fbdb17b7e4f7654f7e610abeca277ae2e71b8c4c07d7d402bfafe9350"/>
+                <value environment="ps101" value="13a070d495cef503f0cf688727e9a30fe2c88a23ad63bba3ba43f4d96f92a7acdb2059a975a5599c93543edde43a809f0d279762b6bd113e21bc9977b2a02ec8cd186c2eee3f285f66bdaccd298037d5aea3439b99cae5fa51bf5d685b55fc6f7ba0a1938ef2c7250233c283b613bf07c4d7bb46c2c1ebc6a450b3267cacc207"/>
+                <value environment="pt140" value="13a070d495cef503f0cf688727e9a30fe2c88a23ad63bba3ba43f4d96f92a7acdb2059a975a5599c93543edde43a809f0d279762b6bd113e21bc9977b2a02ec8cd186c2eee3f285f66bdaccd298037d5aea3439b99cae5fa51bf5d685b55fc6f7ba0a1938ef2c7250233c283b613bf07c4d7bb46c2c1ebc6a450b3267cacc207"/>
+                <value environment="pt148" value="1f43a9f694d0916ea9617d25e2a8bd331d8780aaad1816719e3c899b94a14ef6258fea5050b7fe6d298d658124f8345e21d2edd314acbaf386f45fa75e60a0e546921c0b9e8466c2b0d0d8c72d37d96346034415403cbad104f4eb959e59afd2f9fb9b0fbdb17b7e4f7654f7e610abeca277ae2e71b8c4c07d7d402bfafe9350"/>
+                <value environment="st101" value="1f43a9f694d0916ea9617d25e2a8bd331d8780aaad1816719e3c899b94a14ef6258fea5050b7fe6d298d658124f8345e21d2edd314acbaf386f45fa75e60a0e546921c0b9e8466c2b0d0d8c72d37d96346034415403cbad104f4eb959e59afd2f9fb9b0fbdb17b7e4f7654f7e610abeca277ae2e71b8c4c07d7d402bfafe9350"/>
+                <value environment="pr" value="13a070d495cef503f0cf688727e9a30fe2c88a23ad63bba3ba43f4d96f92a7acdb2059a975a5599c93543edde43a809f0d279762b6bd113e21bc9977b2a02ec8cd186c2eee3f285f66bdaccd298037d5aea3439b99cae5fa51bf5d685b55fc6f7ba0a1938ef2c7250233c283b613bf07c4d7bb46c2c1ebc6a450b3267cacc207"/>
+            </entry>
+        </entry>
+        <entry name="RTS">
+            <entry name="applicationCode" value="RTS"/>
+            <entry name="principal">
+                <value environment="dv103" value="18654"/>
+                <value environment="pt148" value="30002"/>
+                <value environment="st101" value="18654"/>
+            </entry>
+            <entry name="credential">
+                <value environment="dv103" value="ec89ef70313ad7de423ed6b23c89ffb6d4c26b6f674c46c3a94954b8ec75270aa8d3584a544398f0edee862a79f39d5e9f30f0901c2a562b48267bbc1e5abe514caedb1bdabfdc4b9c37f6586f9f1c35b5d5c4044ef6f6fcbc8168374c2a6a146da3b2f66471d396ed5ffec0d1bf17ace8ef30b29d0702355ffe3a959a9cc5f"/>
+                <value environment="pt148" value="15a9ec58cfdb6b0b801aa8cc642f92909f964687e2b17a6c312a4bc6c2cc98d19c6abaec394ab3a7fd10a7b153597994887e1905393e45f2ecf65a031c108022d52d5c0b1331a12f813b3316521422e9b25ad14da14343dec51a72386ab7854e4e6d1e2a6ffdbab146be8dcdecedd1a02393250a59596ad829ff4078b1dc213"/>
+                <value environment="st101" value="59d6cca802b18c0a2e72e74ab37124ea6c556603544df3664f7265cc8ecf994a5d4461d3f8b85ede53b3b4734f2c2dc7f4e6a9ba76820fdc50eb00612deeac59435b63acdbdf39d44fdefef706b70a011c273207b80f688caf102c5b7394b3756cd30aac6453c03f52297881b3d942331a229308cac834726df1662e5f98c6be"/>
+            </entry>
+        </entry>
+        <entry name="EnterpriseSalesServices">
+            <entry name="applicationCode" value="EnterpriseSalesServices"/>
+            <entry name="principal" value="911840"/>
+            <entry name="credential" value="10ab5259875b5aa6536eb1424f40c975a9fd7ffb70a7bd3f9cc995913a40292ea4f7ca03e8208345c9898bfc15cc865112b434dadaa76b33775a0d84a06a0404fce72d06b3eb4c7123a7fea2b216e2f50c7ef912737efa81bfa926a5df8da29385ad032568232f3f094fbd3e5f1e8b0a6bc79e0e66399c65197944df3617bf89"/>
+        </entry>
+        <entry name="ESS">
+            <entry name="applicationCode" value="ESS"/>
+            <entry name="principal" value="911840"/>
+            <entry name="credential" value="10ab5259875b5aa6536eb1424f40c975a9fd7ffb70a7bd3f9cc995913a40292ea4f7ca03e8208345c9898bfc15cc865112b434dadaa76b33775a0d84a06a0404fce72d06b3eb4c7123a7fea2b216e2f50c7ef912737efa81bfa926a5df8da29385ad032568232f3f094fbd3e5f1e8b0a6bc79e0e66399c65197944df3617bf89"/>
+        </entry>
+        <entry name="APP_TFS">
+            <entry name="applicationCode" value="TFSApplication"/>
+            <entry name="principal" value="147852">
+                <value environment="pr" value="911383"/>
+            </entry>        
+        	<entry name="credential" value="630bbf07845d9fb5efc73358cbfec2f00c61982e302d13c9dfae9c6dc4306fa2b0d0def542abb27b25e60966331ae9dc847ff070057a03eab8ea04ebddb968052bfb915856d472832bee1a5de1ca198f1dee35ca3eb72766a769900e69815e782f3f9f1a4f606645e4e3781c49526661ee9e093248e8e8327df638127102b66">
+        		<value environment="pr" value="32ca54142d014496d22ec0c44e6e0ce9df5033f943a03cc48ce958e947f9879b173a321b76c53575c4a2e02c73300d6a278017f3f33b46e96da14df1d140fa59765ab46afa721deb2e5d33c7e45ce0f5aaa4988cf20ae72856102e1656e4fb8dc7ff5238ff662189b17798c8482a892b026ecbc4674b85a0519880909d275677"/>
+        	</entry>
+        </entry>
+        <entry name="APP_KOODOCHKOUT">
+            <entry name="applicationCode" value="APP_KOODOCHKOUT"/>
+            <entry name="principal" value="111515">
+                <value environment="pr" value="111519"/>
+            </entry>                  
+        	<entry name="credential" value="-7b03d1986b1f3eced7e209d3152353b94f9ee781b099e7e26091f7e890a40329b4eed18ca1c11cd6aa892d53fe9a85f8e84bcca9132716f7ae010f807aa275afda402052d062997f1749cf81f58851063135121b114041232e82adf22df4abd844a1994e05e495c8335eac4e91ca7d38d57f8fb451063fcbd836d25a1881ed4a">
+        		<value environment="pr" value="-479151b659f19d23c370653863e3e2c070be74b0c526f51321c14ba2bc20ea5182de4b4efa4c32715b8c49af6a52f4d2e54a511f63e51cc0abc8f28a88f35e24e7e3f87360452e7089c4f44f8fca4237ddd13158953ce97af943e463f3d853d4c9e806fc17cc15299bf7d170fc918914faf8f3e4a1f8c6862e1a73cf0b3a20fa"/>
+        	</entry>        
+        </entry>
+        <entry name="APP_DUT">
+            <entry name="applicationCode" value="DUT"/>
+            <entry name="principal" value="800262">
+                <value environment="pr" value="4192016"/>
+            </entry>
+            <entry name="credential" value="30dbe22b898116b49fe617b2f97df8539091786a4655f2ed8c12c6467d3e968236876d57391c97a66fc72c6cbace8930059d7b8eec6368b7b09f8212a3f683aa2e5216dfd2274ca26e8e3a05b28b807c7d7f9d1bdfd7240dd79625d73b113ab6e27dcc8398c01d45354952a5a7f7ed6ce3cb84db620d6fbe565f81253627e553"/>
+        </entry>                
+        <entry name="APP_TARGETCTRL">
+        	<entry name="applicationCode" value="TNCAPP"/>
+        	<entry name="principal" value="1193061"/>
+            <entry name="credential" value="16d5b5703fe6bc251cf1bf4dd9c88970a070573b7657124877e2e3a2549eddb8ce21b1f2a99168de0b25d01ea3406a1a797636081a11fec2f64c5e89020dbe955d9ef7218e34522a9283f32c88a06cd17eeedad37124f25dacaf21ea573c3736067038296cf3bb482f3fb3fa9970b2c456fe733c03259983b0a45cd072140b5e">
+            	<value environment="pr" value="42d669eebb1d6fbd49ee1c64022447782ac57a65a4d3b57a5f4b1d390ff60a8784b33fde56273de1d37a5da86b3079663f5fc7856e045d885e8a10b4234388232936f26b78b5b8c082df74c76677960f5d16346823baaed5a783c24c39f69e396e4c0ead32c5d8d01574b7ee6b607f9c2c4ea9e021e7cd6fca04a573ffaa87c9"/>
+       		</entry>
+	    </entry>
+		<entry name="APP_NBA">
+            <entry name="applicationCode" value="NBAAPP"/>
+            <entry name="principal" value="1193060"/>
+            <entry name="credential" value="17b327e9bef92213d3a7a8d8c3ef11103b426717891345ba9217edad5a8aea19e321a4e511e7225738b4a3e2c7eba88be755c4f983fb3f031d9efbbbf7f70ae99a12d7dae23f8dcbc3a2c5b5f21f2321155596439e4f76342477148429036b988c41e26121e17814e36582cacfec1760fdd65a83efb2fe633ae52ff738ec7ba3">
+	            <value environment="pr" value="36ab2b759bdf4cd33f08b8df5aa4e8c323859281f97ac432bca10eb2e0e9cb4b84e1df1b6f156af25adb97d4be7140b3a84dd3d237c71a8e2d6974e0440b36825121437e2758f1f82853278022226487234e0125f1a04b1ec346af282097b242773af1a8899c50a718a6b12698132a97b6509ef842f6abb4d20ee1ad16eac2f0"/>
+            </entry>
+        </entry>
+		<entry name="APP_CANARYXAPP">
+        	<entry name="applicationCode" value="CANARY"/>
+        	<entry name="principal" value="31141">
+        		<value environment="pr" value="1323526"/>
+        	</entry>
+        	<entry name="credential" value="13500644c1053fbe17e45ac8c44f4347f44e8d182f20990bf9ea03d8e0924451aabd88f02af6f5ac69843a94fd13fc4605ab1a26d07b630114bc9d3bd58c8c0d4e6b9a74c9aa031d8a4a27b607ec24e0d371cefa529f3f8707a4f83bd69d7268f99bf5d1b383796130542fc2f075df128dff0e8648812fbc454fb98434a3cb62"/>
+        </entry>
+		<entry name="APP_OCSGWA">
+			<entry name="applicationCode" value="OCSGW"/>
+            <entry name="principal" value="153723"/>
+			<entry name="credential" value="1206936e0788649981f28794ad248af8f76aa3731560b5f3b03df9cb14e72daffb3b407ecdb1f3a6a17b6ae0d0dbe10a6a2047cb62977a19d8f020c832bcac723feebc9120df27b57e07dfdc2daa582b616ddc946297b92264c17e5608ffb49e68ce2aed391042417078287c6dc6f74b2b6cc35ef6828db321b1c3af5f7a78f6"/>
+		</entry>
+		<entry name="APP_CSIService">
+			<entry name="applicationCode" value="CSIS"/>
+            <entry name="principal" value="9999998"/>
+			<entry name="credential" value="1206936e0788649981f28794ad248af8f76aa3731560b5f3b03df9cb14e72daffb3b407ecdb1f3a6a17b6ae0d0dbe10a6a2047cb62977a19d8f020c832bcac723feebc9120df27b57e07dfdc2daa582b616ddc946297b92264c17e5608ffb49e68ce2aed391042417078287c6dc6f74b2b6cc35ef6828db321b1c3af5f7a78f6">
+				<value environment="pr" value="-5ebb3bffcb3fab021b2c050f51ceee7ec10f95bfdca8fd916d93fc6c866518ac0c56d1a82a19995ccd22f31d614be2761835f6211902ec1833069386dcba0b8297cd89541f540067aad531286fe713ff174f7907b6de5c10cb33bc8422c8c7af4b0a585a9f187340e1760c29213efdcdf9e53e52bf7ddcf4cdb43033b73578ee"/>
+			</entry>
+		</entry>
+        <!-- The following identity maps to Bill Analyzer -->
+        <entry name="BBETCustomerUpdateBatchApp">
+            <entry name="applicationCode" value="BBET"/>
+            <entry name="principal" value="1919">
+                <value environment="pr" value="1919"/>
+            </entry>
+            <entry name="credential" value="7226a454e68af83bb126116d277bb432b0a6e1096c9807ea55a161c16bcc1b5494af1f920ef89aa539282b49b54341a3a2807deee428bcda86a349471ff846c9f0da31bd30bf6c7a7d78bb2a9e57235c3498b048f64751cce37858a5b1556fb5f9cd473b1bd7ea05dc7b2e43538f7612ee9ba5bb9021651e03dafc2ec6db93e2">
+	            <value environment="pr" value="7226a454e68af83bb126116d277bb432b0a6e1096c9807ea55a161c16bcc1b5494af1f920ef89aa539282b49b54341a3a2807deee428bcda86a349471ff846c9f0da31bd30bf6c7a7d78bb2a9e57235c3498b048f64751cce37858a5b1556fb5f9cd473b1bd7ea05dc7b2e43538f7612ee9ba5bb9021651e03dafc2ec6db93e2"/>
+            </entry>            
+        </entry>
+		<!-- The following identity maps to Device Returns System -->
+        <entry name="APP_DeviceReturnsMgmtSvc">
+            <entry name="applicationCode" value="DEVRET"/>
+            <entry name="principal" value="81111">
+				<value environment="pr" value="901111"/>
+			</entry>
+            <entry name="credential" value="5cc42fac794e87b01f8877f4f2b9fb76c4b10a5c9ea5330cc52e44b9bed0785def2c31f7354f8193934551b1ce450814ac111014a161944a8db36e9936b5daff6f44691c6f85136727364ec60b39e2f2c8c5273c2fc07f7f9c4790d55f26e85a8a131afd01889628b2821ef0accf35a95ca1890a49695a342616f7576af8753f">
+				<value environment="pr" value="4054efe27090c7bb0074f50b9b7f557877cbe60f2ce417f94a3bf3a7e83a5c4eac16e93bf5b780df82cf01e9f52dbeeac378662528e6ec1e54f9d8c41e2591a7157f7a2159b024d3ec4f7a0149c932bc5e623af6d2b45440935adb552b90a3f84adbd8a719f2e36e55de3cf068308ea33f5fb99ee059680d6be3db875b49298b"/>
+			</entry>
+        </entry> 
+        
+		 <!-- The following identity maps to APP_AGENTSUPPORT -->
+        <entry name="APP_AGENTSUPPORT">
+            <entry name="applicationCode" value="AGNSUP"/>
+            <entry name="principal" value="919191919">
+				<value environment="pr" value="919191919"/>
+			</entry>
+            <entry name="credential" value="42c18e8fe241da6d2ee802ee391c52a050bd0ebff7ccceeb1ac5771ca027851fc10b990a3af992612d4d4f94206bf726e22e40ac55423c76cfddd69ca90ebb8c44f1abceb494ca9fd460b022128dff4896fe9f4b0714ed6eb9996eca9eab21e700f020e52371059dc5e940f3a1293902cb71ffab61db14186e48211d9e369fb7">
+                <value environment="pr" value="42c18e8fe241da6d2ee802ee391c52a050bd0ebff7ccceeb1ac5771ca027851fc10b990a3af992612d4d4f94206bf726e22e40ac55423c76cfddd69ca90ebb8c44f1abceb494ca9fd460b022128dff4896fe9f4b0714ed6eb9996eca9eab21e700f020e52371059dc5e940f3a1293902cb71ffab61db14186e48211d9e369fb7"/>
+            </entry>
+        </entry>  
+        
+        <!-- The following identity maps to Payment Gateway Batch Application -->
+        <entry name="APP_PYMNTGWY">
+			<entry name="applicationCode" value="PYMNTGWY"/>
+			<entry name="principal" value="161251320">
+				<value environment="pr" value="1172019"/>
+			</entry>
+			<entry name="credential" value="49d6ba2aa379f2de7c61d7caccc6aa281ff5c5b8478caf36ac7533dc7e558c769d3762cb01e47c746103ceb009b7216403919e55705c9423302d9fbe1b4dfcb3a5fbd827d32bf3845b5daad909a3b0468452a934968226d8de7cb488bd35b46c977afc3f363158dd45397c2779f7f438b6ce3368f7cc18a96817be20b1aae2a6">
+				<value environment="pr" value="5e8a4f1bd6eb91ec920a6101c732731f2c6662a4b5701f8bb3120a0c6f31d8f61e8e2b30f9aa68e230adc5cca921b8af391f07898ce98b49d8bd3dd2337d648cbfd976913ca4422fffb1041252933cef272912416e1769ea424f649187916259bbe4e417e72e42b0455644d4768561591cf784caae2be741c5cac4237019a46f"/>
+			</entry>
+		</entry>
+		
+		<!--  TELUS IQ, using the same credential as TEW (APP_ENTWEBSTORE) -->
+		<entry name="APP_TELUSIQ">
+            <entry name="applicationCode" value="TIQ"/>
+            <entry name="principal" value="789966"/>
+            <entry name="credential">
+                <value environment="pt168" value="94b7652e4d4443fd1722d00336357683e057c852ddc93485bc516b947cf15ba4221d5bc2a8438ffa53a10ba55eab021bb336c0246cb98517f1153dfef16dfce0034c20987321460b521fd47a32a43160ad863000b9522f4b1f47f200b111cb5d4e2c5341ad89cfcbfae76e649677305f305283fbad0e8d26fae8d9ea5c54819"/>
+                <value environment="dv103" value="-4c6719d7cede0d712bc3c86c546899173ae2829dff9a7f6cdc69f152bb28978d5fd37eb499850988dde7d92d16bae4a1727df781c3f6d10386c2ae817825601a196347f10c07ee58be7237a6a03f2be2ee4ecfffb2629f957a394914168f2b84edb8763ff3682b7b673d1484347c7ed5b3b54c3b7cda445f0d7afef988dd0cf6"/>
+                <value environment="ps101" value="2edfd8aac8af4268cf24233ec2be3918350815dbcad9de6b38960f04b46ee2d6d157c22c9362538fc064a7053a73631dd65662698fb995b5b34e6fb904a3c490bdf850cc4ef5f80864b7ac2d41afa4506636f327808449b4b59790bf3756bc91ec3113d17d2b8a12aac705308d3673f3704d1fa9927dae7d12d0c613ae80018d"/>
+                <value environment="pt140" value="2edfd8aac8af4268cf24233ec2be3918350815dbcad9de6b38960f04b46ee2d6d157c22c9362538fc064a7053a73631dd65662698fb995b5b34e6fb904a3c490bdf850cc4ef5f80864b7ac2d41afa4506636f327808449b4b59790bf3756bc91ec3113d17d2b8a12aac705308d3673f3704d1fa9927dae7d12d0c613ae80018d"/>
+                <value environment="pt148" value="-75b20771ebd4b8288d3b43a5222077b4d610e4ffac2cbd1f567557207c1d8fe7d133200f896e98641fa12e823c97ff2026b924ad31ae695915c29a6e8627f8518ba00abc601be71b01246db836feef353cb472c430e58609ec05aebd58b070ab80e74ccf7d2aa330153d4eda5dd359f99a5774ef77e6b3f79323946193221160"/>
+                <value environment="st101" value="94b7652e4d4443fd1722d00336357683e057c852ddc93485bc516b947cf15ba4221d5bc2a8438ffa53a10ba55eab021bb336c0246cb98517f1153dfef16dfce0034c20987321460b521fd47a32a43160ad863000b9522f4b1f47f200b111cb5d4e2c5341ad89cfcbfae76e649677305f305283fbad0e8d26fae8d9ea5c54819"/>
+                <value environment="pr" value="64f9c4012c750713c3d6606f6cd59efc0819531db464ea8373d1a650858988b16797b7fb81414150792b4bf4d3f7a7c79fd7bf32758b3d5d69c438a06ab1e4ba3c4c66b43949bc0f42710b2c315932c5d6befaef2986dd3e6b70401678e0cbf47c3897c0379d6925602c96ff0fcba60baa865008f2ce4b0dfcd14a029e14e5b1"/>
+            </entry>
+        </entry>
+       
+        <!-- The following identity maps to Payment Gateway Application -->
+        <entry name="APP_PaymentGatewayTransaction">
+			<entry name="applicationCode" value="PYMTGT"/>
+			<entry name="principal" value="18654">
+				<value environment="pr" value="650861"/>
+			</entry>			
+			<entry name="credential" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4">
+				<value environment="pr" value="32a4b01e63ff50407145d40b217880e67c0dc047c6c9b225db88a353f1c434d34a004699f637bace606e355366e2b31dc0df4a335c20be5e97e959225e92b127efc5dca3274fb3ebef499298a364afcf5e5e2bcac0e8b2de6e34e3fe798779902ee6ff79b65909d237b280ed907d43780918a40103c5a58f1e858a4543d83c06"/>
+			</entry>
+		</entry>
+       
+       	<!-- ================================================= -->
+		<!-- This section onwards is for SDF Applications only -->
+		<!-- ================================================= -->
+       
+	    <!-- NON-PRODUCTION SDF Applications (X-TELUS-SDF-AppId) -->
+        
+        <!-- The following identity maps to the SDF Common LAB SDF application ID -->
+        <entry name="1212">
+            <entry name="applicationCode" value="SDFLAB"/>
+            <entry name="principal" value="18654"/>
+            <entry name="credential" value="6414eee8eb204d2552d711fd3a38bdbbeca6036dd86998841f56480abe1c6d9c6694afe9a9b6d4662095f1482a7705f7763ee4a69688c5386b3b6d72521bb6f8cb44a36dace81602a08b17f502b61ddacde35109118fefe6abeafe5897017b772d13db50b9df91ac6d6714ac7404c9aadac1bcfaa57d6b6750416f728d7f05f4"/>
+        </entry>
+        
+        <!-- The following identity maps to the SDF application ID for Corporate TELUS IQ (Enterprise Webstore) -->
+        <entry name="10000849">
+            <entry name="applicationCode" value="SDFLAB"/>
+            <entry name="principal" value="789966"/>
+            <entry name="credential">
+                <value environment="pt168" value="94b7652e4d4443fd1722d00336357683e057c852ddc93485bc516b947cf15ba4221d5bc2a8438ffa53a10ba55eab021bb336c0246cb98517f1153dfef16dfce0034c20987321460b521fd47a32a43160ad863000b9522f4b1f47f200b111cb5d4e2c5341ad89cfcbfae76e649677305f305283fbad0e8d26fae8d9ea5c54819"/>
+                <value environment="dv103" value="-4c6719d7cede0d712bc3c86c546899173ae2829dff9a7f6cdc69f152bb28978d5fd37eb499850988dde7d92d16bae4a1727df781c3f6d10386c2ae817825601a196347f10c07ee58be7237a6a03f2be2ee4ecfffb2629f957a394914168f2b84edb8763ff3682b7b673d1484347c7ed5b3b54c3b7cda445f0d7afef988dd0cf6"/>
+                <value environment="ps101" value="2edfd8aac8af4268cf24233ec2be3918350815dbcad9de6b38960f04b46ee2d6d157c22c9362538fc064a7053a73631dd65662698fb995b5b34e6fb904a3c490bdf850cc4ef5f80864b7ac2d41afa4506636f327808449b4b59790bf3756bc91ec3113d17d2b8a12aac705308d3673f3704d1fa9927dae7d12d0c613ae80018d"/>
+                <value environment="pt140" value="2edfd8aac8af4268cf24233ec2be3918350815dbcad9de6b38960f04b46ee2d6d157c22c9362538fc064a7053a73631dd65662698fb995b5b34e6fb904a3c490bdf850cc4ef5f80864b7ac2d41afa4506636f327808449b4b59790bf3756bc91ec3113d17d2b8a12aac705308d3673f3704d1fa9927dae7d12d0c613ae80018d"/>
+                <value environment="pt148" value="-75b20771ebd4b8288d3b43a5222077b4d610e4ffac2cbd1f567557207c1d8fe7d133200f896e98641fa12e823c97ff2026b924ad31ae695915c29a6e8627f8518ba00abc601be71b01246db836feef353cb472c430e58609ec05aebd58b070ab80e74ccf7d2aa330153d4eda5dd359f99a5774ef77e6b3f79323946193221160"/>
+                <value environment="st101" value="94b7652e4d4443fd1722d00336357683e057c852ddc93485bc516b947cf15ba4221d5bc2a8438ffa53a10ba55eab021bb336c0246cb98517f1153dfef16dfce0034c20987321460b521fd47a32a43160ad863000b9522f4b1f47f200b111cb5d4e2c5341ad89cfcbfae76e649677305f305283fbad0e8d26fae8d9ea5c54819"/>
+                <value environment="pr" value="64f9c4012c750713c3d6606f6cd59efc0819531db464ea8373d1a650858988b16797b7fb81414150792b4bf4d3f7a7c79fd7bf32758b3d5d69c438a06ab1e4ba3c4c66b43949bc0f42710b2c315932c5d6befaef2986dd3e6b70401678e0cbf47c3897c0379d6925602c96ff0fcba60baa865008f2ce4b0dfcd14a029e14e5b1"/>
+            </entry>
+        </entry>   
+        
+        <!-- PRODUCTION SDF Applications (X-TELUS-SDF-AppId) -->
+        
+		<!-- The following identity maps to the Jasper_CCBP_B2B SDF application ID -->
+        <entry name="2506">
+            <entry name="applicationCode" value="JASPER"/>
+            <entry name="principal" value="842312">
+            	<value environment="pr" value="124631"/>
+       		</entry>
+            <entry name="credential" value="-6d66ee8e0d0fd6f30f2d9655b6d56bba8a53ebb4518ddb70cf7c8700f4262b55563ae4c6684a0f4d44d688637e26610b97caae6c58cdbe9bb5123f334c9b41e4f11624d23ae93e2b4e0ae97b8d7a11e4be3548af90f50cb3094448863e9f18aaced9da1d1d87678a43a2d73030889294ab800a37e56b05d12be3530aa109a608">
+            	<value environment="pr" value="6145f79b6ead4ab28980d6d04237b78e7131e5fc675be7fac221593b362caa7fd67de41288cfaa91db714115a4eedcb8bbd498055e59f302920212f7e0871736a825603d7682f48d45c1ce0e3e8417d2d16570b53842219092a5aa742c9db1cffc9d4c9687f566aee67913f33cc51ffd945f9555b863ccb06bc41ba05edbd9fe"/>
+       		</entry>
+	    </entry>
+	    
+        <!-- The following identity maps to the Jasper_CCBP SDF application ID -->
+        <entry name="2284">
+            <entry name="applicationCode" value="JASPER"/>
+            <entry name="principal" value="842312">
+            	<value environment="pr" value="124631"/>
+       		</entry>
+            <entry name="credential" value="-6d66ee8e0d0fd6f30f2d9655b6d56bba8a53ebb4518ddb70cf7c8700f4262b55563ae4c6684a0f4d44d688637e26610b97caae6c58cdbe9bb5123f334c9b41e4f11624d23ae93e2b4e0ae97b8d7a11e4be3548af90f50cb3094448863e9f18aaced9da1d1d87678a43a2d73030889294ab800a37e56b05d12be3530aa109a608">
+            	<value environment="pr" value="6145f79b6ead4ab28980d6d04237b78e7131e5fc675be7fac221593b362caa7fd67de41288cfaa91db714115a4eedcb8bbd498055e59f302920212f7e0871736a825603d7682f48d45c1ce0e3e8417d2d16570b53842219092a5aa742c9db1cffc9d4c9687f566aee67913f33cc51ffd945f9555b863ccb06bc41ba05edbd9fe"/>
+       		</entry>
+	    </entry>
+	    
+        <!-- The following identity maps to the TELUS Digital SDF application ID -->
+        <entry name="1509">
+            <entry name="applicationCode" value="SS_SVC"/>
+            <entry name="principal" value="122019">
+                <value environment="pr" value="124630"/>
+            </entry>
+            <entry name="credential" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa">
+	            <value environment="pr" value="317acc94217dc02bc8e19359596b039b5ce967702bdaabea9f8fee643f650042897ed9129f7e1c684aa2ee0ba0ac3985ae9a821a3769fcc530c18d97a8a14784135de4dc447a3e2a398e2ca75d90bf93f01f897ba4ca8fcc96d3e10fdb28e6c6904682dc22c15f06551b965bccf13bfcf6d8383e3dfbabfe4b5403b0107c7d09"/>
+            </entry>            
+        </entry>
+	    
+        <!-- The following identity maps to the TELUS Digital's Newer SDF application ID -->
+        <entry name="1011380">
+            <entry name="applicationCode" value="SS_SVC"/>
+            <entry name="principal" value="122019">
+                <value environment="pr" value="124630"/>
+            </entry>
+            <entry name="credential" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa">
+	            <value environment="pr" value="317acc94217dc02bc8e19359596b039b5ce967702bdaabea9f8fee643f650042897ed9129f7e1c684aa2ee0ba0ac3985ae9a821a3769fcc530c18d97a8a14784135de4dc447a3e2a398e2ca75d90bf93f01f897ba4ca8fcc96d3e10fdb28e6c6904682dc22c15f06551b965bccf13bfcf6d8383e3dfbabfe4b5403b0107c7d09"/>
+            </entry>            
+        </entry>
+        
+        <!-- The following identity maps to the Koodo SDF application ID -->
+        <entry name="1865">
+            <entry name="applicationCode" value="SS_SVC"/>
+            <entry name="principal" value="122019">
+                <value environment="pr" value="124630"/>
+            </entry>
+            <entry name="credential" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa">
+	            <value environment="pr" value="317acc94217dc02bc8e19359596b039b5ce967702bdaabea9f8fee643f650042897ed9129f7e1c684aa2ee0ba0ac3985ae9a821a3769fcc530c18d97a8a14784135de4dc447a3e2a398e2ca75d90bf93f01f897ba4ca8fcc96d3e10fdb28e6c6904682dc22c15f06551b965bccf13bfcf6d8383e3dfbabfe4b5403b0107c7d09"/>
+            </entry>
+        </entry>
+		
+		<!-- The following identity maps to the Nascent Digital SDF application ID -->
+        <entry name="2137">
+            <entry name="applicationCode" value="NASCNT"/>
+            <entry name="principal" value="122019">
+                <value environment="pr" value="124630"/>
+            </entry>
+            <entry name="credential" value="-4d673d2b4effe65e46906d291d6913b3f7e637f3b8faa6be8817d0dfb466c09c8889b60c891d92f128b6fd709f5f295ef52f07d3f8827c1966751a433d6cd249070bf9d15d41874b24a9323ac659890637107278bae691b4337747c5ed71b0285d408020eb03ea2313be5b7cfaadb7a94ed8009ab27628293fdfe2eea5312ffa">
+	            <value environment="pr" value="317acc94217dc02bc8e19359596b039b5ce967702bdaabea9f8fee643f650042897ed9129f7e1c684aa2ee0ba0ac3985ae9a821a3769fcc530c18d97a8a14784135de4dc447a3e2a398e2ca75d90bf93f01f897ba4ca8fcc96d3e10fdb28e6c6904682dc22c15f06551b965bccf13bfcf6d8383e3dfbabfe4b5403b0107c7d09"/>
+            </entry>            
+        </entry>
+		
+        <!-- The following identity maps to the SDF application ID for ENTWEBSTORE SDF Testing Account -->
+        <entry name="1011407">
+            <entry name="applicationCode" value="ENTWEBSTORE"/>
+            <entry name="principal" value="789966"/>
+            <entry name="credential">
+                <value environment="pt168" value="94b7652e4d4443fd1722d00336357683e057c852ddc93485bc516b947cf15ba4221d5bc2a8438ffa53a10ba55eab021bb336c0246cb98517f1153dfef16dfce0034c20987321460b521fd47a32a43160ad863000b9522f4b1f47f200b111cb5d4e2c5341ad89cfcbfae76e649677305f305283fbad0e8d26fae8d9ea5c54819"/>
+                <value environment="dv103" value="-4c6719d7cede0d712bc3c86c546899173ae2829dff9a7f6cdc69f152bb28978d5fd37eb499850988dde7d92d16bae4a1727df781c3f6d10386c2ae817825601a196347f10c07ee58be7237a6a03f2be2ee4ecfffb2629f957a394914168f2b84edb8763ff3682b7b673d1484347c7ed5b3b54c3b7cda445f0d7afef988dd0cf6"/>
+                <value environment="ps101" value="2edfd8aac8af4268cf24233ec2be3918350815dbcad9de6b38960f04b46ee2d6d157c22c9362538fc064a7053a73631dd65662698fb995b5b34e6fb904a3c490bdf850cc4ef5f80864b7ac2d41afa4506636f327808449b4b59790bf3756bc91ec3113d17d2b8a12aac705308d3673f3704d1fa9927dae7d12d0c613ae80018d"/>
+                <value environment="pt140" value="2edfd8aac8af4268cf24233ec2be3918350815dbcad9de6b38960f04b46ee2d6d157c22c9362538fc064a7053a73631dd65662698fb995b5b34e6fb904a3c490bdf850cc4ef5f80864b7ac2d41afa4506636f327808449b4b59790bf3756bc91ec3113d17d2b8a12aac705308d3673f3704d1fa9927dae7d12d0c613ae80018d"/>
+                <value environment="pt148" value="-75b20771ebd4b8288d3b43a5222077b4d610e4ffac2cbd1f567557207c1d8fe7d133200f896e98641fa12e823c97ff2026b924ad31ae695915c29a6e8627f8518ba00abc601be71b01246db836feef353cb472c430e58609ec05aebd58b070ab80e74ccf7d2aa330153d4eda5dd359f99a5774ef77e6b3f79323946193221160"/>
+                <value environment="st101" value="94b7652e4d4443fd1722d00336357683e057c852ddc93485bc516b947cf15ba4221d5bc2a8438ffa53a10ba55eab021bb336c0246cb98517f1153dfef16dfce0034c20987321460b521fd47a32a43160ad863000b9522f4b1f47f200b111cb5d4e2c5341ad89cfcbfae76e649677305f305283fbad0e8d26fae8d9ea5c54819"/>
+                <value environment="pr" value="64f9c4012c750713c3d6606f6cd59efc0819531db464ea8373d1a650858988b16797b7fb81414150792b4bf4d3f7a7c79fd7bf32758b3d5d69c438a06ab1e4ba3c4c66b43949bc0f42710b2c315932c5d6befaef2986dd3e6b70401678e0cbf47c3897c0379d6925602c96ff0fcba60baa865008f2ce4b0dfcd14a029e14e5b1"/>
+            </entry>
+        </entry>
+		
+		<!-- The following identity maps to ADA (Telus Virtual Assistant) SDF application ID -->
+		<entry name="3035">
+			<entry name="applicationCode" value="ADATVA"/>
+			<entry name="principal" value="10519195">
+				<value environment="pr" value="180611"/>
+			</entry>
+			<entry name="credential" value="-6c9d70fc946d53ababbc445a75ed9d9b79eb85d86fdf204d2ef4c176c04ec0df94d04df62ea9e8792b861bd7d7b732d7896205330ca9de082b19313a7c9472a2555d2047bb7254dd1f77bd7df3da043588965ccce4a85ae961f7ab668c2d6df4715435321f8d8d2cb342c6b0114ba47ce7f8c4088eb3c053c91931144ad1fffb">
+				<value environment="pr" value="274b63fc131bc01160d49241018b5d24fdd80509bd594dcdff2844f3eee6b7c0c0074a66f3ece7a1484f60064110aa21d534eafd548a65baf6347ef288f1dd64714ccfef9b544b53284d6490efac3dbe3918ecc93951f9a1956332562cafb462c359c29e65c78ec1d450a003e803fe9085c7735f672213a24eb2f902ff27418f"/>
+			</entry>
+		</entry>
+		
+		<!-- The following identity maps to Chatbot's Xavient (Telus Virtal Assistant) SDF application ID -->
+		<entry name="1016275">
+			<entry name="applicationCode" value="ADATVA"/>
+			<entry name="principal" value="10519195">
+				<value environment="pr" value="180611"/>
+			</entry>
+			<entry name="credential" value="-6c9d70fc946d53ababbc445a75ed9d9b79eb85d86fdf204d2ef4c176c04ec0df94d04df62ea9e8792b861bd7d7b732d7896205330ca9de082b19313a7c9472a2555d2047bb7254dd1f77bd7df3da043588965ccce4a85ae961f7ab668c2d6df4715435321f8d8d2cb342c6b0114ba47ce7f8c4088eb3c053c91931144ad1fffb">
+				<value environment="pr" value="274b63fc131bc01160d49241018b5d24fdd80509bd594dcdff2844f3eee6b7c0c0074a66f3ece7a1484f60064110aa21d534eafd548a65baf6347ef288f1dd64714ccfef9b544b53284d6490efac3dbe3918ecc93951f9a1956332562cafb462c359c29e65c78ec1d450a003e803fe9085c7735f672213a24eb2f902ff27418f"/>
+			</entry>
+		</entry>
+		
+		<!-- The following identity maps to SYMEND (Digital Self-Cure) SDF application ID -->
+		<entry name="1014020">
+			<entry name="applicationCode" value="SYMEND"/>
+			<entry name="principal" value="192513"/>
+			<entry name="credential" value="59a68a32c94bed372a8ff469c48f582ab08ff6dab03708c715c31b5d29acc5a10503cb665e24881b9544e5e770033335cb713a519a5f92f883b47362ff2458c9a40845882ca8e488522bcd0a6d6b81371ab979c60c51e5de0766d8f8b5faa5173655226b91972bf1e3a918605dc40c8db17a49561a98aa93cec9d3cfd30eb82c">
+				<value environment="pr" value="59a68a32c94bed372a8ff469c48f582ab08ff6dab03708c715c31b5d29acc5a10503cb665e24881b9544e5e770033335cb713a519a5f92f883b47362ff2458c9a40845882ca8e488522bcd0a6d6b81371ab979c60c51e5de0766d8f8b5faa5173655226b91972bf1e3a918605dc40c8db17a49561a98aa93cec9d3cfd30eb82c"/>
+			</entry>
+		</entry>
+		
+		<!-- The following identity maps to Telus IQ's Partner App (Siemens Canada Limited) SDF application ID -->
+		<entry name="1015028">
+            <entry name="applicationCode" value="TIQSCL"/>
+            <entry name="principal" value="789966"/>
+            <entry name="credential">
+                <value environment="pt168" value="94b7652e4d4443fd1722d00336357683e057c852ddc93485bc516b947cf15ba4221d5bc2a8438ffa53a10ba55eab021bb336c0246cb98517f1153dfef16dfce0034c20987321460b521fd47a32a43160ad863000b9522f4b1f47f200b111cb5d4e2c5341ad89cfcbfae76e649677305f305283fbad0e8d26fae8d9ea5c54819"/>
+                <value environment="dv103" value="-4c6719d7cede0d712bc3c86c546899173ae2829dff9a7f6cdc69f152bb28978d5fd37eb499850988dde7d92d16bae4a1727df781c3f6d10386c2ae817825601a196347f10c07ee58be7237a6a03f2be2ee4ecfffb2629f957a394914168f2b84edb8763ff3682b7b673d1484347c7ed5b3b54c3b7cda445f0d7afef988dd0cf6"/>
+                <value environment="ps101" value="2edfd8aac8af4268cf24233ec2be3918350815dbcad9de6b38960f04b46ee2d6d157c22c9362538fc064a7053a73631dd65662698fb995b5b34e6fb904a3c490bdf850cc4ef5f80864b7ac2d41afa4506636f327808449b4b59790bf3756bc91ec3113d17d2b8a12aac705308d3673f3704d1fa9927dae7d12d0c613ae80018d"/>
+                <value environment="pt140" value="2edfd8aac8af4268cf24233ec2be3918350815dbcad9de6b38960f04b46ee2d6d157c22c9362538fc064a7053a73631dd65662698fb995b5b34e6fb904a3c490bdf850cc4ef5f80864b7ac2d41afa4506636f327808449b4b59790bf3756bc91ec3113d17d2b8a12aac705308d3673f3704d1fa9927dae7d12d0c613ae80018d"/>
+                <value environment="pt148" value="-75b20771ebd4b8288d3b43a5222077b4d610e4ffac2cbd1f567557207c1d8fe7d133200f896e98641fa12e823c97ff2026b924ad31ae695915c29a6e8627f8518ba00abc601be71b01246db836feef353cb472c430e58609ec05aebd58b070ab80e74ccf7d2aa330153d4eda5dd359f99a5774ef77e6b3f79323946193221160"/>
+                <value environment="st101" value="94b7652e4d4443fd1722d00336357683e057c852ddc93485bc516b947cf15ba4221d5bc2a8438ffa53a10ba55eab021bb336c0246cb98517f1153dfef16dfce0034c20987321460b521fd47a32a43160ad863000b9522f4b1f47f200b111cb5d4e2c5341ad89cfcbfae76e649677305f305283fbad0e8d26fae8d9ea5c54819"/>
+                <value environment="pr" value="64f9c4012c750713c3d6606f6cd59efc0819531db464ea8373d1a650858988b16797b7fb81414150792b4bf4d3f7a7c79fd7bf32758b3d5d69c438a06ab1e4ba3c4c66b43949bc0f42710b2c315932c5d6befaef2986dd3e6b70401678e0cbf47c3897c0379d6925602c96ff0fcba60baa865008f2ce4b0dfcd14a029e14e5b1"/>
+            </entry>
+		</entry>
+		
+    </entry>
+    
+</environment-config>

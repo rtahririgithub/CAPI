@@ -1,0 +1,71 @@
+body {
+	font-family: "Arial";
+	background-color: #E2E2E2;
+	margin: 0.75em;
+}
+
+.body.title {
+	color: #49166D;
+	font-size: 3.5em;
+}
+
+.field.error i {
+	color: #FF0000;
+}
+
+.ui.pointing.label {
+	background-color: #66CC00;
+}
+
+.ui.pointing.label:before {
+	background-color: #66CC00;
+}
+
+.ui.label > a {
+	opacity: 0.75;
+	color: #FFFFFF;
+}
+
+.ui.button {
+	margin-top: 0.75em;
+}
+
+.submit.button {
+	background-color: #66CC00;
+	color: #FFFFFF;
+}
+
+.submit.button:hover {
+	background-color: #448207;
+	color: #FFFFFF;
+}
+
+.submit.button:focus {
+	background-color: #448207;
+	color: #FFFFFF;
+}
+
+.clear.button {
+	background-color: #8629CB;
+	color: #FFFFFF;
+}
+
+.clear.button:hover {
+	background-color: #49166D;
+	color: #FFFFFF;
+}
+
+.clear.button:focus {
+	background-color: #49166D;
+	color: #FFFFFF;
+}
+
+#searchForm label {
+	color: #66CC00;
+	font-size: 1.2em;
+}
+
+#readerForm label {
+	color: #66CC00;
+	font-size: 1.2em;
+}

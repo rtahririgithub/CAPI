@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>WirelessPaymentService</Name>
+		<Documentation>Provides payment services</Documentation>
+		<TAM_LevelZeroAndOne>CMO/ReceivablesMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/WirelessPayment</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmbilling-billinginquiry-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>WirelessPaymentServiceRequestResponse_v1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/ReceivablesMgmt/WirelessPaymentServiceRequestResponse_v1</NameSpace>
+		<nsAbbrev>wps</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>processCreditCard</OperationName>
+		<Documentation>Process credit card</Documentation>
+		<InputType wsp="True">processCreditCard</InputType>
+		<OutputType>processCreditCardResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation>
+			<type>UserHeader</type>
+			<soapHeaderType>explicit</soapHeaderType>
+		</InputSoapHeaderType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>processPayment</OperationName>
+		<Documentation>Process payment via credit card and record it into KB</Documentation>
+		<InputType wsp="True">processPayment</InputType>
+		<OutputType>processPaymentResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation>
+			<type>UserHeader</type>
+			<soapHeaderType>explicit</soapHeaderType>
+		</InputSoapHeaderType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>processDeposit</OperationName>
+		<Documentation>Process deposit payment via credit card and record it into KB</Documentation>
+		<InputType wsp="True">processDeposit</InputType>
+		<OutputType>processDepositResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation>
+			<type>UserHeader</type>
+			<soapHeaderType>explicit</soapHeaderType>
+		</InputSoapHeaderType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+</Service>

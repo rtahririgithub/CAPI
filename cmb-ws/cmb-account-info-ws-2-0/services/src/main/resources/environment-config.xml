@@ -1,0 +1,3 @@
+<environment-config>
+	<entry name="cmb-account-info-ws-2-0" path="/cmb-ns/components"/>
+</environment-config>

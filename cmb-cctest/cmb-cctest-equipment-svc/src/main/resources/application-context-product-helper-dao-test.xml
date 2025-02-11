@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+	<!-- should use application-context-dao-product-equipment-helper.xml instead 
+	
+	<context:annotation-config />
+
+	<bean id="productOfferingServiceWSClient" class="com.telus.cmb.productequipment.dependency.prepaid.ProductOfferingServiceClient"/>
+	<bean id="voucherValidationServiceWSClient" class="com.telus.cmb.productequipment.dependency.prepaid.VoucherValidationServiceClient"/>
+
+	<bean id="productOfferingServiceWSPort"
+		class="com.telus.cmb.common.dao.soa.spring.JaxWsPortProxyFactoryCmbBean"
+		lazy-init="false">
+		<property name="lookupServiceOnStartup" value="false" />
+		<property name="serviceInterface"
+			value="com.telus.cmb.wsclient.ProductOfferingServiceV21PortType" />
+		<property name="wsdlDocumentUrl"
+			value="classpath:definition/ProductOfferingService_v2_1.wsdl" />
+		<property name="namespaceUri"
+			value="http://telus.com/wsdl/CMO/SelfMgmt/ProductOfferingService_2" />
+		<property name="serviceName" value="ProductOfferingService_v2_1" />
+		<property name="ldapUserNameKey" value="CLIENTAPI_EJB" />
+		<property name="ldapUserPasswordKey" value="soaorgid" />
+		<property name="ldapEndpointKey" value="https://servicemngr-pt168.tsl.telus.com:443/CMO/SelfMgmt/ProductOfferingService_v2_1_vs1" />
+	</bean>
+	
+	<bean id="voucherValidationServiceWSPort"
+		class="com.telus.cmb.common.dao.soa.spring.JaxWsPortProxyFactoryCmbBean"
+		lazy-init="false">
+		<property name="lookupServiceOnStartup" value="false" />
+		<property name="serviceInterface"
+			value="com.telus.voucherservice.wsdl_v2.VoucherValidationPortTypeV20" />
+		<property name="wsdlDocumentUrl"
+			value="classpath:definition/VoucherValidationService.wsdl" />
+		<property name="namespaceUri" value="http://www.telus.com/VoucherService/wsdl_v2" />
+		<property name="serviceName" value="VoucherValidationService_v2_0" />
+		<property name="ldapUserNameKey" value="CLIENTAPI_EJB" />
+		<property name="ldapUserPasswordKey" value="soaorgid" />
+		<property name="ldapEndpointKey" value="https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/BillingAccountMgmt/VoucherValidationService_v2_1_vs0" />
+	</bean>
+	 -->
+</beans>

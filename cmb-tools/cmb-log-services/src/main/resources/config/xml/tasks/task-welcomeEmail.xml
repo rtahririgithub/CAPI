@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<task name="Welcome Email Reporting" shortname="welcomeEmail" type="welcomeEmail">
+
+<!-- There are two options here:                                                                                                        -->
+<!--     1. Enable/disable the PR A/B side every time we do a flipper-managed major release by updating the "schedule" component below. -->
+<!--     2. Activate both sides and remember which side is the active side.  Start the appropriate scheduler on the monitoring page.    -->
+
+	<taskEnvironment shortname="pra" schedule="disabled">
+		<taskApplication shortname="capiejbs">
+			<taskComponent name="Kafka - Subscriber" daysbefore="1">
+				<taskGrepString value="SUBSCRIBER_ACTIVATE"/>
+			</taskComponent>
+		</taskApplication>
+		<notifyParty email="dlClientAPIPRODSupport@telus.com"/>
+	</taskEnvironment>
+	
+	<taskEnvironment shortname="prb" schedule="disabled">
+		<taskApplication shortname="capiejbs">
+			<taskComponent name="Kafka - Subscriber" daysbefore="1">
+				<taskGrepString value="SUBSCRIBER_ACTIVATE"/>
+				<dateFormat value="yyyy-MM-dd"/>
+			</taskComponent>
+		</taskApplication>
+		<notifyParty email="dlClientAPIPRODSupport@telus.com"/>
+	</taskEnvironment>
+	
+</task>	

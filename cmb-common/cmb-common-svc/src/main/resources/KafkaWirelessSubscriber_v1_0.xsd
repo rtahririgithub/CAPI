@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kafka.common.cmb.telus.com/subscriber_v1" targetNamespace="http://kafka.common.cmb.telus.com/subscriber_v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="SubscriberEvent">
+		<xs:annotation>
+			<xs:documentation>Subscriber kafka event schema defination</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Account">
+		<xs:sequence>
+			<xs:element name="banId" type="xs:int" minOccurs="0"/>
+			<xs:element name="brandId" type="xs:int" minOccurs="0"/>
+			<xs:element name="accountType" type="xs:string" minOccurs="0"/>
+			<xs:element name="accountSubType" type="xs:string" minOccurs="0"/>
+			<xs:element name="banSegment" type="xs:string" minOccurs="0"/>
+			<xs:element name="banSubSegment" type="xs:string" minOccurs="0"/>
+			<xs:element name="language" type="xs:string" minOccurs="0"/>
+			<xs:element name="email" type="xs:string" minOccurs="0"/>
+			<xs:element name="billCycleCode" type="xs:int" minOccurs="0"/>
+			<xs:element name="billCycleStartDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Subscriber">
+		<xs:sequence>
+			<xs:element name="eventType" type="xs:string" minOccurs="0"/>
+			<xs:element name="portIn" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="portType" type="xs:string" minOccurs="0"/>
+			<xs:element name="originatorApplicationId" type="xs:string" minOccurs="0"/>
+			<xs:element name="subscriptionId" type="xs:string" minOccurs="0"/>
+			<xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="subscriberId" type="xs:string" minOccurs="0"/>
+			<xs:element name="productType" type="xs:string" minOccurs="0"/>
+			<xs:element name="status" type="xs:string" minOccurs="0"/>
+			<xs:element name="statusDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="startServiceDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="activityCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="activityReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="emailAddress" type="xs:string" minOccurs="0"/>
+			<xs:element name="language" type="xs:string" minOccurs="0"/>
+			<xs:element name="PrimaryServiceResourceType" type="xs:string" minOccurs="0"/>
+			<xs:element name="billingMasterSourceId" type="xs:string" minOccurs="0"/>
+			<xs:element name="account" type="Account" minOccurs="0"/>
+			<xs:element name="consumerName" type="ConsumerName" minOccurs="0"/>
+			<xs:element name="seatData" type="SeatData" minOccurs="0"/>
+			<xs:element name="equipment" type="Equipment" minOccurs="0"/>
+			<xs:element name="serviceAgreement" type="ServiceAgreement" minOccurs="0"/>
+			<xs:element name="auditInfo" type="AuditInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConsumerName">
+		<xs:sequence>
+			<xs:element name="title" type="xs:string" minOccurs="0"/>
+			<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+			<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+			<xs:element name="middleInitial" type="xs:string" minOccurs="0"/>
+			<xs:element name="generation" type="xs:string" minOccurs="0"/>
+			<xs:element name="additionalLine" type="xs:string" minOccurs="0"/>
+			<xs:element name="nameFormat" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SeatData">
+		<xs:sequence>
+			<xs:element name="seatGroup" type="xs:string" minOccurs="0"/>
+			<xs:element name="seatType" type="xs:string" minOccurs="0"/>
+			<xs:element name="seatResourceList" type="ResourceData" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceData">
+		<xs:sequence>
+			<xs:element name="resourceType" type="xs:string" minOccurs="0"/>
+			<xs:element name="resourceNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="resourceStatus" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Equipment">
+		<xs:sequence>
+			<xs:element name="primaryEquipmentSerialNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="hspaImsi" type="xs:string" minOccurs="0"/>
+			<xs:element name="handSetSerialNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="equipmentGroup" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ServiceAgreement">
+		<xs:sequence>
+			<xs:element name="priceplan" type="ServiceData" minOccurs="0"/>
+			<xs:element name="addtionalServices" type="ServiceData" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="commitment" type="Commitment" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ServiceData">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string" minOccurs="0"/>
+			<xs:element name="serviceType" type="xs:string" minOccurs="0"/>
+			<xs:element name="descriptionEnglish" type="xs:string" minOccurs="0"/>
+			<xs:element name="descriptionFrench" type="xs:string" minOccurs="0"/>
+			<xs:element name="transactionType" type="xs:string" minOccurs="0"/>
+			<xs:element name="serviceEffectiveDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="serviceExpiryDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="serviceSequenceNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="serviceVersionNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="billingZeroChrgSuppress" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="socDurationHours" type="xs:string" minOccurs="0"/>
+			<xs:element name="recurringCharge" type="xs:double" minOccurs="0"/>
+			<xs:element name="roamLikeHome" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Commitment">
+		<xs:sequence>
+			<xs:element name="months" type="xs:int" minOccurs="0"/>
+			<xs:element name="reasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="startDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AuditInfo">
+		<xs:sequence>
+			 <xs:element name="originatorAppId" type="xs:string" minOccurs="0"/>
+			<xs:element name="kbuserId" type="xs:string" minOccurs="0"/>
+			<xs:element name="salesRepCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="dealerCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

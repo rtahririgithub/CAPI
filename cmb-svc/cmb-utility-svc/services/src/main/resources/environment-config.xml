@@ -1,0 +1,4 @@
+<environment-config>
+	<entry name="cmb-utility-svc" path="/cmb-ns"/>
+	<entry name="cmb-utility-svc" path="/ARMX/reference-versions" value="${label}"/>
+</environment-config>

@@ -1,0 +1,27 @@
+<environment-config>
+
+	<entry name="AccountLifecycleFacade" path="/CMB/services">
+		<entry name="eaaEbillRollback" value="false"/>
+	</entry>
+	
+	<entry name="AccountInformationHelper" path="/CMB/services">
+		<entry name="wrpRollback" value="false"/>
+		<entry name="wrpPh3Rollback" value="false"/>	
+		<entry name="wrpPH3GetInvoiceHistoryRollback" value="false"/>
+		<entry name="wrpPH3GetDepositHistoryRollback" value="false"/>
+		<entry name="wrpPH3GetBilledCreditRollback" value="false"/>
+		<entry name="wrpPH3GetUnBilledCreditRollback" value="false"/>
+	</entry>	
+	
+	<entry name="cmb-account-svc" path="/cmb-ns">
+		<entry name="sspaNextStepCollectionPathDays" value="5"/>
+		<entry name="sspnCLPPaymentDays" value="6"/>
+		<entry name="sspnNonCLPPaymentDays" value="10"/>
+		<entry name="dataSharingSubscriberLimit" value="200"/>
+		<entry name="useDataSharingInfoSqlPackage" value="false"/>
+	</entry>
+	
+	<entry name="cmb-account-svc" path="/ARMX/reference-versions" value="${label}"/>
+	<entry name="cmb-account-svc-lite" path="/ARMX/reference-versions" value="${label}"/>
+
+</environment-config>

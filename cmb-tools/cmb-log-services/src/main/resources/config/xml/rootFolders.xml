@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rootFolders>
+
+<rootFolders>
+	<!-- They've used logs2, logs3, logs_pra, logs_prb, logs_prb2 over the various years ... -->
+	<!-- But looks like they've finally settled on either just logsa or logsb in pr          -->
+	<!-- In non-prod, it's usually just "logs", but here are the exceptions                  -->
+	
+	<rootFolder name="logs_a">	
+		<host>ln99246</host>
+		<host>ln99247</host>
+	</rootFolder>
+	
+	<!-- The old log files no longer used
+	 
+	<rootFolder name="logs2">
+		<host>XXX</host>
+	</rootFolder>
+	<rootFolder name="logs3">
+		<host>XXX</host>
+	</rootFolder>
+	<rootFolder name="logs_pra">
+		<host>XXX</host>
+	</rootFolder>
+	<rootFolder name="logs_prb">
+		<host>XXX</host>
+	</rootFolder>
+	<rootFolder name="logs_prb2">	
+		<host>XXX</host>
+	</rootFolder>
+	-->
+</rootFolders>

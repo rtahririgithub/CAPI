@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberManagementServiceRequestResponse_v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:smc="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberManagementCommonTypes_v1" xmlns:srt="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" xmlns:serv="http://xmlschema.tmi.telus.com/xsd/Service/Service/SubscriberServiceAgreementTypes_v1" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberManagementServiceRequestResponse_v1" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberManagementCommonTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberManagementCommonTypes_v1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Service/Service/SubscriberServiceAgreementTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Service/Service/SubscriberServiceAgreementTypes_v1_0.xsd"/>
+	<xsd:element name="changePhoneNumber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="phoneNumberChangeRequest" type="smc:PhoneNumberChangeRequest"/>
+				<xsd:element name="ServiceRequestHeader" type="srt:ServiceRequestHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="changePhoneNumberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="changePhoneNumberResponseType" type="tns:changePhoneNumberResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="changeEquipment">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="equipmentChangeRequest" type="smc:EquipmentChangeRequest"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="changeEquipmentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="changeEquipmentResponseType" type="tns:changeEquipmentResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceAgreement">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceAgreementResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceAgreement" type="smc:ServiceAgreement"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceAgreementForUpdate">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceAgreementForUpdateResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getServiceAgreementForUpdateResponseType" type="tns:getServiceAgreementForUpdateResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="validateServiceAgreement">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="serviceAgreement" type="smc:ServiceAgreement"/>
+				<xsd:element name="equipmentChangeRequest" type="smc:EquipmentChangeRequest" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="validateServiceAgreementResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="validateServiceAgreementResponseType" type="tns:validateServiceAgreementResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="saveServiceAgreement">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="serviceAgreement" type="smc:ServiceAgreement"/>
+				<xsd:element name="equipmentChangeRequest" type="smc:EquipmentChangeRequest" minOccurs="0"/>
+				<xsd:element name="ServiceRequestHeader" type="srt:ServiceRequestHeader" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="saveServiceAgreementResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="saveServiceAgreementResponseType" type="tns:saveServiceAgreementResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="WarningType" type="tns:WarningType"/>
+	<xsd:complexType name="WarningType">
+		<xsd:sequence>
+			<xsd:element name="systemCode" type="xsd:string"/>
+			<xsd:element name="warningType" type="xsd:string"/>
+			<xsd:element name="warning" type="tns:WarningBaseType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ApplicationMessage">
+		<xsd:sequence>
+			<xsd:element name="messageId" type="xsd:long"/>
+			<xsd:element name="messageCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="applicationId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="audienceTypeId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="messageTypeId" type="xsd:int"/>
+			<xsd:element name="brandId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="messageText" type="tns:MessageTextType" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MessageTextType">
+		<xsd:sequence>
+			<xsd:element name="languageType" type="common:Language"/>
+			<xsd:element name="messageText" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WarningBaseType">
+		<xsd:sequence>
+			<xsd:element name="messageId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningMessage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="variables" type="xsd:string" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="changePhoneNumberResponseType">
+		<xsd:sequence>
+			<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="changeEquipmentResponseType">
+		<xsd:sequence>
+			<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			<xsd:element name="applicationMessageList" type="tns:ApplicationMessage" minOccurs="0" maxOccurs="1000"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="getServiceAgreementForUpdateResponseType">
+		<xsd:sequence>
+			<xsd:element name="ban" type="common:AccountNumber"/>
+			<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+			<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+			<xsd:element name="serviceAgreement" type="smc:ServiceAgreement"/>
+			<xsd:element name="equipmentChangeRequest" type="smc:EquipmentChangeRequest" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="validateServiceAgreementResponseType">
+		<xsd:sequence>
+			<xsd:element name="validatedUserProfile" type="srt:UserServiceProfile"/>
+			<xsd:element name="validatedServiceAgreement" type="smc:ServiceAgreement"/>
+			<xsd:element name="validatedEquipmentChangeRequest" type="smc:EquipmentChangeRequest" minOccurs="0"/>
+			<xsd:element name="applicationMessageList" type="tns:ApplicationMessage" minOccurs="0" maxOccurs="1000"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="saveServiceAgreementResponseType">
+		<xsd:sequence>
+			<xsd:element name="savedUserProfile" type="srt:UserServiceProfile"/>
+			<xsd:element name="savedServiceAgreement" type="smc:ServiceAgreement"/>
+			<xsd:element name="savedEquipmentChangeRequest" type="smc:EquipmentChangeRequest" minOccurs="0"/>
+			<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			<xsd:element name="applicationMessageList" type="tns:ApplicationMessage" minOccurs="0" maxOccurs="1000"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

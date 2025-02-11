@@ -1,0 +1,15 @@
+<environment-config xmlns:xi="http://www.w3.org/2001/XInclude">
+	<entry name="cmb-monitoring-svc" path="/cmb-ns">
+		<entry name="logs">
+			<entry name="config">
+				<value>
+					<xi:include href="log4j-default.xml" parse="text"/>
+				</value>
+				<value environment="pr">
+					<xi:include href="log4j-production.xml" parse="text"/>
+				</value>
+			</entry>
+		</entry>
+	</entry>
+	<entry name="cmb-monitoring-svc" path="/ARMX/reference-versions" value="${label}"/>
+</environment-config>

@@ -1,0 +1,35 @@
+title getCreditCheckResult (Provider) Current
+
+note left of FrontEnd
+FR838520 Client API getAccount Provider/web service operation
+Used by the following Provider methods:
+TMAccount.applyPaymentNotification
+TMAccount.changeCreditCheckDeposits
+TMPostpaidBusinessRegularAccount.checkCredit
+TMAccount.getActivationOptions
+TMSubscriber.move
+TMSubscriber.setBackOrginalDeposit
+TMSubscriber.updateCLPClient
+TMSubscriber.updateDifferentiate
+TMSubscriber.updateTownCLPClient
+end note
+
+FrontEnd->CAPI Provider: any method that needs\ncredit check result
+CAPI Provider->TMAccount: getCreditCheckResult
+alt creditCheckResult is null
+TMAccount->TMAccount: refreshCreditCheckResult
+TMAccount->AccountLifecycleManager: retrieveLastCreditCheckResultByBan
+AccountLifecycleManager->AccountLifecycleManager: retrieveAmdocsCreditCheckResultByBan
+AccountLifecycleManager->CreditCheckDao: retrieveAmdocsCreditCheckResult
+CreditCheckDao->KB: getCreditEvalDetails
+CreditCheckDao->KB: getDepositInfo
+CreditCheckDao->KB: get address for last credit check
+CreditCheckDao->KB: get name used for last credit check
+CreditCheckDao->KB: get business info
+CreditCheckDao->AccountLifecycleManager: returnCreditCheckResultInfo
+
+AccountLifecycleManager->TMAccount: return CreditCheckResultInfo
+else catch TelusAPIException
+CAPI Provider->CAPI Provider: log an error retrieving credit result
+CAPI Provider->FrontEnd: return null
+end

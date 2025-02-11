@@ -1,0 +1,14 @@
+generated-sources/
+*.class
+# *.jar
+# *.war
+# *.ear
+target/
+#.project
+#.settings/
+bin/
+#.classpath
+.tfignore
+*.*~
+
+

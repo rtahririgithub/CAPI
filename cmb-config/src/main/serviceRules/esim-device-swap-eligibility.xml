@@ -1,0 +1,24 @@
+<evaluation-rules>
+	<current-sim-rule simType="esim">
+		<current-device-rule currentDeviceType="TRACKER">
+			<new-device-rule newDeviceType="TRACKER">
+				<result deviceSwapAllowed="true" />
+			</new-device-rule>
+			<result deviceSwapAllowed="false" errorCd="DEVICE_TYPE_MISMATCH"/>
+		</current-device-rule>
+		<new-device-rule newDeviceType="TRACKER">
+			<result deviceSwapAllowed="false" errorCd="DEVICE_TYPE_MISMATCH"/>
+		</new-device-rule>
+		<result deviceSwapAllowed="true" />
+	</current-sim-rule>
+	<current-sim-rule simType="physical">
+		<current-device-rule currentDeviceType="*">
+			<new-device-rule newDeviceType="TRACKER">
+				<result deviceSwapAllowed="false" errorCd="DEVICE_TYPE_MISMATCH"/>
+			</new-device-rule>
+			<result deviceSwapAllowed="true" />
+		</current-device-rule>
+		<result deviceSwapAllowed="true" />
+	</current-sim-rule>
+	<result deviceSwapAllowed="false" />
+</evaluation-rules>

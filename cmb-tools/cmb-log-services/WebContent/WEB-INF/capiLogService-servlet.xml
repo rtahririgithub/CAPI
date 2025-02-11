@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:component-scan base-package="com.telus.cmb.tool.services" />
+	
+	<bean name="applicationProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	    <property name="locations">
+	            <value>classpath:application.properties</value>
+	    </property>
+	</bean>
+	
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<bean id="emtoolsDao" class="com.telus.cmb.tool.services.log.dao.EmtoolsDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://emtools.tmi.telus.com:3306" />
+		<property name="username" value="envmatrixall" />
+		<property name="password" value="envmatrixall" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		scope="singleton">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	
+	<mvc:annotation-driven />
+					
+	<task:annotation-driven executor="taskExecutor" scheduler="taskScheduler"/>
+	<task:scheduler id="taskScheduler" pool-size="10"/>
+	<task:executor id="taskExecutor" pool-size="1"/>
+	
+	<bean id="cacheRefreshTask" class="com.telus.cmb.tool.services.log.tasks.CacheRefreshTask" scope="prototype"/>
+	<bean id="welcomeEmailTask" class="com.telus.cmb.tool.services.log.tasks.WelcomeEmailTask" scope="prototype"/>
+	<bean id="ejbUsageCacheTask" class="com.telus.cmb.tool.services.log.tasks.EjbUsageCacheTask" scope="prototype"/>
+	<bean id="freeFriesTask" class="com.telus.cmb.tool.services.log.tasks.FreeFriesTask" scope="prototype"/>
+	<bean id="simpleTask" class="com.telus.cmb.tool.services.log.tasks.SimpleTask" scope="prototype"/>
+	<bean id="testTask" class="com.telus.cmb.tool.services.log.tasks.TestTask" scope="prototype"/>
+	<bean id="taskServiceFactory" class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean">
+		<property name="serviceLocatorInterface" value="com.telus.cmb.tool.services.log.tasks.ServiceFactory"/>
+	</bean>
+	
+	<bean id="subscriberInformationDataGridServicePort" parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cis.wsclient.SubscriberInformationDataGridServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/SubscriberInformationDataGridService_v1_7.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/SelfMgmt/SubscriberInformationDataGridService_1"
+		p:serviceName="SubscriberInformationDataGridService_v1_7" 
+		p:endpointAddress="https://soa-mp-laird-pr.tsl.telus.com:443/v1-7/cmo/selfmgmt/subscriberinformationdatagrid/SubscriberInformationDataGridService_v1_7_vs0" 
+	/>	
+	<bean id="subscriberInformationServicePort" parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cis.wsclient.SubscriberInformationServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/SubscriberInformationService_v3_4.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/InformationMgmt/SubscriberInformationService_3"
+		p:serviceName="SubscriberInformationService_v3_4" 
+		p:endpointAddress="https://soa-mp-laird-pr.tsl.telus.com:443/CMO/InformationMgmt/SubscriberInformationService/SubscriberInformationService_v3_4_vs0" 
+	/>
+	<bean id="jaxWsPortProxyBase" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" abstract="true"
+		p:lookupServiceOnStartup="false" 
+		p:username="ClientAPI_EJB" 
+		p:password="soaorgid"
+	/>	
+		
+</beans>

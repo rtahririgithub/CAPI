@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<s0:definitions name="EnterpriseFormLetterManagementService_v1_0.wsdl" targetNamespace="http://telus.com/wsdl/CMO/OrderMgmt/EnterpriseFormLetterManagementService_1" xmlns="" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/EnterpriseFormLetterManagementServiceRequestResponse_v1" xmlns:s2="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1" xmlns:s3="http://xmlschema.tmi.telus.com/xsd/common/exceptions/Exceptions_v1_0" xmlns:s4="http://telus.com/wsdl/CMO/OrderMgmt/EnterpriseFormLetterManagementService_1" xmlns:s5="http://schemas.xmlsoap.org/wsdl/soap/">
+  <s0:documentation>This service provides the services for generating and delivering form letters.</s0:documentation>
+  <s0:types>
+    <xs:schema targetNamespace="http://telus.com/wsdl/CMO/OrderMgmt/EnterpriseFormLetterManagementService_1" xmlns:ex="http://xmlschema.tmi.telus.com/xsd/common/exceptions/Exceptions_v1_0" xmlns:fl="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/EnterpriseFormLetterManagementServiceRequestResponse_v1" xmlns:iface="http://telus.com/wsdl/CMO/OrderMgmt/EnterpriseFormLetterManagementService_1" xmlns:ping="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wss="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/EnterpriseFormLetterManagementServiceRequestResponse_v1" schemaLocation="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/EnterpriseFormLetterManagementServiceRequestResponse_v1_0.xsd"/>
+      <xs:import namespace="http://xmlschema.tmi.telus.com/xsd/common/exceptions/Exceptions_v1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/common/exceptions/Exceptions_v1_0.xsd"/>
+      <xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1.xsd"/>
+    </xs:schema>
+  </s0:types>
+  <s0:message name="submitFormLetter">
+    <s0:part element="s1:submitFormLetter" name="parameters"/>
+  </s0:message>
+  <s0:message name="submitFormLetterResponse">
+    <s0:part element="s1:submitFormLetterResponse" name="result"/>
+  </s0:message>
+  <s0:message name="ping">
+    <s0:part element="s2:ping" name="parameters"/>
+  </s0:message>
+  <s0:message name="pingResponse">
+    <s0:part element="s2:pingResponse" name="result"/>
+  </s0:message>
+  <s0:message name="ServiceException">
+    <s0:part element="s3:ServiceException" name="fault"/>
+  </s0:message>
+  <s0:message name="PolicyException">
+    <s0:part element="s3:PolicyException" name="fault"/>
+  </s0:message>
+  <s0:portType name="EnterpriseFormLetterManagementServicePortType">
+    <s0:operation name="submitFormLetter">
+      <s0:input message="s4:submitFormLetter"/>
+      <s0:output message="s4:submitFormLetterResponse"/>
+      <s0:fault message="s4:ServiceException" name="ServiceException"/>
+      <s0:fault message="s4:PolicyException" name="PolicyException"/>
+    </s0:operation>
+    <s0:operation name="ping">
+      <s0:input message="s4:ping"/>
+      <s0:output message="s4:pingResponse"/>
+      <s0:fault message="s4:ServiceException" name="ServiceException"/>
+      <s0:fault message="s4:PolicyException" name="PolicyException"/>
+    </s0:operation>
+  </s0:portType>
+  <s0:binding name="EnterpriseFormLetterManagementServiceSOAP" type="s4:EnterpriseFormLetterManagementServicePortType">
+    <s5:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <s0:operation name="submitFormLetter">
+      <s0:documentation>submit form letter request</s0:documentation>
+      <s5:operation soapAction="submitFormLetter"/>
+      <s0:input>
+        <s5:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s5:body parts="result" use="literal"/>
+      </s0:output>
+      <s0:fault name="ServiceException">
+        <s5:fault name="ServiceException" use="literal"/>
+      </s0:fault>
+      <s0:fault name="PolicyException">
+        <s5:fault name="PolicyException" use="literal"/>
+      </s0:fault>
+    </s0:operation>
+    <s0:operation name="ping">
+      <s0:documentation>
+ 	  </s0:documentation>
+      <s5:operation soapAction="ping"/>
+      <s0:input>
+        <s5:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s5:body parts="result" use="literal"/>
+      </s0:output>
+      <s0:fault name="ServiceException">
+        <s5:fault name="ServiceException" use="literal"/>
+      </s0:fault>
+      <s0:fault name="PolicyException">
+        <s5:fault name="PolicyException" use="literal"/>
+      </s0:fault>
+    </s0:operation>
+  </s0:binding>
+  <s0:service name="EnterpriseFormLetterManagementService_v1_0">
+    <s0:port binding="s4:EnterpriseFormLetterManagementServiceSOAP" name="EnterpriseFormLetterManagementServicePort">
+      <s5:address location="http://custmgtbillsvcwest-dv01.tsl.telus.com/CMO/OrderMgmt/FormLetters/EnterpriseFormLetterManagementService_v1_0"/>
+    </s0:port>
+  </s0:service>
+</s0:definitions>

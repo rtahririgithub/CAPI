@@ -1,0 +1,4 @@
+<environment-config>
+	<entry name="cmb-wireless-account-lifecycle-mgmt-ws-1-3" path="/cmb-ns"/>
+	<entry name="cmb-wireless-account-lifecycle-mgmt-ws-1-3" path="/ARMX/reference-versions" value="${label}"/>	
+</environment-config>

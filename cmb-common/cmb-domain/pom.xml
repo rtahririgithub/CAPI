@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb.common</groupId>
+		<artifactId>pom-cmb-common</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cmb-domain</artifactId>
+	<packaging>jar</packaging>
+	<name>CMB Domain</name>
+
+	<profiles>
+		<profile>
+			<id>BuildServer</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+								<configuration>
+									<skip>false</skip>
+									<author>true</author>
+									<version>true</version>
+									<use>true</use>
+									<linksource>true</linksource>
+									<windowtitle>ClientAPI</windowtitle>
+									<doctitle>ClientAPI</doctitle>
+									<outputDirectory>${basedir}/target/newsite</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<show>private</show>
+					<nohelp>true</nohelp>
+					<outputDirectory>${basedir}/target/newsite</outputDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+					<configuration>
+						<skip>false</skip>
+						<author>true</author>
+						<version>true</version>
+						<use>true</use>
+						<linksource>true</linksource>
+						<windowtitle>ClientAPI</windowtitle>
+						<doctitle>ClientAPI</doctitle>
+						<outputDirectory>${basedir}/target/newsite</outputDirectory>
+					</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	
+	<dependencies>
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>ejb-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.sysmon.armx.armx-shared</groupId>
+			<artifactId>armx-agent</artifactId>
+			</dependency>		
+			
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-library</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+</project>

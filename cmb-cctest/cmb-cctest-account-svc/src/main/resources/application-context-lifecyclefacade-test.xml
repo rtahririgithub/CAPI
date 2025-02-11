@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+	
+	<context:annotation-config/>
+	
+	<bean id="cardPaymentServiceDao" class="com.telus.cmb.account.lifecyclefacade.dao.impl.CardPaymentServiceDaoImpl" lazy-init="false"/>
+	<bean id="cardPaymentServiceClient" class="com.telus.cmb.dependency.cardpayment.CardPaymentServiceClient" lazy-init="false"/>
+   	<bean id="cardPaymentServiceWSPort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" lazy-init="false">
+    	<property name="lookupServiceOnStartup" value="false" />
+        <property name="serviceInterface" value="com.telus.cmb.wsclient.CardPaymentServicePortType" />
+        <property name="wsdlDocumentUrl" value="classpath:definition/CardPaymentService_v1_0.wsdl" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/EO/FinancialMgmt/CardPaymentService_1" />
+        <property name="serviceName" value="CardPaymentService_v1_0" />
+        <property name="username" value="BT_TEST_ID"/> <!-- CLIENTAPI_EJB --> 
+        <property name="password" value="soaorgid"/>
+        <property name="endpointAddress" value="http://servicemngr-pt148.tsl.telus.com:80/EO/FinancialMgmt/FinancialMgmt/CardPaymentService_v1_1_vs2"/>
+        <property name="handlerResolver" ref="cardPaymentServiceHandler"></property>
+        
+        <!-- <property name="endpointAddress" value="http://servicemngr-pt168.tsl.telus.com:80/EO/FinancialMgmt/FinancialMgmt/CardPaymentService_v1_1_vs2"/>  	
+        <property name="ldapUserNameKey" value="ClientAPIEJBUserName"/> 
+        <property name="ldapUserPasswordKey" value="ClientAPIEJBUserPassword"/>
+        <property name="ldapEndpointKey" value="CardPaymentServiceUrl"/>
+         -->
+   	</bean>
+   	<bean id="cardPaymentServiceHandler" class="com.telus.cmb.account.lifecyclefacade.soahandler.CardPaymentServiceHandler" lazy-init="false">
+   		<constructor-arg><ref bean="avalonUserHeaderHandler"/></constructor-arg>
+   	</bean>
+   	<bean id="avalonUserHeaderHandler" class="com.telus.cmb.account.lifecyclefacade.soahandler.AvalonUserHeaderHandler" lazy-init="false"/>
+   	<bean id="cardPaymentServiceAuditHeaderInfo" class="com.telus.eas.account.info.AuditHeaderInfo" lazy-init="false"/>
+
+</beans>

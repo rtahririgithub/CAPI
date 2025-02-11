@@ -1,0 +1,775 @@
+---
+swagger: "2.0"
+info:
+  description: "The WLSPaymentMgmtRESTSvc_v1_0 will expose a suite of REST operations\
+    \ to perform billing-related payment functions.  Version 1.0 will provide the\
+    \ capability for TELUS vendor development teams to retrieve payment agreements\
+    \ as well as check and apply payment arrangements and notifications."
+  version: "1.0"
+  title: "WLSPaymentMgmtRESTSvc"
+  termsOfService: ""
+  contact: {}
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /account/{ban}/payment-arrangement/eligibility:
+    get:
+      summary: "getPaymentArrangementEligibility"
+      description: "SLA Information:\n\nServices/APIs called:\n|Service|operation|SLA|\n\
+        |---|---|---|\n|Datagrid|WirelessAccountRetrievalService.getAccountListByAccountNumberList||\t\
+        \n|KB-API|UpdateBanConvBean.getBanCollectionInfo||\n\n</br>\nExpected average\
+        \ response time: ? ms\n"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n<br/>\n\nPayment arrangement eligibility\
+              \ status codes are defined in the following table. These rules will\
+              \ be executed in ascending order based on priority and will be handled\
+              \ on a ‘first-fail’ basis.\n|paymentArrangementStatusCd|paymentArrangementStatusDesc|Priority|\n\
+              |---|---|---|\n0|Account is eligible for payment arrangement.|N/A|\n\
+              1000|Not eligible for payment arrangement; account is currently not\
+              \ in treatment.|1|\n1001|Not eligible for payment arrangement; no amount\
+              \ is currently overdue on the account.|2|\n1002|Not eligible for payment\
+              \ arrangement; a payment arrangement currently exists on this account.|3|\n\
+              1003|Not eligible for payment arrangement; account is suspended for\
+              \ reasons other than non-payment.|7|\n1004|Not eligible for payment\
+              \ arrangement; account is cancelled.|8|\n1009|Not eligible for payment\
+              \ arrangement; no automated payment arrangement is allowed for this\
+              \ credit class.|6|\n1010|Not eligible for payment arrangement; overdue\
+              \ balance aging exceeds allowable limit.|10|\n1011|Not eligible for\
+              \ payment arrangement; a dishonoured payment arrangement or payment\
+              \ notification currently exists on this account.|5|\n1013|Not eligible\
+              \ for payment arrangement; account has been referred to an agency for\
+              \ collection.|9|\n1015|Not eligible for payment arrangement; a payment\
+              \ notification currently exists on this account.|4|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+              totalDueAmt:
+                type: "number"
+                description: "Total amount due for this payment arrangement"
+                example: 210.35
+              paymentArrangementStatusCd:
+                type: "number"
+                description: "Code identifying the account’s payment arrangement eligibility\
+                  \ status"
+                example: 0
+              paymentArrangementStatusDesc:
+                type: "string"
+                description: "Description of the account’s payment arrangement eligibility\
+                  \ status"
+                example: "Account is eligible for payment arrangement."
+              paymentArrangementOptionList:
+                type: "array"
+                description: "List of the payment arrangement options available"
+                items:
+                  $ref: "#/definitions/PaymentArrangementOption"
+          examples:
+            application/json: "Eligible response:\n{\n   \"status\" : {\n      “statusCd”\
+              \ : “200”,\n      “statusTxt” : “Success”,\n      “systemErrorTimeStamp”\
+              \ : “2017-03-01T14:59:13”\n   },\n   “totalDueAmt” : 240.00,\n   “paymentArrangementStatusCd”\
+              \ : 0,\n   “paymentArrangementStatusDesc” : “Account is eligible for\
+              \ payment arrangement.”,\n   “paymentArrangementOptionList” : [\n  \
+              \    {\n         “optionCd” : “SSPA_OPTION_1”,\n         “detailList”\
+              \ : [\n            {\n               “paymentAmt” : 240.00,\n      \
+              \         “paymentDueDt” : “2017-03-25”\n            },\n         ]\n\
+              \      },\n      {\n         “optionCd” : “SSPA_OPTION_2”,\n       \
+              \  “detailList” : [\n            {\n               “paymentAmt” : 120.00,\n\
+              \               “paymentDueDt” : “2017-03-14”\n            },\n    \
+              \        {\n               “paymentAmt” : 120.00,\n               “\
+              paymentDueDt” : “2017-03-25”\n            },\n         ]\n      },\n\
+              \      {\n         “optionCd” : “SSPA_OPTION_3”,\n         “detailList”\
+              \ : [\n            {\n               “paymentAmt” : 80.00,\n       \
+              \        “paymentDueDt” : “2017-03-07”\n            },\n           \
+              \ {\n               “paymentAmt” : 80.00,\n               “paymentDueDt”\
+              \ : “2017-03-14”\n            },\n            {\n               “paymentAmt”\
+              \ : 80.00,\n               “paymentDueDt” : “2017-03-25”\n         \
+              \   }\n         ]\n      }\n   ]\n}\n"
+        400:
+          description: "A business exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|400|BE|ERROR_INVALID_BAN|Underlying error|Underlying\
+              \ error|Invalid BAN in URI|\n|400|BE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying Amdocs\
+              \ business exception |\n|400|BE|Business error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying business\
+              \ exception not captured elsewhere|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Failure response for exception:\n{\n   “status” : {\n\
+              \      “statusCd” : “400”,\n      “statusSubCd” : “BE”,\n      “statusTxt”\
+              \ : “ERROR_INVALID_BAN”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\
+              ,\n      “systemErrorCd” : “90000002”,\n      “systemErrorTxt” : “Ban\
+              \ not found.”\n   }\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying Amdocs\
+              \ system or service exception|\n|500|SE|System error|Underlying error\
+              \ code|Underlying error message|Any caught exception resulting from\
+              \ an underlying system or service exception not captured elsewhere|\n\
+              |500|GE|General error|ERROR_GENERIC|Underlying error message|Any caught\
+              \ exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+    parameters:
+    - name: "ban"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The (wireless only) billing account number whose payment arrangement\
+        \ eligibility is to be checked."
+  /account/{ban}/payment-notification/eligibility:
+    get:
+      summary: "getPaymentNotificationEligibility"
+      description: "SLA Information:\n\nServices/APIs called:\n|Service|operation|SLA|\n\
+        |---|---|---|\n|Datagrid|WirelessAccountRetrievalService.getAccountListByAccountNumberList||\t\
+        \n|KB-API|UpdateBanConvBean.getBanCollectionInfo||\n\n</br>\nExpected average\
+        \ response time: ? ms\n"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n<br/>\n\nPayment notification eligibility\
+              \ status codes are defined in the following table. These rules will\
+              \ be executed in ascending order based on priority and will be handled\
+              \ on a ‘first-fail’ basis.\n|paymentNotificationStatusCd|paymentNotificationStatusDesc|Priority|\n\
+              |---|---|---|\n0|Account is eligible for payment notification.|N/A|\n\
+              1000|Not eligible for payment notification; account is currently not\
+              \ in treatment.|1|\n1003|Not eligible for payment notification; account\
+              \ is suspended for reasons other than non-payment.|5|\n1004|Not eligible\
+              \ for payment notification; account is cancelled.|6|\n1009|Not eligible\
+              \ for payment notification; no automated payment notification is allowed\
+              \ for this credit class.|4|\n1010|Not eligible for payment notification;\
+              \ overdue balance aging exceeds allowable limit.|8|\n1011|Not eligible\
+              \ for payment notification; a dishonoured payment notification or payment\
+              \ arrangement currently exists on this account.|3|\n1012|Not eligible\
+              \ for payment notification; insufficient time before the next due date.\
+              \  No extension will be granted.|9|\n1013|Not eligible for payment notification;\
+              \ account has been referred to an agency for collection.|7|\n1015|Not\
+              \ eligible for payment notification; a payment notification currently\
+              \ exists on this account.|2|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+              totalDueAmt:
+                type: "number"
+                description: "Total amount due for this payment notification"
+                example: 210.35
+              paymentDueDt:
+                type: "string"
+                description: "The date by which payment must be received by TELUS\
+                  \ for this payment notification"
+                example: "2017-03-30"
+              paymentNotificationStatusCd:
+                type: "number"
+                description: "Code identifying the account’s payment notification\
+                  \ eligibility status"
+                example: 0
+              paymentNotificationStatusDesc:
+                type: "string"
+                description: "Description of the account’s payment notification eligibility\
+                  \ status"
+                example: "Account is eligible for payment notification."
+          examples:
+            application/json: "Eligible response:\n{\n   \"status\" : {\n      “statusCd”\
+              \ : “200”,\n      “statusTxt” : “Success”,\n      “systemErrorTimeStamp”\
+              \ : “2017-03-01T14:59:13”\n   },\n   “totalDueAmt” : 76.50,\n   “paymentDueDt”\
+              \ : “2017-03-24”,\n   “paymentNotificationStatusCd” : 0,\n   “paymentNotificationStatusDesc”\
+              \ : “Account is eligible for payment notification.”\n}"
+        400:
+          description: "A business exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|400|BE|ERROR_INVALID_BAN|Underlying error|Underlying\
+              \ error|Invalid BAN in URI|\n|400|BE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying Amdocs\
+              \ business exception |\n|400|BE|Business error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying business\
+              \ exception not captured elsewhere|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Failure response for exception:\n{\n   “status” : {\n\
+              \      “statusCd” : “400”,\n      “statusSubCd” : “BE”,\n      “statusTxt”\
+              \ : “ERROR_INVALID_BAN”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\
+              ,\n      “systemErrorCd” : “90000002”,\n      “systemErrorTxt” : “Ban\
+              \ not found.”\n   }\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying Amdocs\
+              \ system or service exception|\n|500|SE|System error|Underlying error\
+              \ code|Underlying error message|Any caught exception resulting from\
+              \ an underlying system or service exception not captured elsewhere|\n\
+              |500|GE|General error|ERROR_GENERIC|Underlying error message|Any caught\
+              \ exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+    parameters:
+    - name: "ban"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The (wireless only) billing account number whose payment notification\
+        \ eligibility is to be checked."
+  /account/{ban}/payment-arrangement:
+    post:
+      summary: "createPaymentArrangement"
+      description: "SLA Information:\n\nServices/APIs called:\n|Service|operation|SLA|\n\
+        |---|---|---|\n|Datagrid|WirelessAccountRetrievalService.getAccountListByAccountNumberList||\t\
+        \n|KB-API|UpdateBanConvBean.createFollowUp||\n|KB-API|UpdateBanConvBean.closeFollowUp||\n\
+        |KB-API|WorklistConv.reassignFollowUp||\n|KB-API|UpdateBanConvBean.restoreSuspendedBan||\n\
+        |KB-API|UpdateBanConvBean.hotLineBan||\n|KB-API|UpdateBanConvBean.saveBan||\n\
+        |KB-API|UpdateBanConvBean.setNextStep||\n|Notifications|EnterpriseCustomerNotificationManagementService.submitNotification||\n\
+        <br/>\nExpected average response time: ? ms\n<br/><br/>\nNote: Due to performance\
+        \ restrictions of downstream systems, calls to this service involving the\
+        \ same account must be performed sequentially. The architecture does not support\
+        \ parallel processing of requests involving the same BAN."
+      consumes: []
+      produces:
+      - "application/json"
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "paymentArrangementOption"
+          properties:
+            paymentArrangementOption:
+              type: "string"
+              description: "The selected option for this payment arrangement"
+              enum:
+              - "SSPA_OPTION_1"
+              - "SSPA_OPTION_2"
+              - "SSPA_OPTION_3"
+          description: "The following parameters will be passed in the body of the\
+            \ HTTP request within a JSON structure. "
+        x-examples:
+          application/json: "{\n   \"paymentArrangementOption\" : \"SSPA_OPTION_1\"\
+            \n}"
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n<br/>\n\nThe following table describes\
+              \ the possible activities which may populate the activityErrorList:\n\
+              |Activity error code|Description|\n|---|---|\n|CLOSE_FOLLOW_UP|There\
+              \ was an error closing a follow-up related to this payment arrangement.|\n\
+              |CREATE_MEMO|There was an error during memo creation for this payment\
+              \ arrangement.|\n|RESTORE_ACCOUNT|There was an error restoring the account\
+              \ from suspended status or updating the ‘hotline’ indicator.|\n|UPDATE_HOLD_AUTO_TREATMENT|There\
+              \ was an error updating the ‘hold auto-treatment’ indicator.|\n|NOTIFICATION_EMAIL|There\
+              \ was an error sending the email request to the ECNMS platform.|\n<br/>\n\
+              \nPayment arrangement eligibility status codes are defined in the following\
+              \ table. These rules will be executed in ascending order based on priority\
+              \ and will be handled on a ‘first-fail’ basis.\n|paymentArrangementStatusCd|paymentArrangementStatusDesc|Priority|\n\
+              |---|---|---|\n0|Account is eligible for payment arrangement.|N/A|\n\
+              1000|Not eligible for payment arrangement; account is currently not\
+              \ in treatment.|1|\n1001|Not eligible for payment arrangement; no amount\
+              \ is currently overdue on the account.|2|\n1002|Not eligible for payment\
+              \ arrangement; a payment arrangement currently exists on this account.|3|\n\
+              1003|Not eligible for payment arrangement; account is suspended for\
+              \ reasons other than non-payment.|7|\n1004|Not eligible for payment\
+              \ arrangement; account is cancelled.|8|\n1009|Not eligible for payment\
+              \ arrangement; no automated payment arrangement is allowed for this\
+              \ credit class.|6|\n1010|Not eligible for payment arrangement; overdue\
+              \ balance aging exceeds allowable limit.|10|\n1011|Not eligible for\
+              \ payment arrangement; a dishonoured payment arrangement or payment\
+              \ notification currently exists on this account.|5|\n1013|Not eligible\
+              \ for payment arrangement; account has been referred to an agency for\
+              \ collection.|9|\n1015|Not eligible for payment arrangement; a payment\
+              \ notification currently exists on this account.|4|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+              totalDueAmt:
+                type: "number"
+                description: "Total amount due for this payment arrangement"
+                example: 210.35
+              paymentArrangementStatusCd:
+                type: "number"
+                description: "Code identifying the account’s payment arrangement eligibility\
+                  \ status"
+                example: 0
+              paymentArrangementStatusDesc:
+                type: "string"
+                description: "Description of the account’s payment arrangement eligibility\
+                  \ status"
+                example: "Account is eligible for payment arrangement."
+              activityErrorList:
+                type: "array"
+                description: "List of the payment arrangement activities which did\
+                  \ not complete successfully but do not result in a hard stop error"
+                items:
+                  type: "string"
+                  example: "CLOSE_FOLLOW_UP"
+                example: "[ “CLOSE_FOLLOW_UP”, “RESTORE_ACCOUNT”,  “NOTIFICATION_EMAIL”\
+                  \ ]"
+          examples:
+            application/json: "Success response with no failed activities:\n{\n  \
+              \ \"status\" : {\n      “statusCd” : “200”,\n      “statusTxt” : “Success”\
+              ,\n      “systemErrorTimeStamp” : “2017-03-01T14:59:13”\n   },\n   “\
+              totalDueAmt” : 240.00,\n   “paymentArrangementStatusCd” : 0,\n   “paymentArrangementStatusDesc”\
+              \ : “Payment arrangement completed successfully.”\n}\n"
+        400:
+          description: "A business exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|400|BE|ERROR_INVALID_BAN|Underlying error|Underlying\
+              \ error|Invalid BAN in URI|\n|400|BE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying Amdocs\
+              \ business exception |\n|400|BE|Business error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying business\
+              \ exception not captured elsewhere|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Failure response for exception:\n{\n   “status” : {\n\
+              \      “statusCd” : “400”,\n      “statusSubCd” : “BE”,\n      “statusTxt”\
+              \ : “ERROR_INVALID_BAN”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\
+              ,\n      “systemErrorCd” : “90000002”,\n      “systemErrorTxt” : “Ban\
+              \ not found.”\n   }\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying Amdocs\
+              \ system or service exception|\n|500|SE|System error|Underlying error\
+              \ code|Underlying error message|Any caught exception resulting from\
+              \ an underlying system or service exception not captured elsewhere|\n\
+              |500|GE|General error|ERROR_GENERIC|Underlying error message|Any caught\
+              \ exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+    parameters:
+    - name: "ban"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The (wireless only) billing account number whose payment arrangement\
+        \ is to be applied."
+  /account/{ban}/payment-notification:
+    post:
+      summary: "createPaymentNotification"
+      description: "SLA Information:\n\nServices/APIs called:\n|Service|operation|SLA|\n\
+        |---|---|---|\n|Datagrid|WirelessAccountRetrievalService.getAccountListByAccountNumberList||\t\
+        \n|KB-API|UpdateBanConvBean.createMemo||\n|KB-API|UpdateBanConvBean.createFollowUp||\n\
+        |KB-API|UpdateBanConvBean.closeFollowUp||\n|KB-API|WorklistConv.reassignFollowUp||\n\
+        |KB-API|UpdateBanConvBean.restoreSuspendedBan||\n|KB-API|UpdateBanConvBean.hotLineBan||\n\
+        |KB-API|UpdateBanConvBean.saveBan||\n|KB-API|UpdateBanConvBean.setNextStep||\n\
+        |Notifications|EnterpriseCustomerNotificationManagementService.submitNotification||\n\
+        <br/>\nExpected average response time: ? ms\n<br/><br/>\nNote: Due to performance\
+        \ restrictions of downstream systems, calls to this service involving the\
+        \ same account must be performed sequentially. The architecture does not support\
+        \ parallel processing of requests involving the same BAN."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n<br/>\n\nThe following table describes\
+              \ the possible activities which may populate the activityErrorList:\n\
+              |Activity error code|Description|\n|---|---|\n|CREATE_FOLLOW_UP|There\
+              \ was an error creating a follow-up related to this payment notification.|\n\
+              |CLOSE_FOLLOW_UP|There was an error closing a follow-up related to this\
+              \ payment notification.|\n|RESTORE_ACCOUNT|There was an error restoring\
+              \ the account from suspended status or updating the ‘hotline’ indicator.|\n\
+              |UPDATE_HOLD_AUTO_TREATMENT|There was an error updating the ‘hold auto-treatment’\
+              \ indicator.|\n|NOTIFICATION_EMAIL|There was an error sending the email\
+              \ request to the ECNMS platform.|\n<br/>\n\nPayment notification eligibility\
+              \ status codes are defined in the following table. These rules will\
+              \ be executed in ascending order based on priority and will be handled\
+              \ on a ‘first-fail’ basis.\n|paymentNotificationStatusCd|paymentNotificationStatusDesc|Priority|\n\
+              |---|---|---|\n0|Account is eligible for payment notification.|N/A|\n\
+              1000|Not eligible for payment notification; account is currently not\
+              \ in treatment.|1|\n1003|Not eligible for payment notification; account\
+              \ is suspended for reasons other than non-payment.|5|\n1004|Not eligible\
+              \ for payment notification; account is cancelled.|6|\n1009|Not eligible\
+              \ for payment notification; no automated payment notification is allowed\
+              \ for this credit class.|4|\n1010|Not eligible for payment notification;\
+              \ overdue balance aging exceeds allowable limit.|8|\n1011|Not eligible\
+              \ for payment notification; a dishonoured payment notification or payment\
+              \ arrangement currently exists on this account.|3|\n1012|Not eligible\
+              \ for payment notification; insufficient time before the next due date.\
+              \  No extension will be granted.|9|\n1013|Not eligible for payment notification;\
+              \ account has been referred to an agency for collection.|7|\n1015|Not\
+              \ eligible for payment notification; a payment notification currently\
+              \ exists on this account.|2|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+              totalDueAmt:
+                type: "number"
+                description: "Total amount due for this payment notification"
+                example: 210.35
+              paymentDueDt:
+                type: "string"
+                description: "The date by which payment must be received by TELUS\
+                  \ for this payment notification"
+                example: "2017-03-30"
+              paymentNotificationStatusCd:
+                type: "number"
+                description: "Code identifying the account’s payment notification\
+                  \ eligibility status"
+                example: 0
+              paymentNotificationStatusDesc:
+                type: "string"
+                description: "Description of the account’s payment notification eligibility\
+                  \ status"
+                example: "Account is eligible for payment notification."
+              activityErrorList:
+                type: "array"
+                description: "List containing the payment notification activities\
+                  \ which did not complete successfully but do not result in a hard\
+                  \ stop error"
+                items:
+                  type: "string"
+                  example: "CLOSE_FOLLOW_UP"
+                example: "[ “CLOSE_FOLLOW_UP”, “RESTORE_ACCOUNT”,  “NOTIFICATION_EMAIL”\
+                  \ ]"
+          examples:
+            application/json: "Success response with no failed activities:\n{\n  \
+              \ \"status\" : {\n      “statusCd” : “200”,\n      “statusTxt” : “Success”\
+              ,\n      “systemErrorTimeStamp” : “2017-03-01T14:59:13”\n   },\n   “\
+              totalDueAmt” : 76.50,\n   “paymentDueDt” : “2017-03-24”,\n   “paymentNotificationStatusCd”\
+              \ : 0,\n   “paymentNotificationStatusDesc” : “Payment notification completed\
+              \ successfully.”\n}\n"
+        400:
+          description: "A business exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|400|BE|ERROR_INVALID_BAN|Underlying error|Underlying\
+              \ error|Invalid BAN in URI|\n|400|BE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying Amdocs\
+              \ business exception |\n|400|BE|Business error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying business\
+              \ exception not captured elsewhere|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Failure response for exception:\n{\n   “status” : {\n\
+              \      “statusCd” : “400”,\n      “statusSubCd” : “BE”,\n      “statusTxt”\
+              \ : “ERROR_INVALID_BAN”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\
+              ,\n      “systemErrorCd” : “90000002”,\n      “systemErrorTxt” : “Ban\
+              \ not found.”\n   }\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying Amdocs\
+              \ system or service exception|\n|500|SE|System error|Underlying error\
+              \ code|Underlying error message|Any caught exception resulting from\
+              \ an underlying system or service exception not captured elsewhere|\n\
+              |500|GE|General error|ERROR_GENERIC|Underlying error message|Any caught\
+              \ exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+    parameters:
+    - name: "ban"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The (wireless only) billing account number whose payment notification\
+        \ is to be applied."
+  /account/{ban}/payment-agreement:
+    get:
+      summary: "getPaymentAgreement"
+      description: "SLA Information:\n\nServices/APIs called: None\n\n</br>\nExpected\
+        \ average response time: ? ms\n"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "activeonly"
+        in: "query"
+        required: false
+        type: "string"
+        description: "Indicates whether results are restricted only to active payment\
+          \ agreements – if not specified, default is \"y\""
+        enum:
+        - "y"
+        - "n"
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n<br/>"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+              typeCd:
+                type: "string"
+                description: "String identifying the type of payment agreement"
+                enum:
+                - "SSPA"
+                - "SSPN"
+              statusCd:
+                type: "string"
+                description: "Status of the payment agreement"
+                enum:
+                - "OPEN"
+                - "CLOSED"
+              openDt:
+                type: "string"
+                description: "Date the payment agreement was created"
+                example: "2017-03-31"
+              closeDt:
+                type: "string"
+                description: "Date the payment agreement was closed (if status is\
+                  \ “CLOSED”)"
+                example: "2017-04-24"
+          examples:
+            application/json: "{\n   \"status\" : {\n      “statusCd” : “200”,\n \
+              \     “statusTxt” : “Success”,\n      “systemErrorTimeStamp” : “2017-04-21T14:59:13”\
+              \n   },\n   “typeCd” : “SSPA”,\n   “statusCd” : “CLOSED”,\n   “openDt”\
+              \ : “2017-03-24”,\n   “closeDt” : “2017-04-18”\n}\n"
+        400:
+          description: "A business exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|400|BE|ERROR_INVALID_BAN|Underlying error|Underlying\
+              \ error|Invalid BAN in URI|\n|400|BE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying Amdocs\
+              \ business exception |\n|400|BE|Business error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying business\
+              \ exception not captured elsewhere|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Failure response for exception:\n{\n   “status” : {\n\
+              \      “statusCd” : “400”,\n      “statusSubCd” : “BE”,\n      “statusTxt”\
+              \ : “ERROR_INVALID_BAN”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\
+              ,\n      “systemErrorCd” : “90000002”,\n      “systemErrorTxt” : “Ban\
+              \ not found.”\n   }\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying Amdocs\
+              \ system or service exception|\n|500|SE|System error|Underlying error\
+              \ code|Underlying error message|Any caught exception resulting from\
+              \ an underlying system or service exception not captured elsewhere|\n\
+              |500|GE|General error|ERROR_GENERIC|Underlying error message|Any caught\
+              \ exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+    parameters:
+    - name: "ban"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The (wireless only) billing account number whose payment agreement\
+        \ is to be retrieved."
+  /ping:
+    get:
+      summary: "ping"
+      description: "SLA Information:\n\nServices/APIs called: None\n\nExpected average\
+        \ response time: 1500 ms\n"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+              nameTxt:
+                type: "string"
+                description: "The name of the service."
+              descriptionTxt:
+                type: "string"
+                description: "The description of the service."
+              buildLabelTxt:
+                type: "string"
+                description: "The build version for this service."
+              buildDt:
+                type: "string"
+                description: "The date the service was built."
+          examples:
+            application/json: "{\n   “status” : {\n      “statusCd” : “200”,\n   \
+              \   “statusTxt” : “Success”,\n      “systemErrorTimeStamp” : “2017-02-21T14:59:13”\
+              \n   },\n   “nameTxt” : “Wireless Account Payment Management REST Service\
+              \ 1.0”,\n   “descriptionTxt” : “This service provides a suite of operations\
+              \ to perform billing-related payment functions.”,\n   “buildLabel” :\
+              \ “201711.0.21”,\n   “buildDt” : “20171019-195457”\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|System error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying system\
+              \ or service exception not captured elsewhere|\n|500|GE|General error|ERROR_GENERIC|Underlying\
+              \ error message|Any caught exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+securityDefinitions:
+  HTTP_BASIC:
+    description: "All GET methods are public, meaning that *you can read all the data*.\
+      \ Write operations require authentication and therefore are forbidden to the\
+      \ general public."
+    type: "basic"
+definitions:
+  ResponseStatus:
+    type: "object"
+    required:
+    - "statusCd"
+    properties:
+      statusCd:
+        type: "string"
+        description: "The HTTP result status code."
+        example: "200"
+      statusSubCd:
+        type: "string"
+        description: "The service internal status code."
+        example: "UM1, UM2"
+      statusTxt:
+        type: "string"
+        description: "A short description of status."
+        example: "Invalid URL"
+      systemErrorCd:
+        type: "string"
+        description: "If the underlying service we call returns its own error code,\
+          \ we'll include it here, e.g. contents of faultString in error response"
+        example: "“error: java.lang.IllegalArgumentException\""
+      systemErrorTs:
+        type: "string"
+        description: "The time of underlying error (to help in locating error in logs)."
+        example: "2013-05-23T11:07:48"
+      systemErrorTxt:
+        type: "string"
+        description: "A description of system error; messageId, errorCode from PolicyException."
+        example: "“messageId: APP10004”"
+    description: "REST design normally maps error conditions to existing well-established\
+      \ HTTP error codes, e.g. 200 (\"OK\"), 404 (\"Resource not found\").  However,\
+      \ for reasons of design flexibility (the predefined codes often seem ill-suited\
+      \ to specific conditions) we are taking a different approach. Generally, as\
+      \ long as the call to the service succeeds, the HTTP response status will be\
+      \ 200 (success), even when there are underlying failures, and a \"status\" object,\
+      \ always part of the response payload, is used to indicate any such failures\
+      \ (this is the approach Facebook takes)."
+  PaymentArrangementDetail:
+    type: "object"
+    properties:
+      paymentAmt:
+        type: "number"
+        description: "The amount due for this payment arrangement"
+        example: 45.5
+      paymentDueDt:
+        type: "string"
+        description: "The due date for this payment arrangement"
+        example: "2017-03-09"
+    description: "The details of the payment arrangement including the payment amount\
+      \ and due date.  "
+    example: "{\n    “paymentAmt” : 240.00,\n    “paymentDueDt” : “2017-03-25”\n}"
+  PaymentArrangementOption:
+    type: "object"
+    properties:
+      optionCd:
+        type: "string"
+        description: "Code identifying the payment arrangement option"
+        enum:
+        - "SSPA_OPTION_1"
+        - "SSPA_OPTION_2"
+        - "SSPA_OPTION_3"
+      detailList:
+        type: "array"
+        description: "List of the payment arrangement details relevant to this payment\
+          \ arrangement option."
+        items:
+          $ref: "#/definitions/PaymentArrangementDetail"
+    description: "The payment arrangement options that are available based on the\
+      \ account details which contains up to three different options."
+    example: "{\n    “optionCd” : “SSPA_OPTION_1”,\n    “detailList” : [\n       \
+      \ {\n            “paymentAmt” : 240.00,\n            “paymentDueDt” : “2017-03-25”\
+      \n         },\n    ]\n}"

@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb.svc.equipment</groupId>
+		<artifactId>pom-cmb-equipment-svc</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cmb-equipment-svc-services</artifactId>
+	<packaging>jar</packaging>
+ 
+	<dependencies>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>cmb-equipment-svc-domain</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common</groupId>
+			<artifactId>cmb-common-prepaid</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>equipment-activation-support-1-2-ws-client</artifactId>   
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>equipment-lifecycle-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>equipment-info-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.product.p3ms</groupId>
+			<artifactId>P3MSClientAPI</artifactId>
+			<version>2014.10.0</version>
+		</dependency>
+
+<!-- 
+		<dependency>
+			<groupId>telus.product.p3ms</groupId>
+			<artifactId>p3ms-dao</artifactId>
+			<version>2014.10.0</version>
+		</dependency>
+ -->
+ 
+ 		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>product-device-ws-client</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.contactctr.ivr.thirdparty.otasp</groupId>
+			<artifactId>nrtClient</artifactId>
+			<version>0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>weblogic</groupId>
+			<artifactId>wlfullclient</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-compile</id>
+						<phase>none</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>		
+			<plugin>
+				<groupId>telus-maven.plugins.cis</groupId>
+				<artifactId>cis-ldifgen-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+				<configuration>
+					<aspectLibraries>
+						<aspectLibrary>
+							<groupId>telus.cust.cmb.common</groupId>
+							<artifactId>cmb-framework</artifactId>
+						</aspectLibrary>
+					</aspectLibraries>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

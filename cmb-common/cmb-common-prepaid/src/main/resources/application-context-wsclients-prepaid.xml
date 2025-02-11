@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<bean id="prepaidJaxWsProxyBase" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" abstract="true"
+		p:lookupServiceOnStartup="false" 
+		p:username="${credentials/ejb/username}" 
+		p:password="${credentials/ejb/password}" 
+	/>
+
+	<bean class="com.telus.cmb.common.prepaid.SubscriptionBalanceMgmtServiceClient">
+		<property name="port">
+			<bean parent="jaxWsPortProxyBase"
+				p:serviceInterface="com.telus.cmb.wsclient.SubscriptionBalanceMgmtServicePort"
+				p:wsdlDocumentUrl="classpath:wsdls/SubscriptionBalanceMgmtService_v1_1.wsdl"
+				p:namespaceUri="http://telus.com/wsdl/CMO/ReceivablesMgmt/SubscriptionBalanceMgmtService_1"
+				p:serviceName="SubscriptionBalanceMgmtService_v1_1" 
+				p:endpointAddress="${endpoints/SubscriptionBalanceMgmtService/url}" 
+			/>
+		</property>
+	</bean>
+	
+	<bean class="com.telus.cmb.common.prepaid.OrderServiceClient">
+		<property name="port">
+		   	<bean parent="jaxWsPortProxyBase"
+		        p:serviceInterface="com.telus.cmb.wsclient.OrderServicePort"
+		        p:wsdlDocumentUrl="classpath:wsdls/OrderService_v2_0.wsdl"
+		        p:namespaceUri="http://telus.com/wsdl/CMO/OrderMgmt/OrderService_2"
+		        p:serviceName="OrderService_v2_0"
+		        p:endpointAddress="${endpoints/OrderService/url}" 
+		   	/>
+	   	</property>
+	</bean>
+	
+	<bean class="com.telus.cmb.common.prepaid.SubscriptionServiceClient">
+		<property name="port">
+		   	<bean parent="jaxWsPortProxyBase"
+		        p:serviceInterface="com.telus.cmb.wsclient.SubscriptionServicePort"
+		        p:wsdlDocumentUrl="classpath:wsdls/SubscriptionService_v2_1.wsdl"
+		        p:namespaceUri="http://telus.com/wsdl/CMO/SelfMgmt/SubscriptionService_2"
+		        p:serviceName="SubscriptionService_v2_1"
+		        p:endpointAddress="${endpoints/SubscriptionService/url}" 
+		   	/>
+		</property>
+	</bean>
+ 
+	<bean class="com.telus.cmb.common.prepaid.PrepaidWirelessCustomerOrderServiceClient">
+		<property name="port">
+			<bean parent="jaxWsPortProxyBase"
+		        p:serviceInterface="com.telus.cmb.wsclient.PrepaidWirelessCustomerOrderServicePort"
+		        p:wsdlDocumentUrl="classpath:wsdls/PrepaidWirelessCustomerOrderService_v1_1.wsdl"
+		        p:namespaceUri="http://telus.com/wsdl/CMO/OrderMgmt/PrepaidWirelessCustomerOrderService_1"
+		        p:serviceName="PrepaidWirelessCustomerOrderService_v1_1"
+		        p:endpointAddress="${endpoints/PrepaidWirelessCustomerOrderService/url}" 
+		   	/> 	   
+		</property>
+	</bean>
+
+	<bean class="com.telus.cmb.common.prepaid.PrepaidSubscriberServiceClient">
+		<property name="port">
+		   	<bean parent="jaxWsPortProxyBase"
+		        p:serviceInterface="com.telus.cmb.wsclient.PrepaidSubscriberServicePort"
+		        p:wsdlDocumentUrl="classpath:wsdls/PrepaidSubscriberService_v3_1.wsdl"
+		        p:namespaceUri="http://telus.com/wsdl/CMO/SelfMgmt/PrepaidSubscriberService_3"
+		        p:serviceName="PrepaidSubscriberService_v3_1"
+		        p:endpointAddress="${endpoints/PrepaidSubscriberService/url}" 
+		   	/>
+		</property>
+	</bean>
+
+
+	<bean class="com.telus.cmb.common.prepaid.SubscriptionManagementServiceClient">
+		<property name="port">
+		   	<bean parent="jaxWsPortProxyBase"
+		        p:serviceInterface="com.telus.cmb.wsclient.SubscriptionManagementServicePort"
+		        p:wsdlDocumentUrl="classpath:wsdls/SubscriptionManagementService_v3_1.wsdl"
+		        p:namespaceUri="http://telus.com/wsdl/CMO/BillingAccountMgmt/SubscriptionManagementService_3"
+		        p:serviceName="SubscriptionManagementService_v3_1"
+		        p:endpointAddress="${endpoints/SubscriptionManagementService/url}" 
+		   	/>
+		</property>
+	</bean>
+
+	<bean class="com.telus.cmb.common.prepaid.ProductOfferingServiceClient">
+		<property name="port">
+			<bean parent="jaxWsPortProxyBase"
+				p:serviceInterface="com.telus.cmb.wsclient.ProductOfferingServicePort"
+				p:wsdlDocumentUrl="classpath:wsdls/ProductOfferingService_v2_2.wsdl"
+				p:namespaceUri="http://telus.com/wsdl/CMO/SelfMgmt/ProductOfferingService_2"
+				p:serviceName="ProductOfferingService_v2_2"
+		        p:endpointAddress="${endpoints/ProductOfferingService/url}" 
+			/>
+		</property>
+	</bean>
+	
+	<bean class="com.telus.cmb.common.prepaid.VoucherValidationServiceClient">
+		<property name="port">
+			<bean parent="jaxWsPortProxyBase"
+				p:serviceInterface="com.telus.cmb.wsclient.VoucherValidationServicePort"
+				p:wsdlDocumentUrl="classpath:wsdls/VoucherValidationService.wsdl"
+				p:namespaceUri="http://www.telus.com/VoucherService/wsdl_v2"
+				p:serviceName="VoucherValidationService_v2_0"
+		        p:endpointAddress="${endpoints/VoucherValidationService/url}" 
+			/>
+		</property>
+	</bean>
+
+</beans>

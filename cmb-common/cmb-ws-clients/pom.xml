@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb.common</groupId>
+		<artifactId>pom-cmb-common</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+ 
+	<groupId>telus.cust.cmb.common.ws-clients</groupId>
+	<artifactId>pom-cmb-ws-clients</artifactId>
+	<packaging>pom</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics-runtime</artifactId>
+		</dependency>
+	</dependencies>	
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.jvnet.jax-ws-commons</groupId>
+					<artifactId>jaxws-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>GenService</id>
+							<configuration>
+								<genJWS>false</genJWS>
+								<target>2.1</target>
+								<bindingFiles>
+									<bindingFile>binding_schema.xjb</bindingFile>
+									<bindingFile>binding_wsdl.xjb</bindingFile>
+								</bindingFiles>
+								<wsdlFiles>
+									<wsdlFile>${wsdlFile}</wsdlFile>
+								</wsdlFiles>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+	<modules>
+		<module>ent-cust-notif-mgmt-ws-client-1-3</module>
+		<module>bill-notification-mgmt-ws-client-4-0</module>
+		<module>billing-accnt-data-mgmt-ws-client-2-4</module>
+		<module>card-payment-ws-client-1-4</module> 
+		<module>communication-suite-mgmt-ws-client-1-0</module>
+		<module>consumer-prod-data-mgmt-ws-client-1-0</module>
+		<module>credit-profile-ws-client-2-1</module>
+		<module>credit-profile-ws-client-3-0</module>
+		<module>ent-address-validation-ws-client-1-0</module>
+		<module>ent-consumer-profile-registration-ws-client-1-1</module>	
+		<module>ent-form-letter-mgmt-ws-client-1-0</module>
+		<module>equipment-activation-support-1-2-ws-client</module>
+		<module>equipment-info-ws-client-2-0</module>
+		<module>equipment-lifecycle-ws-client-2-1</module>
+		<module>hardware-purchase-accnt-ws-client-1-4</module>
+		<module>logical-resource-ws-client-6-1</module>
+		<module>ocssa-ws-client-3-2</module>
+		<module>ocssam-ws-client-3-2</module>
+		<module>order-service-ws-client-2-0</module>
+		<module>penalty-calculation-ws-client-3-1</module>
+		<module>prepaid-subscriber-ws-client-3-1</module>
+		<module>prepaid-wrls-customer-order-ws-client-1-1</module>
+		<module>product-device-ws-client-5-0</module>	
+		<module>product-offering-ws-client-2-2</module>
+ 		<module>real-time-action-advisor-ws-client-2-1</module>
+		<module>subscription-balance-mgmt-ws-client-1-1</module>
+		<module>subscription-mgmt-ws-client-3-1</module>
+		<module>subscription-ws-client-2-1</module>
+		<module>summary-data-usage-ws-client-5-0</module>
+		<module>voucher-validation-ws-client-2-0</module>
+		<module>voip-supplementary-ws-client-1-1</module>
+		<module>voip-license-purchase-ws-client-1-0</module>
+		<module>wlnp-activate-port-in-ws-client-1-0</module>
+		<module>wlnp-cancel-port-in-ws-client-1-0</module>
+		<module>wlnp-create-port-in-ws-client-1-0</module>
+		<module>wlnp-deactivate-subscriber-ws-client-0-0</module>
+		<module>wlnp-eligibility-ws-client-1-1</module>
+		<module>wlnp-port-request-info-ws-client-1-0</module>
+		<module>wlnp-portability-ws-client-1-0</module>
+		<module>wlnp-submit-request-ws-client-1-0</module>
+		<module>wls-credit-assessment-proxy-ws-client-2-0</module>
+		<module>wls-credit-management-ws-client-2-0</module>
+		<module>wrls-provisioning-ws-client-1-0</module>
+		<module>wsois-ws-client-2-10</module>
+		<module>redknee-subscription-mgmt-ws-client-1-0</module>
+	</modules>
+	
+</project>

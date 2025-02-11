@@ -1,0 +1,18 @@
+<bindings xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxws"
+	wsdlLocation="EquipmentLifeCycleManagementService_v2_1.wsdl" xmlns="http://java.sun.com/xml/ns/jaxws">
+	
+	<enableWrapperStyle>true</enableWrapperStyle>
+
+	<package name="com.telus.cmb.wsclient" />
+
+	<bindings node="wsdl:definitions/wsdl:portType[@name='EquipmentLifeCycleManagementService_v2_1_PortType']">
+		<class name="EquipmentLifeCycleManagementServicePort" />
+	</bindings>
+	<bindings node="//wsdl:fault[@name='ServiceException']">
+		<class name="ServiceException_v1" />
+	</bindings>
+	<bindings node="//wsdl:fault[@name='PolicyException']">
+		<class name="PolicyException_v1" />
+	</bindings>
+	
+</bindings>

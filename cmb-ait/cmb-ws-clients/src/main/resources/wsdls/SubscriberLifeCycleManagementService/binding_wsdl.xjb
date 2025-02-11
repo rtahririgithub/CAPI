@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bindings
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+  wsdlLocation="SubscriberLifeCycleManagementService_v1_5.wsdl"
+  xmlns="http://java.sun.com/xml/ns/jaxws">
+
+	<enableWrapperStyle>false</enableWrapperStyle>
+	
+	<bindings node="wsdl:definitions/wsdl:portType[@name='SubscriberLifeCycleManagementService_v1_5_PortType']">
+		<class name="SubscriberLifeCycleManagementServicePortType"/>
+	</bindings>
+
+    <bindings node="wsdl:definitions/wsdl:service[@name='SubscriberLifeCycleManagementService_v1_5']">
+        <class name="SubscriberLifeCycleManagementService"/>
+    </bindings>
+
+</bindings>

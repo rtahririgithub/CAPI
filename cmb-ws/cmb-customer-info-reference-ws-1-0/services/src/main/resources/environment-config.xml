@@ -1,0 +1,4 @@
+<environment-config>
+	<entry name="cmb-customer-info-reference-ws-1-0" path="/cmb-ns"/>
+	<entry name="cmb-customer-info-reference-ws-1-0" path="/ARMX/reference-versions" value="${label}"/>
+</environment-config>

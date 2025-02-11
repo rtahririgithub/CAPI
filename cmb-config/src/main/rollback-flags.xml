@@ -1,0 +1,81 @@
+<environment-config xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<entry name="AccountInformationHelper" path="/CMB/services">
+		</entry>
+	
+	<entry name="SubscriberLifecycleFacade" path="/CMB/services">
+		<entry name="wccAuditRollback" value="false"/>
+		<entry name="ecnmsSubscriberCancelEnabled" value="false"/>
+		<entry name="kafkaSubscriberCancelEnabled" value="true"/>
+		<entry name="ecnmsSubscriberMoveEnabled" value="false"/>
+		<entry name="kafkaSubscriberMoveEnabled" value="true"/>
+		<entry name="activationPostTaskRollback" value="false"/>
+	    <entry name="redKneeSubMgmtWsRollback" value="false"/>
+	</entry>
+	
+	<entry name="AccountLifecycleFacade" path="/CMB/services">
+		<entry name="wccAuditRollback" value="false"/>
+		<entry name="ecnmsAccountCancelEnabled" value="false"/>
+		<entry name="kafkaAccountCancelEnabled" value="true"/>
+	</entry>
+
+	<entry name="ClientAPI" path="/Telus-ECA">
+		<entry name="volteRollback" value="false"/>
+		<entry name="cdrNotificationRollback" value="false"/>
+		<entry name="enableAsyncUpdateBillingAccount" value="false"/>
+		<entry name="enableAsyncInsertBillingAccount" value="true"/>
+		<entry name="enableCommunicationSuite" value="true"/>
+		<entry name="enableCommSuiteCtnChangePostTask" value="true"/>
+		<entry name="enableLMS" value="false"/>
+		<entry name="enableEsimSupport" value="true"/>
+		
+		<entry name="cdrNotificationTestingEmailList">
+			<value value="TESTONLY-CustomerNotificationManagement@telus.com"/>
+			<value value="tempcustnotify@gmail.com"/>
+			<value value="tempcustnotify@hotmail.com"/>
+			<value value="Sujata.chirgainya@telus.com"/>
+			<value value="Sujata.chirgainya@accenture.com"/>
+			<value value="Chinthamreddy.chaitanya@telus.com"/>
+			<value value="Harshal.shah@telus.com"/>
+			<value value="Nandhakumar.r@telus.com"/>
+			<value value="Manish.garodia@accenture.com"/>
+			<value value="Yogesh.nayak@telus.com"/>
+			<value value="Magesh.Sathyavelu@telus.com"/>
+			<value value="Seshadri.avula@telus.com"/>
+			<value value="Sathwika_reddy.ummareddy@telus.com"/>
+			<value value="Deepthi.ramesh@telus.com"/>
+			<value value="s.reddy.ummareddy@accenture.com"/>
+			<value value="sssujata6@gmail.com"/>
+			<value value="teluscanada@yahoo.ca"/>
+			<value value="sathwikaummareddy@gmail.com"/>
+			<value value="deepthiramesh5@yahoo.co.in"/>
+			<value value="Waseem.Inamdar@telus.com"/>
+			<value value="Shantanu.sharma@telus.com"/>
+			<value value="Dipak.topiwala@telus.com"/>
+			<value value="Brian.Lee@telus.com"/>
+			<value value="Dax.Benitez@telus.com"/>
+			<value value="Melvin.Ocampo@telus.com"/>
+			<value value="Mohamed.Jaffer1@telus.com"/>
+			<value value="Annie.Tarquini@telus.com"/>
+			<value value="Naresh.Annabathula@telus.com"/>
+			<value value="capicdrtest@gmail.com"/>
+		</entry>
+		
+		
+		<entry name="refEjbCacheStrategyRollback">
+				<value environment="dv103"  value="false"/>
+				<value environment="pt140"  value="false"/>
+				<value environment="pt148"  value="false"/>
+				<value environment="pt168"  value="false"/>
+				<value environment="st101"  value="false"/>
+				<value environment="pr"     value="false"/>
+		</entry>
+		
+	    <entry name="kafkaChangeEquipmentEventEnabled" value="false"/>
+	    <entry name="kafkaChangePhoneNumberEventEnabled" value="true"/>
+	    <entry name="kafkaChangeEventSmartspeakerEnabled" value="true"/>
+		
+	</entry>
+	
+
+</environment-config>

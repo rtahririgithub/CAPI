@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<bean class="com.telus.cmb.framework.config.PlaceholderConfigurer"
+		p:ignoreUnresolvablePlaceholders="true" p:nullValue="null" />
+
+	<bean id="kafkaCustomerBillingAccountWirelessPublisher" class="com.telus.cmb.common.kafka.KafkaMessagePublisherImpl">
+<!-- 		<property name="endpointUrl" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PT140.Party.Customer.BillingAccount.Wireless"/> -->
+<!-- 			<property name="endpointUrl" value="https://enterprisemessagewebk-is02.tsl.telus.com:443/publisher/publish/PS101.Party.Customer.BillingAccount"/> -->
+		<property name="endpointUrl" value="${endpoints/kafkaEventPublisher/kafkaPartyCustomerBillingAccountWireless/url}"/>
+		<property name="enabledEventLdapKeys">
+			<list>
+				<value>KAFKA_ACCOUNT_EVENTS</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="paymentEventPublisher" class="com.telus.cmb.account.payment.kafka.PaymentEventPublisherImpl">
+		<property name="publisher" ref="kafkaCustomerBillingAccountWirelessPublisher" />
+	</bean>
+
+<bean id="accountStatusEventPublisher" class="com.telus.cmb.account.payment.kafka.AccountStatusEventPublisherImpl">
+		<property name="publisher" ref="kafkaCustomerBillingAccountWirelessPublisher" />
+	</bean>
+</beans> 

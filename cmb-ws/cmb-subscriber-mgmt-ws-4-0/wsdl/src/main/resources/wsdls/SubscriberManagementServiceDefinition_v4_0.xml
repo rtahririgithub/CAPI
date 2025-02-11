@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>SubscriberManagementService</Name>
+		<Documentation>Manages subscriber orders, such as price plan change, service changes, equipment change and phone number change.</Documentation>
+		<TAM_LevelZeroAndOne>CMO/OrderMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/SubscriberManagement</ServiceTaxonomy>
+		<MajorVersion>4</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmf-ordermgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>SubscriberManagementServiceRequestResponse_v4_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberManagementServiceRequestResponse_v4</NameSpace>
+		<nsAbbrev>slc</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>changeEquipment</OperationName>
+		<Documentation>Changes the subscriber's equipment.</Documentation>
+		<InputType wsp="True">changeEquipment</InputType>
+		<OutputType>changeEquipmentResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>changePhoneNumber</OperationName>
+		<Documentation>Changes the subscriber's phone number.</Documentation>
+		<InputType wsp="True">changePhoneNumber</InputType>
+		<OutputType>changePhoneNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>changeVoipNumber</OperationName>
+		<Documentation>Changes the subscriber's voip phone number.</Documentation>
+		<InputType wsp="True">changeVoipNumber</InputType>
+		<OutputType>changeVoipNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>changeVoipNumberWithCharge</OperationName>
+		<Documentation>Changes the subscriber's voip phone number with an associated recurring charge .</Documentation>
+		<InputType wsp="True">changeVoipNumberWithCharge</InputType>
+		<OutputType>changeVoipNumberWithChargeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>moveVoipNumberBetweenSeats</OperationName>
+		<Documentation>move voip phone number between seats.</Documentation>
+		<InputType wsp="True">moveVoipNumberBetweenSeats</InputType>
+		<OutputType>moveVoipNumberBetweenSeatsResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+	<Operation>
+		<OperationName>getServiceAgreement</OperationName>
+		<Documentation>Retrieve subscriber's service agreement</Documentation>
+		<InputType wsp="True">getServiceAgreement</InputType>
+		<OutputType>getServiceAgreementResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceAgreementForUpdate</OperationName>
+		<Documentation>Retrieve subscriber's service agreement with all required information to perform service agreement changes.</Documentation>
+		<InputType wsp="True">getServiceAgreementForUpdate</InputType>
+		<OutputType>getServiceAgreementForUpdateResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>validateServiceAgreement</OperationName>
+		<Documentation>Validate subscriber's service agreement changes and return validated and modified service agreement prior to commit.</Documentation>
+		<InputType wsp="True">validateServiceAgreement</InputType>
+		<OutputType>validateServiceAgreementResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>saveServiceAgreement</OperationName>
+		<Documentation>Save subscriber's service agreement changes.</Documentation>
+		<InputType wsp="True">saveServiceAgreement</InputType>
+		<OutputType>saveServiceAgreementResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>prepopulateCallingCircleList</OperationName>
+		<Documentation>Pre-populates or carries over calling circle list in Service Agreement calling circle feature object.</Documentation>
+		<InputType wsp="True">prepopulateCallingCircleList</InputType>
+		<OutputType>prepopulateCallingCircleListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>validateMigrateSubscriber</OperationName>
+		<Documentation>Validation of the subscriber migrationt.</Documentation>
+		<InputType wsp="True">validateMigrateSubscriber</InputType>
+		<OutputType>validateMigrateSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+	<OperationName>migrateSubscriber</OperationName>
+		<Documentation>Migrate subscribe.</Documentation>
+		<InputType wsp="True">migrateSubscriber</InputType>
+		<OutputType>migrateSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation> 
+		<Operation>
+		<OperationName>validateMigrateSeat</OperationName>
+		<Documentation>Validation of the Business Connect subscriber migration.</Documentation>
+		<InputType wsp="True">validateMigrateSeat</InputType>
+		<OutputType>validateMigrateSeatResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>migrateSeat</OperationName>
+		<Documentation>Migrate Business Connect subscriber.</Documentation>
+		<InputType wsp="True">migrateSeat</InputType>
+		<OutputType>migrateSeatResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>	
+		<OperationName>resetCscSubscription</OperationName>
+		<Documentation>Reset a Converged Services Client's subscription</Documentation>
+		<InputType wsp="True">resetCscSubscription</InputType>
+		<OutputType>resetCscSubscriptionResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>activateSubscriber</OperationName>
+		<Documentation>*** Port In activations have not been implemented.  *** Activate subscribe.</Documentation>
+		<InputType wsp="True">activateSubscriber</InputType>
+		<OutputType>activateSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getCurrentPortRequests</OperationName>
+		<Documentation>*** Port in activations Only.  This operation will call KB to retrieve any existign info and depending on Boolena value will call WNP Service to retrieve any current port requests.</Documentation>
+		<InputType wsp="True">getCurrentPortRequests</InputType>
+		<OutputType>getCurrentPortRequestsResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+		<Operation>
+		<OperationName>checkPortRequestStatus</OperationName>
+		<Documentation>*** Port In activations only.  This operation returns current port status</Documentation>
+		<InputType wsp="True">checkPortRequestStatus</InputType>
+		<OutputType>checkPortRequestStatusResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>validatePortInRequest</OperationName>
+		<Documentation>** Port in activations Only.  This operation will call WNP to validate the port request.</Documentation>
+		<InputType wsp="True">validatePortInRequest</InputType>
+		<OutputType>validatePortInRequestResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>activatePortInRequest</OperationName>
+		<Documentation>*** Port in activations Only.  This operation creates a subscriber in KB, create a Port Request in WNP, and submits Port Request to WNP.   </Documentation>
+		<InputType wsp="True">activatePortInRequest</InputType>
+		<OutputType>activatePortInRequestResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>activateReservedSubscriber</OperationName>
+		<Documentation>For New activations – activate a previously saved subscriber in KB. For Port-In Subscribers – activate a previously saved subscriber in KB and then retrieve the last port from WNP (If flag ‘modifyPortRequest’ is TRUE, then cancel old port request and create new port request) and Activate subscriber in KB and Submit Port Request in WNP. </Documentation>
+		<InputType wsp="True">activateReservedSubscriber</InputType>
+		<OutputType>activateReservedSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

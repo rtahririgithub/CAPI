@@ -1,0 +1,96 @@
+title Retrieve Credit Result for Customer
+
+Front-end->CAPI Provider or WS: any process that gets the Account for a Customer
+
+note left of Front-end
+    Trigger: Agent or Channel Rep triggers on of the processes below that call retrieveAccountByBan
+activateReservedSubscriber
+activateSubscriber
+applyPaymentArrangement
+applyPaymentNotification
+cancelPortOutSubscriber
+changeEquipment
+changePhoneNumber
+changePostpaidConsumerToPrepaidConsumer
+checkInternationalServiceEligibility
+checkNewSubscriberEligibility
+createPostPaidAccount
+createSubscriber
+AccountInformationHelper.retrieveAccountByBan
+	activateReservedSubscriber
+	activateSubscriber
+	applyPaymentArrangement
+	applyPaymentNotification
+	cancelPortOutSubscriber
+	changeEquipment
+	changePhoneNumber
+	changePostpaidConsumerToPrepaidConsumer
+	checkInternationalServiceEligibility
+	checkNewSubscriberEligibility
+	createPostPaidAccount
+	createSubscriber
+	defaultBillNotificationToPaper
+	findAccountByBAN
+	getAccount
+	getChargeAdjustmentWithTaxInfo
+	getCLPActivationOptionsDetail
+	migrateSubscriber
+	moveSubscriber
+	restoreSuspendedSubscriber
+	resumeCancelledSubscriber
+	retrieveAccountByPhoneNumber
+	updateAccountPassword
+	updateSubscriberProfile
+	validateCreditCard
+	validateDataSharingBeforeCancelSubscriber
+defaultBillNotificationToPaper
+findAccountByBAN
+getAccount
+getChargeAdjustmentWithTaxInfo
+getCLPActivationOptionsDetail
+migrateSubscriber
+moveSubscriber
+restoreSuspendedSubscriber
+resumeCancelledSubscriber
+retrieveAccountByPhoneNumber
+updateAccountPassword
+updateSubscriberProfile
+validateCreditCard
+validateDataSharingBeforeCancelSubscriber
+end note
+
+CAPI Provider or WS->AccountInformationHelper: retrieveAccountByBan
+
+AccountInformationHelper->AccountDao:retrieveAccountByBan
+AccountDao->AccountInformationHelper:return AccountInfo
+
+alt GLOBAL CDA ROLLBACK FLAG IS ON (I.E. DO NOT USE CDA)
+    AccountInformationHelper->AccountInfo: getCreditCheckResult0().copyFrom
+    AccountInfo->AccountDao: retrieveLastCreditCheckResultByBan
+    AccountDao->KB DB: stored procedure CRDCHECK_RESULT_PKG.getLastCreditCheckResultByBan
+KB DB->AccountInformationHelper:return CreditCheckResultInfo
+else GLOBAL CDA ROLLBACK FLAG is OFF (I.E. USE CDA)
+   AccountInformationHelper->AccountInfo: getCreditCheckResult0().copyFrom
+    AccountInfo->CDA: getCreditWorthiness
+
+
+
+alt ACCOUNT TYPE/SUBTYPE SUPPORTED BY CDA
+    CDA->AccountInformationHelper:CDA response
+    AccountInformationHelper->AccountInformationHelper:Map CDA Response to existing HCD Response
+    AccountInformationHelper->CAPI Provider or WS: Return HCD Response as part of AccountInfo
+    CAPI Provider or WS->Front-end: Return AccountInfo
+else ACCOUNT TYPE/SUBTYPE NOT SUPPORTED BY CDA
+     CDA->Data Grid: retrieveKBCreditCheckResult
+note right of CDA
+     Data Grid gets KB information via Golden Gate. 
+Data changed in KB will show up in
+data grid within 3 to 5 seconds.
+end note
+     Data Grid->CDA: Return KBCreditCheckResult
+     CDA->AccountInformationHelper:CDA response
+    AccountInformationHelper->AccountInformationHelper:Map CDA Response to existing HCD Response
+    AccountInformationHelper->CAPI Provider or WS: Return HCD Response as part of AccountInfo
+    CAPI Provider or WS->Front-end: Return AccountInfo
+end
+end

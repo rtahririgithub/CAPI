@@ -1,0 +1,9 @@
+<environment-config>
+	<entry name="common-svc" path="/cmb-ns">
+		<entry name="encryption">
+			<entry name="key1" value="EbT5a8Fuq"/>
+			<entry name="key2" value="aYt2gv6R"/>
+			<entry name="key3" value="9bFp3Gz4k"/>
+		</entry>
+	</entry>
+</environment-config>

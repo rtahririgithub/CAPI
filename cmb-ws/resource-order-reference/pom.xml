@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.customer.wireless.cmb-web-services</groupId>
+		<artifactId>pom-cmb-web-services</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>telus.customer.wireless.cmb-web-services.cmb-resource-order-reference-jws</groupId>
+	<artifactId>pom-cmb-resource-order-reference-jws</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>pom-cmb-resource-order-reference-jws</name>
+
+	<properties>
+		<application.shared.version>1.0.0-SNAPSHOT</application.shared.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>weblogic.1035</groupId>
+				<artifactId>wlfullclient</artifactId>
+				<version>10.3.5</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<modules>
+		<module>cmb-resource-order-reference-jws-services</module>
+		<module>cmb-resource-order-reference-jws-wsdl</module>
+	</modules>
+
+</project>

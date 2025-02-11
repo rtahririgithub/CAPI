@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/SubscriberInformationServiceRequestResponse_v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" xmlns:sit="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v1" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/SubscriberInformationServiceRequestResponse_v1" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v1_0.xsd"/>
+	<xsd:element name="getSubscriberIdentifierListByPhoneNumberAndAccountNumber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberIdentifierListByPhoneNumberAndAccountNumberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="subscriberIdentifierList" type="sit:SubscriberIdentifierList"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createMemo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberMemo" type="sit:SubscriberMemo"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createMemoResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByAccountNumber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByAccountNumberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="subscriber" type="sit:Subscriber" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByIMSI">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="IMSI" type="common:IMSIType"/>
+				<xsd:element name="includeCancelledSubscribersInd" type="xsd:boolean" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByIMSIResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="subscriber" type="sit:Subscriber" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByPhoneNumber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByPhoneNumberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="subscriber" type="sit:Subscriber" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updatePortInSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>This operation updates the Subscriber entity to indicate that the “port-type” of this subscriber is a “port-in”</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updatePortInSubscriberResponse">
+		<xsd:annotation>
+			<xsd:documentation>Empty response indicates successful response</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateSnapbackPhoneNumber">
+		<xsd:annotation>
+			<xsd:documentation>Returns the phone number resource back into the Telus pool of numbers when the number is no longer being used after a port-out</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateSnapbackPhoneNumberResponse">
+		<xsd:annotation>
+			<xsd:documentation>Empty response indicates successful response</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkPortOutEligibility">
+		<xsd:annotation>
+			<xsd:documentation>Check to see if a phoneNumber is eligible for port out and if it is “transferable blocked”</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+				<xsd:element name="NDPDirectionIndicator" type="sit:NDPDirectionIndicator"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkPortOutEligibilityResponse">
+		<xsd:annotation>
+			<xsd:documentation>Booleans indicating if phoneNumber is eligible for port out or transferable blocked</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="portOutEligibility" type="sit:PortOutEligibilityInfo"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

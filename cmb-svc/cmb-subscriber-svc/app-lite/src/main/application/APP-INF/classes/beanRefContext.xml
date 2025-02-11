@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="context" class="org.springframework.context.support.ClassPathXmlApplicationContext">
+		<constructor-arg>
+			<list>
+				<value>classpath:application-context-datasources-jndi.xml</value>
+				<value>classpath:application-context-dao-jdbc.xml</value>
+				<value>classpath:application-context-dao-ws.xml</value>
+				<value>classpath:application-context-services.xml</value>
+				<value>classpath:application-context-jms-jndi.xml</value>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>

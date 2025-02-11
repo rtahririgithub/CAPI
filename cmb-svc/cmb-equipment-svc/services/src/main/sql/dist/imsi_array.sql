@@ -1,0 +1,6 @@
+CREATE OR REPLACE 
+TYPE t_IMSI_array is TABLE OF VARCHAR2(50);
+/
+commit;
+
+

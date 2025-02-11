@@ -1,0 +1,148 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb</groupId>
+		<artifactId>pom-cmb</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>telus.cust.cmb.ws</groupId>
+	<artifactId>pom-cmb-ws</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>weblogic.1035</groupId>
+				<artifactId>wlfullclient</artifactId>
+				<version>10.3.5</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+
+	<modules>
+
+		<!-- April 2021 WLS Major CAPI DR services -->
+		<module>cmb-billing-inquiry-ws</module>
+ 		<module>cmb-wireless-accountlifecycle-mgmt-ws</module>
+		<module>cmb-wireless-accountlifecycle-mgmt-ws-1-3</module>		
+		<module>cmb-subscriber-info-ws</module>
+		<module>cmb-subscriber-info-ws-3-4</module>		
+		<module>cmb-subscriber-info-hist-ws-1-1</module>
+		<module>cmb-subscriber-info-hist-ws-1-0</module>
+		<module>cmb-subscriber-info-mgmt-ws-1-0</module>
+		<module>cmb-wireless-rated-airtime-usage-inquiry-ws-1-0</module>
+				
+		<module>cmb-service-order-reference-ws</module>
+		<module>cmb-service-order-reference-ws-5-3</module>
+		<module>cmb-service-order-reference-ws-5-2</module>
+		<module>cmb-service-order-reference-ws-5-1</module>
+		<module>cmb-service-order-reference-ws-5-0</module>
+		<module>cmb-service-order-reference-ws-4-5</module>
+		<module>cmb-service-order-reference-ws-4-4</module>
+		<module>cmb-subscriber-mgmt-ws</module>
+		<module>cmb-subscriber-mgmt-ws-4-2</module>	
+		<module>cmb-subscriber-mgmt-ws-4-2_1</module>	
+		<module>cmb-subscriber-lifecycle-mgmt-ws-1-5</module>
+		<module>cmb-subscriber-lifecycle-mgmt-ws-1-4</module>
+		<module>cmb-account-info-ws-3-5</module>
+		<module>cmb-account-info-ws-3-4</module>
+		<module>cmb-wireless-account-mgmt-ws-1-2</module>
+		<module>cmb-account-info-hist-ws-1-1</module>
+		<module>cmb-account-info-hist-ws-1-0</module>
+		<module>cmb-enterprise-reference-ws-1-0</module>
+		<module>cmb-customer-info-reference-ws-1-0</module>
+		<module>cmb-resource-order-reference-ws-1-1</module>
+				
+		<!-- 
+		<module>cmb-wireless-accountlifecycle-mgmt-ws</module>
+		<module>cmb-subscriber-info-ws</module>
+		<module>cmb-subscriber-info-ws-3-4</module>
+		<module>cmb-subscriber-mgmt-ws</module>
+		<module>cmb-subscriber-mgmt-ws-4-2</module>	
+		<module>cmb-wireless-accountlifecycle-mgmt-ws-1-3</module>
+		<module>cmb-wireless-account-mgmt-ws-1-2</module>
+		<module>cmb-account-info-ws-3-5</module>
+		<module>cmb-wireless-rated-airtime-usage-inquiry-ws-1-0</module>
+		<module>cmb-wireless-payment-ws-1-0</module>
+		<module>cmb-wireless-account-mgmt-ws-1-2</module>
+		<module>cmb-wireless-account-mgmt-ws-1-1</module>
+		<module>cmb-wireless-account-mgmt-ws-1-0</module>
+		<module>cmb-wireless-accountlifecycle-mgmt-ws-1-2</module>
+		<module>cmb-wireless-accountlifecycle-mgmt-ws-1-1</module>
+		<module>cmb-wireless-accountlifecycle-mgmt-ws-1-0</module>
+		<module>cmb-utility-helper-ws-2-0</module>
+		<module>cmb-subscriber-mgmt-ws-3-1</module>
+		<module>cmb-subscriber-mgmt-ws-3-0</module>
+		<module>cmb-subscriber-mgmt-ws-2-3</module>
+		<module>cmb-subscriber-mgmt-ws-2-2</module>
+		<module>cmb-subscriber-mgmt-ws-2-1</module>
+		<module>cmb-subscriber-mgmt-ws-2-0</module>
+		<module>cmb-subscriber-mgmt-ws-1-0</module>
+		<module>cmb-subscriber-lifecycle-mgmt-ws-1-5</module>
+		<module>cmb-subscriber-lifecycle-mgmt-ws-1-4</module>
+		<module>cmb-subscriber-lifecycle-mgmt-ws-1-3</module>
+		<module>cmb-subscriber-lifecycle-mgmt-ws-1-2</module>
+		<module>cmb-subscriber-lifecycle-mgmt-ws-1-1</module>
+		<module>cmb-subscriber-lifecycle-mgmt-ws-1-0</module>
+		<module>cmb-subscriber-info-ws</module>
+		<module>cmb-subscriber-info-ws-3-4</module>
+		<module>cmb-subscriber-info-ws-3-3</module>
+		<module>cmb-subscriber-info-ws-3-2</module>
+		<module>cmb-subscriber-info-ws-3-1</module>
+		<module>cmb-subscriber-info-ws-3-0</module>
+		<module>cmb-subscriber-info-ws-2-0</module>
+		<module>cmb-subscriber-info-ws-1-1</module> 
+		<module>cmb-subscriber-info-ws-1-0</module>
+		<module>cmb-subscriber-info-hist-ws-1-1</module>
+		<module>cmb-subscriber-info-hist-ws-1-0</module>
+		<module>cmb-subscriber-info-mgmt-ws-1-0</module>
+		<module>cmb-service-order-reference-ws</module>
+		<module>cmb-service-order-reference-ws-5-3</module>
+		<module>cmb-service-order-reference-ws-5-0</module>
+		<module>cmb-service-order-reference-ws-4-6</module>
+		<module>cmb-service-order-reference-ws-4-5</module>
+		<module>cmb-service-order-reference-ws-4-4</module>
+		<module>cmb-service-order-reference-ws-4-3</module>
+		<module>cmb-service-order-reference-ws-4-2</module>
+		<module>cmb-service-order-reference-ws-4-1</module>
+		<module>cmb-service-order-reference-ws-4-0</module>
+		<module>cmb-service-order-reference-ws-3-0</module>
+		<module>cmb-resource-order-reference-ws-1-1</module>
+		<module>cmb-resource-order-reference-ws-1-0</module>
+		<module>cmb-enterprise-reference-ws-1-0</module>
+		<module>cmb-customer-order-reference-ws-1-0</module>
+		<module>cmb-customer-info-reference-ws-1-0</module>
+		<module>cmb-billing-inquiry-reference-ws-2-1</module>
+		<module>cmb-billing-inquiry-reference-ws-2-0</module>
+		<module>cmb-billing-inquiry-reference-ws-1-1</module>
+		<module>cmb-billing-inquiry-ws</module>
+		<module>cmb-billing-inquiry-ws-1-6</module>
+		<module>cmb-billing-inquiry-ws-1-5</module>
+		<module>cmb-billing-inquiry-ws-1-4</module>
+		<module>cmb-billing-inquiry-ws-1-3</module>
+		<module>cmb-billing-inquiry-ws-1-2</module>
+		<module>cmb-billing-inquiry-ws-1-1</module>
+		<module>cmb-billing-inquiry-ws-1-0</module>
+		<module>cmb-billing-account-mgmt-ws-2-1</module>
+		<module>cmb-billing-account-mgmt-ws-2-0</module>
+		<module>cmb-billing-account-mgmt-ws-1-0</module>
+		<module>cmb-account-lifecycle-mgmt-ws-1-0</module>
+		<module>cmb-account-info-ws-3-5</module>
+		<module>cmb-account-info-ws-3-4</module>
+		<module>cmb-account-info-ws-3-3</module>
+		<module>cmb-account-info-ws-3-2</module>
+		<module>cmb-account-info-ws-3-1</module>
+		<module>cmb-account-info-ws-3-0</module>
+		<module>cmb-account-info-ws-2-0</module>
+		<module>cmb-account-info-hist-ws-1-1</module>
+		<module>cmb-account-info-hist-ws-1-0</module>
+		-->
+		 
+	</modules>
+	
+</project>

@@ -1,0 +1,387 @@
+---
+swagger: "2.0"
+info:
+  description: "The WLSSubscriberLifecycleMgmtRESTSvc_v1_0 will expose a suite of\
+    \ REST operations to perform subscriber life cycle functions.  Version 1.0 will\
+    \ provide the capability to restore a susbscriber from suspended state.\n\n\n"
+  version: "1.0"
+  title: "WLSSubscriberLifecycleMgmtRESTSvc"
+  termsOfService: ""
+  contact: {}
+host: "smintegration-customer-dv103.tmi.telus.com"
+basePath: "/v1/cmo/ordermgmt/wlssubscriberlifecyclemgmt"
+schemes:
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /account/{ban}/subscribers/state:
+    put:
+      summary: "updateStatus"
+      description: "SLA Information:\n\nServices/APIs called:\n|Service|operation|SLA|\n\
+        |---|---|---|\n|CIS|cis-account-retrieval-service.getAccountByBan||\n|AMDOCS|amdocsUpdateBanConv.restoreSuspendedSubscribers||\n\
+        \n</br>\nExpected average response time: 5000 ms"
+      consumes: []
+      produces:
+      - "application/json"
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        description: "List of optional and mandatory parameters to be put into payload body"          
+        schema:
+          type: "object"
+          required:
+          - "reasonCd"
+          - "statusCd"
+          - "subscriberNum"
+          properties:
+            subscriberNum:
+              type: "array"
+              description: "Subscriber number(s) to be restored (e.g. 4161234567).\
+                \ Up to twenty Subscribers."
+              items:
+                type: "string"
+            statusCd:
+              type: "string"
+              description: "Accepted subscriber status (possible values: \"ACTIVE\"\
+                )"
+            effectiveDate:
+              type: "string"
+              description: "The effective date that the subscriber should be restored.\
+                \ This may be backdated or future-dated. If it is absent, the transaction\
+                \ will be effective immediately (e.g. 2018-08-15)"
+            portProcessCd:
+              type: "string"
+              description: "If the subscriber was suspended due to port-out, indicate\
+                \ the port process (possible values: “INTER_BRAND”,\n“INTER_CARRIER”\
+                ,\n“INTER_MVNE”). If this is the case, portDirectionCd and portTypeCd\
+                \ are mandatory."
+            portDirectionCd:
+              type: "string"
+              description: "Number portability direction indicator. Possible values:\
+                \ ‘A’ (wireless to wireless), ‘C’ (wireline to wireless). Mandatory\
+                \ if suspended due to port."
+            portTypeCd:
+              type: "string"
+              description: "WNP code representing the port-in type (e.g. INT_2H, INT_R2T,\
+                \ EXT_2H, etc.). Mandatory if suspended due to port"
+            sourceBrandId:
+              type: "integer"
+              description: "Outgoing brand of the port-in phone number; defaults to\
+                \ 255 (brand ID is not applicable) if not provided. Valid only for\
+                \ internal port-in types (i.e., INT_2H, INT_R2T)."
+            wlsAccountInfo:
+              $ref: "#/definitions/PortInRequestWirelessAccount"
+            wlnAccountInfo:
+              $ref: "#/definitions/PortInRequestWirelineAccount"
+            additionalInfo:
+              $ref: "#/definitions/PortInRequestAdditionalInfo"
+            winbackInd:
+              type: "boolean"
+              description: "If portProcessCd is not empty, Indicate if the port-out\
+                \ restore is due to winback. This field is ignored if portProcessCd\
+                \ is empty"
+            reasonCd:
+              type: "string"
+              description: "The restore reason codes to be passed to KB (possible\
+                \ values: Any eligible reason code accepted by KB)"
+            memoTxt:
+              type: "string"
+              description: "The KB memo text to be stored with the transaction. Must\
+                \ not exceed 2000 characters."
+            dealerCd:
+              type: "string"
+              description: "For SRPDS logging only. If not specified, the dealer code\
+                \ at  subscriber level will be used. No validation will be performed.\
+                \ Any valid dealer code."
+            salesRepCd:
+              type: "string"
+              description: "For SRPDS logging only. If not specified, the sales rep\
+                \ code at  subscriber level will be used. No validation on this value\
+                \ will be performed."
+            requesterId:
+              type: "string"
+              description: "For SRPDS logging only. If not specified, the KB ID associated\
+                \ with the application identity will be used. No validation is performed."
+            srpdsAppId:
+              type: "string"
+              description: "For SRPDS logging only. If not specified, the following\
+                \ inputs will be ignored and no SRPDS logging will occur:\n\ndealerCode,\
+                \ salesRepCode, requesterid"
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Successful response with no failed activities:\n{\n\
+              \   \"status\" : {\n      \"statusCd\" : \"200\",\n      \"statusTxt\"\
+              \ : \"Success\",\n      \"systemErrorTimeStamp\" : \"2017-10-19T14:59:13\"\
+              \n   },\n   \"data\":    [\n            {\n         \"oldState\": \"\
+              NF\",\n         \"newState\": \"A\",\n         \"updateResult\": \"\
+              SUBSCRIBER_NOT_FOUND\",\n         \"subscriberNum\": \"1234567890\"\n\
+              \      },\n            {\n         \"oldState\": \"S\",\n         \"\
+              newState\": \"A\",\n         \"updateResult\": \"SUCC_RESTORE\",\n \
+              \        \"subscriberNum\": \"6472137051\"\n      },\n            {\n\
+              \         \"oldState\": \"A\",\n         \"newState\": \"A\",\n    \
+              \     \"updateResult\": \"NOT_SUPPORTED\",\n         \"subscriberNum\"\
+              : \"8904561234\"\n      }\n   ]\n}"
+        400:
+          description: "A business exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|400|BE|ERROR_NO_VM_SOC|ERROR_NO_VM_SOC|The\
+              \ subscriber does not have a voicemail service.|The ban and subscriber\
+              \ passed in the URI does not have a voicemail soc on their service agreement.\
+              \  This error will be returned also if the ban, subscriber or both values\
+              \ are invalid (i.e. the subscriber doesn't belongs to a different ban).|\n\
+              |400|BE|ERROR_INVALID_EXT_PLTFM_CD|ERROR_INVALID_EXT_PLTFM_CD|The account\
+              \ has an invalid external platform code.|The account external platform\
+              \ code is not \"JASPER\".|\n|400|BE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying AMDOCS\
+              \ business exception (see table below)|\n</br>\n\nAMDOCS BackendException\
+              \ - Specific Error message returned by tuxedo service</br></br>\nAMDOCS\
+              \ ValidationException table:</br>\n|Error Code (systemErrorCd)|Error\
+              \ Message (systemErrorTxt)|\n|---|---|\n|MSG 1115170|ProductActivityInfo\
+              \ is not verified.|\n|MSG 1117000|SOCs <soc’s> contain duplicate feature\
+              \ <feature code>|\n|MSG 1117010|Feature <feature code> which relates\
+              \ to Soc <soc code>, and feature <feature code> which relates to Soc:<soc\
+              \ code>, have the same mpsFeatureCode <mpsfeatureCode>.|\n|MSG 1117020|SOC\
+              \ <soc code> was not found|\n|MSG 1117050|Price Plan code is empty|\n\
+              |MSG 1117060|SOC code is empty|\n|MSG 1117070|SOC <soc code> is not\
+              \ Price Plan.|\n|MSG 1117080|The service type of SOC <soc code> is invalid;\
+              \ Only optional or regular SOCs will be accepted.|\n|MSG 1117090|SOC\
+              \ <soc code> is not optional for Price Plan <price plan>|\n|MSG 1117100|SOC\
+              \ <soc code> is not suitable for this Product.|\n|MSG 1117110|Promotion\
+              \ PricePlan can't be greater then 1.|\n|MSG 1117130|setProductServices\
+              \ has failed.|\n|MSG 1117140|Soc <soc code> expiration date should be\
+              \ later than its effective date.|\n|MSG 1117170|Feature <feature code>\
+              \ doesn't exist for Soc <soc code>;|\n|MSG 1117180|Feature <feature\
+              \ code> requires a parameter.|\n|MSG 1117210|ProductServicesInfo is\
+              \ not populated correctly.|\n|MSG 1117220|Feature <feature code> does\
+              \ not have a valid parameter.|\n|MSG 1117240|Price Plan is not verified|\n\
+              |MSG 1117260|SOC <soc code> not in the existing service agreement|\n\
+              |MSG 1117270|Future date SOC <soc code> can only be changed to future\
+              \ date|\n|MSG 1117280|ExpiryDate of SOC <soc code> cannot be before\
+              \ the EffectiveDate|\n|MSG 1117420|The Horizontal B/C SOC must be added\
+              \ for a subscriber with an out-of-range UFMI.|\n|MSG 1117440|Future-dated\
+              \ price plan can not be deleted using changeServiceAgreement API. Use\
+              \ deleteFuturePricePlan instead.|\n|MSG 1117520|Invalid Calling Circle\
+              \ feature parameters - amount of phone numbers exceeds maximum allowed.|\n\
+              |MSG 1117530|No maximum number of phone numbers defined for SOC %s and\
+              \ feature %s.|\n|MSG 1117540|Invalid Calling Circle feature parameters\
+              \ - the length of phone number %s is invalid.|\n|MSG 1117550|Invalid\
+              \ Calling Circle feature parameters - the phone number %s must contain\
+              \ only digits.|\n|MSG 1117560|Invalid Calling Circle feature parameters\
+              \ - the phone number %s is a special number and cannot be used.|\n|MSG\
+              \ 1117580|%s is not a valid Calling Circle feature.|\n|MSG 1117590|Ftr\
+              \ param eff_date: %s cannot be less than logical date: %s|\n|MSG 1117600|Ftr\
+              \ param eff_date: %s cannot be before FTR effective date: %s|\n|MSG\
+              \ 1117610|Ftr param eff_date: %s cannot be after FTR expiration date:\
+              \ %s|\n|MSG 1117620|Ftr param eff_date: %s cannot be different than\
+              \ FTR effective date: %s for future effective features|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Failure response for OCSSAM exception:\n{\n   “status”\
+              \ : {\n      “statusCd” : “400”,\n      “statusSubCd” : “BE”,\n    \
+              \  “statusTxt” : “ERROR_AMDOCS”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\
+              ,\n      “systemErrorCd” : “1117020”,\n      “systemErrorTxt” : “Soc\
+              \ not found.”\n   }\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|System error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying system\
+              \ or service exception not captured elsewhere|\n|500|GE|General error|ERROR_GENERIC|Underlying\
+              \ error message|Any caught exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+    parameters:
+    - name: "ban"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The wireless billing account of the subscriber who is being restored\
+        \ from suspension. This account must match the subscriber id provided."
+  /ping:
+    get:
+      summary: "ping"
+      description: "SLA Information:\n\nServices/APIs called: None\n\nExpected average\
+        \ response time: 1500 ms\n"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+              nameTxt:
+                type: "string"
+                description: "The name of the service."
+              descriptionTxt:
+                type: "string"
+                description: "The description of the service."
+              buildLabelTxt:
+                type: "string"
+                description: "The build version for this service."
+              buildDt:
+                type: "string"
+                description: "The date the service was built."
+          examples:
+            application/json: "{\n   “status” : {\n      “statusCd” : “200”,\n   \
+              \   “statusTxt” : “Success”,\n      “systemErrorTimeStamp” : “2018-10-21T14:59:13”\
+              \n   },\n   “nameTxt” : “Subscriber Lifecycle Management REST Service\
+              \ 1.0”,\n   “descriptionTxt” : “This service provides a suite of operations\
+              \ that impact the subscriber lifecycle or status.”,\n   “buildLabel”\
+              \ : “201810.0.21”,\n   “buildDt” : “20180821-195457”\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|System error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying system\
+              \ or service exception not captured elsewhere|\n|500|GE|General error|ERROR_GENERIC|Underlying\
+              \ error message|Any caught exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+definitions:
+  PortInRequestAdditionalInfo:
+    type: "object"
+    properties:
+      authName:
+        type: "string"
+        description: "Agency authorization name"
+      authTxt:
+        type: "string"
+        description: "Agency authorization indicator"
+      alternateContactNum:
+        type: "string"
+        description: "Alternate contact number"
+      commentTxt:
+        type: "string"
+        description: "Additional comments"
+    description: "Additional info for a Port-In request"
+  PortInRequestWirelessAccount:
+    type: "object"
+    properties:
+      deviceSerialNum:
+        type: "string"
+        description: "Serial number of ported-in device"
+      accountNum:
+        type: "string"
+        description: "Billing account number"
+      pin:
+        type: "string"
+        description: "account PIN"
+    description: "Information about the wireless account that is ported in"
+  PortInRequestWirelineAccount:
+    type: "object"
+    properties:
+      serviceProviderName:
+        type: "string"
+        description: "Original service provider name"
+      serviceActionCd:
+        type: "string"
+      customerName:
+        $ref: "#/definitions/PortInRequestName"
+      serviceAddress:
+        $ref: "#/definitions/PortInRequestAddress"
+    description: "Wireline account that is ported-in"
+  PortInRequestName:
+    type: "object"
+    properties:
+      titleTxt:
+        type: "string"
+      firstName:
+        type: "string"
+      middleName:
+        type: "string"
+      lastName:
+        type: "string"
+      generationTxt:
+        type: "string"
+      businessName:
+        type: "string"
+    description: "Name of port-in customer"
+  PortInRequestAddress:
+    type: "object"
+    properties:
+      streetNum:
+        type: "string"
+      streetName:
+        type: "string"
+      streetDirectionTxt:
+        type: "string"
+      cityName:
+        type: "string"
+      provinceCd:
+        type: "string"
+      postalCd:
+        type: "string"
+      countryCd:
+        type: "string"
+    description: "Address of ported-in customer"
+  ResponseStatus:
+    type: "object"
+    required:
+    - "statusCd"
+    properties:
+      statusCd:
+        type: "string"
+        description: "The HTTP result status code."
+        example: "200"
+      statusSubCd:
+        type: "string"
+        description: "The service internal status code."
+        example: "UM1, UM2"
+      statusTxt:
+        type: "string"
+        description: "A short description of status."
+        example: "Invalid URL"
+      systemErrorCd:
+        type: "string"
+        description: "If the underlying service we call returns its own error code,\
+          \ we'll include it here, e.g. contents of faultString in error response"
+        example: "“error: java.lang.IllegalArgumentException\""
+      systemErrorTs:
+        type: "string"
+        description: "The time of underlying error (to help in locating error in logs)."
+        example: "2013-05-23T11:07:48"
+      systemErrorTxt:
+        type: "string"
+        description: "A description of system error; messageId, errorCode from PolicyException."
+        example: "“messageId: APP10004”"
+    description: "The response status object provides additional information to the\
+      \ HTTP response in terms of error messaging.  This object provides details to\
+      \ help identify the underlying exception(s) and locate the error(s) in the log\
+      \ files."

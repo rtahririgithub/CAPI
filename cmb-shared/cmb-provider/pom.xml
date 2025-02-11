@@ -1,0 +1,227 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus-maven.dependencyManagement</groupId>
+		<artifactId>TELUS_Base_Dependencies</artifactId>
+		<version>1.5.1</version>
+		<relativePath></relativePath>
+	</parent>
+
+	<groupId>telus.customer.clientapi</groupId>
+	<artifactId>TELUS-ClientAPI-J2EEProvider</artifactId>
+	<version>4.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>telus-maven.plugins.cis</groupId>
+				<artifactId>cis-ldifgen-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>ldifgen</goal>
+						</goals>
+						<configuration>
+							<environments>
+								<environment>dv103:cn=development3_81,o=telusconfiguration</environment>
+								<environment>dv101:cn=d1_81,o=telusconfiguration</environment>
+								<environment>pt148:cn=qa_81,o=telusconfiguration</environment>
+								<environment>pt168:cn=pt168_81,o=telusconfiguration</environment>
+								<environment>ps101:cn=qa2_81,o=telusconfiguration</environment>
+								<environment>pt140:cn=qa2_81,o=telusconfiguration</environment>
+								<environment>st101:cn=s_81,o=telusconfiguration</environment>
+								<environment>pr:cn=prod_81,o=telusconfiguration</environment>
+							</environments>
+							<targetDirName>${project.build.directory}/config</targetDirName>
+							<includes>
+								<include>src/main/resources/environment-config.xml</include>
+							</includes>
+							<baseDir>${basedir}</baseDir>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Extension-Name>ClientAPIProvider</Extension-Name>
+							<Implementation-Vendor>TELUS</Implementation-Vendor>
+							<Implementation-Version>4.0</Implementation-Version>
+							<Specification-Vendor>TELUS</Specification-Vendor>
+							<Specification-Version>4.0</Specification-Version>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>aspectj-maven-plugin</artifactId>
+					<configuration combine.self="override">
+						<complianceLevel>1.6</complianceLevel>
+						<encoding>${UTF-8.encoding}</encoding>
+						<showWeaveInfo>false</showWeaveInfo>
+						<Xlint>ignore</Xlint>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.aspectj</groupId>
+							<artifactId>aspectjtools</artifactId>
+							<version>1.8.4</version>
+						</dependency>
+					</dependencies>
+					<executions>
+			          <execution>
+			            <goals>
+			              <goal>compile</goal>
+			            </goals>
+			          </execution>
+			        </executions>
+				</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals><goal>shade</goal></goals>
+						<configuration>
+							<createDependencyReducedPom>false</createDependencyReducedPom>
+							<artifactSet>
+								<excludes>
+									<exclude>*:TELUS-ConfigurationManager-api</exclude>
+								</excludes>
+							</artifactSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											telus-maven.plugins.cis
+										</groupId>
+										<artifactId>
+											cis-ldifgen-plugin
+										</artifactId>
+										<versionRange>
+											[1.0.0,)
+										</versionRange>
+										<goals>
+											<goal>ldifgen</goal>
+										</goals>
+									</pluginExecutionFilter>
+									
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.4</version>
+			</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.svc.reference</groupId>
+			<artifactId>cmb-reference-svc-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.svc.account</groupId>
+			<artifactId>cmb-account-svc-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.svc.equipment</groupId>
+			<artifactId>cmb-equipment-svc-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.svc.subscriber</groupId>
+			<artifactId>cmb-subscriber-svc-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<optional>true</optional>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.cust.cmb.svc.utility</groupId>
+			<artifactId>cmb-utility-svc-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.svc.monitoring</groupId>
+			<artifactId>cmb-monitoring-svc-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+  			<groupId>telus.frameworks.mobility</groupId>
+  			<artifactId>TELUS-ConfigurationManager-api</artifactId>
+  			<version>1.2</version>
+			<optional>true</optional>
+		</dependency>
+		
+		<dependency>
+  			<groupId>telus.frameworks.mobility</groupId>
+  			<artifactId>TELUS-ConfigurationManager-provider</artifactId>
+  			<version>1.2</version>
+			<optional>true</optional>
+		</dependency>	
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<optional>true</optional>
+		</dependency>
+						
+		<dependency>
+			<groupId>weblogic</groupId>
+			<artifactId>wlfullclient</artifactId>
+			<version>10.3.5</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+				
+	</dependencies>
+
+</project>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>AccountInformationHistoryService</Name>
+		<Documentation>Provides the ability to retrieve and update Account Information Data</Documentation>
+		<TAM_LevelZeroAndOne>CMO/InformationMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/AccountInformation</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmosr-custinfomgmt-dv103.tmi.telus.com</soapAddress>
+ 		<SchemaLocation>AccountInformationHistoryServiceRequestResponse_v1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/AccountInformationHistoryServiceRequestResponse_v1</NameSpace>
+		<nsAbbrev>aihs</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getAccountStatusChangeHistory</OperationName>
+		<Documentation>Retrieves Account By Account Number.</Documentation>
+		<InputType wsp="True">getAccountStatusChangeHistory</InputType>
+		<OutputType>getAccountStatusChangeHistoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPaymentMethodChangeHistory</OperationName>
+		<Documentation>Retrieves Account By Phone Number.</Documentation>
+		<InputType wsp="True">getPaymentMethodChangeHistory</InputType>
+		<OutputType>getPaymentMethodChangeHistoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAddressChangeHistory</OperationName>
+		<Documentation>Retrieves Accounts By Account Numbers.</Documentation>
+		<InputType wsp="True">getAddressChangeHistory</InputType>
+		<OutputType>getAddressChangeHistoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

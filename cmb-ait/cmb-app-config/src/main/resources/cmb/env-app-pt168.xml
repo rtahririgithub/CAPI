@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE group PUBLIC "-//TELUS.com//DTD PropertyNode 1.0//EN" "PropertyNode.dtd">
+
+<group name="irrelevant">
+
+	<group name="dirs">
+		<group name="log4j">
+			<prop name="logDir">/work/infra/wls/8.1/Q1/logs/applications</prop>
+		</group>
+	</group>
+
+	<group name="log4j">
+		<group name="severity">
+			<prop name="threshold">DEBUG</prop>
+		</group>
+	</group>
+
+    <group name="databases">
+        <!-- the default will be to use the protocol followed by the fully qualified host name and the port -->
+        <group name="dist">
+            <prop name="driver">oracle.jdbc.OracleDriver</prop>
+            <prop name="url">jdbc:oracle:thin:@//DISTPV-scan.corp.ads:41521/DISTPVsv1.world</prop>
+            <prop name="username">ivradm</prop>
+            <prop name="password">admivr</prop>
+        </group>
+        <group name="kb">
+            <prop name="driver">oracle.jdbc.OracleDriver</prop>
+            <prop name="url">jdbc:oracle:thin:@yamuna:1521/QKB10</prop>
+            <prop name="username">basread3</prop>
+            <prop name="password">basread3</prop>
+        </group>
+        <group name="ncr">
+            <prop name="driver">oracle.jdbc.OracleDriver</prop>
+            <prop name="url">jdbc:oracle:thin:@sn25262:41521/KNCR</prop>
+            <prop name="username">ncr_app</prop>
+            <prop name="password">ncr</prop>
+        </group>
+        <group name="emcm">
+            <prop name="driver">oracle.jdbc.OracleDriver</prop>
+            <prop name="url">jdbc:oracle:thin:@EMCMPV-ip.corp.ads:41521/EMCMPV.WORLD</prop>
+            <prop name="username">cone_app</prop>
+            <prop name="password">cone_app</prop>
+        </group>
+    </group>
+
+    <group name="connections">
+		<group name="webServices">
+            <group name="accountinformation">
+                <prop name="endpointAddress">https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/InformationMgmt/AccountInformation/AccountInformationService_v3_5_vs0</prop>
+                <prop name="username">ClientAPI_EJB</prop>
+                <prop name="password">soaorgid</prop>
+            </group>
+            <group name="billinginquiry">
+                <prop name="endpointAddress">https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/BillingInquiryMgmt/BillingInquiry/BillingInquiryService_v1_7_vs0</prop>
+                <prop name="username">ClientAPI_EJB</prop>
+                <prop name="password">soaorgid</prop>
+            </group>
+            <group name="resourceorderreference">
+                <prop name="endpointAddress">https://soa-mp-laird-pt168.tsl.telus.com:443/RMO/OrderMgmt/ResourceOrderReference/ResourceOrderReferenceService_v1_1_1_vs0</prop>
+                <prop name="username">ClientAPI_EJB</prop>
+                <prop name="password">soaorgid</prop>
+            </group>
+            <group name="serviceorderreference">
+                <prop name="endpointAddress">https://soa-mp-laird-pt168.tsl.telus.com:443/v5/smo/ordermgmt/serviceorderreference/ServiceOrderReferenceService_v5_1_vs0</prop>
+                <prop name="username">ClientAPI_EJB</prop>
+                <prop name="password">soaorgid</prop>
+            </group>
+            <group name="subscriberinformation">
+                <prop name="endpointAddress">https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/InformationMgmt/SubscriberInformationService/SubscriberInformationService_v3_4_vs0</prop>
+                <prop name="username">ClientAPI_EJB</prop>
+                <prop name="password">soaorgid</prop>
+            </group>
+            <group name="subscriberlifecyclemgmt">
+                <prop name="endpointAddress">https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/OrderMgmt/SubscriberLifeCycleManagement/SubscriberLifeCycleManagementService_v1_5_vs0</prop>
+                <prop name="username">ClientAPI_EJB</prop>
+                <prop name="password">soaorgid</prop>
+            </group>
+            <group name="subscribermanagement">
+                <prop name="endpointAddress">https://soa-mp-laird-pt168.tsl.telus.com:443/v4-1/cmo/ordermgmt/subscribermanagement/subscribermanagementservice-v4-1_vs0</prop>
+                <prop name="username">ClientAPI_EJB</prop>
+                <prop name="password">soaorgid</prop>
+            </group>
+            <group name="wirelessaccountlifecyclemgmt">
+                <prop name="endpointAddress">https://soa-mp-laird-pt168.tsl.telus.com:443/CMO/OrderMgmt/WirelessAccountLifecycleMgmtService/WirelessAccountLifecycleMgmtService_v1_3_vs0</prop>
+                <prop name="username">ClientAPI_EJB</prop>
+                <prop name="password">soaorgid</prop>
+            </group>
+            <group name="wsois">
+                <prop name="endpointAddress">https://soa-mp-laird-pt168.tsl.telus.com:443/v2/cmo/ordermgmt/wirelesssubscriberofferinformationservice-v2-0-vs0</prop>
+				<prop name="username">OOM</prop>
+				<prop name="password">soaorgid</prop>
+			</group>
+			<group name="roms">
+				<prop name="endpointAddress">https://soa-mp-laird-pt168.tsl.telus.com/CMO/OrderMgmt/RedemptionOfferManagementService_v1_2_vs0</prop>
+				<prop name="username">OOM</prop>
+				<prop name="password">soaorgid</prop>
+			</group>
+            <group name="enterprisecustomernotificationmanagement">
+                <prop name="endpointAddress">https://soa-mp-toll-pt01.tsl.telus.com/CMO/ContactMgmt/EnterpriseCustomerNotificationManagement/EnterpriseCustomerNotificationManagementService_v1_2_vs0</prop>
+                <prop name="username">OOM</prop>
+                <prop name="password">soaorgid</prop>
+                <prop name="transactionType">AOM_DF_ORDER_CONFIRM</prop>
+                <prop name="resourceTypeId">TN</prop>
+                <prop name="billingAccountMasterSourceId">130</prop>
+            </group>
+        </group>
+	</group>
+</group>

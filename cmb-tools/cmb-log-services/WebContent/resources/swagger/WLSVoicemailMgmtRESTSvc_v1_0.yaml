@@ -1,0 +1,364 @@
+---
+swagger: "2.0"
+info:
+  description: "The WLSVoicemailMgmtRESTSvc_v1_0 will expose a suite of REST operations\
+    \ to perform voicemail related functions.  Version 1.0 will provide the capability\
+    \ for TELUS vendor development teams to reset a subscriber's voice mail password\
+    \ and mailbox.\n\n\n"
+  version: "1.0"
+  title: "WLSVoicemailMgmtRESTSvc"
+  termsOfService: ""
+  contact: {}
+host: "smintegration-customer-dv103.tsl.telus.com"
+basePath: "/v1/cmo/selfmgmt/voicemailmgmt"
+schemes:
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /account/{ban}/sub/{sub}/voice-mail/password-reset:
+    post:
+      summary: "resetVoicemailPassword"
+      description: "<b><u>SDF Authentication:</u></b>\n</br>SDF Authentication Mode:\
+        \ <i>Member Plus</i>\n</br>NextGen SDF Authentication Mode: <i>APP_AUTH</i>\n\
+        </br>\n\n<b><u>SDF Injected Header:</u></b>\n|Parameter Name|Description|\n\
+        |---|---|\n|X-TELUS-SDF-AppId|The SDF application id that will be used to\
+        \ complete the transaction.|\n|X-TELUS-SDF-VirtualHostId|If the VirtualHostId\
+        \ is present, then the X-TELUS-SDF-AppId in the header and ban in the URI\
+        \ will be validated against the CorporateClientAgreementRESTSvc.|\n</br>\n\
+        \n<b><u>SLA Information:</u></b>\n\nServices/APIs called:\n|Service|operation|SLA|\n\
+        |---|---|---|\n|CIS|cis-account-retrieval-service.getAccountByBan||\n|CIS|cis-service-agreement-retrieval-service.getFeatureParametersByBanPhoneNumber||\n\
+        |CIS|cis-service-feature-mgmt-service.resetVoicemailPassword||\n|WARS|retrieveAccountListByAccountNumber||\n\
+        |AMDOCS|updateCellularConv.changeServiceAgreement||\n</br>\n\nExpected average\
+        \ response time: ? ms"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Successful response with no failed activities:\n{\n\
+              \   \"status\" : {\n      “statusCd” : “200”,\n      “statusTxt” : “\
+              Success”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\n  \
+              \ }\n}"
+        400:
+          description: "A business exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|400|BE|ERROR_NO_VM_SOC|ERROR_NO_VM_SOC|The\
+              \ subscriber does not have a voicemail service.|The ban and subscriber\
+              \ passed in the URI does not have a voicemail soc on their service agreement.\
+              \  This error will be returned also if the ban, subscriber or both values\
+              \ are invalid (i.e. the subscriber doesn't belongs to a different ban).|\n\
+              |400|BE|INVALID_BAN_FOR_SDF_APP|INVALID_BAN_FOR_SDF_APP|The ban [ban]\
+              \ is invalid for SDF App [SDFAppId].|The ban and SDF App Id fails CorporateClientAgreement\
+              \ validation.|\n|400|BE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying AMDOCS\
+              \ business exception (see table below)|\n</br>\n\nAMDOCS BackendException\
+              \ - Specific Error message returned by tuxedo service</br></br>\nAMDOCS\
+              \ ValidationException table:</br>\n|Error Code (systemErrorCd)|Error\
+              \ Message (systemErrorTxt)|\n|---|---|\n|MSG 1115170|ProductActivityInfo\
+              \ is not verified.|\n|MSG 1117000|SOCs <soc’s> contain duplicate feature\
+              \ <feature code>|\n|MSG 1117010|Feature <feature code> which relates\
+              \ to Soc <soc code>, and feature <feature code> which relates to Soc:<soc\
+              \ code>, have the same mpsFeatureCode <mpsfeatureCode>.|\n|MSG 1117020|SOC\
+              \ <soc code> was not found|\n|MSG 1117050|Price Plan code is empty|\n\
+              |MSG 1117060|SOC code is empty|\n|MSG 1117070|SOC <soc code> is not\
+              \ Price Plan.|\n|MSG 1117080|The service type of SOC <soc code> is invalid;\
+              \ Only optional or regular SOCs will be accepted.|\n|MSG 1117090|SOC\
+              \ <soc code> is not optional for Price Plan <price plan>|\n|MSG 1117100|SOC\
+              \ <soc code> is not suitable for this Product.|\n|MSG 1117110|Promotion\
+              \ PricePlan can't be greater then 1.|\n|MSG 1117130|setProductServices\
+              \ has failed.|\n|MSG 1117140|Soc <soc code> expiration date should be\
+              \ later than its effective date.|\n|MSG 1117170|Feature <feature code>\
+              \ doesn't exist for Soc <soc code>;|\n|MSG 1117180|Feature <feature\
+              \ code> requires a parameter.|\n|MSG 1117210|ProductServicesInfo is\
+              \ not populated correctly.|\n|MSG 1117220|Feature <feature code> does\
+              \ not have a valid parameter.|\n|MSG 1117240|Price Plan is not verified|\n\
+              |MSG 1117260|SOC <soc code> not in the existing service agreement|\n\
+              |MSG 1117270|Future date SOC <soc code> can only be changed to future\
+              \ date|\n|MSG 1117280|ExpiryDate of SOC <soc code> cannot be before\
+              \ the EffectiveDate|\n|MSG 1117420|The Horizontal B/C SOC must be added\
+              \ for a subscriber with an out-of-range UFMI.|\n|MSG 1117440|Future-dated\
+              \ price plan can not be deleted using changeServiceAgreement API. Use\
+              \ deleteFuturePricePlan instead.|\n|MSG 1117520|Invalid Calling Circle\
+              \ feature parameters - amount of phone numbers exceeds maximum allowed.|\n\
+              |MSG 1117530|No maximum number of phone numbers defined for SOC %s and\
+              \ feature %s.|\n|MSG 1117540|Invalid Calling Circle feature parameters\
+              \ - the length of phone number %s is invalid.|\n|MSG 1117550|Invalid\
+              \ Calling Circle feature parameters - the phone number %s must contain\
+              \ only digits.|\n|MSG 1117560|Invalid Calling Circle feature parameters\
+              \ - the phone number %s is a special number and cannot be used.|\n|MSG\
+              \ 1117580|%s is not a valid Calling Circle feature.|\n|MSG 1117590|Ftr\
+              \ param eff_date: %s cannot be less than logical date: %s|\n|MSG 1117600|Ftr\
+              \ param eff_date: %s cannot be before FTR effective date: %s|\n|MSG\
+              \ 1117610|Ftr param eff_date: %s cannot be after FTR expiration date:\
+              \ %s|\n|MSG 1117620|Ftr param eff_date: %s cannot be different than\
+              \ FTR effective date: %s for future effective features|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Failure response for AMDOCS exception:\n{\n   “status”\
+              \ : {\n      “statusCd” : “400”,\n      “statusSubCd” : “BE”,\n    \
+              \  “statusTxt” : “ERROR_AMDOCS”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\
+              ,\n      “systemErrorCd” : “1117020”,\n      “systemErrorTxt” : “Soc\
+              \ not found.”\n   }\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|System error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying system\
+              \ or service exception not captured elsewhere|\n|500|GE|General error|ERROR_GENERIC|Underlying\
+              \ error message|Any caught exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+    parameters:
+    - name: "ban"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The billing account of the subscriber whose voicemail is being\
+        \ updated. This account must match the subscriber id that’s provided in the\
+        \ URI."
+    - name: "sub"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The subscriber id of the subscriber that owns the voicemail service\
+        \ which is being updated. The subscriber must be in active status."
+  /account/{ban}/sub/{sub}/voice-mail/mailbox-reset:
+    post:
+      summary: "resetVoicemailBox"
+      description: "<b><u>SDF Authentication:</u></b>\n</br>SDF Authentication Mode:\
+        \ <i>Member Plus</i>\n</br>NextGen SDF Authentication Mode: <i>APP_AUTH</i>\n\
+        </br>\n\n<b><u>SDF Injected Header:</u></b>\n|Parameter Name|Description|\n\
+        |---|---|\n|X-TELUS-SDF-AppId|The SDF application id that will be used to\
+        \ complete the transaction.|\n|X-TELUS-SDF-VirtualHostId|If the VirtualHostId\
+        \ is present, then the X-TELUS-SDF-AppId in the header and ban in the URI\
+        \ will be validated against the CorporateClientAgreementRESTSvc.|\n</br>\n\
+        \n<b><u>SLA Information:</u></b>\n\nServices/APIs called:\n|Service|operation|SLA|\n\
+        |---|---|---|\n|CIS|cis-account-retrieval-service.getAccountByBan||\n|CIS|cis-service-agreement-retrieval-service.getFeatureParametersByBanPhoneNumber||\t\
+        \n|CIS|cis-service-feature-mgmt-service.resetVoicemailBox||\n|WARS|retrieveAccountListByAccountNumber||\n\
+        |AMDOCS|updateCellularConv.changeServiceAgreement||\n\n</br>\nExpected average\
+        \ response time: ? ms"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Successful response with no failed activities:\n{\n\
+              \   \"status\" : {\n      “statusCd” : “200”,\n      “statusTxt” : “\
+              Success”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\n  \
+              \ }\n}"
+        400:
+          description: "A business exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|400|BE|ERROR_NO_VM_SOC|ERROR_NO_VM_SOC|The\
+              \ subscriber does not have a voicemail service.|The ban and subscriber\
+              \ passed in the URI does not have a voicemail soc on their service agreement.\
+              \  This error will be returned also if the ban, subscriber or both values\
+              \ are invalid (i.e. the subscriber doesn't belongs to a different ban).|\n\
+              |400|BE|INVALID_BAN_FOR_SDF_APP|INVALID_BAN_FOR_SDF_APP|The ban [ban]\
+              \ is invalid for SDF App [SDFAppId].|The ban and SDF App Id fails CorporateClientAgreement\
+              \ validation.|\n|400|BE|ERROR_AMDOCS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying AMDOCS\
+              \ business exception (see table below)|\n</br>\n\nAMDOCS BackendException\
+              \ - Specific Error message returned by tuxedo service</br></br>\nAMDOCS\
+              \ ValidationException table:</br>\n|Error Code (systemErrorCd)|Error\
+              \ Message (systemErrorTxt)|\n|---|---|\n|MSG 1115170|ProductActivityInfo\
+              \ is not verified.|\n|MSG 1117000|SOCs <soc’s> contain duplicate feature\
+              \ <feature code>|\n|MSG 1117010|Feature <feature code> which relates\
+              \ to Soc <soc code>, and feature <feature code> which relates to Soc:<soc\
+              \ code>, have the same mpsFeatureCode <mpsfeatureCode>.|\n|MSG 1117020|SOC\
+              \ <soc code> was not found|\n|MSG 1117050|Price Plan code is empty|\n\
+              |MSG 1117060|SOC code is empty|\n|MSG 1117070|SOC <soc code> is not\
+              \ Price Plan.|\n|MSG 1117080|The service type of SOC <soc code> is invalid;\
+              \ Only optional or regular SOCs will be accepted.|\n|MSG 1117090|SOC\
+              \ <soc code> is not optional for Price Plan <price plan>|\n|MSG 1117100|SOC\
+              \ <soc code> is not suitable for this Product.|\n|MSG 1117110|Promotion\
+              \ PricePlan can't be greater then 1.|\n|MSG 1117130|setProductServices\
+              \ has failed.|\n|MSG 1117140|Soc <soc code> expiration date should be\
+              \ later than its effective date.|\n|MSG 1117170|Feature <feature code>\
+              \ doesn't exist for Soc <soc code>;|\n|MSG 1117180|Feature <feature\
+              \ code> requires a parameter.|\n|MSG 1117210|ProductServicesInfo is\
+              \ not populated correctly.|\n|MSG 1117220|Feature <feature code> does\
+              \ not have a valid parameter.|\n|MSG 1117240|Price Plan is not verified|\n\
+              |MSG 1117260|SOC <soc code> not in the existing service agreement|\n\
+              |MSG 1117270|Future date SOC <soc code> can only be changed to future\
+              \ date|\n|MSG 1117280|ExpiryDate of SOC <soc code> cannot be before\
+              \ the EffectiveDate|\n|MSG 1117420|The Horizontal B/C SOC must be added\
+              \ for a subscriber with an out-of-range UFMI.|\n|MSG 1117440|Future-dated\
+              \ price plan can not be deleted using changeServiceAgreement API. Use\
+              \ deleteFuturePricePlan instead.|\n|MSG 1117520|Invalid Calling Circle\
+              \ feature parameters - amount of phone numbers exceeds maximum allowed.|\n\
+              |MSG 1117530|No maximum number of phone numbers defined for SOC %s and\
+              \ feature %s.|\n|MSG 1117540|Invalid Calling Circle feature parameters\
+              \ - the length of phone number %s is invalid.|\n|MSG 1117550|Invalid\
+              \ Calling Circle feature parameters - the phone number %s must contain\
+              \ only digits.|\n|MSG 1117560|Invalid Calling Circle feature parameters\
+              \ - the phone number %s is a special number and cannot be used.|\n|MSG\
+              \ 1117580|%s is not a valid Calling Circle feature.|\n|MSG 1117590|Ftr\
+              \ param eff_date: %s cannot be less than logical date: %s|\n|MSG 1117600|Ftr\
+              \ param eff_date: %s cannot be before FTR effective date: %s|\n|MSG\
+              \ 1117610|Ftr param eff_date: %s cannot be after FTR expiration date:\
+              \ %s|\n|MSG 1117620|Ftr param eff_date: %s cannot be different than\
+              \ FTR effective date: %s for future effective features|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Failure response for AMDOCS exception:\n{\n   “status”\
+              \ : {\n      “statusCd” : “400”,\n      “statusSubCd” : “BE”,\n    \
+              \  “statusTxt” : “ERROR_AMDOCS”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\
+              ,\n      “systemErrorCd” : “1117020”,\n      “systemErrorTxt” : “Soc\
+              \ not found.”\n   }\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|System error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying system\
+              \ or service exception not captured elsewhere|\n|500|GE|General error|ERROR_GENERIC|Underlying\
+              \ error message|Any caught exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+    parameters:
+    - name: "ban"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The billing account of the subscriber whose voicemail is being\
+        \ updated. This account must match the subscriber id that’s provided in the\
+        \ URI."
+    - name: "sub"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The subscriber id of the subscriber that owns the voicemail service\
+        \ which is being updated. The subscriber must be in active status."
+  /ping:
+    get:
+      summary: "ping"
+      description: "SLA Information:\n\nServices/APIs called: None\n\nExpected average\
+        \ response time: 1500 ms\n"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+              nameTxt:
+                type: "string"
+                description: "The name of the service."
+              descriptionTxt:
+                type: "string"
+                description: "The description of the service."
+              buildLabelTxt:
+                type: "string"
+                description: "The build version for this service."
+              buildDt:
+                type: "string"
+                description: "The date the service was built."
+          examples:
+            application/json: "{\n   “status” : {\n      “statusCd” : “200”,\n   \
+              \   “statusTxt” : “Success”,\n      “systemErrorTimeStamp” : “2017-02-21T14:59:13”\
+              \n   },\n   “nameTxt” : “Voice Mail Management REST Service 1.0”,\n\
+              \   “descriptionTxt” : “This service provides a suite of operations\
+              \ to perform voice mail management functions.”,\n   “buildLabel” : “\
+              201711.0.21”,\n   “buildDt” : “20171019-195457”\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|System error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying system\
+              \ or service exception not captured elsewhere|\n|500|GE|General error|ERROR_GENERIC|Underlying\
+              \ error message|Any caught exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+definitions:
+  ResponseStatus:
+    type: "object"
+    required:
+    - "statusCd"
+    properties:
+      statusCd:
+        type: "string"
+        description: "The HTTP result status code."
+        example: "200"
+      statusSubCd:
+        type: "string"
+        description: "The service internal status code."
+        example: "UM1, UM2"
+      statusTxt:
+        type: "string"
+        description: "A short description of status."
+        example: "Invalid URL"
+      systemErrorCd:
+        type: "string"
+        description: "If the underlying service we call returns its own error code,\
+          \ we'll include it here, e.g. contents of faultString in error response"
+        example: "“error: java.lang.IllegalArgumentException\""
+      systemErrorTs:
+        type: "string"
+        description: "The time of underlying error (to help in locating error in logs)."
+        example: "2013-05-23T11:07:48"
+      systemErrorTxt:
+        type: "string"
+        description: "A description of system error; messageId, errorCode from PolicyException."
+        example: "“messageId: APP10004”"
+    description: "The response status object provides additional information to the\
+      \ HTTP response in terms of error messaging.  This object provides details to\
+      \ help identify the underlying exception(s) and locate the error(s) in the log\
+      \ files."

@@ -1,0 +1,4 @@
+<environment-config>
+	<entry name="cmb-service-order-reference-ws-5_0" path="/cmb-ns"/>
+	<entry name="cmb-service-order-reference-ws-5_0" path="/ARMX/reference-versions" value="${label}"/>
+</environment-config>

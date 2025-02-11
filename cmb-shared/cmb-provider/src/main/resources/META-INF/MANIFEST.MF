@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Extension-List: hcdAPI hcdProvider
+hcdAPI-Extension-Name: CreditAPI
+hcdAPI-Specification-Version: 1.0
+hcdAPI-Implementation-Version: 1.0
+hcdProvider-Extension-Name: CreditAPIProvider
+hcdProvider-Specification-Version: 1.0
+hcdProvider-Implementation-Version: 1.0

@@ -1,0 +1,91 @@
+<!-- Please replace mark up characters (&, <, >, ", ') with XML pre-declared entities, such as replacing "&" with "&amp;"  -->
+<evaluation-rules>
+	<!-- Product Type PCS -->
+	<product-type-rule productType="C">
+		<!-- Equipment Type - All except Prepaid IPAD Tablet (1)-->
+		<equipment-type-rule equipmentType="A, C, D, P, Z">
+			<!-- Process Type - Activation, Renewal, Migration -->
+			<process-type-rule processType="Activation">
+				<!-- Consumer Postpaid Regular, TELUS Employee, Business Personal, Corporate Individual, Corporate Employee  -->
+				<account-type-rule accountCombinedTypes="IR, BP, CI">
+					<!-- Brand Telus Mobility -->
+					<brand-rule brandId="1">
+						<result sendSMS="true" smsTemplate="248" contactEventTypeId="129" memoType="ACPO" memoText="L&amp;R  Campaign - client is new and received SMS to visit telusmobility.com/support for device help." messageDelay="3600"/>
+					</brand-rule>
+					<!-- Brand KOODO -->
+					<brand-rule brandId="3">
+						<result sendSMS="true" smsTemplate="250" contactEventTypeId="129" memoType="ACKA" memoText="Koodo Campaign - client is new and received SMS to visit koodomobile.com/help for device help." messageDelay="3600"/>
+					</brand-rule>
+				</account-type-rule>
+				<!-- Consumer Prepaid-->
+				<account-type-rule accountCombinedTypes="IQ, IY, IB">
+					<!-- Brand Telus Mobility -->
+					<brand-rule brandId="1">
+						<result sendSMS="true" smsTemplate="247" contactEventTypeId="129" memoType="ACPP" memoText="L&amp;R Campaign - client is new and received SMS to visit telusmobility.com/support for device help." messageDelay="3600"/>
+					</brand-rule>
+				</account-type-rule>	
+			</process-type-rule>
+			<process-type-rule processType="Migration">
+				<!-- Consumer Postpaid Regular, TELUS Employee, Business Personal, Corporate Individual, Corporate Employee  -->
+				<account-type-rule accountCombinedTypes="IR, BP, CI">
+					<!-- Brand Telus Mobility -->
+					<brand-rule brandId="1">
+						<result sendSMS="true" smsTemplate="252" contactEventTypeId="130" memoType="MIPT" memoText="L&amp;R Campaign - client just renewed or migrated and received SMS to visit telusmobility.com/support for device help." messageDelay="3600"/>
+					</brand-rule>
+				</account-type-rule>
+				<!-- Consumer Prepaid-->
+				<account-type-rule accountCombinedTypes="IQ, IY, IB">
+					<!-- Brand Telus Mobility -->
+					<brand-rule brandId="1">
+						<result sendSMS="true" smsTemplate="251" contactEventTypeId="130" memoType="MIPP" memoText="L&amp;R Campaign - client just renewed or migrated and received SMS to visit telusmobility.com/support for device help." messageDelay="3600"/>
+					</brand-rule>
+				</account-type-rule>
+			</process-type-rule>
+			<process-type-rule processType="Renewal">
+				<!-- Consumer Postpaid Regular, TELUS Employee, Business Personal, Corporate Individual, Corporate Employee  -->
+				<account-type-rule accountCombinedTypes="IR, BP, CI">
+					<!-- Brand Telus Mobility -->
+					<brand-rule brandId="1">
+						<result sendSMS="true" smsTemplate="252" contactEventTypeId="131" memoType="RNPT" memoText="L&amp;R Campaign - client just renewed or migrated and received SMS to visit telusmobility.com/support for device help." messageDelay="30"/>
+					</brand-rule>
+					<!-- Brand KOODO -->
+					<brand-rule brandId="3">
+						<result sendSMS="true" smsTemplate="254" contactEventTypeId="132" memoType="KDRE" memoText="Koodo Campaign - client just renewed or migrated and received SMS to visit koodomobile.com/help for device help." messageDelay="30"/>
+					</brand-rule>
+				</account-type-rule>
+			</process-type-rule>
+		</equipment-type-rule>
+		<equipment-type-rule equipmentType="3">
+			<!-- Process Type - Activation, Renewal, Migration -->
+			<process-type-rule processType="Activation">
+				<!-- Consumer Postpaid Regular, TELUS Employee, Business Personal, Corporate Individual, Corporate Employee  -->
+				<account-type-rule accountCombinedTypes="IR, BP, CI">
+					<!-- Brand Telus Mobility -->
+					<brand-rule brandId="1">
+						<result sendSMS="true" smsTemplate="249" contactEventTypeId="129" memoType="ACID" memoText="L&amp;R Campaign - client is new and received SMS to visit telusmobility.com/support for device help." messageDelay="3600"/>
+					</brand-rule>
+				</account-type-rule>	
+			</process-type-rule>
+			<process-type-rule processType="Migration">
+				<!-- Consumer Postpaid Regular, TELUS Employee, Business Personal, Corporate Individual, Corporate Employee  -->
+				<account-type-rule accountCombinedTypes="IR, BP, CI">
+					<!-- Brand Telus Mobility -->
+					<brand-rule brandId="1">
+						<result sendSMS="true" smsTemplate="253" contactEventTypeId="130" memoType="MPID" memoText="L&amp;R Campaign - client just renewed or migrated and received SMS to visit telusmobility.com/support for device help." messageDelay="3600"/>
+					</brand-rule>
+				</account-type-rule>
+			</process-type-rule>
+			<process-type-rule processType="Renewal">
+				<!-- Consumer Postpaid Regular, TELUS Employee, Business Personal, Corporate Individual, Corporate Employee  -->
+				<account-type-rule accountCombinedTypes="IR, BP, CI">
+					<!-- Brand Telus Mobility -->
+					<brand-rule brandId="1">
+						<result sendSMS="true" smsTemplate="253" contactEventTypeId="131" memoType="RNID" memoText="L&amp;R Campaign - client just renewed or migrated and received SMS to visit telusmobility.com/support for device help." messageDelay="30"/>
+					</brand-rule>
+				</account-type-rule>
+			</process-type-rule>
+		</equipment-type-rule>
+	</product-type-rule>
+	<!-- all other -->
+	<result sendSMS="false"/>
+</evaluation-rules>

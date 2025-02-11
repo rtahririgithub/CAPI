@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb.ws.billing.inquiry.1.5</groupId>
+		<artifactId>pom-cmb-billing-inquiry-ws-1-5</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cmb-billing-inquiry-ws-1-5</artifactId>
+	<packaging>war</packaging>
+
+	<build>
+		<finalName>cmb-billing-inquiry-ws-1-5</finalName>
+		<plugins>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-antrun-plugin</artifactId>
+			    <executions>
+			    	<execution>
+			    		<id>GenWsdl</id>
+			    		<phase>none</phase>
+			    	</execution>
+			    	<execution>
+			    		<id>LdifGen</id>
+			            <goals>
+			                <goal>run</goal>
+			            </goals>
+			        </execution>
+			 </executions>
+ 			</plugin>
+ 		</plugins>
+ 	</build>
+
+
+	<profiles>
+		<profile>
+			<id>BuildServer</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<excludes>
+								<exclude>**/*.java</exclude>
+							</excludes>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>aspectj-maven-plugin</artifactId>
+						<configuration>
+							<showWeaveInfo>true</showWeaveInfo>
+							<aspectLibraries>
+								<aspectLibrary>
+									<groupId>telus.cust.cmb.common</groupId>
+									<artifactId>cmb-common-ws</artifactId>
+								</aspectLibrary>
+							</aspectLibraries>
+							<Xlint>ignore</Xlint>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<properties>
+  		<!-- If you set this into your SOAP project POM file and maintain the context root there as well as in weblogic.xml,
+  		Eclipse will no longer be stubbornly changing the context root inside you weblogic.xml file. The file will still be
+  		overwritten, but at least it won't be broken. This property is interpreted by Eclipse's Maven plugin, not Maven itself. 
+  		Maven doesn't care for it. -->
+		<m2eclipse.wtp.contextRoot>CMO/BillingInquiryMgmt/BillingInquiry/BillingInquiryService_v1_5</m2eclipse.wtp.contextRoot> 
+	</properties> 
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>cmb-billing-inquiry-wsdl-1-5</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common</groupId>
+			<artifactId>cmb-common-ws</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>weblogic</groupId>
+			<artifactId>wlfullclient</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	
+	</dependencies>
+
+</project>

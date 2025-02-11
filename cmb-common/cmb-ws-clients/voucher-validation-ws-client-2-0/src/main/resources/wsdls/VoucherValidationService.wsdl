@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s1:definitions xmlns="" xmlns:s0="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:s1="http://schemas.xmlsoap.org/wsdl/" xmlns:s2="http://www.telus.com/VoucherService/wsdl_v2" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" name="VoucherValidationService_v2_0Definitions" targetNamespace="http://www.telus.com/VoucherService/wsdl_v2">
+	<s1:types>
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.telus.com/VoucherService/wsdl_v2" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://www.telus.com/VoucherService/wsdl_v2" xmlns:s2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<xs:element name="validateVoucher">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SN" type="xs:string"/>
+						<xs:element name="clearPIN" type="xs:string"/>
+						<xs:element name="cipherPINString" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="validateVoucherResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="voucherValidity" type="xs:int"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</s1:types>
+	<s1:message name="validateVoucher">
+		<s1:part name="parameters" element="s2:validateVoucher"/>
+	</s1:message>
+	<s1:message name="validateVoucherResponse">
+		<s1:part name="parameters" element="s2:validateVoucherResponse"/>
+	</s1:message>
+	<s1:portType name="VoucherValidationPortType_v2_0">
+		<s1:operation name="validateVoucher" parameterOrder="parameters">
+			<s1:input message="s2:validateVoucher"/>
+			<s1:output message="s2:validateVoucherResponse"/>
+		</s1:operation>
+	</s1:portType>
+	<s1:binding name="VoucherValidationService_v2_0SoapBinding" type="s2:VoucherValidationPortType_v2_0">
+		<s3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<s1:operation name="validateVoucher">
+			<s3:operation soapAction="validateVoucher" style="document"/>
+			<s1:input>
+				<s3:body parts="parameters" use="literal"/>
+			</s1:input>
+			<s1:output>
+				<s3:body parts="parameters" use="literal"/>
+			</s1:output>
+		</s1:operation>
+	</s1:binding>
+	<s1:service name="VoucherValidationService_v2_0">
+		<s1:port name="VoucherValidationPortType_v2_0SoapPort" binding="s2:VoucherValidationService_v2_0SoapBinding">
+			<s3:address location="http://rmbilling-vouchermgmt-dv103.tsl.telus.com:80/VoucherService_v2_0/VoucherValidatorWS_v2_0"/>
+		</s1:port>
+	</s1:service>
+</s1:definitions>

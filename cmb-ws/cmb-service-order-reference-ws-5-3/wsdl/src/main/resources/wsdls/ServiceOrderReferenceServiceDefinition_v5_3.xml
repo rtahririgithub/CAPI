@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>ServiceOrderReferenceService</Name>
+		<Documentation>This service provides the ability to retrieve Reference Data from the Knowbility database (POL1).</Documentation>
+		<TAM_LevelZeroAndOne>SMO/OrderMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/ServiceOrderReference</ServiceTaxonomy>
+		<MajorVersion>5</MajorVersion>
+		<MinorVersion>3</MinorVersion>
+		<soapAddress>http://smf-serviceordermgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>ServiceOrderReferenceServiceRequestResponse_v5_3.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/SMO/OrderMgmt/ServiceOrderReferenceServiceRequestResponse_v5</NameSpace>
+		<nsAbbrev>sor</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getCommitmentReasonList</OperationName>
+		<Documentation>This method retrieves a Commitment Reason list from the Knowbility database.</Documentation>
+		<InputType wsp="True">getCommitmentReasonList</InputType>
+		<OutputType>getCommitmentReasonListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getCommitmentReason</OperationName>
+		<Documentation>This method retrieves a Commitment Reason from the Knowbility database based on a reason code.</Documentation>
+		<InputType wsp="True">getCommitmentReason</InputType>
+		<OutputType>getCommitmentReasonResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPoolingGroupList</OperationName>
+		<Documentation>This method retrieves the Pooling Group list from the Knowbility database.</Documentation>
+		<InputType wsp="True">getPoolingGroupList</InputType>
+		<OutputType>getPoolingGroupListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPoolingGroup</OperationName>
+		<Documentation>This method retrieves a Pooling Group from the Knowbility database.</Documentation>
+		<InputType wsp="True">getPoolingGroup</InputType>
+		<OutputType>getPoolingGroupResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getFeatureList</OperationName>
+		<Documentation>This method retrieves a Feature List from the Knowbility database.</Documentation>
+		<InputType wsp="True">getFeatureList</InputType>
+		<OutputType>getFeatureListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getFeature</OperationName>
+		<Documentation>This method retrieves a Feature from the Knowbility database.</Documentation>
+		<InputType wsp="True">getFeature</InputType>
+		<OutputType>getFeatureResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getRegularServiceList</OperationName>
+		<Documentation>This method retrieves a Regular Service List from the Knowbility database.</Documentation>
+		<InputType wsp="True">getRegularServiceList</InputType>
+		<OutputType>getRegularServiceListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getRegularService</OperationName>
+		<Documentation>This method retrieves a Regular Service from the Knowbility database.</Documentation>
+		<InputType wsp="True">getRegularService</InputType>
+		<OutputType>getRegularServiceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPrepaidServiceList</OperationName>
+		<Documentation>This method retrieves a Prepaid Service List from the Knowbility database.</Documentation>
+		<InputType wsp="True">getPrepaidServiceList</InputType>
+		<OutputType>getPrepaidServiceListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPrepaidServiceListByEquipmentAndNetworkType</OperationName>
+		<Documentation>Retrieves Prepaid Service List By Equipment and Network Type.</Documentation>
+		<InputType wsp="True">getPrepaidServiceListByEquipmentAndNetworkType</InputType>
+		<OutputType>getPrepaidServiceListByEquipmentAndNetworkTypeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPrepaidService</OperationName>
+		<Documentation>This method retrieves a Prepaid Service based on the prepaid system as well as the Knowbility database.</Documentation>
+		<InputType wsp="True">getPrepaidService</InputType>
+		<OutputType>getPrepaidServiceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceListByFeatureCategory</OperationName>
+		<Documentation>This method retrieves a Service List By Feature Category from the Knowbility database.</Documentation>
+		<InputType wsp="True">getServiceListByFeatureCategory</InputType>
+		<OutputType>getServiceListByFeatureCategoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlan</OperationName>
+		<Documentation>This method retrieves a Price Plan from the Knowbility database.</Documentation>
+		<InputType wsp="True">getPricePlan</InputType>
+		<OutputType>getPricePlanResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanSummaryListByPricePlanCodeList</OperationName>
+		<Documentation>Retrieves Price Plan Summary List By Price Plan Code List.</Documentation>
+		<InputType wsp="True">getPricePlanSummaryListByPricePlanCodeList</InputType>
+		<OutputType>getPricePlanSummaryListByPricePlanCodeListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanByEquipmentAndAccountInfo</OperationName>
+		<Documentation>Retrieves Price Plan By Equipment And Account Info.</Documentation>
+		<InputType wsp="True">getPricePlanByEquipmentAndAccountInfo</InputType>
+		<OutputType>getPricePlanByEquipmentAndAccountInfoResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanList</OperationName>
+		<Documentation>This method retrieves a Price Plan List from the Knowbility database.</Documentation>
+		<InputType wsp="True">getPricePlanList</InputType>
+		<OutputType>getPricePlanListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>checkServiceAssociation</OperationName>
+		<Documentation>This method checks a Service Association based on data from the Knowbility database.</Documentation>
+		<InputType wsp="True">checkServiceAssociation</InputType>
+		<OutputType>checkServiceAssociationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getLogicalDate</OperationName>
+		<Documentation>This method retrieves the Logical Date from the Knowbility database.</Documentation>
+		<InputType wsp="True">getLogicalDate</InputType>
+		<OutputType>getLogicalDateResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceExclusionGroupList</OperationName>
+		<Documentation>This method retrieves Service Exclusion Groups from the Knowbility database.</Documentation>
+		<InputType wsp="True">getServiceExclusionGroupList</InputType>
+		<OutputType>getServiceExclusionGroupListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getBrandList</OperationName>
+		<Documentation>This method retrieves the Brand List from the Knowbility database.</Documentation>
+		<InputType wsp="True">getBrandList</InputType>
+		<OutputType>getBrandListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getBrandByBrandId</OperationName>
+		<Documentation>This method retrieves a Brand By Brand Id from the Knowbility database.</Documentation>
+		<InputType wsp="True">getBrandByBrandId</InputType>
+		<OutputType>getBrandByBrandIdResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>checkServicePrivilege</OperationName>
+		<Documentation>This method checks a Service Privilege based on data from the Knowbility database.</Documentation>
+		<InputType wsp="True">checkServicePrivilege</InputType>
+		<OutputType>checkServicePrivilegeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>checkPricePlanPrivilege</OperationName>
+		<Documentation>This method checks a Price Plan Privilege based on data from the Knowbility database.</Documentation>
+		<InputType wsp="True">checkPricePlanPrivilege</InputType>
+		<OutputType>checkPricePlanPrivilegeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+	<Operation>
+		<OperationName>getServiceTerm</OperationName>
+		<Documentation>Retrieves Wireless Postpaid Service Term for Promotional and Auto-Expiry Services</Documentation>
+		<InputType wsp="True">getServiceTerm</InputType>
+		<OutputType>getServiceTermResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getDataSharingGroupList</OperationName>
+		<Documentation>Operation used to get the definition of all data sharing groups</Documentation>
+		<InputType wsp="True">getDataSharingGroupList</InputType>
+		<OutputType>getDataSharingGroupListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getDataSharingGroup</OperationName>
+		<Documentation>Operation used to get the definition of a specific data sharing group</Documentation>
+		<InputType wsp="True">getDataSharingGroup</InputType>
+		<OutputType>getDataSharingGroupResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAirTimeAllocationList</OperationName>
+		<Documentation>Operation to retrieve the voice allocation information for each given service code as configured in database </Documentation>
+		<InputType wsp="True">getAirTimeAllocationList</InputType>
+		<OutputType>getAirTimeAllocationListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getCalculatedEffectiveAirTimeAllocationList</OperationName>
+		<Documentation>Operation to retrieve the voice allocation information for each given service code as configured in database + calculating estimated effective and/or expiration date. 
+		This operation has an extra logic to retrieve the voice allocation for the related service if the related service is not in the input list of service code. The related services here include promotional service, bounded and sequencially bounded service. However this operation does not deal with any mising included service. There is no logic of dropping confilicting service or incompatible service as it would have been done via contract save. </Documentation>
+		<InputType wsp="True">getCalculatedEffectiveAirTimeAllocationList</InputType>
+		<OutputType>getCalculatedEffectiveAirTimeAllocationListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPeriodList</OperationName>
+		<Documentation>Operation to retrieve period related reference data for a given service code</Documentation>
+		<InputType wsp="True">getPeriodList</InputType>
+		<OutputType>getPeriodListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceFeatureClassification</OperationName>
+		<Documentation>Operation to retrieve service feature classification object which contains the descriptions for a given classification code</Documentation>
+		<InputType wsp="True">getServiceFeatureClassification</InputType>
+		<OutputType>getServiceFeatureClassificationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSpecialNumber</OperationName>
+		<Documentation>This method retrieves a Special Number definition from the Knowbility database.</Documentation>
+		<InputType wsp="True">getSpecialNumber</InputType>
+		<OutputType>getSpecialNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSpecialNumberList</OperationName>
+		<Documentation>This method retrieves all Special Number definitions from the Knowbility database.</Documentation>
+		<InputType wsp="True">getSpecialNumberList</InputType>
+		<OutputType>getSpecialNumberListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSpecialNumberRange</OperationName>
+		<Documentation>This method retrieves a Special Number Range definition from the Knowbility database.</Documentation>
+		<InputType wsp="True">getSpecialNumberRange</InputType>
+		<OutputType>getSpecialNumberRangeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSpecialNumberRangeList</OperationName>
+		<Documentation>This method retrieves all Special Number Range definitions from the Knowbility database.</Documentation>
+		<InputType wsp="True">getSpecialNumberRangeList</InputType>
+		<OutputType>getSpecialNumberRangeListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getEquivalentService</OperationName>
+		<Documentation>This operation returns the  "FIRST SERVICE" found for the provided ServiceCode that is the "Equivalent Service".  The Equivalent Service may exist in the input price plan either as included or optional</Documentation>
+		<InputType wsp="True">getEquivalentService</InputType>
+		<OutputType>getEquivalentServiceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceRelation</OperationName>
+		<Documentation>This operation returns the bounded service(s) from the soc relation extension table for the given service.</Documentation>
+		<InputType wsp="True">getServiceRelation</InputType>
+		<OutputType>getServiceRelationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceListByServiceGroup</OperationName>
+		<Documentation>This operation retrieves a list of services for a given service group code.</Documentation>
+		<InputType wsp="True">getServiceListByServiceGroup</InputType>
+		<OutputType>getServiceListByServiceGroupResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getIncludedPromotionService</OperationName>
+		<Documentation>This operation retrieves promotional services applicable for a given price plan and filtered by the input parameters.  This operation should be called on demand based on the indicator from getPricePlanByEquipmentAndAccountInfo.</Documentation>
+		<InputType wsp="True">getIncludedPromotionService</InputType>
+		<OutputType>getIncludedPromotionServiceResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAlternateRecurringCharge</OperationName>
+		<Documentation>Retrieves the alternate recurring charge (if any) for the given list of services.  This operation should only be called if the Service Object (returned from other operations)  has the alternateRecurringChargeInd to TRUE.  Note that the charges are retrieved from batch_pp_rc_rate table.</Documentation>
+		<InputType wsp="True">getAlternateRecurringCharge</InputType>
+		<OutputType>getAlternateRecurringChargeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanByEquipmentAndAccountByBusinessRole</OperationName>
+		<Documentation>This method retrieves the price plan by equipment type and account info.  Data is filtered by the Optional Services Indicator and on the Business Role and Privilege that is passed in.  All services are returned including included service and optioanal service, but based on input parms.</Documentation>
+		<InputType wsp="True">getPricePlanByEquipmentAndAccountByBusinessRole</InputType>
+		<OutputType>getPricePlanByEquipmentAndAccountByBusinessRoleResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPricePlanAndServiceCodeListByGroupCode</OperationName>
+		<Documentation>This operation returns a list of codes (includes priceplans and services) for the given group code</Documentation>
+		<InputType wsp="True">getPricePlanAndServiceCodeListByGroupCode</InputType>
+		<OutputType>getPricePlanAndServiceCodeListByGroupCodeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getMigrationTypeList</OperationName>
+		<Documentation>This operation returns a list of codes for valid migration types.</Documentation>
+		<InputType wsp="True">getMigrationTypeList</InputType>
+		<OutputType>getMigrationTypeListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+		<Operation>
+		<OperationName>getSeatTypeList</OperationName>
+		<Documentation>This operation returns a list of valid seat types.</Documentation>
+		<InputType wsp="True">getSeatTypeList</InputType>
+		<OutputType>getSeatTypeListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAssociatedIncludedPromotion</OperationName>
+		<Documentation>This operation returns True / False if service is associated with included Promotion.</Documentation>
+		<InputType wsp="True">getAssociatedIncludedPromotion</InputType>
+		<OutputType>getAssociatedIncludedPromotionResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+	<Operation>
+		<OperationName>getOptionalServiceList</OperationName>
+		<Documentation>This method retrieves optional services from the Knowbility database.</Documentation>
+		<InputType wsp="True">getOptionalServiceList</InputType>
+		<OutputType>getOptionalServiceListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getMandatoryServiceList</OperationName>
+		<Documentation>Retrieves mandatory services for price plans that need - but do not automatically include - those services.</Documentation>
+		<InputType wsp="True">getMandatoryServiceList</InputType>
+		<OutputType>getMandatoryServiceListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+	<Operation>
+		<OperationName>getServiceExtendedInfo</OperationName>
+		<Documentation>Retrieves extended service info (including Province, Account Type/SubType, and Soc Groups) by Service Code List.</Documentation>
+		<InputType wsp="True">getServiceExtendedInfo</InputType>
+		<OutputType>getServiceExtendedInfoResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getWccServiceExtendedInfo</OperationName>
+		<Documentation>Retrieves extended service info for all wireless code of conduct services (including the SOC code, offer id, price and zone).</Documentation>
+		<InputType wsp="True">getWccServiceExtendedInfo</InputType>
+		<OutputType>getWccServiceExtendedInfoResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:common="http://schemas.telus.com/eca/common_types_2_1"
+			xmlns="http://xmlschema.tmi.telus.com/xsd/Customer/SelfMgmt/subscriber_info_management_types_1_0" 
+			targetNamespace="http://xmlschema.tmi.telus.com/xsd/Customer/SelfMgmt/subscriber_info_management_types_1_0" 
+			elementFormDefault="qualified">
+
+	<xsd:import namespace="http://schemas.telus.com/eca/common_types_2_1"
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/legacy/ECA_CommonTypes_2_1.xsd"/>
+
+	<xsd:simpleType name="nickNameType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[\S\s]{0,60}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="PhoneDirectoryEntry">
+		<xsd:sequence>
+			<xsd:element name="phoneNumber" type="common:PhoneNumber" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="nickName" type="nickNameType" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="effectiveDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

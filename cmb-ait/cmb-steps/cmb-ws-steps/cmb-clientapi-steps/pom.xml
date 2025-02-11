@@ -1,0 +1,49 @@
+<!-- generated with TAF v0.1.1 -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+        <groupId>telus.ait</groupId>
+        <artifactId>pom-cmb-ws-steps</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+	<artifactId>cmb-clientapi-steps</artifactId>
+	<packaging>jar</packaging>
+	<name>cmb-clientapi-steps</name>
+
+    <dependencies>
+        <!--TODO This dependency is for ws steps module only. No way to specify it for the generated ws-steps module only-->
+        <dependency>
+            <groupId>telus.TELUS_Frameworks6</groupId>
+            <artifactId>frameworks6-webservices</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>telus.ait</groupId>
+            <artifactId>cmb-ws-clients</artifactId>
+            </dependency>
+        <dependency>
+            <groupId>telus.ait</groupId>
+            <artifactId>cmb-fwk</artifactId>
+            </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

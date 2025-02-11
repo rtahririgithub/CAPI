@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:typ="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0"
+           xmlns="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/customer_order_reference_types_1_0"
+           targetNamespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/customer_order_reference_types_1_0"
+           elementFormDefault="qualified">
+
+  <xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0" 
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CustomerInformationReferenceTypes_1_0.xsd"/>
+
+
+  <xs:complexType name="SalesRep">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string"/>
+					<xs:element name="dealerCode" type="xs:string"/>
+					<xs:element name="effectiveDate" type="xs:date"/>
+					<xs:element name="expiryDate" type="xs:date"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+   </xs:complexType>
+</xs:schema>

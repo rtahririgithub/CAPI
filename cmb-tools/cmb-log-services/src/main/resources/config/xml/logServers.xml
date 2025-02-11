@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dataCentres>
+
+<logServers>	
+	<!-- DEFAULT LOG SERVERS -->
+	<logServer host="ln98312" name="LAIRD for DEV, PT, &amp; ST" shortname="laird" passwordType="W" default="true"/>
+	<logServer host="lp97204" name="LAIRD for PR" shortname="lairdpr" passwordType="U" production="true" default="true"/>
+		
+	<logServer host="ln99828" name="LAIRD for PT" shortname="lairdpt" passwordType="W">
+		<mappedHost>ln98552</mappedHost>
+		<mappedHost>ln98553</mappedHost>
+		<mappedHost>ln98554</mappedHost>
+		<mappedHost>ln98555</mappedHost>
+		<mappedHost>ln99235</mappedHost>
+		<mappedHost>ln99236</mappedHost>
+		<mappedHost>ln99237</mappedHost>
+		<mappedHost>ln99238</mappedHost>
+		<mappedHost>ln99254</mappedHost>
+		<mappedHost>ln99669</mappedHost>
+		<mappedHost>ln99670</mappedHost>
+		<mappedHost>ln99707</mappedHost>
+		<mappedHost>ln99708</mappedHost>
+		<mappedHost>ln99774</mappedHost>
+		<mappedHost>ln99775</mappedHost>
+		<mappedHost>ln99828</mappedHost>
+		<mappedHost>ln99829</mappedHost>
+		<mappedHost>ln99830</mappedHost>
+		<mappedHost>ln99929</mappedHost>
+		<mappedHost>ln99930</mappedHost>		
+	</logServer>
+	
+	<logServer host="ln99825" name="LAIRD for PT (2)" shortname="lairdpt2" passwordType="W">
+		<mappedHost>ln99231</mappedHost>	
+		<mappedHost>ln99232</mappedHost>	
+	</logServer>
+	
+	<logServer host="ln99239" name="LAIRD for ST" shortname="lairdst" passwordType="W">
+		<mappedHost>ln98560</mappedHost>
+		<mappedHost>ln98561</mappedHost>
+		<mappedHost>ln98562</mappedHost>
+		<mappedHost>ln98563</mappedHost>
+		<mappedHost>ln99239</mappedHost>
+		<mappedHost>ln99240</mappedHost>
+		<mappedHost>ln99241</mappedHost>
+		<mappedHost>ln99242</mappedHost>
+		<mappedHost>ln99243</mappedHost>
+		<mappedHost>ln99244</mappedHost>
+		<mappedHost>ln99245</mappedHost>
+		<mappedHost>ln99557</mappedHost>
+		<mappedHost>ln99578</mappedHost>
+		<mappedHost>ln99579</mappedHost>
+		<mappedHost>ln99580</mappedHost>
+		<mappedHost>ln99581</mappedHost>
+		<mappedHost>ln99582</mappedHost>
+		<mappedHost>ln99583</mappedHost>
+		<mappedHost>ln99584</mappedHost>
+		<mappedHost>ln99585</mappedHost>
+		<mappedHost>ln99586</mappedHost>
+		<mappedHost>ln99780</mappedHost>
+		<mappedHost>ln99781</mappedHost>
+		<mappedHost>ln99782</mappedHost>
+		<mappedHost>ln99783</mappedHost>
+		<mappedHost>ln99838</mappedHost>
+		<mappedHost>ln99839</mappedHost>
+		<mappedHost>ln99840</mappedHost>
+		<mappedHost>ln99841</mappedHost>
+		<mappedHost>ln99842</mappedHost>
+		<mappedHost>ln99843</mappedHost>
+	</logServer>
+	
+	<logServer host="ln99587" name="LAIRD for ST (A)" shortname="lairdsta" passwordType="W">
+		<mappedHost>ln99246</mappedHost>
+		<mappedHost>ln99247</mappedHost>
+	</logServer>
+		
+	<logServer host="btln000098" name="QIDC for DEV, PT, &amp; ST" shortname="qidc" passwordType="U">
+		<mappedDomain>ITS01EntCustomerManagementFulfillmentSvcQ</mappedDomain>
+		<mappedDomain>ITS02EntCustomerManagementFulfillmentSvcQ</mappedDomain>
+		<mappedDomain>ITS03EntCustomerManagementFulfillmentSvcQ</mappedDomain>
+		<mappedDomain>ITS04AEntCustomerManagementFulfillmentSvcQ</mappedDomain>
+		<mappedDomain>ITS04BEntCustomerManagementFulfillmentSvcQ</mappedDomain>
+		<mappedDomain>PT140CustomerManagementAssuranceSvc</mappedDomain>
+		<mappedDomain>PT148CustomerManagementAssuranceSvc</mappedDomain>
+		<mappedDomain>PT168CustomerManagementAssuranceSvc</mappedDomain>
+		<mappedDomain>ST101ACustomerManagementAssuranceSvc</mappedDomain>
+		<mappedDomain>ST101BCustomerManagementAssuranceSvc</mappedDomain>
+	</logServer>
+	
+	<logServer host="btlp000064" name="QIDC for PR" shortname="qidcpr" passwordType="U" production="true">
+		<mappedDomain>PRAEntCustomerManagementFulfillmentSvcQ</mappedDomain>
+		<mappedDomain>PRBEntCustomerManagementFulfillmentSvcQ</mappedDomain>		
+		<mappedDomain>PRACustomerManagementAssuranceSvc</mappedDomain>
+		<mappedDomain>PRBCustomerManagementAssuranceSvc</mappedDomain>
+	</logServer>
+	
+	<logServer host="btln000098" name="KIDC for DEV, PT, &amp; ST" shortname="kidc" passwordType="U">
+		<mappedDomain>ITS04AEntCustomerManagementFulfillmentSvcK</mappedDomain>
+		<mappedDomain>ITS04BEntCustomerManagementFulfillmentSvcK</mappedDomain>
+	</logServer>
+	
+	<logServer host="btlp000064" name="KIDC for PR" shortname="kidcpr" passwordType="U" production="true">
+		<mappedDomain>PRAEntCustomerManagementFulfillmentSvcK</mappedDomain>
+		<mappedDomain>PRBEntCustomerManagementFulfillmentSvcK</mappedDomain>		
+	</logServer>
+	
+	<logServer host="sp20490" name="Notification Engine" shortname="ne" passwordType="U"/>
+</logServers>

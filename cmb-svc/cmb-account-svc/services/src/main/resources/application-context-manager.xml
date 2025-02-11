@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<bean id="managerCodsJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="codsDataSource" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+	
+	<bean id="managerAccountDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.AccountDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean id="managerAdjustmentDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.AdjustmentDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean id="managerCollectionDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.CollectionDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean id="managerCreditCheckDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.CreditCheckDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean id="managerFleetDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.FleetDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean id="managerFollowUpDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.FollowUpDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean id="managerInvoiceDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.InvoiceDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"
+		p:codsJdbcTemplate-ref="managerCodsJdbcTemplate"
+	/>	
+<!-- 	<bean id="managerLetterDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.LetterDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/> -->
+	<bean id="managerMemoDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.MemoDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean id="managerPaymentDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.PaymentDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean id="managerSubscriberDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.SubscriberDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean id="managerUserDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.UserDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean id="managerContactDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.ContactDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	<bean id="managerCreditBalanceTransferDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.CreditBalanceTransferDaoImpl" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+
+	<bean id="managerCconDao" class="com.telus.cmb.account.lifecyclefacade.dao.impl.CconDaoImpl"
+		p:dataSource-ref="cconDataSource"
+	/>
+	
+	<bean id="managerTestPointDao" class="com.telus.cmb.common.dao.testpoint.DataSourceTestPointDao"
+		p:codsJdbcTemplate-ref="managerCodsJdbcTemplate"
+	/>
+	<bean id="managerAmdocsTestDao" class="com.telus.cmb.common.dao.testpoint.AmdocsTestPointDao" p:amdocsSessionManager-ref="amdocsSessionManager"/>
+	
+	<bean id="managerPwcosDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.PrepaidWirelessCustomerOrderServiceDaoImpl"/>
+	<bean id="managerPssDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.PrepaidSubscriberServiceDaoImpl"/>
+	<bean id="managerSbmsDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.SubscriptionBalanceMgmtServiceDaoImpl"/>
+	<bean id="managerSmsDao" class="com.telus.cmb.account.lifecyclemanager.dao.impl.SubscriptionManagementServiceDaoImpl"/>
+    
+</beans>

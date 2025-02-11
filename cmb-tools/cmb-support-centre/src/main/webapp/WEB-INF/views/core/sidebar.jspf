@@ -1,0 +1,43 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<div class="page-sidebar-wrapper">
+	<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+	<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+	<div class="page-sidebar navbar-collapse collapse">
+		<!-- BEGIN SIDEBAR MENU -->
+		<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+		<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+		<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+		<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+		<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+		<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+		
+			<li class="start ">
+				<a href="index.html">
+				<i class="icon-home"></i>
+				<span class="title">Home</span>
+				</a>
+			</li>
+			<c:forEach items="${actionManager.actions}" var="action">
+			<li id="action_${action.id}" class="${(action.id == parentAction.id || action.id == activeActionId) ? 'active' : ''}">
+				<a href="${action.url}">
+					<c:if test="${not empty action.icon}"><i class="${action.icon}"></i></c:if>
+					<span class="title">${action.title}</span>
+					<span class="selected"></span>
+					<span class="arrow open"></span>
+				</a>
+				<c:if test="${not empty action.actions}">
+					<ul class="sub-menu">
+					<c:forEach items="${action.actions}" var="subaction">
+						<li id="action_${subaction.id}" class="${subaction.id == activeActionId ? 'active' : ''}">
+							<a href="${subaction.url}">${subaction.title}</a>
+						</li>
+					</c:forEach>
+					</ul>
+				</c:if>
+			</li>
+			</c:forEach>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<evaluation-rules>
+	<!-- Consumer accounts -->
+	<account-type-rule accountType="I">
+		<account-sub-type-rule accountSubType="Q">
+			<result communicationSuiteEligible="false" />
+		</account-sub-type-rule>
+		<brand-rule brandId="1">
+			<result communicationSuiteEligible="true" />
+		</brand-rule>
+		<result communicationSuiteEligible="false" />
+	</account-type-rule>
+		<!-- Business accounts -->
+	<account-type-rule accountType="B">
+		<account-sub-type-rule accountSubType="B,O,P,R,X">
+			<brand-rule brandId="1">
+				<result communicationSuiteEligible="true" />
+			</brand-rule>
+			<result communicationSuiteEligible="false" />
+		</account-sub-type-rule>
+	</account-type-rule>	
+			<!-- Corporate accounts -->
+	<account-type-rule accountType="C">
+		<account-sub-type-rule accountSubType="A,B,E,G,I,L,N,O,Q,U,V,Z,X">
+			<brand-rule brandId="1">
+				<result communicationSuiteEligible="true" />
+			</brand-rule>
+			<result communicationSuiteEligible="false" />
+		</account-sub-type-rule>
+	</account-type-rule>
+	<result communicationSuiteEligible="false" />
+</evaluation-rules>

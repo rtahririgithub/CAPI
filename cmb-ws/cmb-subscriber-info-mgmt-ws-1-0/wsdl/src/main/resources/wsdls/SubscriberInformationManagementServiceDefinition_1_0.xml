@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>SubscriberInformationManagementService</Name>
+		<Documentation>Provides access to customer self management methods</Documentation>
+		<TAM_LevelZeroAndOne>CMO/SelfMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/SubscriberInformationManagementService</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmf-custselfmgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>SubscriberInformationManagementServiceRequestResponse_1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/SelfMgmt/SubscriberInformationManagementServiceRequestResponse_1_0</NameSpace>
+		<nsAbbrev>csm</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>		
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getPhoneDirectory</OperationName>
+		<Documentation>Retrieves a list of phone directory entries for a subscriber.</Documentation>
+		<InputType wsp="false">getPhoneDirectoryRequest</InputType>
+		<OutputType>getPhoneDirectoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updatePhoneDirectory</OperationName>
+		<Documentation>Updates a list of phone directory entries for a subscriber.</Documentation>
+		<InputType wsp="false">updatePhoneDirectoryRequest</InputType>
+		<OutputType>updatePhoneDirectoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>deletePhoneDirectoryEntries</OperationName>
+		<Documentation>Removes a list of phone directory entries for a subscriber.</Documentation>
+		<InputType wsp="false">deletePhoneDirectoryEntriesRequest</InputType>
+		<OutputType>deletePhoneDirectoryEntriesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

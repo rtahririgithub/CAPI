@@ -1,0 +1,217 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb.common</groupId>
+		<artifactId>pom-cmb-common</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	 
+	<artifactId>cmb-common-svc</artifactId>
+
+	<dependencies>
+	
+		<dependency>
+			<groupId>telus.cust.cmb.common</groupId>
+			<artifactId>cmb-framework</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>ent-consumer-profile-registration-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>real-time-action-advisor-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>wrls-provisioning-ws-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>voip-supplementary-ws-client</artifactId>
+			<version>1.1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>voip-license-purchase-ws-client</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.cust.cmb.common</groupId>
+			<artifactId>cmb-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.frameworks.mobility</groupId>
+			<artifactId>TELUS-ConfigurationManager-api</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.frameworks.mobility</groupId>
+			<artifactId>TELUS-ConfigurationManager-provider</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics-runtime</artifactId>
+		</dependency>
+
+		<dependency>
+		 	<groupId>telus.cust.cmb.common</groupId>
+			<artifactId>cmb-common-tpd</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.amdocs.kbapi</groupId>
+			<artifactId>jutil</artifactId>
+			<version>17.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.amdocs.kbapi</groupId>
+			<artifactId>ejbinfra_new</artifactId>
+			<version>17.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>weblogic</groupId>
+			<artifactId>wlfullclient</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.case.evnthdl-shared</groupId>
+			<artifactId>evnthdl-domain</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.frameworks.enterprise.frameworks-share</groupId>
+			<artifactId>frameworks-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.frameworks.enterprise.frameworks-share</groupId>
+			<artifactId>frameworks-crypto</artifactId>
+		</dependency>
+		
+		<dependency>
+            <groupId>telus.cust.cmb.common.ws-clients</groupId>
+            <artifactId>bill-notification-mgmt-ws-client</artifactId>
+        </dependency>
+        
+		<dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        
+        <!-- OAuth2 security dependency -->
+		<dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+            <version>2.0.6.RELEASE</version>
+        </dependency>
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>telus-maven.plugins.cis</groupId>
+				<artifactId>cis-ldifgen-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.10.0</version><!--$NO-MVN-MAN-VER$-->
+				<executions>
+					<execution>
+						<id>jaxb2-xsdToJava</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<verbose>true</verbose>
+							<accessExternalSchema>all</accessExternalSchema>
+							<generateDirectory>target/generated-sources</generateDirectory>
+							<schemaIncludes>
+								<schemaInclude>ConfirmationNotificationTypes.xsd</schemaInclude>
+								<schemaInclude>Business_Connect_v1_0.xsd</schemaInclude>
+								<schemaInclude>WirelessServiceInfo_v2_1.xsd</schemaInclude>
+								<schemaInclude>Exceptions_v1_0.xsd</schemaInclude>
+								<schemaInclude>BCX_SD_Fallout_v1_0.xsd</schemaInclude>
+								<schemaInclude>AccountInfo_v1_0.xsd</schemaInclude>
+								<schemaInclude>AccountInfo_v2_0.xsd</schemaInclude>
+								 <schemaInclude>AccountInfo_v3_0.xsd</schemaInclude>
+								<schemaInclude>WirelessServiceInfo_v1_0.xsd</schemaInclude>
+								<schemaInclude>WirelessServiceInfo_v2_0.xsd</schemaInclude>
+								<schemaInclude>WirelessServiceInfo_v3_0.xsd</schemaInclude>
+								<schemaInclude>KafkaWirelessAccount_v1_0.xsd</schemaInclude>
+								<schemaInclude>KafkaWirelessSubscriber_v1_0.xsd</schemaInclude>
+								<schemaInclude>KafkaWirelessSubscriber_v2_0.xsd</schemaInclude>
+							</schemaIncludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+				<configuration>
+					<verbose>false</verbose>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,14 @@
+/work/staging/Integration/CIS/framework/conf/201702.0.25/config-$env.ldif
+/work/staging/Cust/CMB/2017-02/CMB.201702.1.7/cmb-subscriber-mgmt-ws/config/ldap-config-$env.ldif
+/work/staging/Integration/CIS/billing/conf/MAINDEV.1.0.17/config/ssfEAS-$env.ldif
+/work/staging/Cust/CMB/MAIN-DEV/CMB.201702.0.193/cmb-service-order-reference-ws-5-0/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/MAIN-DEV/CMB.201702.0.193/cmb-service-order-reference-ws/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/MAIN-DEV/CMB.201702.0.192/cmb-billing-inquiry-ws/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2017-02/201702.1.27/cmb-equipment-svc/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2017-02/201702.1.27/cmb-config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2017-02/201702.1.27/cmb-config/ldap-identities-$env.ldif
+/work/staging/Cust/CMB/2017-02/201702.1.27/cmb-reference-svc/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2017-02/201702.1.27/cmb-utility-svc/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2017-02/201702.1.27/cmb-account-svc/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2017-02/201702.1.27/cmb-subscriber-svc/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2017-02/201702.1.27/cmb-shared-libs/config/ldap-config-$env.ldif

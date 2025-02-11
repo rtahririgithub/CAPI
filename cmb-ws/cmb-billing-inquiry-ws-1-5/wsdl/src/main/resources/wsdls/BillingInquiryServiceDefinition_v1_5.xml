@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>BillingInquiryService</Name>
+		<Documentation>Provides the ability to retrieve and update deposits, credits and payments</Documentation>
+		<TAM_LevelZeroAndOne>CMO/BillingInquiryMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/BillingInquiry</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>5</MinorVersion>
+		<soapAddress>http://cmbilling-billinginquiry-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>BillingInquiryServiceRequestResponse_v1_5.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/BillingInquiryServiceRequestResponse_1</NameSpace>
+		<nsAbbrev>bis</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getPaymentHistory</OperationName>
+		<Documentation>Retrieves Payment History.</Documentation>
+		<InputType wsp="True">getPaymentHistory</InputType>
+		<OutputType>getPaymentHistoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>recordPayment</OperationName>
+		<Documentation>Records Payment.</Documentation>
+		<InputType wsp="True">recordPayment</InputType>
+		<OutputType>recordPaymentResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>processCreditCard</OperationName>
+		<Documentation>Process CreditCard.</Documentation>
+		<InputType wsp="True">processCreditCard</InputType>
+		<OutputType>processCreditCardResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation>
+			<type>UserHeader</type>
+			<soapHeaderType>explicit</soapHeaderType>
+		</InputSoapHeaderType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getInvoiceHistory</OperationName>
+		<Documentation>Retrieve Invoice History</Documentation>
+		<InputType wsp="True">getInvoiceHistory</InputType>
+		<OutputType>getInvoiceHistoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>createCreditBalanceTransfer</OperationName>
+		<Documentation>Iniitate a credit balance trnasfer for account. Transfer will occur in kb, in batch.</Documentation>
+		<InputType wsp="True">createCreditBalanceTransfer</InputType>
+		<OutputType>createCreditBalanceTransferResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getCreditBalanceTransferList</OperationName>
+		<Documentation>Retrieve all credit balance transfer requests, includes active and cancelled.</Documentation>
+		<InputType wsp="True">getCreditBalanceTransferList</InputType>
+		<OutputType>getCreditBalanceTransferListResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>cancelCreditBalanceTransfer</OperationName>
+		<Documentation>Cancel the credit  balance transfer request</Documentation>
+		<InputType wsp="True">cancelCreditBalanceTransfer</InputType>
+		<OutputType>cancelCreditBalanceTransferResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAllCharges</OperationName>
+		<Documentation>Retrieve all charges, including pending for a ban by a date range.</Documentation>
+		<InputType wsp="True">getAllCharges</InputType>
+		<OutputType>getAllChargesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>applyChargeToAccount</OperationName>
+		<Documentation>Apply a one time charge associated to a ban.</Documentation>
+		<InputType wsp="True">applyChargeToAccount</InputType>
+		<OutputType>applyChargeToAccountResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>applyChargeToAccountForSubscriber</OperationName>
+		<Documentation>Apply a one time charge associated to a subscriber.</Documentation>
+		<InputType wsp="True">applyChargeToAccountForSubscriber</InputType>
+		<OutputType>applyChargeToAccountForSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>adjustChargeToAccount</OperationName>
+		<Documentation>Apply an adjustment on an existing charge (billed or pending) associated with a ban.</Documentation>
+		<InputType wsp="True">adjustChargeToAccount</InputType>
+		<OutputType>adjustChargeToAccountResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>adjustChargeToAccountForSubscriber</OperationName>
+		<Documentation>Apply an adjustment on an existing charge (billed or pending) associated to a subscriber.</Documentation>
+		<InputType wsp="True">adjustChargeToAccountForSubscriber</InputType>
+		<OutputType>adjustChargeToAccountForSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>applyChargesAndAdjustmentsToAccount</OperationName>
+		<Documentation>Apply a charge and adjust the charge for a ban.</Documentation>
+		<InputType wsp="True">applyChargesAndAdjustmentsToAccount</InputType>
+		<OutputType>applyChargesAndAdjustmentsToAccountResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>applyChargesAndAdjustmentsToAccountForSubscriber</OperationName>
+		<Documentation>Apply a charge and adjust the charge associated to a subscriber.</Documentation>
+		<InputType wsp="True">applyChargesAndAdjustmentsToAccountForSubscriber</InputType>
+		<OutputType>applyChargesAndAdjustmentsToAccountForSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>applyCreditToAccount</OperationName>
+		<Documentation>Apply a credit or recurring credits to a BAN.</Documentation>
+		<InputType wsp="True">applyCreditToAccount</InputType>
+		<OutputType>applyCreditToAccountResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>applyCreditToAccountForSubscriber</OperationName>
+		<Documentation>Apply a credit or recurring credits associated to a subscriber.</Documentation>
+		<InputType wsp="True">applyCreditToAccountForSubscriber</InputType>
+		<OutputType>applyCreditToAccountForSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>reverseCreditToAccount</OperationName>
+		<Documentation>Apply an adjustment reversal for a BAN.</Documentation>
+		<InputType wsp="True">reverseCreditToAccount</InputType>
+		<OutputType>reverseCreditToAccountResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>reverseCreditToAccountForSubscriber</OperationName>
+		<Documentation>Apply an adjustment reversal associated to a subscriber.</Documentation>
+		<InputType wsp="True">reverseCreditToAccountForSubscriber</InputType>
+		<OutputType>reverseCreditToAccountForSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getRelatedCreditListForCharge</OperationName>
+		<Documentation>Retrieve related credits for a charge.</Documentation>
+		<InputType wsp="True">getRelatedCreditListForCharge</InputType>
+		<OutputType>getRelatedCreditListForChargeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>adjustChargeToAccountForSubscriberReturn</OperationName>
+		<Documentation>Search and apply a charge adjustment for a device return within given timeframe.</Documentation>
+		<InputType wsp="True">adjustChargeToAccountForSubscriberReturn</InputType>
+		<OutputType>adjustChargeToAccountForSubscriberReturnResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAllCredits</OperationName>
+		<Documentation>Retrieve all credits for a ban by a date range.</Documentation>
+		<InputType wsp="True">getAllCredits</InputType>
+		<OutputType>getAllCreditsResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>applyDiscountToAccount</OperationName>
+		<Documentation>This operation applies discount to an account.</Documentation>
+		<InputType wsp="True">applyDiscountToAccount</InputType>
+		<OutputType>applyDiscountToAccountResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>applyDiscountToAccountForSubscriber</OperationName>
+		<Documentation>This operation applies discount to a subscriber (SUBSCRIBER level).  Discounts are applied on an account but can be linked to a subscriber.</Documentation>
+		<InputType wsp="True">applyDiscountToAccountForSubscriber</InputType>
+		<OutputType>applyDiscountToAccountForSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+	<Operation>
+		<OperationName>getDiscountListForAccount</OperationName>
+		<Documentation>This operation retrieves a list of discounts currently applied at the account level.</Documentation>
+		<InputType wsp="True">getDiscountListForAccount</InputType>
+		<OutputType>getDiscountListForAccountResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getDiscountListForSubscriber</OperationName>
+		<Documentation>This operation retrieves a list of discounts currently applied at the subscriber level.</Documentation>
+		<InputType wsp="True">getDiscountListForSubscriber</InputType>
+		<OutputType>getDiscountListForSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>expireDiscountForAccount</OperationName>
+		<Documentation>Expires a discount on an account profile.</Documentation>
+		<InputType wsp="True">expireDiscountForAccount</InputType>
+		<OutputType>expireDiscountForAccountResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>expireDiscountForSubscriber</OperationName>
+		<Documentation>Expires a discount on an account's profile.</Documentation>
+		<InputType wsp="True">expireDiscountForSubscriber</InputType>
+		<OutputType>expireDiscountForSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>createDeposit</OperationName>
+		<Documentation>Create deposit for a Subscriber</Documentation>
+		<InputType wsp="True">createDeposit</InputType>
+		<OutputType>createDepositResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+	<Operation>
+		<OperationName>processPayment</OperationName>
+		<Documentation>Process payment and record it into KB. New in v 1.5</Documentation>
+		<InputType wsp="True">processPayment</InputType>
+		<OutputType>processPaymentResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation>
+			<type>UserHeader</type>
+			<soapHeaderType>explicit</soapHeaderType>
+		</InputSoapHeaderType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

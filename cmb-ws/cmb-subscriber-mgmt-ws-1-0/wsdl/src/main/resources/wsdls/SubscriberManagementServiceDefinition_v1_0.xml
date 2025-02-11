@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>SubscriberManagementService</Name>
+		<Documentation>Manages subscriber orders, such as price plan change, service changes, equipment change and phone number change.</Documentation>
+		<TAM_LevelZeroAndOne>CMO/OrderMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/SubscriberManagement</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmf-ordermgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>SubscriberManagementServiceRequestResponse_v1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberManagementServiceRequestResponse_v1</NameSpace>
+		<nsAbbrev>slc</nsAbbrev>
+		<OutputDir></OutputDir>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>		
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>changeEquipment</OperationName>
+		<Documentation>Changes the subscriber's equipment.</Documentation>
+		<InputType wsp="True">changeEquipment</InputType>
+		<OutputType>changeEquipmentResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>changePhoneNumber</OperationName>
+		<Documentation>Changes the subscriber's phone number.</Documentation>
+		<InputType wsp="True">changePhoneNumber</InputType>
+		<OutputType>changePhoneNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceAgreement</OperationName>
+		<Documentation>Retrieve subscriber's service agreement</Documentation>
+		<InputType wsp="True">getServiceAgreement</InputType>
+		<OutputType>getServiceAgreementResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceAgreementForUpdate</OperationName>
+		<Documentation>Retrieve subscriber's service agreement with all required information to perform service agreement changes.</Documentation>
+		<InputType wsp="True">getServiceAgreementForUpdate</InputType>
+		<OutputType>getServiceAgreementForUpdateResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>validateServiceAgreement</OperationName>
+		<Documentation>Validate subscriber's service agreement changes and return validated and modified service agreement prior to commit.</Documentation>
+		<InputType wsp="True">validateServiceAgreement</InputType>
+		<OutputType>validateServiceAgreementResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>saveServiceAgreement</OperationName>
+		<Documentation>Save subscriber's service agreement changes.</Documentation>
+		<InputType wsp="True">saveServiceAgreement</InputType>
+		<OutputType>saveServiceAgreementResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>
+
+

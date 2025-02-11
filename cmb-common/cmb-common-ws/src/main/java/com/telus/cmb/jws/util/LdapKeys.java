@@ -1,0 +1,61 @@
+package com.telus.cmb.jws.util;
+
+public class LdapKeys {
+
+	public static final String SERVICE_ORDER_REFERENCE_FACADE_URL = "ServiceOrderReferenceFacadeUrl";
+	public static final String CUSTOMER_INFORMATION_REFERENCE_FACADE_URL = "CustomerInformationReferenceFacadeUrl";
+	public static final String CUSTOMER_ORDER_REFERENCE_FACADE_URL = "CustomerOrderReferenceFacadeUrl";
+	public static final String ENTERPRISE_REFERENCE_FACADE_URL = "EnterpriseReferenceFacadeUrl";
+	public static final String BILLING_INQUIRY_REFERENCE_FACADE_URL = "BillingInquiryReferenceFacadeUrl";
+	
+	public static final String ADDON_APN_SOCS = "addOnAPNSOCs";
+	public static final String APPNAMES_FOR_AIRTIME_CARD = "appNamesForAirtimeCard";
+	public static final String ASYNC_INVOKE_CONFIGURATION_MANAGER_SVC = "asyncInvokeConfigurationManagerSvc";
+	public static final String BLOCK_DIRECT_UPDATE = "blockDirectUpdate";
+	public static final String CALLDETAIL_FEATURE_EXPIRY_DATE = "callDetailFeatureExpiryDate";
+	public static final String CATEGORY_CODE_BY_BRANDID_FOR911 = "911CategoryCodeByBrandId_keys";
+	public static final String CLIENT_AGENT_MONITORING_IS_METHOD_MONITORING_ENABLED = "isMethodMonitoringEnabledForClientAgentMonitoring";
+	public static final String CLIENT_AGENT_MONITORING_SLEEP_INTERVAL = "ClientAgentMonitoringSleepInterval";
+	public static final String DEFAULT_DEALER_CODE = "defaultDealerCode";
+	public static final String DEFAULT_HSPA_EQUIPMENT_TYPE = "defaultEquipmentTypeForHSPA";
+	public static final String DEFAULT_KOODO_DEALER = "defaultKoodoDealer";
+	public static final String DEFAULT_KOODO_SALESREP = "defaultKoodoSalesRep";
+	public static final String DEFAULT_SALESREP_CODE = "defaultSalesRepCode";
+	public static final String ENTERPRISE_ADDRESS_ROLLBACK = "enterpriseAddressRollback";
+	public static final String FAX_ADDR_PATTERN = "faxAddrPattern";
+	public static final String FAX_SERVER = "faxServer";
+	public static final String FEEPROVINCES_FOR_911 = "911FeeProvinces";
+	public static final String INCLUDED_APN_SOCS = "includedAPNSOCs";
+	public static final String INTERBRAND_PORT_ACTIVITY_REASON_CODES = "interBrandPort_activityReasonCodes";
+	public static final String INTERBRAND_PORT_ACTIVITY_REASON_CODES_KEYS = "interBrandPort_activityReasonCodes_keys";
+	public static final String INTERNATIONAL_SVC_ELIGIBILITY_XML = "internationalServiceEligibilityXML";
+	public static final String LIGHT_WEIGHT_SUB_MAX = "lightWeightSubMax";
+	public static final String MAIL_SERVER = "mailServer";
+	public static final String MAX_BAN_LIMIT = "maxBanLimit";
+	public static final String MAX_BAN_SIZE_THRESHOLD = "maxBanSizeThreshold";
+	public static final String MAX_SUB_LIMIT = "maxSubLimit";
+	public static final String PREPAID_CDMA_NG_RESTRICTIONS = "PrepaidCDMANGRestrictions";
+	public static final String REFRESH_APN = "refreshApn";
+	public static final String REPLY_TO_EMAILADDRESS_KEYS = "replyToEmailAddress_keys";
+	public static final String RULE_REFRESH_INTERVAL_VALUE = "ruleRefreshIntervalValue";
+	public static final String RULE_REFRESH_START_TIME = "ruleRefreshStartTime";
+	public static final String RULE_REFRESH_SLEEP_INTERVAL_VALUE = "ruleRefreshSleepIntervalValue";
+	public static final String SRPDS_ENABLED = "isSRPDSEnabled";
+	public static final String TM_FORM_URL = "TMFormURL";
+	public static final String USE_DSAL = "useDSAL";
+	public static final String USE_LOCAL_CACHE = "useLocalCache";
+	public static final String USE_LOCAL_PP_CACHE = "useLocalPPCache";
+	public static final String VOICEMAIL_FEATURE_CARD_FOLLOWUP_GROUP = "voiceMailFeatureCard_followUpGroup";
+	public static final String VOICEMAIL_FEATURE_CARD_FOLLOWUP_GROUP_BC = "voiceMailFeatureCard_followUpGroupBC";
+	public static final String VOICEMAIL_FEATURE_CARD_FOLLOWUP_TYPE = "voiceMailFeatureCard_followUpType";
+	public static final String VOICEMAIL_FEATURE_CARD_SERVICES = "voiceMailFeatureCardServices";
+	public static final String MAX_NUMBER_DAYS_BEFORE_NEXT_INVOICE = "maxNumDaysBeforeInv";
+	public static final String DEFAULT_DEALER_SALESREP_IND = "defaultDealerSalesRepInd";
+	public static final String KOODO_SIMONLY_SMARTPAY_ROLLBACK = "koodoSimOnlySmartPayRollback";
+	public static final String CHECK_INTERNATIONAL_SERVICE_ELIGIBILITY_ROLLBACK = "checkInternationalServiceEligibilityProviderRollback";
+	public static final String SUREPAY_RETIREMENT_ROLLBACK = "surepayRetirementRollback";
+
+}
+
+
+

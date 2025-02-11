@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+	<bean id="jaxWsPortProxyBase" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" abstract="true"
+		p:lookupServiceOnStartup="false" 
+		p:username="${credentials/ejb/username}" 
+		p:password="${credentials/ejb/password}" 
+	/>
+
+	<bean id="referenceDataWpsDao" class="com.telus.cmb.reference.dao.ReferenceDataWpsDao"/>
+	<bean id="productOfferingServicePort" parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.ProductOfferingServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/ProductOfferingService_v2_2.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/SelfMgmt/ProductOfferingService_2"		
+		p:serviceName="ProductOfferingService_v2_2"
+		p:endpointAddress="${endpoints/ProductOfferingService/url}"
+	/>
+
+	<bean id="refPdsWebService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean"
+		p:serviceInterface="com.telus.erm.refpds.ws.client.ReferencePDSDataServicePortType"
+		p:wsdlDocumentUrl="classpath:ReferencePDSDataService_v1_0.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/ERM/RefPds/ReferencePDSDataService_1"		
+		p:serviceName="ReferencePDSDataService"
+		p:portName="ReferencePDSDataServicePort"
+		p:endpointAddress="${endpoints/ReferencePdsDataService/url}"
+	/>
+		
+	<bean id="referenceDataWsoisDao" class="com.telus.cmb.reference.dao.ReferenceDataWsoisDao"/>
+	<bean id="wirelessSubscriberOfferInformationServicePort" parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.WirelessSubscriberOfferInformationServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/WirelessSubscriberOfferInformationService_v2_10.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/OrderMgmt/WirelessSubscriberOfferInformationService_2"
+		p:serviceName="WirelessSubscriberOfferInformationService_v2_10" 
+		p:endpointAddress="${endpoints/WirelessSubscriberOfferInformationService/url}" 
+	/>
+	
+	<bean id="referenceDataOcssaDao" class="com.telus.cmb.reference.dao.ReferenceDataOcssaDao"/>
+	<bean id="ocssaPort" parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.OnlineChargingSubscriberAccountServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/OnlineChargingSubscriberAccountService_v3_2.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/BillingInquiryMgmt/OnlineChargingSubscriberAccountService_3"
+		p:serviceName="OnlineChargingSubscriberAccountService_v3_2" 
+		p:endpointAddress="${endpoints/OnlineChargingSubscriberAccountService/url}" 
+	/>
+	
+	<bean id="refPdsAccessBootstrap" class="com.telus.erm.refpds.access.client.ReferencePdsAccess" init-method="initializeCache">
+		<property name="service" ref="refPdsWebService"/>
+	</bean>	
+
+</beans>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>SubscriberInformationService</Name>
+		<Documentation>Provides access to subscriber information operations.</Documentation>
+		<TAM_LevelZeroAndOne>CMO/InformationMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/SubscriberInformationService</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmosr-custinfomgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>SubscriberInformationServiceRequestResponse_v1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/SubscriberInformationServiceRequestResponse_v1</NameSpace>
+		<nsAbbrev>csm</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>		
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>createMemo</OperationName>
+		<Documentation>Creation of memo for subscriber account.</Documentation>
+		<InputType wsp="false">createMemo</InputType>
+		<OutputType>createMemoResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberIdentifierListByPhoneNumberAndAccountNumber</OperationName>
+		<Documentation>Retrieve subscriber identifiers by phone number and Account Number.</Documentation>
+		<InputType wsp="false">getSubscriberIdentifierListByPhoneNumberAndAccountNumber</InputType>
+		<OutputType>getSubscriberIdentifierListByPhoneNumberAndAccountNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberListByAccountNumber</OperationName>
+		<Documentation>Retrieve all subscribers associated with an account number.</Documentation>
+		<InputType wsp="false">getSubscriberListByAccountNumber</InputType>
+		<OutputType>getSubscriberListByAccountNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberListByIMSI</OperationName>
+		<Documentation>Retrieve all subscribers associated with an IMSI.</Documentation>
+		<InputType wsp="false">getSubscriberListByIMSI</InputType>
+		<OutputType>getSubscriberListByIMSIResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberListByPhoneNumber</OperationName>
+		<Documentation>Retrieve all subscribers associated with a phone number.</Documentation>
+		<InputType wsp="false">getSubscriberListByPhoneNumber</InputType>
+		<OutputType>getSubscriberListByPhoneNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+		<Operation>
+		<OperationName>updatePortInSubscriber</OperationName>
+		<Documentation>This operation updates the Subscriber entity to indicate that the "port-type" of this subscriber is a "port-in".</Documentation>
+		<InputType wsp="false">updatePortInSubscriber</InputType>
+		<OutputType>updatePortInSubscriberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updateSnapbackPhoneNumber</OperationName>
+		<Documentation>Returns the phone number resource back into the Telus pool of numbers when the number is no longer being used after a port-out.</Documentation>
+		<InputType wsp="false">updateSnapbackPhoneNumber</InputType>
+		<OutputType>updateSnapbackPhoneNumberResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>		
+	<Operation>
+		<OperationName>checkPortOutEligibility</OperationName>
+		<Documentation>Check to see if a phoneNumber is eligible for port out and if it is "transferable blocked".</Documentation>
+		<InputType wsp="false">checkPortOutEligibility</InputType>
+		<OutputType>checkPortOutEligibilityResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>		
+</Service>

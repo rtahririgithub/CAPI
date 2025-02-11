@@ -1,0 +1,49 @@
+title Update Credit Check Result (WS)
+
+Front-end->+WAMS: updateCreditCheckResult
+note left of Front-end
+   Trigger: Agent has retrieved the customer's
+current credit check result in order to
+change one or all of the following:
+1) Credit Class
+2) Deposit
+3) Credit Limit
+end note
+
+opt isLimitChanged
+WAMS->WAMS:set limitChangeText for system memo
+end
+
+opt isClassChanges OR isDepositChanged
+WAMS->WAMS: set creditResultChangeText for system memo
+end
+
+WAMS->AccountLifecycleFacade:updateCreditCheckWorthiness
+
+opt GLOBAL CDA ROLLBACK IS OFF (I.E. USE CDA)
+AccountLifecycleFacade->WCAPSDao:overrideCreditWorthiness
+WCAPSDao->CDA:WCAPSDao:overrideCreditWorthiness
+CDA->WCAPSDao: return
+WCAPSDao->AccountLifecycleFacade: return
+end
+
+
+AccountLifecycleFacade->AccountLifecycleManager: updateCreditProfile
+AccountLifecycleManager->CreditCheckDao:updateCreditProfile
+CreditCheckDao->KB: changeCreditClass with system memo
+
+note left of KB
+Credit limit change is included
+end note
+opt isDepositChanged
+AccountLifecycleFacade->AccountLifecycleManager:updateCreditCheckResult
+AccountLifecycleManager->CreditCheckDao:updateCreditCheckResult
+CreditCheckDao->KB:updateCreditResult with system memo
+end
+parallel {
+    KB->CreditCheckDao: return
+    CreditCheckDao->AccountLifecycleManager: return
+AccountLifecycleManager->WAMS: return
+WAMS->Front-end: updateCreditCheckResultResponse
+}
+

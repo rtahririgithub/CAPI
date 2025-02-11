@@ -1,0 +1,3 @@
+insert into preference_topic (preference_topic_id, pref_topic_en_desc_txt, pref_topic_fr_desc_txt, load_dt, update_dt, user_last_modify) values (2, 'Domestic data blocking', 'Données nationales blocage', sysdate, sysdate, 'RDBADM');
+insert into preference_topic (preference_topic_id, pref_topic_en_desc_txt, pref_topic_fr_desc_txt, load_dt, update_dt, user_last_modify) values (3, 'Roaming data blocking', 'Itinérance des données de blocage', sysdate, sysdate, 'RDBADM');
+commit;

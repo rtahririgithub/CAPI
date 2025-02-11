@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS) -->
+<xsd:schema xmlns="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/AccountInformationHistoryServiceRequestResponse_v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5" xmlns:account="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3" xmlns:ect="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/AccountInformationHistoryServiceRequestResponse_v1" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9_1.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_v3_4.xsd"/>
+	<xsd:complexType name="AccountStatusChangeHistory">
+		<xsd:sequence>
+			<xsd:element name="date" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="activityCode" type="common:ActivityCode" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="activityReasonCode" type="common:ReasonCode" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="accountStatus" type="account:AccountStatus" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AccountStatusChangeHistoryList">
+		<xsd:sequence>
+			<xsd:element name="accountStatusChangeHistory" type="AccountStatusChangeHistory" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AccountStatusChangeHistoryResult">
+		<xsd:sequence>
+			<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+			<xsd:element name="historyList" type="AccountStatusChangeHistoryList"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="getAccountStatusChangeHistory">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber" nillable="false" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="fromDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="toDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAccountStatusChangeHistoryResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="ect:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="accountStatusChangeHistoryResult" type="AccountStatusChangeHistoryResult"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="PaymentMethodChangeHistory">
+		<xsd:sequence>
+			<xsd:element name="date" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="statusCode" type="xsd:string"/>
+			<xsd:element name="creditCardInfo" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="common:CreditCard">
+							<xsd:sequence>
+								<xsd:element name="creditCardType" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="bankInfo" type="common:BankAccount" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="directDebitStatusCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PaymentMethodChangeHistoryList">
+		<xsd:sequence>
+			<xsd:element name="paymentMethodChangeHistory" type="PaymentMethodChangeHistory" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PaymentMethodChangeHistoryResult">
+		<xsd:sequence>
+			<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+			<xsd:element name="historyList" type="PaymentMethodChangeHistoryList"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="getPaymentMethodChangeHistory">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber" nillable="false" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="fromDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="toDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPaymentMethodChangeHistoryResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="ect:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="paymentMethodChangeHistoryResult" type="PaymentMethodChangeHistoryResult"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="AddressChangeHistory">
+		<xsd:sequence>
+			<xsd:element name="effectiveDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="expirationDate" type="xs:date"/>
+			<xsd:element name="address" type="common:Address" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AddressChangeHistoryList">
+		<xsd:sequence>
+			<xsd:element name="addressChangeHistory" type="AddressChangeHistory" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AddressChangeHistoryResult">
+		<xsd:sequence>
+			<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+			<xsd:element name="historyList" type="AddressChangeHistoryList"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="getAddressChangeHistory">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber" nillable="false" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="fromDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="toDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAddressChangeHistoryResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="ect:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="addressChangeHistoryResult" type="AddressChangeHistoryResult"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getDepositHistory">
+		<xsd:annotation>
+			<xsd:documentation>This operation will retrieve deposit history</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="fromDate" type="xsd:date"/>
+				<xsd:element name="toDate" type="xsd:date"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getDepositHistoryResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="ect:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="depositHistoryList" type="account:DepositHistory" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

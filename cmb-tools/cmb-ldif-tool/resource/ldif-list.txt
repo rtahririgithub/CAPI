@@ -1,0 +1,7 @@
+/work/staging/Cust/CMB/2018-04/201804.1.2/cmb-account-svc/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2018-04/201804.1.2/cmb-config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2018-04/201804.1.1/cmb-shared-libs/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2018-04/201804.1.2/cmb-config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2018-04/201804.1.2/cmb-reference-svc/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/2018-04/201804.1.2/cmb-subscriber-svc/config/ldap-config-$env.ldif
+/work/staging/Cust/CMB/MAIN-DEV/201803.0.354/cmb-service-order-reference-ws-5-2/config/ldap-config-$env.ldif

@@ -1,0 +1,17 @@
+<bindings xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxws"
+	wsdlLocation="WirelessAccountMgmtService_v1_1.wsdl" xmlns="http://java.sun.com/xml/ns/jaxws">
+
+	<enableWrapperStyle>true</enableWrapperStyle>
+
+	<package name="com.telus.cmb.jws" />
+
+	<bindings
+		node="wsdl:definitions/wsdl:portType[@name='WirelessAccountMgmtServicePortType']">
+		<class name="WirelessAccountMgmtServicePort" />
+	</bindings>
+	<bindings
+		node="wsdl:definitions/wsdl:service[@name='WirelessAccountMgmtService_v1_1']">
+		<class name="WirelessAccountMgmtService" />
+	</bindings>
+</bindings>

@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb.ws.subscriber.mgmt</groupId>
+		<artifactId>pom-cmb-subscriber-mgmt-ws</artifactId>
+		<version>5.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cmb-subscriber-mgmt-wsdl</artifactId>
+
+	<properties>
+		<genwsdl.service.definition>SubscriberManagementServiceDefinition_v5_0.xml</genwsdl.service.definition>
+		<genwsdl.local.wsdl.file>SubscriberManagementService_v5_0.wsdl</genwsdl.local.wsdl.file>
+		<genwsdl.xmlToWsdl.xslt>http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/xmlToWsdl_v4_0.xslt</genwsdl.xmlToWsdl.xslt>
+		<genwsdl.include.userpassword.for.basic.auth>false</genwsdl.include.userpassword.for.basic.auth>
+		<genwsdl.generate.major.version.wsdl>true</genwsdl.generate.major.version.wsdl>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics-runtime</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>telus-maven.plugins-support</groupId>
+			<artifactId>telus-core</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+            <!-- This following plugins will generate cleanup existing WSDLs and generate new WSDLs base on the service definition.
+                  The properties above properties are used by the GenWsdl
+
+                This plugin will
+                  - Delete the defined wsdl, ${genwsdl.local.wsdl.file} and the *SOA_LM_Bindings.wsdl
+                  - Generate the wsdl, ${genwsdl.local.wsdl.file} from the service definition file, ${genwsdl.service.definition}
+		            -->
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<verbose>${clean.verbose}</verbose>
+					<failOnError>false</failOnError>
+					<filesets>
+						<fileset>
+							<directory>${basedir}/src/main/generated-sources</directory>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/src/main/impl</directory>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/src/main/resources/wsdls</directory>
+							<includes>
+								<include>${genwsdl.local.wsdl.file}</include>
+								<include>*SOA_LM_Bindings.wsdl</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>GenWsdl</id>
+					</execution>
+				</executions>
+			</plugin>             
+             
+            <!-- http://geertschuring.wordpress.com/2009/06/26/how-to-create-a-webservice-client-with-maven-and-jax-ws/
+                    How to create a webservice client with Maven and JAX-WS -->
+
+            <plugin>
+                <groupId>org.jvnet.jax-ws-commons</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+
+                <executions>
+                    <execution>
+                        <id>GenService</id>
+
+                        <!-- JAX-WS Maven plugin parameters: http://jax-ws-commons.java.net/jaxws-maven-plugin/wsimport-mojo.html -->
+                        <configuration>
+                            <!-- The generated impl class will be located in src/main/impl -->
+                            <target>2.1</target>
+
+                            <!-- List of files to use for bindings. If not specified, all .xml files in the bindingDirectory will be used. -->
+                            <bindingFiles>
+                                <bindingFile>binding_wsdl.xjb</bindingFile>
+                                <bindingFile>binding_schema.xjb</bindingFile>
+                            </bindingFiles>
+
+                            <wsdlFiles>
+                                <wsdlFile>${genwsdl.local.wsdl.file}</wsdlFile>
+                            </wsdlFiles>
+                            <wsdlLocation>/wsdls/${genwsdl.local.wsdl.file}</wsdlLocation>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+		</plugins>		
+	</build>    
+    
+	<profiles>
+		<profile>
+			<id>BuildServer</id>
+			<properties>
+				<genwsdl.include.userpassword.for.basic.auth>true</genwsdl.include.userpassword.for.basic.auth>
+			</properties>
+		</profile>
+	</profiles>
+	
+</project>

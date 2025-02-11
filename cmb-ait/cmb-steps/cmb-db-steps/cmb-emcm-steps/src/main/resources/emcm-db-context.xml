@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <bean id="configurationFramework"
+          class="com.telus.framework.config.spring.PlaceholderConfigurer">
+    </bean>
+
+    <context:component-scan base-package="com.telus.ait.integration.emcm" />
+
+    <bean id="EMCMDataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${databases/emcm/driver}"/>
+        <property name="url" value="${databases/emcm/url}"/>
+        <property name="username" value="${databases/emcm/username}"/>
+        <property name="password" value="${databases/emcm/password}"/>
+    </bean>
+    <bean id="EMCMJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="EMCMDataSource"></property>
+    </bean>
+
+</beans>

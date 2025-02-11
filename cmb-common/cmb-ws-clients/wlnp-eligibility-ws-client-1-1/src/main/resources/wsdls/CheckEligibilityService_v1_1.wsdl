@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<s0:definitions targetNamespace="http://schemas.telus.com/wlnp/core/client" xmlns="" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://schemas.telus.com/wlnp/core/client" xmlns:s2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <s0:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.telus.com/wlnp/core/client" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:y="http://schemas.telus.com/wlnp/core/client">
+      <xs:include schemaLocation="http://xmlschema.tmi.telus.com/xsd/legacy/CheckEligibilityServiceCommonTypes_v1_0.xsd"/>
+      <xs:element name="checkPortInEligibility">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="y:EligibilityRequestData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkPortInEligibilityResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="y:EligibilityResponseData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EligibilityRequestData">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="y:EligibilityRequestDataType">
+              <xs:attribute default="1.0" name="SchemaVersion" type="xs:string"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EligibilityResponseData">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="y:EligibilityResponseDataType">
+              <xs:attribute default="1.0" name="SchemaVersion" type="xs:string"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="EligibilityRequestDataType">
+        <xs:sequence>
+          <xs:element name="ProductType" type="y:Types.ProductType">
+     </xs:element>
+          <xs:element name="PhoneNumber" type="y:Types.BaseTNType">
+     </xs:element>
+          <xs:element minOccurs="0" name="TargetBrand" nillable="true" type="xs:string">
+     </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EligibilityResponseDataType">
+        <xs:sequence>
+          <xs:element name="Eligible" type="y:Types.CharType">
+     </xs:element>
+          <xs:element minOccurs="0" name="OSP" nillable="true" type="y:Types.SPIDType">
+     </xs:element>
+          <xs:element name="CDMAPrepaidCoverage" type="y:Types.CharType">
+     </xs:element>
+          <xs:element name="CDMAPostpaidCoverage" type="y:Types.CharType">
+     </xs:element>
+          <xs:element name="CDMACoverage" type="y:Types.CharType">
+     </xs:element>
+          <xs:element name="HSPAPrepaidCoverage" type="y:Types.CharType">
+     </xs:element>
+          <xs:element name="HSPAPostpaidCoverage" type="y:Types.CharType">
+     </xs:element>
+          <xs:element name="HSPACoverage" type="y:Types.CharType">
+     </xs:element>
+          <xs:element name="MIKECoverage" type="y:Types.CharType">
+     </xs:element>
+          <xs:element name="NPDirectionIndicator" type="y:Types.NPDIType">
+     </xs:element>
+          <xs:element minOccurs="0" name="CurrentBrand" type="xs:string">
+     </xs:element>
+          <xs:element minOccurs="0" name="ResponseCode" type="xs:string">
+     </xs:element>
+          <xs:element minOccurs="0" name="Platform" type="xs:string">
+     </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </s0:types>
+  <s0:message name="checkPortInEligibility">
+    <s0:part element="s1:checkPortInEligibility" name="parameters"/>
+  </s0:message>
+  <s0:message name="checkPortInEligibilityResponse">
+    <s0:part element="s1:checkPortInEligibilityResponse" name="parameters"/>
+  </s0:message>
+  <s0:message name="PRMServiceException">
+    <s0:part element="s1:PRMFaultDetail" name="PRMServiceException"/>
+  </s0:message>
+  <s0:portType name="EligibilityCheckServicePort">
+    <s0:operation name="checkPortInEligibility">
+      <s0:input message="s1:checkPortInEligibility"/>
+      <s0:output message="s1:checkPortInEligibilityResponse"/>
+      <s0:fault message="s1:PRMServiceException" name="PRMServiceException"/>
+    </s0:operation>
+  </s0:portType>
+  <s0:binding name="EligibilityCheckServicePort" type="s1:EligibilityCheckServicePort">
+    <s2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <s0:operation name="checkPortInEligibility">
+      <s2:operation style="document"/>
+      <s0:input>
+        <s2:body use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s2:body use="literal"/>
+      </s0:output>
+      <s0:fault name="PRMServiceException">
+        <s2:fault name="PRMServiceException" use="literal"/>
+      </s0:fault>
+    </s0:operation>
+  </s0:binding>
+  <s0:service name="EligibilityCheckService_v1_1">
+    <s0:port binding="s1:EligibilityCheckServicePort" name="EligibilityCheckServicePort">
+      <s2:address location="http://rmf-resourceordermgmt-dv103.tmi.telus.com:80/prm/eligibility/EligibilityCheckService"/>
+    </s0:port>
+  </s0:service>
+</s0:definitions>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>EnterpriseReferenceService</Name>
+		<Documentation>Provides the ability to retrieve Reference Data</Documentation>
+		<TAM_LevelZeroAndOne>EO/KnowledgeMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/EnterpriseReference</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://em-knowledgemgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>http://xmlschema.tmi.telus.com/srv/EO/KnowledgeMgmt/EnterpriseReferenceServiceRequestResponse_1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/EO/KnowledgeMgmt/EnterpriseReferenceServiceRequestResponse_1_0</NameSpace>
+		<nsAbbrev>ers</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getUnitTypes</OperationName>
+		<Documentation>Retrieves Unit Types.</Documentation>
+		<InputType wsp="True">getUnitTypes</InputType>
+		<OutputType>getUnitTypesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getProvinces</OperationName>
+		<Documentation>Retrieves Province List.</Documentation>
+		<InputType wsp="True">getProvinces</InputType>
+		<OutputType>getProvincesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getStates</OperationName>
+		<Documentation>Retrieves State List.</Documentation>
+		<InputType wsp="True">getStates</InputType>
+		<OutputType>getStatesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getCountries</OperationName>
+		<Documentation>Retrieves Countries.</Documentation>
+		<InputType wsp="True">getCountries</InputType>
+		<OutputType>getCountriesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getLanguages</OperationName>
+		<Documentation>Retrieves Languages.</Documentation>
+		<InputType wsp="True">getLanguages</InputType>
+		<OutputType>getLanguagesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<bean class="com.telus.cmb.framework.config.PlaceholderConfigurer"/>
+	
+	<bean id="jaxWsPortProxyBase" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" abstract="true"
+		p:lookupServiceOnStartup="false" 
+		p:username="${credentials/ejb/username}" 
+		p:password="${credentials/ejb/password}" 
+	/>
+
+	<bean class="com.telus.cmb.productequipment.lifecyclefacade.dao.impl.ProductDeviceServiceDaoImpl"/>
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.ProductDeviceServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/ProductDeviceService_v5_0.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/PMO/CatalogMgmt/ProductDeviceService_5"
+		p:serviceName="ProductDeviceService_v5_0" 
+		p:endpointAddress="${endpoints/ProductDeviceService/url}" 
+	/>
+	
+</beans> 

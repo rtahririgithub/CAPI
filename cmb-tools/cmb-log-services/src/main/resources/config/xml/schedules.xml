@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE environments>
+
+<schedules>	
+	<schedule name="test" seconds="0" minutes="*" hours="*" dayOfMonth="*" month="*" dayOfWeek="?"/>
+	<schedule name="dailyStartOfDay" seconds="0" minutes="00" hours="8" dayOfMonth="*" month="*" dayOfWeek="?"/>
+	<schedule name="dailyBeforeStartOfDay" seconds="0" minutes="00" hours="6" dayOfMonth="*" month="*" dayOfWeek="?"/>
+	<schedule name="capiCacheRefresh" seconds="0" minutes="25" hours="04" dayOfMonth="*" month="*" dayOfWeek="?"/>
+	<schedule name="monthlyRefresh" seconds="0" minutes="0" hours="7" dayOfMonth="1" month="*" dayOfWeek="?"/>
+</schedules>

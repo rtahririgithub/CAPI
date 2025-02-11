@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wls:weblogic-ejb-jar xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-ejb-jar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd http://xmlns.oracle.com/weblogic/weblogic-ejb-jar http://xmlns.oracle.com/weblogic/weblogic-ejb-jar/1.1/weblogic-ejb-jar.xsd">
+    <!--weblogic-version:10.3.3-->
+    <wls:weblogic-enterprise-bean>
+        <wls:ejb-name>SubscriberLifecycleHelper</wls:ejb-name>
+        <wls:enable-call-by-reference>true</wls:enable-call-by-reference>
+        <wls:dispatch-policy>WorkManager-Online</wls:dispatch-policy>
+    </wls:weblogic-enterprise-bean>
+    <wls:weblogic-enterprise-bean>
+        <wls:ejb-name>SubscriberLifecycleFacade</wls:ejb-name>
+        <wls:stateless-session-descriptor>
+            <wls:stateless-clustering>
+                <wls:stateless-bean-load-algorithm>RoundRobinAffinity</wls:stateless-bean-load-algorithm>
+            </wls:stateless-clustering>
+        </wls:stateless-session-descriptor>
+        <wls:enable-call-by-reference>true</wls:enable-call-by-reference>
+        <wls:dispatch-policy>WorkManager-Online</wls:dispatch-policy>
+    </wls:weblogic-enterprise-bean>
+    <wls:weblogic-enterprise-bean>
+        <wls:ejb-name>SubscriberLifecycleManager</wls:ejb-name>
+        <wls:stateless-session-descriptor>
+            <wls:stateless-clustering>
+                <wls:stateless-bean-load-algorithm>RoundRobinAffinity</wls:stateless-bean-load-algorithm>
+            </wls:stateless-clustering>
+        </wls:stateless-session-descriptor>
+        <wls:enable-call-by-reference>true</wls:enable-call-by-reference>
+        <wls:dispatch-policy>WorkManager-Online</wls:dispatch-policy>
+    </wls:weblogic-enterprise-bean>
+</wls:weblogic-ejb-jar>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:typ="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" xmlns:bir="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_v2" xmlns="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_v2" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_v2" elementFormDefault="qualified">
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CustomerInformationReferenceTypes_1_0.xsd"/>
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3_0.xsd"/>
+	<xs:complexType name="TaxAmount">
+		<xs:sequence>
+			<xs:element name="pstAmount" type="xs:double"/>
+			<xs:element name="gstAmount" type="xs:double"/>
+			<xs:element name="hstAmount" type="xs:double"/>
+			<xs:element name="taxationPolicy" type="TaxPolicyType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxExemption">
+		<xs:sequence>
+			<xs:element name="pstExemptInd" type="xs:boolean"/>
+			<xs:element name="gstExemptInd" type="xs:boolean"/>
+			<xs:element name="hstExemptInd" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxPolicyType">
+		<xs:sequence>
+			<xs:element name="provinceCode" type="common:ProvinceCode"/>
+			<xs:element name="pstRate" type="xs:double"/>
+			<xs:element name="gstRate" type="xs:double"/>
+			<xs:element name="hstRate" type="xs:double"/>
+			<xs:element name="taxationMethod" type="xs:string"/>
+			<xs:element name="minimumPSTTaxableAmount" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BillingCycle">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+					<xs:element name="closeDay" type="common:MonthDay"/>
+					<xs:element name="dueDay" type="common:MonthDay"/>
+					<xs:element name="billDay" type="common:MonthDay"/>
+					<xs:element name="populationCode" type="xs:string"/>
+					<xs:element name="allocationIndicator" type="xs:string"/>
+					<xs:element name="numberOfAllocatedAccounts" type="xs:long"/>
+					<xs:element name="numberOfAllocatedSuscribers" type="xs:long"/>
+					<xs:element name="weight" type="xs:long"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PaymentSourceType">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+					<xs:element name="sourceId" type="xs:string"/>
+					<xs:element name="sourceType" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RefPaymentMethod">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PrepaidRechargeDenomination">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+					<xs:element name="amount" type="xs:double"/>
+					<xs:element name="rateId" type="xs:int"/>
+					<xs:element name="rechargeType" type="xs:string"/>
+					<xs:element name="containsPrivilegeInd" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BillAdjustment">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+					<xs:element name="amount" type="xs:double"/>
+					<xs:element name="manualChargeInd" type="xs:boolean"/>
+					<xs:element name="amountOverrideableInd" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustmentReason">
+		<xs:complexContent>
+			<xs:extension base="bir:BillAdjustment">
+				<xs:sequence>
+					<xs:element name="adjustmentActivityCode" type="xs:string"/>
+					<xs:element name="adjustmentCategory" type="xs:string"/>
+					<xs:element name="adjustmentLevelCode" type="xs:string"/>
+					<xs:element name="adjustmentTaxIndicator" type="xs:string"/>
+					<xs:element name="expiryDate" type="xs:date"/>
+					<xs:element name="frequency" type="xs:int"/>
+					<xs:element name="maxNumberOfRecurringCredits" type="xs:int"/>
+					<xs:element name="recurringInd" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ChargeType">
+		<xs:complexContent>
+			<xs:extension base="bir:BillAdjustment">
+				<xs:sequence>
+					<xs:element name="productType" type="common:ProductType"/>
+					<xs:element name="level" type="xs:string"/>
+					<xs:element name="balanceImpact" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

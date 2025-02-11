@@ -1,0 +1,98 @@
+<!-- generated with TAF v0.1.1 -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+        <!--TODO Path to pom temporary specified till pom-test-management.xml will get integrated as pom.xml in Telus maven repo(s)-->
+        <relativePath>pom-test-management.xml</relativePath>
+        <groupId>telus-maven.testManagement</groupId>
+        <artifactId>TELUS_Integration_Test</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+	</parent>
+	
+	<groupId>telus.ait</groupId>
+	<artifactId>pom-cmb</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>	
+	<name>pom-cmb</name>
+
+	<properties>
+        <serenity.version>1.0.47</serenity.version>
+		<integration.tests.client.api.lib.version>3.25-SNAPSHOT</integration.tests.client.api.lib.version>
+		<integration.tests.telus.internal.lib.version>13.7</integration.tests.telus.internal.lib.version>
+	</properties>
+
+	<modules>
+		<module>cmb-fwk</module>
+		<module>cmb-app-config</module>
+		<module>cmb-ws-clients</module>
+		<module>cmb-steps</module>
+		<module>cmb-tests</module>
+	</modules>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- Client API -->
+            <dependency>
+                <groupId>telus.API</groupId>
+                <artifactId>ClientAPI</artifactId>
+                <version>${integration.tests.client.api.lib.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>telus.API</groupId>
+                <artifactId>ClientAPI-J2EEProvider</artifactId>
+                <version>${integration.tests.client.api.lib.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- CPMS -->
+            <dependency>
+                <groupId>telus.TELUS_CPMS</groupId>
+                <artifactId>channel-partner-delegate-wl10</artifactId>
+                <version>${integration.tests.telus.internal.lib.version}</version>
+            </dependency>
+
+            <!-- Hardware Validation -->
+            <dependency>
+                <groupId>telus.TELUS_HardwareValidation</groupId>
+                <artifactId>HardwareValidationEJBClient</artifactId>
+                <version>${integration.tests.telus.internal.lib.version}</version>
+            </dependency>
+
+            <!-- P3MS -->
+            <dependency>
+                <groupId>telus.product.p3ms</groupId>
+                <artifactId>P3MSClientAPI</artifactId>
+                <version>${integration.tests.telus.internal.lib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>telus.product.p3ms</groupId>
+                <artifactId>productdaservice-bean</artifactId>
+                <version>${integration.tests.telus.internal.lib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>telus.product.p3ms</groupId>
+                <artifactId>productdaservice-ejb-client</artifactId>
+                <version>${integration.tests.telus.internal.lib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>telus.product.p3ms</groupId>
+                <artifactId>productdaservice-ejb</artifactId>
+                <version>${integration.tests.telus.internal.lib.version}</version>
+            </dependency>
+
+            <!-- SRPDS -->
+            <dependency>
+                <groupId>telus.srps</groupId>
+                <artifactId>srps-wl10-client</artifactId>
+                <version>${integration.tests.telus.internal.lib.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>

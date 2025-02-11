@@ -1,0 +1,510 @@
+---
+swagger: "2.0"
+info:
+  description: "The WLSPricePlanMgmtRESTSvc_v1_0 will expose a suite of REST operations to manage wireless price plan information.  Version 1.0 will provide the capability to retrieve available price plans.\n"
+  version: "1.0"
+  title: "WLSPricePlanMgmtRESTSvc"
+  termsOfService: ""
+  contact: {}
+host: "cis-wlspriceplanmgmtrestsvc-dv.paas-app-east-np.tsl.telus.com"
+basePath: "/v1/smo/ordermgmt/wlspriceplanmgmt"
+schemes:
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /account/{ban}/sub/{sub}/available-price-plans:
+    get:
+      summary: "getAvailablePlanList"
+      description: "This operation will return price plan details that are available for the wireless customer (based on the billing account number and phone number passed through the URI) and relevant reference information including the included services, allowances and product grouping.  Although the service-fields parameter is optional, it's encouraged that consumers use this field to limit the response to only the attributes that are needed as this will allow a faster response. \n\nServices/APIs called:\n|Service|Service Owner|Operation|\n\
+        |---|---|---|\n|ProductCatalogueGroupingService_v1_0_1|P3MS|findGroupsForServicePackages, findGroupHierarchy (once a day) |\n|BundleCommitmentSvc_v1_0|RCMS|getRatePlanListByWirelessOfferList (used for Business Anywhere accounts only) |\n|RewardService_v3_2|RCMS|getRewardCommitment|\n|EquipmentInfoService_v2_1|SEMS|getEquipmentSummary|\n|ServiceOrderReferenceService_v5_3|CAPI|getPricePlanList, getServiceListByServiceGroup, getPricePlanAndServiceCodeListByGroupCode, getWccServiceExtendedInfo (once a day) |\n|SubscriberManagementService_v4_1|CAPI|getServiceAgreementForUpdate|</br>\nExpected average response time: 4000 ms"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "equipment-type"
+        in: "query"
+        required: true
+        type: "string"
+        description: "The equipment type for which the available price plans will be filtered on.  The default value is the subscriber's current equipment type and will be overridden with the value that's passed in.  If the subscriber has a grey market device or if the equipment-type cannot be determined, then the default value to be used is \"P\"."
+        x-example: "P"
+      - name: "language"
+        in: "query"
+        required: false
+        type: "string"
+        description: "The language to be used when retrieving description fields of the price plan response.  The default value is \"EN\"."
+        x-example: "EN, FR"
+      - name: "role"
+        in: "query"
+        required: false
+        type: "string"
+        description: "The business role for which the available price plans will be filtered on.  The default role is \"client\"."
+      - name: "province"
+        in: "query"
+        required: false
+        type: "string"
+        description: "The province code for which the available price plans will be filtered on.  The default province code is the wireless subscriber's current market province."
+        x-example: "ON, BC"
+      - name: "account-type"
+        in: "query"
+        required: false
+        type: "string"
+        description: "The account type for which the available price plans will be filtered on.  The default account type is the wireless subscriber's current account type - this attribute is configured on the account level."
+        x-example: "I (Consumer), B (Business)"
+      - name: "account-subtype"
+        in: "query"
+        required: false
+        type: "string"
+        description: "The account subtype for which the available price plans will be filtered on.  The default account subtype is the wireless subscriber's current account subtype - this attribute is configured on the account level."
+        x-example: "R (Consumer Regular, if account-type = I)"
+      - name: "brand"
+        in: "query"
+        required: false
+        type: "integer"
+        description: "The brand id for which the available price plans will be filtered on.  The default brand is the wireless subscriber's current brand - this attribute is configured on the account level."
+        x-example: "1 (TELUS), 3 (KOODO)"
+      - name: "term"
+        in: "query"
+        required: false
+        type: "string"
+        description: "The term duration in months for which the available price plans are to be filtered on.  The default term is the wireless subscriber's current contract term (in months)."
+        x-example: "12"
+      - name: "group-cd"
+        in: "query"
+        required: false
+        type: "string"
+        description: "The plan group codes for which the available price plans are to be filtered on.  Any price plans that belong to these groups will not be returned in the response.  The values are delimited by \",\" and is only available for KOODO wireless subscribers only."
+        x-example: "12345,99999"
+      - name: "wireless-offer"
+        in: "query"
+        required: false
+        type: "string"
+        description: "The wireless offer code of the offer that the available price plans that will be filtered on.  If an offer is used for filtering, the perspective date and system id must also be passed in.  This override attribute is only available for KOODO and TELUS Corporate Accounts (except Corporate Employee - account type/type CE).  For non-corporate TELUS wireless accounts, the offer code is retrieved from the Rewards system (RewardService)."
+        x-example: "1012212"
+      - name: "offer-perspective-dt"
+        in: "query"
+        required: false
+        type: "string"
+        description: "The wireless offer perspective date - required when using a wireless-offer.  The date format should be in ISO8601 format."
+        x-example: "2019-03-20"
+      - name: "offer-system-id"
+        in: "query"
+        required: false
+        type: "string"
+        description: "The wireless offer system id - required when using a wireless-offer.  The TOM system id is 13573."
+      - name: "service-fields"
+        in: "query"
+        required: false
+        type: "string"
+        description: "A comma-delimited list of response attributes to be returned in the ServiceDetail response.  Since PricePlanDetail extends ServiceDetail, only the ServiceDetail attributes within PricePlanDetail are included.  If no fields are requested (i.e. this parameter is blank or null), then all fields of a PricePlanDetail will be returned and all default attributes (serviceCd, serviceDescriptionTxt and chargeAmt) + the allowanceList will be returned for includedServices (ServiceDetail).  Default attributes are always returned in the response and do not need to be included in this list."
+        x-example: "recurringInd,bcicInd,allowanceList"
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n"
+            properties:
+              pricePlanGroupList:
+                type: "array"
+                description: "A list of price plan groups."
+                items:
+                  $ref: "#/definitions/PricePlanGroup"
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Successful response with no failed activities:\n{\n\
+              \   \"status\" : {\n      \"statusCd\" : \"200\",\n      \"statusTxt\"\
+              \ : \"Success\",\n      \"systemErrorTimeStamp\" : \"2017-10-19T14:59:13\"\
+              \n   }\n}"
+        400:
+          description: "A business exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|400|BE|ERROR_INVALID_BAN|Underlying error\
+              \ code|Underlying error message|Invalid BAN in URI|\n|400|BE|ERROR_INVALID_SUB|Underlying\
+              \ error code|Underlying error message|Invalid subscriber number in URI|\n\
+              |400|BE|ERROR_AMDOCS|Underlying error code|Underlying error message|Any\
+              \ caught exception resulting from an underlying AMDOCS business exception\
+              \ (see table below)|\n|400|BE|ERROR_WNP|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying WNP\
+              \ business exception (see table below)|\n<br>\n\nAMDOCS BackendException\
+              \ - Specific Error message returned by tuxedo service<br><br>\nAMDOCS\
+              \ ValidationException table:<br>\n|Error Code (systemErrorCd)|Error\
+              \ Message (systemErrorTxt)|\n|---|---|\n|MSG 1111170|Invalid waive reason\
+              \ code|\n|MSG 1111240|Activity Reason %s is either invalid or does not\
+              \ exist.|\n|MSG 1111720|BAN status not valid for this API|\n|MSG 1111740|Invalid\
+              \ Deposit Return method selected.|\n|MSG 1111750|Cannot cancel the last\
+              \ Active Subscriber. Please cancel the BAN.|\n|MSG 1115140|Subscriber\
+              \ status is illegal.|\n|MSG 1115290|Activity date cannot be a past date.|\n\
+              |MSG 1115300|Activity Reason cannot be empty. Please enter a reason.|\n\
+              |MSG 1115470|Subscriber is not ported-out. Restore suspended subscriber\
+              \ cannot be performed|\n|MSG 1115500|Subscriber is ported out. Normal\
+              \ restore suspended subscriber cannot be performed|\n|MSG 1115800|Invalid\
+              \ Port Activity Value|\n<br><br>\n\nWNP Error table:<br>\n|Error Code\
+              \ (systemErrorCd)|Error Message (systemErrorTxt)|\n|---|---|\n|PV-500-101E|Invalid\
+              \ Account Number format of Service Provider Telebec Mobility(101E)|\n\
+              |PV-500-103E|Invalid Account Number format of Service Provider NorthernTel\
+              \ Mobility(103E)|\n|PV-500-328F|Invalid Account Number format of Service\
+              \ Provider Videotron Ltd(328F)|\n|PV-500-329A|Invalid Account Number\
+              \ format of Service Provider Aliant Mobility(329A)|\n|PV-500-383F|Invalid\
+              \ Account Number format of Service Provider Wind / Globalive(383F)|\n\
+              |PV-500-5643|Invalid Account Number format of Service Provider Fido(5643)|\n\
+              |PV-500-582F|Invalid Account Number format of Service Provider Dave\
+              \ Wireless(582F)|\n|PV-500-646F|Invalid Account Number format of Service\
+              \ Provider Public Mobile(646F)|\n|PV-500-6574|Invalid Account Number\
+              \ format of Service Provider Bell Mobility(6574)|\n|PV-500-8821|Invalid\
+              \ Account Number format of Service Provider Rogers(8821)|\n|PV-500-9868|Invalid\
+              \ Account Number format of Service Provider SaskTel mobility(9868)|\n\
+              |PV-500-991B|Invalid Account Number format of Service Provider MTS Allstream(991B)|\n\
+              |PV-500-9937|Invalid Account Number format of Service Provider TBayTel\
+              \ Mobility(9937)|\n|PV-500-BC01|Invalid Account Number format of Service\
+              \ Provider Bell Mobility(6574)|\n|PV-500-EXL1|Invalid Account Number\
+              \ format of Service Provider SaskTel mobility(9868)|\n|PV-500-TU02|Invalid\
+              \ Account Number format of Service Provider Wind / Globalive(383F)|\n\
+              |PV-500-WTM1|Invalid Account Number format of Service Provider Fido(5643)|\n\
+              |PV-414|DSL CONTAINS INVALID VALUE|\n|PV-415|DSL_LNUM IS REQUIRED|\n\
+              |PV-412|DSL IS PROHIBITED|\n|PV-413|DSL IS REQUIRED|\n|PV-410|EXP MUST\
+              \ BE Y OR BLANK|\n|PV-411|CANNOT EXPEDITE WHEN WIRELESS TO WIRELESS|\n\
+              |PV-422|ORSELLNM IS PROHIBITED|\n|PV-420|EUMI IS REQUIRED|\n|PV-421|EUMI\
+              \ CONTAINS INVALID VALUE|\n|PV-418|DSL_LNUM REFERENCE DOS NOT CANTAINS\
+              \ A SINGLE TN|\n|PV-419|EUMI IS PROHIBITED|\n|PV-416|DSL_LNUM IS PROHIBITED|\n\
+              |PV-417|DSL_LNUM CONTAINS INVALID REFERENCE|\n|PV-301|Port Type cannot\
+              \ be changed in SPR|\n|PV-304|Invalid Message Type; Actual Value={0}|\n\
+              |PV-400|Response Type is invalid or missing; Required Format={0}; Actual={1}|\n\
+              |PV-260|TELUS BAN Information is invalid or missing|\n|PV-300|Port Type\
+              \ is invalid or missing; Required={0}; Actual Value={1}|\n|PV-240|LRN\
+              \ is invalid or missing; Required Format={0}; Actual Value={1}|\n|PV-250|Return\
+              \ to Old SP is invalid or missing; Required Format={0}; Actual Value={1}|\n\
+              |PV-251|Auto Activate Flag cannot be changed in SPR|\n|PV-222|Please\
+              \ verfify Mobile Directory Number field is filled in correctly. |\n\
+              |PV-223|Line Number or Phone Number cannot be changed in SPR|\n|PV-230|New\
+              \ Reseller Name must be provided if New Network SP != Old Network SP|\n\
+              |PV-201|ESN cannot be used for Multi-line WPR.|\n|PV-220|Number Port\
+              \ Quantity is invalid or missing.|\n|PV-221|Please confirm how many\
+              \ lines are involved in porting request.|\n|PV-153|Please verify your\
+              \ Postal Code.|\n|PV-200|Account Number, PIN or ESN must be provided\
+              \ for Single-line WPR|\n|PV-150|Either Billing First Name/Last Name\
+              \ or Business Name must be provided.|\n|PV-151|Billing Street Name is\
+              \ invalid or missing.|\n|PV-152|Please verify your Province.|\n|PV-111|Implementation\
+              \ Contact is invalid or missing; Required Format={0}; Actual Value={1}|\n\
+              |PV-112|Implementation Contact Telephone Number is invalid or missing;\
+              \ Required Format={0}; Actual Value={1}|\n|PV-115|Representative Name\
+              \ and Contact Telephone Number is missing or invalid.|\n|PV-091|Please\
+              \ verfify agency authorization field is filled incorrectly.|\n|PV-092|Please\
+              \ verfify agency authorization date field is filled incorrectly.|\n\
+              |PV-110|Initiator Representative is invalid or missing.|\n|PV-071|Invalid\
+              \ Desired/Date Time value. Must be at least 48 hours|\n|PV-080|Please\
+              \ verify valid values are used for Co-ordinates Hot Cut that is Y, N\
+              \ or Not Populated.|\n|PV-090|Please verfify agency authorization field\
+              \ is filled incorrectly.|\n|PV-061|Number Port Direction cannot be changed\
+              \ in SPR|\n|PV-070|Invalid Desired/Date Time value. Must be at least\
+              \ 2.5 hours|\n|PV-044|Old Local SP is invalid or missing; Required Format={0};\
+              \ Actual Value={1}|\n|PV-050|Invalid WPR/SPR Type value; Required={0};\
+              \ Actual={1}|\n|PV-060|Invalid Number Port Direction Indicator value;\
+              \ Required Format={0}; Actual={1}|\n|PV-042|New Local SP is invalid\
+              \ or missing; Required Format={0}; Actual Value={1}|\n|PV-043|Old Network\
+              \ SP, New Network SP and New Local SP cannot be changed in SPR|\n|PV-401|Delay\
+              \ Code is invalid or missing for Response Type=D|\n|PV-032|SMG Request\
+              \ Number, Request Version Number, and SMG Response Number cannot be\
+              \ null|\n|PV-040|Old Network SP is invalid or missing; Required Format={0};\
+              \ Actual Value={1}|\n|PV-041|New Network SP is invalid or missing; Required\
+              \ Format={0}; Actual Value={1}|\n|PV-030|WICIS Release Number must be\
+              \ 3.0.0|\n|PV-031|SMG Request Number and Response Number cannot be null|\n\
+              |PV-010|Missing Required Field|\n|PV-011|Failed Data Format Validation|\n\
+              |6A|MDN not found/doesn't belong to this SP|\n|6C|Customer information\
+              \ does not match|\n|6D|MDN not active|\n|6H|System Outages|\n|6P|MDN\
+              \ has service provider port protection|\n|8A|Account number incorrect|\n\
+              |8C|Password/PIN incorrect|\n|8H|ESN/MEID incorrect (valid on single-line\
+              \ port requests only)|\n|APP20002|MDN not found/doesn't belong to this\
+              \ SP|\n|APP20010|MDN not active|\n|APP20011|MDN not active|\n|APP20012|Other|\n\
+              |APPCC1000|MDN not found/doesn't belong to this SP|\n|APPCC1020|MDN\
+              \ not active|\n|APPCC1040|Customer information does not match|\n|APPCC1050|Account\
+              \ number incorrect|\n|APPCC1060|Password/PIN incorrect|\n|APPCC1070|ESN/MEID\
+              \ incorrect (valid on single-line port requests only)|\n|APPCC1080|MDN\
+              \ not active|\n|SYSCC1000|System Outages|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Failure response for OCSSAM exception:\n{\n   “status”\
+              \ : {\n      “statusCd” : “400”,\n      “statusSubCd” : “BE”,\n    \
+              \  “statusTxt” : “ERROR_AMDOCS”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\
+              ,\n      “systemErrorCd” : “1117020”,\n      “systemErrorTxt” : “Soc\
+              \ not found.”\n   }\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|System error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying system\
+              \ or service exception not captured elsewhere|\n|500|GE|General error|ERROR_GENERIC|Underlying\
+              \ error message|Any caught exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+    parameters:
+    - name: "ban"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The billing account number for which the available price plans will be filtered on."
+      x-example: "8"
+    - name: "sub"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The subscriber number (i.e. phone number) for which the available price plans will be filtered on."
+      x-example: "4161234567"
+  /ping:
+    get:
+      summary: "ping"
+      description: "SLA Information:\n\nServices/APIs called: None\n\nExpected average\
+        \ response time: 1500 ms\n"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+              nameTxt:
+                type: "string"
+                description: "The name of the service."
+              descriptionTxt:
+                type: "string"
+                description: "The description of the service."
+              buildLabelTxt:
+                type: "string"
+                description: "The build version for this service."
+              buildDt:
+                type: "string"
+                description: "The date the service was built."
+          examples:
+            application/json: "{\n   “status” : {\n      “statusCd” : “200”,\n   \
+              \   “statusTxt” : “Success”,\n      “systemErrorTimeStamp” : “2018-10-21T14:59:13”\
+              \n   },\n   “nameTxt” : “Wireless Price Plan Management REST Service\
+              \ 1.0”,\n   “descriptionTxt” : “This service provides a suite of operations\
+              \ to manage wireless price plans.”,\n   “buildLabel” : “201810.0.21”\
+              ,\n   “buildDt” : “20180821-195457”\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|System error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying system\
+              \ or service exception not captured elsewhere|\n|500|GE|General error|ERROR_GENERIC|Underlying\
+              \ error message|Any caught exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+definitions:
+  Allowance:
+    type: "object"
+    description: "The allowance information for the service or price plan.  Currently, only DATA allowances will be returned and are retrieved from the P3MS datasource that is refreshed daily."
+    properties:
+      allowanceTypeCd:
+        type: "string"
+        description: "The type of allowance that is configured on the service."
+        example: "Data, SMS, Voice"
+      allowanceAmt:
+        type: "number"
+        description: "The allowance amount that is configured on the service.  If the amount is 99999, the allowance is considered as unlimited."
+        example: "2, 500, 99999"
+      unitOfMeasureTxt:
+        type: "string"
+        description: "The unit of measure for the allowance amount that is configured on the service."
+        example: "GB, MB, minutes, messages"
+      sharingGroupCd:
+        type: "string"
+        description: "If the allowance is a DATA allowance, this attribute is the sharing group code if the allowance is sharable.  If the data allowance is non-sharable, then this value will be null (i.e. empty)."
+        example: "CAD_DATA"
+  ServiceDetail:
+    type: "object"
+    description: "Detailed information of a wireless service.  Reference data is retrieved from ServiceOrderReferenceService (certain data is cached and refreshed daily)."
+    required:
+    - "bcicInd"
+    - "boundedServiceInd"
+    - "chargeAmt"
+    - "currentInd"
+    - "easyRoamInd"
+    - "effectiveDt"
+    - "expiryDt"
+    - "grandfatheredInd"
+    - "promotionalInd"
+    - "recurringInd"
+    - "serviceCd"
+    - "serviceDescriptionTxt"
+    properties:
+      serviceCd:
+        type: "string"
+        description: "The service code that's configured in the KNowbility database.  This is a default attribute that is always returned in the response."
+      serviceDescriptionTxt:
+        type: "string"
+        description: "The description of the service that's configured in the KNowbility database.  This is a default attribute that is always returned in the response."
+      chargeAmt:
+        type: "number"
+        description: "The charge amount of the service in dollars that's configured in the KNowbility database.  This is a default attribute that is always returned in the response."
+      effectiveDt:
+        type: "string"
+        format: "date"
+        description: "The sale effective date of the service that's configured in the KNowbility database."
+      expiryDt:
+        type: "string"
+        format: "date"
+        description: "The sale expiry date of the service that's configured in teh KNowbility database."
+      recurringInd:
+        type: "boolean"
+        description: "A service is recurring if it is NOT a one time data top-up service.  One-time services are services that are BCIC (see below) and are either service type G (regular auto-expire), S (promo), or T (optional auto-expire).  Data top-up socs belong to soc group \"SGDTTUP\"."
+      grandfatheredInd:
+        type: "boolean"
+        description: "A service is grandfathered if it is no longer for sale (i.e. the service's sale expiry date is in the past)."
+      currentInd:
+        type: "boolean"
+        description: "Whether or not the service is configured as 'current' in the KNowbility database."
+      promotionalInd:
+        type: "boolean"
+        description: "A promotional service is one that is a service with type = \"S\"."
+      boundedServiceInd:
+        type: "boolean"
+        description: "A bounded service is one that is related to another service with relation type = \"M\"."
+      bcicInd:
+        type: "boolean"
+        description: "A service is BCIC if its bill cycle treatment code is configured as \"BCIC\".  This means that the service is independent of the bill cycle."
+      bcdcInd:
+        type: "boolean"
+        description: "A service is BCDC if its bill cycle treatment code is configured as \"BCDC\".  This means that the service is dependent on the bill cycle - data top-up services are BCDC."
+      easyRoamInd:
+        type: "boolean"
+        description: "Whether or not the service is an easy roam service."
+      easyRoamCd:
+        type: "string"
+        description: "The zone of an easy roam service - i.e. international or US.  If the code is empty, then the service is not an easy roam service."
+        example: "US, INTERNATIONAL"
+      displaySortPriorityNum:
+        type: "integer"
+        description: "The sort priority for display purposes."
+      mscEligibleInd:
+        type: "boolean"
+        description: "Whether or not the service is eligible to count towards the subscriber's minimum service commitment."
+      tupInd:
+        type: "boolean"
+        description: "Whether or not the service is in the T-UP device trade-in program."
+      tupEligibilityDt:
+        type: "string"
+        format: "date"
+        description: "The eligibility date of the service for the T-UP program.  T-UP services expire after one year of the effective date.  Within 6 months of eligibility date, the customer can trade in the device and waive device balance."
+      billingZeroChargeSupressInd:
+        type: "boolean"
+        description: "Whether or not it is configured in the KNowbility to suppress billing charges to zero dollars.  This is usually intended for Internal TELUS employee use."
+      callingCircleInd:
+        type: "boolean"
+        description: "Whether or not the service has calling circle features (i.e. if the feature code = \"C\")."
+      dataSharingInd:
+        type: "boolean"
+        description: "Whether or not the service has data sharing.  A service is a data sharing service if it is configured as a part of a data sharing group."
+      wccZoneCd:
+        type: "string"
+        description: "The wireless code of conduct zone code of the service if it's configured to be a \"WCC service\".  If the service is not a WCC service, then this attribute will be null (i.e. empty)."
+        example: "DOMESTIC, INTERNATIONAL"
+      allowanceList:
+        type: "array"
+        description: "A list of data, SMS and/or voice allowances for this service."
+        items:
+          $ref: "#/definitions/Allowance"
+  PricePlanDetail:
+    type: "object"
+    required:
+    - "serviceInfo"
+    properties:
+      serviceInfo:
+        $ref: "#/definitions/ServiceDetail"
+      comboPlanInd:
+        type: "boolean"
+        description: "Whether or not the price plan is a combo plan.  A combo plan is a price plan that is configured in a Combo Group in the KNowbility database."
+      unlimitedDataInd:
+        type: "boolean"
+        description: "Whether or not the price plan is an unlimited data plan (i.e. Stubby or Piece of Mind price plan).  Unlimited data plans always have either SSYSTO or XSSYSTO configured as an included service."
+      includedServiceList:
+        type: "array"
+        description: "A list of included services of the price plan."
+        items:
+          $ref: "#/definitions/ServiceDetail"
+    description: "Information of a price plan."
+  PricePlanGroup:
+    type: "object"
+    properties:
+      groupName:
+        type: "string"
+        description: "The name of the price plan group based on the product catalog."
+      groupId:
+        type: "string"
+        description: "The id of the price plan group based on the product catalog."
+      displaySortPriorityNum:
+        type: "integer"
+        description: "The sort priority for display purposes."
+      availablePlanList:
+        type: "array"
+        description: "A list of available price plans and their detailed information."
+        items:
+          $ref: "#/definitions/PricePlanDetail"
+      planGroupList:
+        type: "array"
+        description: "A list of child price plan groups that are related to this price\
+          \ plan group."
+        items:
+          $ref: "#/definitions/PricePlanGroup"
+    description: "A group of price plans based on the product catalog."
+  ResponseStatus:
+    type: "object"
+    required:
+    - "statusCd"
+    properties:
+      statusCd:
+        type: "string"
+        description: "The HTTP result status code."
+        example: "200"
+      statusSubCd:
+        type: "string"
+        description: "The service internal status code."
+        example: "UM1, UM2"
+      statusTxt:
+        type: "string"
+        description: "A short description of status."
+        example: "Invalid URL"
+      systemErrorCd:
+        type: "string"
+        description: "If the underlying service we call returns its own error code,\
+          \ we'll include it here, e.g. contents of faultString in error response"
+        example: "“error: java.lang.IllegalArgumentException\""
+      systemErrorTs:
+        type: "string"
+        description: "The time of underlying error (to help in locating error in logs)."
+        example: "2013-05-23T11:07:48"
+      systemErrorTxt:
+        type: "string"
+        description: "A description of system error; messageId, errorCode from PolicyException."
+        example: "“messageId: APP10004”"
+    description: "The response status object provides additional information to the\
+      \ HTTP response in terms of error messaging.  This object provides details to\
+      \ help identify the underlying exception(s) and locate the error(s) in the log\
+      \ files."

@@ -1,0 +1,1028 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:commonns="http://soap.crmapi.util.redknee.com/common/xsd/Common-v2.0" xmlns:commonnsv1_1="http://soap.crmapi.util.redknee.com/common/xsd/Common-v1.1" xmlns:exns="http://soap.crmapi.util.redknee.com/common/exception/xsd/2008/08" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:subscriptionnsv1_1="http://soap.crmapi.util.redknee.com/subscriptions/xsd/Subscriptions-v1.1" xmlns:subscriptionnsv1_2="http://soap.crmapi.util.redknee.com/subscriptions/xsd/Subscriptions-v1.2" xmlns:subscriptionnsv1_3="http://soap.crmapi.util.redknee.com/subscriptions/xsd/Subscriptions-v1.3" xmlns:subscriptionnsv2_0="http://soap.crmapi.util.redknee.com/subscriptions/xsd/Subscriptions-v2.0" xmlns:tns="http://soap.crmapi.util.redknee.com/subscriptions/Subscriptions-v2.0" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://soap.crmapi.util.redknee.com/subscriptions/Subscriptions-v2.0">
+	<wsdl:import namespace="http://soap.crmapi.util.redknee.com/common/exception/xsd/2008/08" location="http://xmlschema.tmi.telus.com/xsd/vendor/Redknee/SubscriptionService_wsdl_Common_faults_1_0.wsdl">
+    </wsdl:import>
+	<wsdl:import namespace="http://soap.crmapi.util.redknee.com/subscriptions/xsd/Subscriptions-v1.2" location="http://xmlschema.tmi.telus.com/xsd/vendor/Redknee/SubscriptionService_wsdl_Subscriptions_interface_1_2.wsdl">
+    </wsdl:import>
+	<wsdl:import namespace="http://soap.crmapi.util.redknee.com/subscriptions/xsd/Subscriptions-v1.3" location="http://xmlschema.tmi.telus.com/xsd/vendor/Redknee/SubscriptionService_wsdl_Subscriptions_interface_1_3.wsdl">
+    </wsdl:import>
+	<wsdl:import namespace="http://soap.crmapi.util.redknee.com/common/xsd/Common-v2.0" location="http://xmlschema.tmi.telus.com/xsd/vendor/Redknee/SubscriptionService_wsdl_Common_interface_2_0.wsdl">
+    </wsdl:import>
+	<wsdl:import namespace="http://soap.crmapi.util.redknee.com/subscriptions/xsd/Subscriptions-v1.1" location="http://xmlschema.tmi.telus.com/xsd/vendor/Redknee/SubscriptionService_wsdl_Subscriptions_interface_1_1.wsdl">
+    </wsdl:import>
+	<wsdl:import namespace="http://soap.crmapi.util.redknee.com/subscriptions/xsd/Subscriptions-v2.0" location="http://xmlschema.tmi.telus.com/xsd/vendor/Redknee/SubscriptionService_wsdl_Subscriptions_interface_2_0.wsdl">
+    </wsdl:import>
+	<wsdl:import namespace="http://soap.crmapi.util.redknee.com/common/xsd/Common-v1.1" location="http://xmlschema.tmi.telus.com/xsd/vendor/Redknee/SubscriptionService_wsdl_Common_interface_1_1.wsdl">
+    </wsdl:import>
+	<wsdl:documentation>Subscriptions API 2.0 for CRMAPI Version 3.0 on February 2nd, 2011</wsdl:documentation>
+	<wsdl:portType name="SubscriptionsPortType_v2_0">
+		<wsdl:operation name="listSubscriptionCreationTemplates">
+			<wsdl:input message="subscriptionnsv2_0:listSubscriptionCreationTemplatesMessage" wsaw:Action="urn:listSubscriptionCreationTemplates">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv1_1:listSubscriptionCreationTemplatesResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="createSubscription">
+			<wsdl:input message="subscriptionnsv2_0:createSubscriptionMessage" wsaw:Action="urn:createSubscription">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:createSubscriptionResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteSubscription">
+			<wsdl:input message="subscriptionnsv2_0:deleteSubscriptionMessage" wsaw:Action="urn:deleteSubscription">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptions">
+			<wsdl:input message="subscriptionnsv2_0:listSubscriptionsMessage" wsaw:Action="urn:listSubscriptions">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:listSubscriptionsResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listPPSMSupportees">
+			<wsdl:input message="subscriptionnsv2_0:listPPSMSupporteesMessage" wsaw:Action="urn:listPPSMSupportees">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:listPPSMSupporteesResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionProfile">
+			<wsdl:input message="subscriptionnsv2_0:getSubscriptionProfileMessage" wsaw:Action="urn:getSubscriptionProfile">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:getSubscriptionProfileResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionClasses">
+			<wsdl:input message="subscriptionnsv2_0:listSubscriptionClassesMessage" wsaw:Action="urn:listSubscriptionClasses">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv1_1:listSubscriptionClassesResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionLevels">
+			<wsdl:input message="subscriptionnsv2_0:listSubscriptionLevelsMessage" wsaw:Action="urn:listSubscriptionLevels">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv1_1:listSubscriptionLevelsResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionTypes">
+			<wsdl:input message="subscriptionnsv2_0:listSubscriptionTypesMessage" wsaw:Action="urn:listSubscriptionTypes">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv1_1:listSubscriptionTypesResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionContracts">
+			<wsdl:input message="subscriptionnsv2_0:listSubscriptionContractsMessage" wsaw:Action="urn:listSubscriptionContracts">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:listSubscriptionContractsResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listDetailedSubscriptionContracts">
+			<wsdl:input message="subscriptionnsv2_0:listDetailedSubscriptionContractsMessage" wsaw:Action="urn:listDetailedSubscriptionContracts">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:listDetailedSubscriptionContractsResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionBalance">
+			<wsdl:input message="subscriptionnsv2_0:getSubscriptionBalanceMessage" wsaw:Action="urn:getSubscriptionBalance">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv1_2:getSubscriptionBalanceResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionBundleBalances">
+			<wsdl:input message="subscriptionnsv2_0:getSubscriptionBundleBalancesMessage" wsaw:Action="urn:getSubscriptionBundleBalances">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv1_2:getSubscriptionBundleBalancesResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionPromotionStatus">
+			<wsdl:input message="subscriptionnsv2_0:getSubscriptionPromotionStatusMessage" wsaw:Action="urn:getSubscriptionPromotionStatus">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv1_2:getSubscriptionPromotionStatusResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionPricePlanOptions">
+			<wsdl:input message="subscriptionnsv2_0:getSubscriptionPricePlanOptionsMessage" wsaw:Action="urn:getSubscriptionPricePlanOptions">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:getSubscriptionPricePlanOptionsResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionContract">
+			<wsdl:input message="subscriptionnsv2_0:getSubscriptionContractMessage" wsaw:Action="urn:getSubscriptionContract">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:getSubscriptionContractResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionProfile">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionProfileMessage" wsaw:Action="urn:updateSubscriptionProfile">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionMobileNumber">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionMobileNumberMessage" wsaw:Action="urn:updateSubscriptionMobileNumber">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:updateSubscriptionMobileNumberResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionCardPackage">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionCardPackageMessage" wsaw:Action="urn:updateSubscriptionCardPackage">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionPrimaryPricePlan">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionPrimaryPricePlanMessage" wsaw:Action="urn:updateSubscriptionPrimaryPricePlan">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionSecondaryPricePlan">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionSecondaryPricePlanMessage" wsaw:Action="urn:updateSubscriptionSecondaryPricePlan">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionPaidType">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionPaidTypeMessage" wsaw:Action="urn:updateSubscriptionPaidType">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:updateSubscriptionPaidTypeResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionConvertPaidTypeToPrepaid">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionConvertPaidTypeToPrepaidMessage" wsaw:Action="urn:updateSubscriptionConvertPaidTypeToPrepaid">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:updateSubscriptionConvertPaidTypeToPrepaidResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionConvertPaidTypeToPostpaid">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionConvertPaidTypeToPostpaidMessage" wsaw:Action="urn:updateSubscriptionConvertPaidTypeToPostpaid">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:updateSubscriptionConvertPaidTypeToPostpaidResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionCreditLimit">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionCreditLimitMessage" wsaw:Action="urn:updateSubscriptionCreditLimit">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionResetMonthlySpendAmount">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionResetMonthlySpendAmountMessage" wsaw:Action="urn:updateSubscriptionResetMonthlySpendAmount">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionResetPoolQuotaUsage">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionResetPoolQuotaUsageMessage" wsaw:Action="urn:updateSubscriptionResetPoolQuotaUsage">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionPricePlanOptions">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionPricePlanOptionsMessage" wsaw:Action="urn:updateSubscriptionPricePlanOptions">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv1_2:updateSubscriptionPricePlanOptionsResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionEnablePricePlanOption">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionEnablePricePlanOptionMessage" wsaw:Action="urn:updateSubscriptionEnablePricePlanOption">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionDisablePricePlanOption">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionDisablePricePlanOptionMessage" wsaw:Action="urn:updateSubscriptionDisablePricePlanOption">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionRechargeVoucher">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionRechargeVoucherMessage" wsaw:Action="urn:updateSubscriptionRechargeVoucher">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionRechargeVoucherBatch">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionRechargeVoucherBatchMessage" wsaw:Action="urn:updateSubscriptionRechargeVoucherBatch">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:updateSubscriptionRechargeVoucherBatchResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionState">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionStateMessage" wsaw:Action="urn:updateSubscriptionState">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionsPPSMSupporter">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionsPPSMSupporterMessage" wsaw:Action="urn:updateSubscriptionsPPSMSupporter">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionAddExtension">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionAddExtensionMessage" wsaw:Action="urn:updateSubscriptionAddExtension">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:updateSubscriptionAddExtensionResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionContractDetails">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionContractDetailsMessage" wsaw:Action="urn:updateSubscriptionContractDetails">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:updateSubscriptionContractDetailsResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="resetVoicemailPassword">
+			<wsdl:input message="subscriptionnsv2_0:resetVoicemailPasswordMessage" wsaw:Action="urn:resetVoicemailPassword">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionExtensions">
+			<wsdl:input message="subscriptionnsv2_0:listSubscriptionExtensionsMessage" wsaw:Action="urn:listSubscriptionExtensions">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:listSubscriptionExtensionsResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionExtension">
+			<wsdl:input message="subscriptionnsv2_0:getSubscriptionExtensionMessage" wsaw:Action="urn:getSubscriptionExtension">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:getSubscriptionExtensionResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listDetailedSubscriptionExtensions">
+			<wsdl:input message="subscriptionnsv2_0:listDetailedSubscriptionExtensionsMessage" wsaw:Action="urn:listDetailedSubscriptionExtensions">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:listDetailedSubscriptionExtensionsResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionExtension">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionExtensionMessage" wsaw:Action="urn:updateSubscriptionExtension">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionRemoveExtension">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionRemoveExtensionMessage" wsaw:Action="urn:updateSubscriptionRemoveExtension">
+    </wsdl:input>
+			<wsdl:output message="commonnsv1_1:successfulResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionUpdateFees">
+			<wsdl:input message="subscriptionnsv2_0:getSubscriptionUpdateFeesMessage" wsaw:Action="urn:getSubscriptionUpdateFees">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:getSubscriptionUpdateFeesResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="createBundleAdjustments">
+			<wsdl:input message="subscriptionnsv2_0:createBundleAdjustmentsMessage" wsaw:Action="urn:createBundleAdjustments">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:createBundleAdjustmentsResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="executeSubscriptionBalanceQuery">
+			<wsdl:input message="subscriptionnsv2_0:executeSubscriptionBalanceQueryMessage" wsaw:Action="urn:executeSubscriptionBalanceQuery">
+    </wsdl:input>
+			<wsdl:output message="commonns:executeResultResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionWithStateTransition">
+			<wsdl:input message="subscriptionnsv2_0:updateSubscriptionWithStateTransitionMessage" wsaw:Action="urn:updateSubscriptionWithStateTransition">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:updateSubscriptionWithStateTransitionResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="createSubscriptionBucketHistory">
+			<wsdl:input message="subscriptionnsv2_0:createSubscriptionBucketHistoryMessage" wsaw:Action="urn:createSubscriptionBucketHistory">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:createSubscriptionBucketHistoryResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionBucketHistory">
+			<wsdl:input message="subscriptionnsv2_0:listSubscriptionBucketHistoryMessage" wsaw:Action="urn:listSubscriptionBucketHistory">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:listSubscriptionBucketHistoryResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listDetailedSubscriptionBucketHistory">
+			<wsdl:input message="subscriptionnsv2_0:listDetailedSubscriptionBucketHistoryMessage" wsaw:Action="urn:listDetailedSubscriptionBucketHistory">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:listDetailedSubscriptionBucketHistoryResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getBucketHistory">
+			<wsdl:input message="subscriptionnsv2_0:getBucketHistoryMessage" wsaw:Action="urn:getBucketHistory">
+    </wsdl:input>
+			<wsdl:output message="subscriptionnsv2_0:getBucketHistoryResponse">
+    </wsdl:output>
+			<wsdl:fault name="CRMException" message="exns:CRMExceptionFault">
+    </wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="Subscriptions_v2_0_SOAP11Binding" type="tns:SubscriptionsPortType_v2_0">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="listSubscriptionCreationTemplates">
+			<soap:operation soapAction="urn:listSubscriptionCreationTemplates" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="createSubscription">
+			<soap:operation soapAction="urn:createSubscription" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteSubscription">
+			<soap:operation soapAction="urn:deleteSubscription" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptions">
+			<soap:operation soapAction="urn:listSubscriptions" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listPPSMSupportees">
+			<soap:operation soapAction="urn:listPPSMSupportees" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionProfile">
+			<soap:operation soapAction="urn:getSubscriptionProfile" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionClasses">
+			<soap:operation soapAction="urn:listSubscriptionClasses" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionLevels">
+			<soap:operation soapAction="urn:listSubscriptionLevels" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionTypes">
+			<soap:operation soapAction="urn:listSubscriptionTypes" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionContracts">
+			<soap:operation soapAction="urn:listSubscriptionContracts" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listDetailedSubscriptionContracts">
+			<soap:operation soapAction="urn:listDetailedSubscriptionContracts" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionBalance">
+			<soap:operation soapAction="urn:getSubscriptionBalance" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionBundleBalances">
+			<soap:operation soapAction="urn:getSubscriptionBundleBalances" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionPromotionStatus">
+			<soap:operation soapAction="urn:getSubscriptionPromotionStatus" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionPricePlanOptions">
+			<soap:operation soapAction="urn:getSubscriptionPricePlanOptions" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionContract">
+			<soap:operation soapAction="urn:getSubscriptionContract" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionProfile">
+			<soap:operation soapAction="urn:updateSubscriptionProfile" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionMobileNumber">
+			<soap:operation soapAction="urn:updateSubscriptionMobileNumber" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionCardPackage">
+			<soap:operation soapAction="urn:updateSubscriptionCardPackage" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionPrimaryPricePlan">
+			<soap:operation soapAction="urn:updateSubscriptionPrimaryPricePlan" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionSecondaryPricePlan">
+			<soap:operation soapAction="urn:updateSubscriptionSecondaryPricePlan" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionPaidType">
+			<soap:operation soapAction="urn:updateSubscriptionPaidType" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionConvertPaidTypeToPrepaid">
+			<soap:operation soapAction="urn:updateSubscriptionConvertPaidTypeToPrepaid" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionConvertPaidTypeToPostpaid">
+			<soap:operation soapAction="urn:updateSubscriptionConvertPaidTypeToPostpaid" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionCreditLimit">
+			<soap:operation soapAction="urn:updateSubscriptionCreditLimit" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionResetMonthlySpendAmount">
+			<soap:operation soapAction="urn:updateSubscriptionResetMonthlySpendAmount" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionResetPoolQuotaUsage">
+			<soap:operation soapAction="urn:updateSubscriptionResetPoolQuotaUsage" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionPricePlanOptions">
+			<soap:operation soapAction="urn:updateSubscriptionPricePlanOptions" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionEnablePricePlanOption">
+			<soap:operation soapAction="urn:updateSubscriptionEnablePricePlanOption" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionDisablePricePlanOption">
+			<soap:operation soapAction="urn:updateSubscriptionDisablePricePlanOption" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionRechargeVoucher">
+			<soap:operation soapAction="urn:updateSubscriptionRechargeVoucher" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionRechargeVoucherBatch">
+			<soap:operation soapAction="urn:updateSubscriptionRechargeVoucherBatch" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionState">
+			<soap:operation soapAction="urn:updateSubscriptionState" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionsPPSMSupporter">
+			<soap:operation soapAction="urn:updateSubscriptionsPPSMSupporter" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionAddExtension">
+			<soap:operation soapAction="urn:updateSubscriptionAddExtension" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="resetVoicemailPassword">
+			<soap:operation soapAction="urn:resetVoicemailPassword" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionExtensions">
+			<soap:operation soapAction="urn:listSubscriptionExtensions" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionExtension">
+			<soap:operation soapAction="urn:getSubscriptionExtension" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listDetailedSubscriptionExtensions">
+			<soap:operation soapAction="urn:listDetailedSubscriptionExtensions" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionExtension">
+			<soap:operation soapAction="urn:updateSubscriptionExtension" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionRemoveExtension">
+			<soap:operation soapAction="urn:updateSubscriptionRemoveExtension" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionContractDetails">
+			<soap:operation soapAction="urn:updateSubscriptionContractDetails" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriptionUpdateFees">
+			<soap:operation soapAction="urn:getSubscriptionUpdateFees" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="createBundleAdjustments">
+			<soap:operation soapAction="urn:createBundleAdjustments" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="executeSubscriptionBalanceQuery">
+			<soap:operation soapAction="urn:executeSubscriptionBalanceQuery" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriptionWithStateTransition">
+			<soap:operation soapAction="urn:updateSubscriptionWithStateTransition" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="createSubscriptionBucketHistory">
+			<soap:operation soapAction="urn:createSubscriptionBucketHistory" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listSubscriptionBucketHistory">
+			<soap:operation soapAction="urn:listSubscriptionBucketHistory" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listDetailedSubscriptionBucketHistory">
+			<soap:operation soapAction="urn:listDetailedSubscriptionBucketHistory" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getBucketHistory">
+			<soap:operation soapAction="urn:getBucketHistory" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CRMException">
+				<soap:fault name="CRMException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="SubscriptionService">
+		<wsdl:port name="SubscriptionsSOAP11port_http" binding="tns:Subscriptions_v2_0_SOAP11Binding">
+			<soap:address location="https://142.63.123.93:11110/RedkneeSecureSoap_v3_0/services/SubscriptionService"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

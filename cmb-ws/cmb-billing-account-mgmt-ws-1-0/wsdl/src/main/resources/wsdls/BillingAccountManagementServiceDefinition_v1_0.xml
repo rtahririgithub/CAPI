@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>BillingAccountManagementService</Name>
+		<Documentation>Provides the ability to update account Association, save and update credit result</Documentation>
+		<TAM_LevelZeroAndOne>CMO/BillingAccountMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/BillingAccountManagement</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmbilling-billingacctmgmt-dv103.tmi.telus.com</soapAddress>
+ 		<SchemaLocation>BillingAccountManagementServiceRequestResponse_1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/BillingAccountMgmt/BillingAccountManagementServiceRequestResponse_1</NameSpace>
+		<nsAbbrev>bam</nsAbbrev>
+		<OutputDir></OutputDir>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>		
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>updatePaymentMethod</OperationName>
+		<Documentation>Updates payment method.</Documentation>
+		<InputType wsp="True">updatePaymentMethod</InputType>
+		<OutputType>updatePaymentMethodResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>registerTopUpCreditCard</OperationName>
+		<Documentation>Registers Top Up Credit Card.</Documentation>
+		<InputType wsp="True">registerTopUpCreditCard</InputType>
+		<OutputType>registerTopUpCreditCardResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updateCreditCheckResult</OperationName>
+		<Documentation>Update Credit Check Result</Documentation>
+		<InputType wsp="True">updateCreditCheckResult</InputType>
+		<OutputType>updateCreditCheckResultResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>saveCreditCheckResult</OperationName>
+		<Documentation>Save Credit Check Result</Documentation>
+		<InputType wsp="True">saveCreditCheckResult</InputType>
+		<OutputType>saveCreditCheckResultResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>
+
+

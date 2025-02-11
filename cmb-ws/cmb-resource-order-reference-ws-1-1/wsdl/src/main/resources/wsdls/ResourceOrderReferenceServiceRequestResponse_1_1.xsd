@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/RMO/OrderMgmt/ResourceOrderReferenceServiceRequestResponse_1_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ref="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" xmlns:common="http://schemas.telus.com/eca/common_types_2_1" xmlns:ns1="http://xmlschema.tmi.telus.com/srv/RMO/OrderMgmt/ResourceOrderReferenceServiceRequestResponse_1_0" targetNamespace="http://xmlschema.tmi.telus.com/srv/RMO/OrderMgmt/ResourceOrderReferenceServiceRequestResponse_1_0" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/ResourceOrderReferenceTypes_1_0.xsd"/>
+	<xsd:import namespace="http://schemas.telus.com/eca/common_types_2_1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/legacy/ECA_CommonTypes_2_1.xsd"/>
+	<xsd:element name="getNumberGroupByPhoneNumberAndProductType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+				<xsd:element name="productType" type="common:ProductType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getNumberGroupByPhoneNumberAndProductTypeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="numberGroup" type="ref:NumberGroup" nillable="true"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getNumberGroupByPortedInPhoneNumberProductType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+				<xsd:element name="productType" type="common:ProductType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getNumberGroupByPortedInPhoneNumberProductTypeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="numberGroup" type="ref:NumberGroup" nillable="true"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAvailableNumberGroups">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountType" type="ref:AccountTypeCode"/>
+				<xsd:element name="accountSubType" type="ref:AccountSubTypeCode"/>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="equipmentType" type="common:EquipmentType"/>
+				<xsd:element name="marketAreaCode" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAvailableNumberGroupsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="numberGroup" type="ref:NumberGroup" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAvailablePhoneNumberList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:annotation>
+					<xsd:documentation>This operation Retrieves phone numbers available for assignment in the system governed by the PhoneNumberReservation search criteria</xsd:documentation>
+				</xsd:annotation>
+				<xsd:element name="accountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber" minOccurs="0"/>
+				<xsd:element name="numberGroup" type="ref:NumberGroup"/>
+				<xsd:element name="productType" type="common:ProductType">
+					<xsd:annotation>
+						<xsd:documentation>C - PRODUCT_TYPE_PCS;
+P- PRODUCT_TYPE_PAGER
+I - PRODUCT_TYPE_IDEN</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="phoneNumberPattern" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Phone number search pattern.  For 'Like Matches'  this should be the 10 digit phone number of an existing subscriber.  Otherwise,  it should be 10 digit combination of numbers and asterixes (*), where asterisk  means any number.  If 'phoneNumberPattern' contains less than 10 characters, it will be padded with asterixes.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="asianFriendlyInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>isAsian indicator. true/false(default). </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="maxNumber" type="xsd:double">
+					<xsd:annotation>
+						<xsd:documentation>maxinum numbers to be retrieved. </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAvailablePhoneNumberListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumberList" type="common:PhoneNumber" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

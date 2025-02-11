@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<application name="Client API CMB Account Web Services" shortname="cmbactws" path="/${root}/${host}/wls/8.1/${env}/logs/applications/${domain}/${node}/applications/${artifact}-${version}/">
+	
+	<overrideValue name="env" value="P" environments="pra,prb"/>
+	<overrideValue name="env" value="S1" environments="st101a,st101b"/>
+	<overrideValue name="env" value="PT148" environments="pt148"/>
+	<overrideValue name="env" value="Q2" environments="pt140"/>
+	<overrideValue name="env" value="PT168" environments="pt168"/>
+	<overrideValue name="env" value="DV103" environments="dv103"/>
+	
+	<component name="AccountInformationHistoryService 1.0 (CC)">
+		<artifact name="cmb-account-info-hist-service" version="10" appMap="cmb-account-info-hist-service-10"/>
+	</component>	
+	<component name="AccountInformationHistoryService 1.1 (CC)">
+		<artifact name="cmb-account-info-hist-service" version="11" appMap="AccountInformationHistoryService V1.1"/>
+	</component>	
+	<component name="AccountInformationService 3.4 (CC)">
+		<artifact name="cmb-account-info-service" version="34" appMap="cmb-account-info-service-34"/>
+	</component>	
+	<component name="AccountInformationService 3.5" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-account-info-ws" version="3_5"/>
+	</component>	
+	<component name="AccountLifecycleManagementService 1.0 (CC)">
+		<artifact name="cmb-account-life-cycle-mgmt-service" version="10" appMap="AccountLifeCycleManagementService 10"/>
+	</component>	
+	<component name="WirelessAccountManagementService 1.1 (CC)">
+		<artifact name="cmb-wireless-account-mgmt-service" version="11" appMap="WirelessAccountMgmtService 11"/>
+	</component>	
+	<component name="WirelessAccountManagementService 1.2" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-wireless-account-mgmt-ws" version="1_2" appMap="cmb-wireless-account-mgmt-ws"/>	
+	</component>	
+	<component name="WirelessAccountLifecycleManagementService 1.2 (CC)">
+		<artifact name="cmb-wireless-accountlifecycle-mgmt-jws" version="12" appMap="cmb-wireless-accountlifecycle-mgmt-jws-XX"/>
+	</component>		
+	<component name="WirelessAccountLifecycleManagementService 1.3 (CC)">
+		<artifact name="cmb-wireless-accountlifecycle-mgmt-jws" version="13" appMap="cmb-wireless-accountlifecycle-mgmt-jws-XX"/>
+	</component>	
+</application>

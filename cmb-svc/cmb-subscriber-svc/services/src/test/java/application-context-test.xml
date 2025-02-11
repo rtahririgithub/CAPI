@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+	
+	<beans profile="lab">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://d070296:7001</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+		<util:properties id="environmentGU">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://ln99227:31152</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+	
+	<beans profile="local">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://localhost:7001</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+		<util:properties id="environmentGU">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://ln99227:31152</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+
+	<beans profile="dv103">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://ln98551:12022</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+
+	<beans profile="pt140">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://ln99670.corp.ads:60022</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+	
+	<beans profile="pt148">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://ln99232.corp.ads:30022</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+
+	<beans profile="pt168">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://ln98556.corp.ads:31022</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+	
+	<beans profile="st101a">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://cmosr-custinfomgmt2-st101-a.tmi.telus.com:42022</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+
+	<beans profile="st101b">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://ln99244:43024</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+	
+	<beans profile="pra">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://lp99683:52024</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+	
+		<beans profile="prb">
+		<util:properties id="environment">
+			<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="java.naming.provider.url">t3://lp97547:53022</prop>
+			<prop key="java.naming.security.principal">ejb_user</prop>
+			<prop key="java.naming.security.credentials">ejb_user</prop>
+		</util:properties>
+	</beans>
+
+	<beans profile="remote">
+	
+		<jee:remote-slsb id="facade" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment"
+			business-interface="com.telus.cmb.subscriber.lifecyclefacade.svc.SubscriberLifecycleFacade" 
+			jndi-name="SubscriberLifecycleFacade#com.telus.cmb.subscriber.lifecyclefacade.svc.SubscriberLifecycleFacade">
+		</jee:remote-slsb>
+
+		<jee:remote-slsb id="helper" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment"
+			business-interface="com.telus.cmb.subscriber.lifecyclehelper.svc.SubscriberLifecycleHelper" 
+			jndi-name="SubscriberLifecycleHelper#com.telus.cmb.subscriber.lifecyclehelper.svc.SubscriberLifecycleHelper">
+		</jee:remote-slsb>
+		
+		<jee:remote-slsb id="manager" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment"
+			business-interface="com.telus.cmb.subscriber.lifecyclemanager.svc.SubscriberLifecycleManager" 
+			jndi-name="SubscriberLifecycleManager#com.telus.cmb.subscriber.lifecyclemanager.svc.SubscriberLifecycleManager">
+		</jee:remote-slsb>
+		
+		<jee:remote-slsb id="accountInformationHelper" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment"
+			business-interface="com.telus.cmb.account.informationhelper.svc.AccountInformationHelper" 
+			jndi-name="AccountInformationHelper#com.telus.cmb.account.informationhelper.svc.AccountInformationHelper">
+		</jee:remote-slsb>
+	
+		<jee:remote-slsb id="productEquipmentHelper" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment"
+			business-interface="com.telus.cmb.productequipment.helper.svc.ProductEquipmentHelper" 
+			jndi-name="ProductEquipmentHelper#com.telus.cmb.productequipment.helper.svc.ProductEquipmentHelper">
+		</jee:remote-slsb>
+				
+	
+		<jee:remote-slsb id="referenceDataHelper" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment"
+			business-interface="com.telus.cmb.reference.svc.ReferenceDataHelper" 
+			jndi-name="ReferenceDataHelper#com.telus.cmb.reference.svc.ReferenceDataHelper">
+		</jee:remote-slsb>
+		
+		<jee:remote-slsb id="referenceDataFacade" lookup-home-on-startup="false" resource-ref="false" environment-ref="environment" 
+			business-interface="com.telus.cmb.reference.svc.ReferenceDataFacade" 
+			jndi-name="ReferenceDataFacade#com.telus.cmb.reference.svc.ReferenceDataFacade"
+		/>
+	
+		
+	</beans>
+
+	<beans profile="standalone">
+	
+		<import resource="classpath:application-context-dao-jdbc.xml"/>
+		<import resource="classpath:application-context-dao-ws.xml"/>
+		<import resource="classpath:application-context-services.xml"/>
+		<import resource="classpath:application-context-datasources-pt148.xml"/>
+		
+		<bean class="com.telus.cmb.subscriber.lifecyclehelper.svc.impl.SubscriberLifecycleHelperImpl"/>
+		<bean class="com.telus.cmb.subscriber.lifecyclemanager.svc.impl.SubscriberLifecycleManagerImpl"/>
+		<bean class="com.telus.cmb.subscriber.lifecyclefacade.svc.impl.SubscriberLifecycleFacadeImpl"/>
+		
+		<!-- workaround for async framework -->
+		
+		<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+			<property name="connectionFactory">
+				<bean class="com.bea.core.jmspool.PooledConnectionFactory"></bean>
+			</property>
+		</bean>
+
+	</beans>
+</beans> 

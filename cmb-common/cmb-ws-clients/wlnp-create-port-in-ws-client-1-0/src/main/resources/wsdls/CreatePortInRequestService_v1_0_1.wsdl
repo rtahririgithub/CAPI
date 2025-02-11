@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://services.telus.com/wlnp/prm/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:cli="http://schemas.telus.com/wlnp/core/client" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s0="http://services.telus.com/wlnp/prm/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsmex="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.telus.com/wlnp/core/client" xmlns:cli="http://schemas.telus.com/wlnp/core/client" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s0="http://services.telus.com/wlnp/prm/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsmex="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="createPortInRequest">
+<xs:complexType>
+<xs:sequence>
+  <xs:element ref="cli:PortInRequestData"/> 
+  </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+<xs:element name="createPortInRequestResponse">
+<xs:complexType>
+<xs:sequence>
+  <xs:element minOccurs="0" name="createPortInRequestResult" type="xs:string"/> 
+  </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+<xs:element name="PortInRequestData">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="cli:PortInRequestDataType">
+  <xs:attribute default="1.0" name="SchemaVersion" type="xs:string"/> 
+  </xs:extension>
+  </xs:complexContent>
+  </xs:complexType>
+  </xs:element>
+<xs:complexType name="PortInRequestDataBodyType">
+<xs:sequence>
+  <xs:element ref="cli:TelusBAN"/> 
+  <xs:element ref="cli:TelusSubscriber"/> 
+  <xs:element ref="cli:ProductType"/> 
+  <xs:element ref="cli:ProductBillingMethodType"/> 
+  <xs:element minOccurs="0" ref="cli:DesiredDueDateTime"/> 
+  <xs:element minOccurs="0" ref="cli:CoordinatedHotCut"/> 
+  <xs:element ref="cli:AgencyAuth"/> 
+  <xs:element minOccurs="0" ref="cli:AgencyAuthDate"/> 
+  <xs:element minOccurs="0" ref="cli:AgencyAuthName"/> 
+  <xs:element minOccurs="0" ref="cli:GroupReqNumber"/> 
+  <xs:element ref="cli:InitiatorRepresentative"/> 
+  <xs:element minOccurs="0" ref="cli:ImplContactName"/> 
+  <xs:element minOccurs="0" ref="cli:ImplContactTelNO"/> 
+  <xs:element ref="cli:BillingAddress"/> 
+  <xs:element ref="cli:AcctInfo"/> 
+  <xs:element ref="cli:PortTN"/> 
+  <xs:element minOccurs="0" ref="cli:Remarks"/> 
+  <xs:element minOccurs="0" ref="cli:AutoActivate"/> 
+  <xs:element minOccurs="0" ref="cli:PACInfo"/> 
+  <xs:element minOccurs="0" ref="cli:ONSP"/> 
+  <xs:element minOccurs="0" ref="cli:NPDI"/> 
+  <xs:element minOccurs="0" ref="cli:Expedited"/> 
+  <xs:element minOccurs="0" ref="cli:DSL"/> 
+  <xs:element minOccurs="0" ref="cli:DSL_LNUM"/> 
+  <xs:element minOccurs="0" ref="cli:EUMI"/> 
+  <xs:element minOccurs="0" ref="cli:OldResellerName"/> 
+  </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="PortInRequestDataType">
+<xs:sequence>
+  <xs:element ref="cli:Header"/> 
+  <xs:element ref="cli:PortInRequestBody"/> 
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PortInRequestBody" type="cli:PortInRequestDataBodyType"/> 
+<xs:element name="PRMFaultDetail" type="cli:PRMFaultDetail">
+<xs:annotation>
+  <xs:documentation>PRM SOAP Fault Details</xs:documentation> 
+  </xs:annotation>
+  </xs:element>
+<xs:complexType name="PRMFaultDetail">
+<xs:sequence maxOccurs="unbounded">
+<xs:element name="PRMFault">
+<xs:complexType>
+<xs:complexContent>
+  <xs:extension base="cli:PRMFault"/> 
+  </xs:complexContent>
+  </xs:complexType>
+  </xs:element>
+  </xs:sequence>
+  <xs:attribute default="1.0" name="SchemaVersion"/> 
+  </xs:complexType>
+<xs:complexType name="PRMFault">
+<xs:sequence>
+  <xs:element name="code" type="xs:string"/> 
+  <xs:element name="reason" type="xs:string"/> 
+  <xs:element name="reason_fr" type="xs:string"/> 
+  <xs:element minOccurs="0" name="FaultCause" type="cli:PRMFault"/> 
+  </xs:sequence>
+<xs:attribute name="type" use="required">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:enumeration value="policy"/> 
+  <xs:enumeration value="service"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:attribute>
+  </xs:complexType>
+  </xs:schema>
+    <xs:schema targetNamespace="http://schemas.telus.com/wlnp/core/client" xmlns:cli="http://schemas.telus.com/wlnp/core/client" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s0="http://services.telus.com/wlnp/prm/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://schemas.telus.com/wlnp/core/client" xmlns:wsmex="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:simpleType name="Types.TimestampType">
+<xs:restriction base="xs:string">
+<xs:annotation>
+  <xs:documentation>Format: MMDDYYYYHHmm</xs:documentation> 
+  </xs:annotation>
+  <xs:pattern value="\d{12}"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NNSP" type="tns:Types.SPIDType"/> 
+  <xs:element name="ONSP" type="tns:Types.SPIDType"/> 
+<xs:simpleType name="Types.SPIDType">
+<xs:restriction base="xs:string">
+  <xs:length value="4"/> 
+  <xs:pattern value="[a-zA-Z0-9]{4}"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Header" type="tns:Types.HeaderType"/> 
+<xs:complexType name="Types.HeaderType">
+<xs:sequence>
+  <xs:element minOccurs="0" ref="tns:RequestId"/> 
+  <xs:element ref="tns:Originator"/> 
+  <xs:element ref="tns:Destination"/> 
+  <xs:element ref="tns:Timestamp"/> 
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NPDI" type="tns:Types.NPDIType"/> 
+<xs:simpleType name="Types.NPDIType">
+<xs:restriction base="xs:NMTOKEN">
+  <xs:length value="1"/> 
+  <xs:enumeration value="A"/> 
+  <xs:enumeration value="B"/> 
+  <xs:enumeration value="C"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillingAddress" type="tns:Types.BillingAddressType"/> 
+<xs:complexType name="Types.BillingAddressType">
+<xs:sequence>
+  <xs:element minOccurs="0" ref="tns:BillPrefix"/> 
+  <xs:element minOccurs="0" ref="tns:BillFirstName"/> 
+  <xs:element minOccurs="0" ref="tns:BillMiddleInit"/> 
+  <xs:element minOccurs="0" ref="tns:BillLastName"/> 
+  <xs:element minOccurs="0" ref="tns:BillSuffix"/> 
+  <xs:element minOccurs="0" ref="tns:BusName"/> 
+  <xs:element minOccurs="0" ref="tns:BillStNum"/> 
+  <xs:element ref="tns:BillStName"/> 
+  <xs:element minOccurs="0" ref="tns:BillStDir"/> 
+  <xs:element ref="tns:City"/> 
+  <xs:element minOccurs="0" ref="tns:Province"/> 
+  <xs:element minOccurs="0" ref="tns:PostalCode"/> 
+  <xs:element minOccurs="0" ref="tns:Country"/> 
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AcctInfo" type="tns:Types.AccountInfoType"/> 
+  <xs:element name="AccountInfo" type="tns:Types.AccountInfoType"/> 
+<xs:complexType name="Types.AccountInfoType">
+<xs:sequence>
+  <xs:element minOccurs="0" ref="tns:AcctNumber"/> 
+  <xs:element minOccurs="0" ref="tns:PIN"/> 
+  <xs:element minOccurs="0" ref="tns:ESN"/> 
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PortTN" type="tns:Types.PortTNType"/> 
+<xs:complexType name="Types.PortTNType">
+<xs:sequence>
+  <xs:element ref="tns:PhoneNumber"/> 
+  <xs:element minOccurs="0" ref="tns:Name"/> 
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TelephoneInfo" type="tns:Types.TelephoneInfoType"/> 
+<xs:complexType name="Types.TelephoneInfoType">
+<xs:sequence>
+  <xs:element ref="tns:LineNumber"/> 
+  <xs:element ref="tns:PortTN"/> 
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseTN" type="tns:Types.BaseTNType"/> 
+<xs:simpleType name="Types.BaseTNType">
+<xs:restriction base="xs:string">
+  <xs:length value="10"/> 
+  <xs:pattern value="\d{10}"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PhoneNumber" type="tns:Types.PhoneNumberType"/> 
+<xs:simpleType name="Types.PhoneNumberType">
+<xs:restriction base="xs:string">
+  <xs:minLength value="10"/> 
+  <xs:maxLength value="17"/> 
+  <xs:pattern value="\d{3}-\d{3}-\d{4}|\d{10}|\d{3}-\d{3}-\d{4}-\d{4}"/> 
+  </xs:restriction>
+  </xs:simpleType>
+<xs:element name="LineNumber">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:length value="5"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+  <xs:element name="RequestNo" type="tns:Types.RequestNoType"/> 
+<xs:simpleType name="Types.RequestNoType">
+<xs:restriction base="xs:string">
+  <xs:minLength value="1"/> 
+  <xs:maxLength value="16"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ResponseNo" type="tns:Types.ResponseNoType"/> 
+<xs:simpleType name="Types.ResponseNoType">
+<xs:restriction base="xs:string">
+  <xs:minLength value="1"/> 
+  <xs:maxLength value="18"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VerIDReq" type="tns:Types.VerIDReqType"/> 
+<xs:simpleType name="Types.VerIDReqType">
+<xs:restriction base="xs:string">
+  <xs:length value="2"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Remarks" type="tns:Types.RemarksType"/> 
+<xs:simpleType name="Types.RemarksType">
+<xs:restriction base="xs:string">
+  <xs:minLength value="1"/> 
+  <xs:maxLength value="160"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NRSellNM" type="tns:Types.NRSellNMType"/> 
+<xs:simpleType name="Types.NRSellNMType">
+<xs:restriction base="xs:string">
+  <xs:minLength value="1"/> 
+  <xs:maxLength value="20"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CoordinatedHotCut" type="tns:Types.CHCType"/> 
+<xs:simpleType name="Types.CHCType">
+<xs:restriction base="xs:string">
+  <xs:length value="1"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AGAUTH" type="tns:Types.AGAUTHType"/> 
+<xs:simpleType name="Types.AGAUTHType">
+<xs:restriction base="xs:string">
+  <xs:length value="1"/> 
+  <xs:enumeration value="N"/> 
+  <xs:enumeration value="Y"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Dated" type="tns:Types.DatedType"/> 
+<xs:simpleType name="Types.DatedType">
+<xs:restriction base="xs:string">
+  <xs:pattern value="\d{8}"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AUTHNM" type="tns:Types.AUTHNMType"/> 
+<xs:simpleType name="Types.AUTHNMType">
+<xs:restriction base="xs:string">
+  <xs:minLength value="1"/> 
+  <xs:maxLength value="60"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GREQ_NO" type="tns:Types.GREQ_NOType"/> 
+<xs:simpleType name="Types.GREQ_NOType">
+<xs:restriction base="xs:string">
+  <xs:minLength value="1"/> 
+  <xs:maxLength value="16"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WICISRelNO" type="tns:Types.WICISRelNOType"/> 
+<xs:simpleType name="Types.WICISRelNOType">
+<xs:restriction base="xs:string">
+  <xs:minLength value="1"/> 
+  <xs:maxLength value="6"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="INIT" type="tns:Types.INITType"/> 
+<xs:simpleType name="Types.INITType">
+<xs:restriction base="xs:string">
+  <xs:minLength value="1"/> 
+  <xs:maxLength value="15"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="IMPCON" type="tns:Types.IMPCONType"/> 
+<xs:simpleType name="Types.IMPCONType">
+<xs:restriction base="xs:string">
+  <xs:minLength value="1"/> 
+  <xs:maxLength value="15"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TELNO_IMPCON" type="tns:Types.TELNO_IMPCONType"/> 
+<xs:simpleType name="Types.TELNO_IMPCONType">
+<xs:restriction base="xs:string">
+  <xs:minLength value="1"/> 
+  <xs:maxLength value="17"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NPQTY" type="tns:Types.NPQTYType"/> 
+<xs:simpleType name="Types.NPQTYType">
+<xs:restriction base="xs:string">
+  <xs:length value="5"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MSRec" type="tns:Types.MSRecType"/> 
+<xs:complexType name="Types.MSRecType">
+<xs:sequence>
+  <xs:element minOccurs="0" name="PORTED_NUM" type="xs:string"/> 
+  <xs:element minOccurs="0" name="DueDateTime" type="xs:dateTime"/> 
+  <xs:element minOccurs="0" name="DesiredDueDateTime" type="xs:dateTime"/> 
+  <xs:element minOccurs="0" name="OSPAUTH" type="tns:Types.CharType"/> 
+  <xs:element minOccurs="0" name="CAUSE_CD" type="xs:string"/> 
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Char" type="tns:Types.CharType"/> 
+<xs:simpleType name="Types.CharType">
+<xs:restriction base="xs:string">
+  <xs:length value="1"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Char2" type="tns:Types.Char2Type"/> 
+<xs:simpleType name="Types.Char2Type">
+<xs:restriction base="xs:string">
+  <xs:length value="1"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PortType" type="tns:Types.PortTypeType"/> 
+<xs:simpleType name="Types.PortTypeType">
+<xs:restriction base="xs:NMTOKEN">
+  <xs:enumeration value="PORT_IN"/> 
+  <xs:enumeration value="PORT_OUT"/> 
+  <xs:enumeration value="PORT_WITHIN"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TelusBAN" type="tns:Types.BANInfoType"/> 
+  <xs:element name="BANInfo" type="tns:Types.BANInfoType"/> 
+<xs:complexType name="Types.BANInfoType">
+<xs:sequence>
+  <xs:element minOccurs="0" ref="tns:BANId"/> 
+  <xs:element minOccurs="0" ref="tns:BANType"/> 
+  <xs:element minOccurs="0" ref="tns:BANSubType"/> 
+  <xs:element minOccurs="0" ref="tns:CurrentBrand"/> 
+  <xs:element minOccurs="0" ref="tns:TargetBrand"/> 
+  <xs:element minOccurs="0" ref="tns:PostalCode"/> 
+  <xs:element minOccurs="0" ref="tns:Province"/> 
+  <xs:element minOccurs="0" ref="tns:FirstName"/> 
+  <xs:element minOccurs="0" ref="tns:LastName"/> 
+  <xs:element minOccurs="0" ref="tns:BusinessName"/> 
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferenceDefinitionCategory" type="tns:Types.ReferenceDefinitionCategoryType"/> 
+<xs:simpleType name="Types.ReferenceDefinitionCategoryType">
+<xs:restriction base="xs:NMTOKEN">
+  <xs:enumeration value="RCODE"/> 
+  <xs:enumeration value="DCODE"/> 
+  <xs:enumeration value="STATUS_CODE"/> 
+  <xs:enumeration value="STATUS_SUB_CODE"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TelusSubscriber" type="tns:Types.SubscriberInfoType"/> 
+  <xs:element name="SubscriberInfo" type="tns:Types.SubscriberInfoType"/> 
+<xs:complexType name="Types.SubscriberInfoType">
+<xs:sequence>
+  <xs:element minOccurs="0" ref="tns:AlternateContactNumber"/> 
+  <xs:element minOccurs="0" ref="tns:PostalCode"/> 
+  <xs:element minOccurs="0" ref="tns:Province"/> 
+  <xs:element minOccurs="0" ref="tns:LanguagePref"/> 
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlternateContactNumber" type="tns:Types.PhoneNumberType"/> 
+  <xs:element name="ReferenceDefinition" type="tns:Types.ReferenceDefinitionType"/> 
+<xs:complexType name="Types.ReferenceDefinitionType">
+<xs:sequence>
+  <xs:element name="Code"/> 
+  <xs:element name="Description_en"/> 
+  <xs:element name="Description_fr"/> 
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PortRequestQuery" type="tns:Types.PortRequestQueryType"/> 
+<xs:simpleType name="Types.PortRequestQueryType">
+<xs:restriction base="xs:integer">
+  <xs:enumeration value="1"/> 
+  <xs:enumeration value="2"/> 
+  <xs:enumeration value="3"/> 
+  <xs:enumeration value="4"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ProductType" type="xs:string"/> 
+  <xs:element name="ProductBillingMethod" type="tns:Types.ProductBillingMethodType"/> 
+<xs:simpleType name="Types.ProductBillingMethodType">
+<xs:restriction base="xs:NMTOKEN">
+  <xs:enumeration value="POSTPAID"/> 
+  <xs:enumeration value="PREPAID"/> 
+  <xs:enumeration value="OTHER"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PACInfo" type="tns:Types.PACInfoType"/> 
+<xs:complexType name="Types.PACInfoType">
+<xs:sequence>
+  <xs:element minOccurs="0" ref="tns:InternalReasonTypeCode"/> 
+  <xs:element minOccurs="0" ref="tns:InternalReasonTypeDescription"/> 
+  <xs:element minOccurs="0" ref="tns:TaskID"/> 
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestId" type="xs:string"/> 
+<xs:element name="Originator">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:minLength value="3"/> 
+  <xs:maxLength value="8"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="Destination">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:minLength value="3"/> 
+  <xs:maxLength value="8"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+  <xs:element name="Timestamp" type="xs:string"/> 
+<xs:element name="BillPrefix">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:maxLength value="10"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+  <xs:element name="BillFirstName" type="xs:string"/> 
+  <xs:element name="BillMiddleInit" type="xs:string"/> 
+  <xs:element name="BillLastName" type="xs:string"/> 
+  <xs:element name="BillSuffix" type="xs:string"/> 
+  <xs:element name="BusName" type="xs:string"/> 
+  <xs:element name="BillStNum" type="xs:string"/> 
+  <xs:element name="BillStName" type="xs:string"/> 
+  <xs:element name="BillStDir" type="xs:string"/> 
+  <xs:element name="City" type="xs:string"/> 
+<xs:element name="Country">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:maxLength value="3"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="AcctNumber">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:maxLength value="21"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="PIN">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:maxLength value="15"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="ESN">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:maxLength value="18"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+  <xs:element name="Name" type="xs:string"/> 
+<xs:element name="BANId">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="TargetBrand">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="CurrentBrand">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="BANType">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="BANSubType">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="PostalCode">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="Province">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="FirstName">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="LastName">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="BusinessName">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="LanguagePref">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="InternalReasonTypeCode">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:maxLength value="10"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="InternalReasonTypeDescription">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:maxLength value="30"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="TaskID">
+<xs:simpleType>
+  <xs:restriction base="xs:string"/> 
+  </xs:simpleType>
+  </xs:element>
+  <xs:element name="ConfirmationID" type="xs:string"/> 
+  <xs:element name="ProductBillingMethodType" type="tns:Types.ProductBillingMethodType"/> 
+  <xs:element name="DesiredDueDateTime" type="xs:dateTime"/> 
+  <xs:element name="AgencyAuth" type="tns:Types.AGAUTHType"/> 
+  <xs:element name="AgencyAuthDate" type="xs:dateTime"/> 
+  <xs:element name="AgencyAuthName" type="tns:Types.AUTHNMType"/> 
+  <xs:element name="GroupReqNumber" type="tns:Types.GREQ_NOType"/> 
+  <xs:element name="InitiatorRepresentative" type="tns:Types.INITType"/> 
+  <xs:element name="ImplContactName" type="tns:Types.IMPCONType"/> 
+  <xs:element name="ImplContactTelNO" type="tns:Types.TELNO_IMPCONType"/> 
+  <xs:element name="AutoActivate" type="xs:string"/> 
+<xs:element name="LRN">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:maxLength value="10"/> 
+  <xs:minLength value="10"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="Expedited">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:maxLength value="1"/> 
+  <xs:minLength value="1"/> 
+  <xs:enumeration value="Y"/> 
+  <xs:enumeration value="N"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+<xs:element name="DSL" type="xs:string"/> 
+  <xs:element name="DSL_LNUM" type="xs:int"/> 
+<xs:element name="EUMI">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+  <xs:length value="1"/> 
+  <xs:enumeration value="Y"/> 
+  <xs:enumeration value="N"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+  <xs:element name="OldResellerName" type="cli:Types.OldResellerName"/> 
+<xs:simpleType name="Types.OldResellerName">
+<xs:restriction base="xs:string">
+  <xs:minLength value="1"/> 
+  <xs:maxLength value="20"/> 
+  </xs:restriction>
+  </xs:simpleType>
+  </xs:schema>
+  </types>
+  <message name="faultDetails">
+    <part element="cli:PRMFaultDetail" name="parameter">
+    </part>
+  </message>
+  <message name="createPortInRequestSoapIn">
+    <part element="cli:createPortInRequest" name="parameters">
+    </part>
+  </message>
+  <message name="createPortInRequestSoapOut">
+    <part element="cli:createPortInRequestResponse" name="parameters">
+    </part>
+  </message>
+  <portType name="CreatePortInRequestSoapPortType">
+    <operation name="createPortInRequest">
+      <input message="s0:createPortInRequestSoapIn">
+    </input>
+      <output message="s0:createPortInRequestSoapOut">
+    </output>
+      <fault message="s0:faultDetails" name="PRMSoapFault">
+    </fault>
+    </operation>
+  </portType>
+  <binding name="CreatePortInRequestSoap" type="s0:CreatePortInRequestSoapPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsp:PolicyReference URI="#Policy1"/>
+    <operation name="createPortInRequest">
+      <soap:operation soapAction="http://www.telus.com/createPortInRequest" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="PRMSoapFault">
+        <soap:fault name="PRMSoapFault" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="CreatePortInRequestService_vs0">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Service for creating PortIn requests version 1</wsdl:documentation>
+    <port binding="s0:CreatePortInRequestSoap" name="CreatePortInRequestSoap">
+      <soap:address location="https://soa-mp-laird-pt.tsl.telus.com:443/RMO/ResourceMgmt/CreatePortInRequestService_v1_0_vs0"/>
+    </port>
+  </service>
+    <wsp:Policy Name="urn:uuid:6bcf3abc-05b1-11e3-828d-c5ad02fd8770" visibility="public" wsu:Id="Policy1" xmlns:ex="http://xmlschema.tmi.telus.com/xsd/common/exceptions/Exceptions_v1_0" xmlns:iface="http://telus.com/wsdl/CMO/SelfMgmt/UsageManagementService_1" xmlns:ns0="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/SelfServeDomainBusinessServices_v1" xmlns:ns1="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" xmlns:ping="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v2" xmlns:shttp="http://soa.com/wsdl/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ums="http://xmlschema.tmi.telus.com/srv/CMO/SelfMgmt/UsageManagementServiceRequestResponse_v1" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wss="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ns2:HttpSecurity xmlns:ns2="http://federatedgovernance.org/policy/httpsecurity"><wsp:Policy visibility="public" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"><ns2:BasicAuthentication SubjectCategory="urn:org:federatedgovernance:security:subject-category:consumer"/><ns2:SSL/></wsp:Policy></ns2:HttpSecurity></wsp:Policy>
+</definitions>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/BillingInquiryReferenceServiceRequestResponse_v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ref="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_v2" xmlns:acc="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/account_information_types_1" xmlns:ror="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/BillingInquiryReferenceServiceRequestResponse_v2" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_v2" schemaLocation="BillingInquiryReferenceTypes_v2_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/account_information_types_1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/ResourceOrderReferenceTypes_1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3_0.xsd"/>
+	<xsd:element name="getPaymentSourceTypeList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPaymentSourceTypeListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="paymentSourceTypeList" type="ref:PaymentSourceType" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPaymentMethodList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPaymentMethodListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="paymentMethodList" type="ref:RefPaymentMethod" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPrepaidRechargeDenominationList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPrepaidRechargeDenominationListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="prepaidRechargeDenominationList" type="ref:PrepaidRechargeDenomination" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAdjustmentReasonList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAdjustmentReasonListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="adjustmentReasonList" type="ref:AdjustmentReason" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAdjustmentReason">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="code" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAdjustmentReasonResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="adjustmentReason" type="ref:AdjustmentReason" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getManualChargeTypeList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getManualChargeTypeListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chargeTypeList" type="ref:ChargeType" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getManualChargeType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="code" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getManualChargeTypeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chargeType" type="ref:ChargeType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPaperBillChargeType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="brandId" type="common:BrandId" minOccurs="0"/>
+				<xsd:element name="provinceCode" type="common:ProvinceCode" minOccurs="0"/>
+				<xsd:element name="accountType" type="ror:AccountTypeCode" minOccurs="0"/>
+				<xsd:element name="accountSubType" type="ror:AccountSubTypeCode" minOccurs="0"/>
+				<xsd:element name="segment" type="acc:BanSegment" minOccurs="0"/>
+				<xsd:element name="invoiceSuppressionLevel" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPaperBillChargeTypeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chargeType" type="ref:ChargeType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getTaxRateList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getTaxRateListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="taxRateList" type="ref:TaxPolicyType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getTaxRateListByProvince">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="provinceCode" type="common:ProvinceCode"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getTaxRateListByProvinceResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="taxRateList" type="ref:TaxPolicyType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getTaxCalculationListByProvince">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="provinceCode" type="common:ProvinceCode"/>
+				<xsd:element name="amount" type="xsd:double"/>
+				<xsd:element name="exemptionPolicy" type="ref:TaxExemption"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getTaxCalculationListByProvinceResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="taxAmountList" type="ref:TaxAmount" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getBillingCycleList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getBillingCycleListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingCycleList" type="ref:BillingCycle" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getBillingCycle">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingCycleCode" type="common:BillCycle"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getBillingCycleResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingCycle" type="ref:BillingCycle"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

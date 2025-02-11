@@ -1,0 +1,123 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb.svc.utility</groupId>
+		<artifactId>pom-cmb-utility-svc</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cmb-utility-svc-services</artifactId>
+	<packaging>jar</packaging>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>cmb-utility-svc-domain</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.common</groupId>
+			<artifactId>cmb-common-svc</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>telus.cust.cmb.svc.equipment</groupId>
+			<artifactId>cmb-equipment-svc-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>ent-cust-notif-mgmt-ws-client</artifactId>
+			<version>1.3.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.cust.cmb.common.ws-clients</groupId>
+			<artifactId>service-detail-retrieval-ws-client</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.srps</groupId>
+			<artifactId>srps-wl10-client</artifactId>
+			<version>13.7</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.frameworks.enterprise.frameworks-share</groupId>
+			<artifactId>frameworks-core</artifactId>
+		</dependency>
+
+
+		<!-- test -->
+
+		<dependency>
+			<groupId>telus.cust.cmb.svc.reference</groupId>
+			<artifactId>cmb-reference-svc-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>telus.cust.cmb.svc.subscriber</groupId>
+			<artifactId>cmb-subscriber-svc-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+  			<groupId>thirdparty.amdocs</groupId>
+  			<artifactId>ASM</artifactId>
+  			<version>0.0</version>
+  			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>weblogic</groupId>
+			<artifactId>wlfullclient</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>telus-maven.plugins.cis</groupId>
+				<artifactId>cis-ldifgen-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-compile</id>
+						<phase>none</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>		
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+				<configuration>
+					<aspectLibraries>
+						<aspectLibrary>
+							<groupId>telus.cust.cmb.common</groupId>
+							<artifactId>cmb-framework</artifactId>
+						</aspectLibrary>
+					</aspectLibraries>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

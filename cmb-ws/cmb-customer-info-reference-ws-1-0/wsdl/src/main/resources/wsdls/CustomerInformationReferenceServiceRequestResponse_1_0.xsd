@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 U (http://www.altova.com) by Telus (TME COMMUNICATIONS INC) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/CustomerInformationReferenceServiceRequestResponse_1_0" 
+		    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:ref="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0" 
+			xmlns:common="http://schemas.telus.com/eca/common_types_2_1"
+			targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/CustomerInformationReferenceServiceRequestResponse_1_0" 
+			elementFormDefault="qualified">
+	
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0" 
+			schemaLocation="CustomerInformationReferenceTypes_1_0.xsd"/>
+	<xsd:import namespace="http://schemas.telus.com/eca/common_types_2_1" 
+		schemaLocation="http://xmlschema.tmi.telus.com/xsd/legacy/ECA_CommonTypes_2_1.xsd"/>
+		
+	<xsd:element name="getAccountTypes">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAccountTypesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountType" type="ref:AccountType" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="getAccountType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountTypeCode" type="xsd:string"/>
+				<xsd:element name="accountTypeBrandId" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAccountTypeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountType" type="ref:AccountType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getMemoTypes">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getMemoTypesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="memoType" type="ref:MemoType" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getMemoType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="memoTypeCode" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getMemoTypeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="memoType" type="ref:MemoType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getSegmentations">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSegmentationsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="segmentation" type="ref:Segmentation" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getSegmentation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="brandId" type="common:BrandId" />
+				<xsd:element name="accountTypeCode" type="xsd:string" />
+				<xsd:element name="provinceCode" type="common:ProvinceCode" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSegmentationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="segmentation" type="ref:Segmentation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>

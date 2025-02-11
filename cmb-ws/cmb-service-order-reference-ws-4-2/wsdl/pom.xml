@@ -1,0 +1,204 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>telus.cust.cmb.ws.service.order.reference.4.2</groupId>
+		<artifactId>pom-cmb-service-order-reference-ws-4-2</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+    	</parent>
+
+	<artifactId>cmb-service-order-reference-wsdl-4-2</artifactId>
+	
+   <properties>
+      <genwsdl.service.definition>ServiceOrderReferenceServiceDefinition_v4_2.xml</genwsdl.service.definition>
+      <genwsdl.local.wsdl.file>ServiceOrderReferenceService_v4_2.wsdl</genwsdl.local.wsdl.file>
+      <genwsdl.xmlToWsdl.xslt>http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/xmlToWsdl_v2_6.xslt</genwsdl.xmlToWsdl.xslt>
+      <genwsdl.local.binding.schemalocation>binding_schema.xjb</genwsdl.local.binding.schemalocation>
+      <genwsdl.include.userpassword.for.basic.auth>False</genwsdl.include.userpassword.for.basic.auth>
+      <genwsdl.http.xsd.file>http://xmlschema.tmi.telus.com/srv/SMO/OrderMgmt/ServiceOrderReferenceServiceRequestResponse_v4_2.xsd</genwsdl.http.xsd.file>
+      <genwsdl.local.xsd.file>ServiceOrderReferenceServiceRequestResponse_v4_2.xsd</genwsdl.local.xsd.file>
+   </properties>     
+ 
+	<profiles>
+		<profile>
+			<id>BuildServer</id>
+			<properties>
+				<genwsdl.include.userpassword.for.basic.auth>True</genwsdl.include.userpassword.for.basic.auth> 
+			</properties>
+		</profile>
+		<profile>
+			<id>Eclipse</id>
+			<properties>
+				<genwsdl.substitute.schemaLocation>False</genwsdl.substitute.schemaLocation>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<version>${telus.replacer-plugin.version}</version>
+						<executions>
+							<execution>
+								<id>substitute-schema-location</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>replace</goal>
+        							</goals>
+        						</execution>
+        					</executions>
+						<configuration>
+							<skip>true</skip>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+ 	<dependencies>
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics-runtime</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>telus-maven.plugins-support</groupId>
+			<artifactId>telus-core</artifactId>
+		</dependency>
+	</dependencies>	
+ 
+  <build>
+      <plugins>
+
+         <plugin>
+            <artifactId>maven-clean-plugin</artifactId>
+            <configuration>
+               <verbose>${clean.verbose}</verbose>
+               <failOnError>false</failOnError>
+               <filesets>
+                  <fileset>
+                     <directory>${basedir}/src/main/generated-sources</directory>
+                     <directory>${basedir}/src/main/impl</directory>
+                  </fileset>               
+                  <fileset>
+                     <directory>${basedir}/src/main/resources/wsdls</directory>
+                     <includes>
+                        <include>${genwsdl.local.wsdl.file}</include>
+                        <include>*SOA_LM_Bindings.wsdl</include>
+                     </includes>
+                  </fileset>
+               </filesets>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>GenWsdl</id>
+               </execution>
+            </executions>
+         </plugin>
+
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>replacer</artifactId>
+				<version>${telus.replacer-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>substitute-schema-location</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>replace</goal>
+        					</goals>
+        				</execution>
+        			</executions>
+				<configuration>
+					<ignoreMissingFile>false</ignoreMissingFile>
+					<preserveDir>false</preserveDir>
+					<quiet>false</quiet>
+					<basedir>${basedir}</basedir>
+					<includes>
+						<include>src/main/resources/wsdls/*.wsdl</include>
+						<include>src/main/resources/wsdls/${genwsdl.local.binding.schemalocation}</include>
+						<include>src/main/resources/wsdls/${genwsdl.service.definition}</include>
+					</includes> 
+					<outputDir>target/classes/wsdls</outputDir>
+					<replacements>
+						<replacement>
+							<token>${genwsdl.local.xsd.file}</token>
+							<value>${genwsdl.http.xsd.file}</value>
+						</replacement>
+					</replacements>
+				</configuration>
+			</plugin>
+		
+			<!-- http://geertschuring.wordpress.com/2009/06/26/how-to-create-a-webservice-client-with-maven-and-jax-ws/
+					How to create a webservice client with Maven and JAX-WS -->
+			
+			<plugin>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				
+				<executions>
+					<execution>
+						<id>GenService</id>
+												
+						<!-- JAX-WS Maven plugin parameters: http://jax-ws-commons.java.net/jaxws-maven-plugin/wsimport-mojo.html -->
+						<configuration>
+							<verbose>true</verbose>
+							<!-- The generated impl class will be located in src/main/impl -->
+							<target>2.1</target>
+							
+							<!-- List of files to use for bindings. If not specified, all .xml
+								files in the bindingDirectory will be used. -->
+							<bindingFiles>
+								<bindingFile>binding_wsdl.xjb</bindingFile>
+								<bindingFile>${genwsdl.local.binding.schemalocation}</bindingFile>
+							</bindingFiles>
+							
+							<wsdlFiles>
+								<wsdlFile>${genwsdl.local.wsdl.file}</wsdlFile>
+							</wsdlFiles>
+							<wsdlLocation>classpath:wsdls/${genwsdl.local.wsdl.file}</wsdlLocation>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+      <pluginManagement>
+      	<plugins>
+      		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+      		<plugin>
+      			<groupId>org.eclipse.m2e</groupId>
+      			<artifactId>lifecycle-mapping</artifactId>
+      			<version>1.0.0</version>
+      			<configuration>
+      				<lifecycleMappingMetadata>
+      					<pluginExecutions>
+      						<pluginExecution>
+      							<pluginExecutionFilter>
+      								<groupId>
+      									org.codehaus.mojo
+      								</groupId>
+      								<artifactId>
+      									exec-maven-plugin
+      								</artifactId>
+      								<versionRange>
+      									[1.2.1,)
+      								</versionRange>
+      								<goals>
+      									<goal>exec</goal>
+      								</goals>
+      							</pluginExecutionFilter>
+      							<action>
+      								<ignore></ignore>
+      							</action>
+      						</pluginExecution>
+      					</pluginExecutions>
+      				</lifecycleMappingMetadata>
+      			</configuration>
+      		</plugin>
+      	</plugins>
+      </pluginManagement>
+  </build>
+</project>

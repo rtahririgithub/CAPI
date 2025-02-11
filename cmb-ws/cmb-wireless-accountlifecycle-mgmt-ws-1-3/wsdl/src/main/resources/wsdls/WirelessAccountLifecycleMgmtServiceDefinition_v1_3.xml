@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>WirelessAccountLifecycleMgmtService</Name>
+		<Documentation>Manages wireless account life-cycle processes in KB.</Documentation>
+		<TAM_LevelZeroAndOne>CMO/OrderMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/WirelessAccountLifecycleMgmtService</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>3</MinorVersion>
+		<soapAddress>http://cmf-ordermgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>WirelessAccountLifecycleMgmtServiceRequestResponse_v1_3.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/WirelessAccountLifecycleMgmtServiceRequestResponse_v1</NameSpace>
+		<nsAbbrev>wlsalc</nsAbbrev>
+		<OutputDir></OutputDir>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>		
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>createPostpaidAccount</OperationName>
+		<Documentation>Creates a postpaid account.</Documentation>
+		<InputType wsp="True">createPostpaidAccount</InputType>
+		<OutputType>createPostpaidAccountResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User header allows input of customer ID and list of consuming application IDs.</Documentation>
+			<type>UserHeader</type>
+			<soapHeaderType>explicit</soapHeaderType>
+		</InputSoapHeaderType>	
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>createPrepaidAccount</OperationName>
+		<Documentation>Creates a prepaid account.</Documentation>
+		<InputType wsp="True">createPrepaidAccount</InputType>
+		<OutputType>createPrepaidAccountResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User header allows input of customer ID and list of consuming application IDs.</Documentation>
+			<type>UserHeader</type>
+			<soapHeaderType>explicit</soapHeaderType>
+		</InputSoapHeaderType>		
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>restoreAccountFromPayment</OperationName>
+		<Documentation>Restores a suspended account after payment has been made.</Documentation>
+		<InputType wsp="True">restoreAccountFromPayment</InputType>
+		<OutputType>restoreAccountFromPaymentResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User header allows input of customer ID and list of consuming application IDs.</Documentation>
+			<type>UserHeader</type>
+			<soapHeaderType>explicit</soapHeaderType>
+		</InputSoapHeaderType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>applyPaymentNotification</OperationName>
+		<Documentation>Processes account payment notification.</Documentation>
+		<InputType wsp="True">applyPaymentNotification</InputType>
+		<OutputType>applyPaymentNotificationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>checkPaymentArrangementEligibility</OperationName>
+		<Documentation>Validates account payment arrangement eligibility.</Documentation>
+		<InputType wsp="True">checkPaymentArrangementEligibility</InputType>
+		<OutputType>checkPaymentArrangementEligibilityResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>applyPaymentArrangement</OperationName>
+		<Documentation>Processes account payment arrangement.</Documentation>
+		<InputType wsp="True">applyPaymentArrangement</InputType>
+		<OutputType>applyPaymentArrangementResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>	
+</Service>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee" xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+	<bean id="amdocsSessionManager" class="com.telus.cmb.common.dao.amdocs.AmdocsSessionManager"/>	
+
+	<bean id="dealerManagerDao" class="com.telus.cmb.utility.dealermanager.dao.impl.DealerManagerDaoImpl">
+		<property name="amdocsSessionManager" ref="amdocsSessionManager"/>
+	</bean>
+	
+	<bean id="channelPartnerDao" class="com.telus.cmb.utility.dealermanager.dao.impl.ChannelPartnerDaoImpl" >
+		<property name="dataSource" ref="distDataSource"/>
+	</bean>
+
+	<bean id="dmTestPointDao" class="com.telus.cmb.common.dao.testpoint.DataSourceTestPointDao">
+	    <property name="distJdbcDataSource" ref="distDataSource"/>	
+	</bean>
+	
+</beans>

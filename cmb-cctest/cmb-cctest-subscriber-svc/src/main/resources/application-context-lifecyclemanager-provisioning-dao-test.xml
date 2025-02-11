@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+	<bean id="springApplicationContext" class="com.telus.cmb.common.util.SpringApplicationContext"/>
+
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"/>
+
+
+
+	<bean id="environmentProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		 <property name="location" value="classpath:com/telus/cmb/subscriber/lifecyclemanager/d3.properties"/>	
+	</bean>
+	
+	<bean id="wirelessProvisioningServicePort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" lazy-init="false">
+    	<property name="lookupServiceOnStartup" value="false" />
+		<property name="serviceInterface" value="com.telus.cmb.wsclient.WirelessProvisioningServiceV10PortType" />
+		<property name="wsdlDocumentUrl" value="classpath:definition/WirelessProvisioningService_v1_0.wsdl" />
+		<property name="namespaceUri" value="http://telus.com/wsdl/SMO/Activation/WirelessProvisioningService_1" />
+        <property name="serviceName" value="WirelessProvisioningService_v1_0_vs0" />
+        <property name="username" value="ClientAPI_EJB"/> 
+        <property name="password" value="soaorgid"/>   
+<!--         <property name="endpointAddress" value="https://soa-mp-laird-dv103.tsl.telus.com/v1/smo/activation/serviceactivationmgmt/wirelessprovisioningservice-v1-0_vs0?wsdl"/>   -->
+        <property name="endpointAddress" value="https://soa-mp-laird-pt148.tsl.telus.com/v1/smo/activation/serviceactivationmgmt/wirelessprovisioningservice-v1-0_vs0?wsdl"/>  	
+   	</bean>
+
+<!--   <bean id="wirelessProvisioningServicePort" class="com.telus.cmb.common.dao.soa.spring.JaxWsPortProxyFactoryCmbBean" lazy-init="false"> -->
+<!-- 		<property name="lookupServiceOnStartup" value="false" /> -->
+<!-- 		<property name="serviceInterface" value="com.telus.cmb.wsclient.WirelessProvisioningServiceV10PortType" /> -->
+<!-- 		<property name="wsdlDocumentUrl" value="classpath:definition/WirelessProvisioningService_v1_0.wsdl" /> -->
+<!-- 		<property name="namespaceUri" value="http://telus.com/wsdl/SMO/Activation/WirelessProvisioningService_1" /> -->
+<!-- 		<property name="serviceName" value="WirelessProvisioningService_v1_0" /> -->
+<!-- 		<property name="ldapUserNameKey" value="ClientAPIEJBUserName" /> -->
+<!-- 		<property name="ldapUserPasswordKey" value="ClientAPIEJBUserPassword" /> -->
+<!-- 		<property name="ldapEndpointKey" value="WirelessProvisioningServiceUrl" /> -->
+<!-- 	</bean> -->
+	
+	<bean id="wirelessProvisioningServiceDao" class="com.telus.cmb.common.dao.provisioning.WirelessProvisioningServiceDaoImpl"/>
+</beans>

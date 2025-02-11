@@ -1,0 +1,40 @@
+<jxb:bindings 
+          xmlns:jxb="http://java.sun.com/xml/ns/jaxb" 
+          xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+          xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+          xmlns:ci="http://jaxb.dev.java.net/plugin/code-injector"
+          version="2.0">
+
+	<jxb:bindings schemaLocation="http://xmlschema.tmi.telus.com/xsd/common/exceptions/Exceptions_v1_0.xsd" node="//xs:complexType[@name='ServiceException']">
+		<jxb:class name="ServiceFaultInfo" />
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="http://xmlschema.tmi.telus.com/xsd/common/exceptions/Exceptions_v1_0.xsd" node="//xs:complexType[@name='PolicyException']">
+		<jxb:class name="PolicyFaultInfo" />
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="SubscriberManagementServiceRequestResponse_v2_2.xsd" node="/xs:schema">
+	    <jxb:schemaBindings>
+	        <jxb:package name="com.telus.cmb.jws" />
+	    </jxb:schemaBindings>
+	</jxb:bindings>		 
+
+    <!-- With  generateElementProperty="false", 
+         JAXB will generate String and not JAXBElement<String>  -->
+
+    <jxb:globalBindings generateElementProperty="false">
+        <!-- This is how to override the default XmlgregorianCalendar with  java.util.Date  
+             and integer with Long, -->
+		<xjc:javaType name="java.util.Date" xmlType="xs:date" 
+			adapter="com.telus.framework.xml.bind.DateAdapter" />
+
+		<xjc:javaType name="java.util.Date" xmlType="xs:dateTime" 
+			adapter="com.telus.framework.xml.bind.DateTimeAdapter" />
+        
+        <xjc:javaType name="java.lang.Long" xmlType="xs:integer" 
+        	adapter="com.telus.framework.xml.bind.LongAdapter"	/>
+
+        <xjc:serializable uid="1" />
+
+    </jxb:globalBindings>
+
+</jxb:bindings>

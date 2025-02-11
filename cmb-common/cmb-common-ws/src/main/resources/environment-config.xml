@@ -1,0 +1,3 @@
+<environment-config>
+	<entry name="cmb-common-ws" path="/cmb-ns"/>
+</environment-config>

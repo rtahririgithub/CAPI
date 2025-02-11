@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by ROCHELLE MANABAT (TELUS) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:typ="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" xmlns:bir="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_v3" xmlns="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_v3" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/BillingInquiryReferenceTypes_v3" elementFormDefault="qualified">
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CustomerInformationReferenceTypes_1_0.xsd"/>
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3_0.xsd"/>
+	<xs:complexType name="TaxAmount">
+		<xs:sequence>
+			<xs:element name="pstAmount" type="xs:double"/>
+			<xs:element name="gstAmount" type="xs:double"/>
+			<xs:element name="hstAmount" type="xs:double"/>
+			<xs:element name="taxationPolicy" type="TaxPolicyType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxExemption">
+		<xs:sequence>
+			<xs:element name="pstExemptInd" type="xs:boolean"/>
+			<xs:element name="gstExemptInd" type="xs:boolean"/>
+			<xs:element name="hstExemptInd" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxPolicyType">
+		<xs:sequence>
+			<xs:element name="provinceCode" type="common:ProvinceCode"/>
+			<xs:element name="pstRate" type="xs:double"/>
+			<xs:element name="gstRate" type="xs:double"/>
+			<xs:element name="hstRate" type="xs:double"/>
+			<xs:element name="taxationMethod" type="xs:string"/>
+			<xs:element name="minimumPSTTaxableAmount" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BillingCycle">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+					<xs:element name="closeDay" type="common:MonthDay"/>
+					<xs:element name="dueDay" type="common:MonthDay"/>
+					<xs:element name="billDay" type="common:MonthDay"/>
+					<xs:element name="populationCode" type="xs:string"/>
+					<xs:element name="allocationIndicator" type="xs:string"/>
+					<xs:element name="numberOfAllocatedAccounts" type="xs:long"/>
+					<xs:element name="numberOfAllocatedSuscribers" type="xs:long"/>
+					<xs:element name="weight" type="xs:long"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PaymentSourceType">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+					<xs:element name="sourceId" type="xs:string"/>
+					<xs:element name="sourceType" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RefPaymentMethod">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PrepaidRechargeDenomination">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+					<xs:element name="amount" type="xs:double"/>
+					<xs:element name="rateId" type="xs:int"/>
+					<xs:element name="rechargeType" type="xs:string"/>
+					<xs:element name="containsPrivilegeInd" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BillAdjustment">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+					<xs:element name="amount" type="xs:double"/>
+					<xs:element name="manualChargeInd" type="xs:boolean"/>
+					<xs:element name="amountOverrideableInd" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustmentReason">
+		<xs:complexContent>
+			<xs:extension base="bir:BillAdjustment">
+				<xs:sequence>
+					<xs:element name="adjustmentActivityCode" type="xs:string"/>
+					<xs:element name="adjustmentCategory" type="xs:string"/>
+					<xs:element name="adjustmentLevelCode" type="xs:string"/>
+					<xs:element name="adjustmentTaxIndicator" type="xs:string"/>
+					<xs:element name="expiryDate" type="xs:date"/>
+					<xs:element name="frequency" type="xs:int"/>
+					<xs:element name="maxNumberOfRecurringCredits" type="xs:int"/>
+					<xs:element name="recurringInd" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ChargeType">
+		<xs:complexContent>
+			<xs:extension base="bir:BillAdjustment">
+				<xs:sequence>
+					<xs:element name="productType" type="common:ProductType"/>
+					<xs:element name="level" type="xs:string"/>
+					<xs:element name="balanceImpact" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CreditTransfer">
+		<xs:sequence>
+			<xs:element name="creditTransferSequenceNumber" type="bir:CreditTransferSequenceNumber"/>
+			<xs:element name="creditTransferSystemCreationDate" type="xs:date"/>
+			<xs:element name="creditTransferSystemUpdateDate" type="xs:date"/>
+			<xs:element name="creditTransferSystemOperatorId" type="xs:string"/>
+			<xs:element name="creditTransferSystemApplicationId" type="xs:string"/>
+			<xs:element name="creditTransferUpStamp" type="xs:int"/>
+			<xs:element name="sourceAccountNumber" type="common:AccountNumber"/>
+			<xs:element name="targetAccountNumber" type="common:AccountNumber"/>
+			<xs:element name="requestCreationDate" type="xs:date"/>
+			<xs:element name="statusUpdateDate" type="xs:date"/>
+			<xs:element name="transferStatus" type="bir:TransferStatus"/>
+			<xs:element name="billCycleCode" type="bir:BillingCycleCode"/>
+			<xs:element name="failureCode" type="bir:FailureCode"/>
+			<xs:element name="chargeSequenceNumber" type="bir:ChargeSequenceNumber"/>
+			<xs:element name="adjustmentSequenceNumber" type="bir:AdjustmentId"/>
+			<xs:element name="transferAmount" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChargeAndAdjustment">
+		<xs:sequence>
+			<xs:element name="accountNumber" type="common:AccountNumber"/>
+			<xs:element name="chargeCode" type="xs:string"/>
+			<xs:element name="chargeAmount" type="xs:double"/>
+			<xs:element name="chargeEffectiveDate" type="xs:date"/>
+			<xs:element name="memoText" type="xs:string" minOccurs="0"/>
+			<xs:element name="chargeBillCommentText" type="xs:string" minOccurs="0"/>
+			<xs:element name="authorizedToCreateFollowupInd" type="xs:boolean" default="false" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+							This is applicable only when a stand alone charge is created without any corresponding adjustment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="adjustmentReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="adjustmentMemoText" type="xs:string" minOccurs="0"/>
+			<xs:element name="adjustmentAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="notificationSuppressionInd" type="xs:boolean" default="false" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="bypassAuthorizationInd" type="xs:boolean" default="false" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChargeAndAdjustmentForSubscriber">
+		<xs:sequence>
+			<xs:element name="accountNumber" type="common:AccountNumber"/>
+			<xs:element name="subscriberNumber" type="common:SubscriberNumber"/>
+			<xs:element name="chargeCode" type="xs:string"/>
+			<xs:element name="chargeAmount" type="xs:double"/>
+			<xs:element name="chargeEffectiveDate" type="xs:date"/>
+			<xs:element name="memoText" type="xs:string" minOccurs="0"/>
+			<xs:element name="chargeBillCommentText" type="xs:string" minOccurs="0"/>
+			<xs:element name="authorizedToCreateFollowupInd" type="xs:boolean" default="false" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+							This is applicable only when a stand alone charge is created without any corresponding adjustment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="adjustmentReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="adjustmentAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="adjustmentMemoText" type="xs:string" minOccurs="0"/>
+			<xs:element name="productType" type="common:ProductType"/>
+			<xs:element name="notificationSuppressionInd" type="xs:boolean" default="false" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+							notificationSuppressionInd=true implies that an email notification will not be triggered.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="bypassAuthorizationInd" type="xs:boolean" default="false" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetAllCharges">
+		<xs:sequence>
+			<xs:element name="accountNumber" type="common:AccountNumber" minOccurs="0"/>
+			<xs:element name="chargeSequenceNumber" type="bir:ChargeSequenceNumber" minOccurs="0"/>
+			<xs:element name="chargeCreationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="effectiveDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="chargeCode" type="bir:ChargeCode" minOccurs="0"/>
+			<xs:element name="reasonCode" type="bir:ReasonCode" minOccurs="0"/>
+			<xs:element name="featureCode" type="bir:FeatureCode" minOccurs="0"/>
+			<xs:element name="featureRevenueCode" type="bir:FeatureRevenueCode" minOccurs="0"/>
+			<xs:element name="balanceImpactCode" type="bir:BalanceImpactCode" minOccurs="0"/>
+			<xs:element name="subscriberNumber" type="common:SubscriberNumber" minOccurs="0"/>
+			<xs:element name="productType" type="common:ProductType" minOccurs="0"/>
+			<xs:element name="operatorId" type="bir:OperatorId" minOccurs="0"/>
+			<xs:element name="amount" type="xs:double" minOccurs="0"/>
+			<xs:element name="pstAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="gstAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="hstAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="balanceIgnoreFlagInd" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="serviceCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="billSequenceNumber" type="bir:BillSequenceNumber" minOccurs="0"/>
+			<xs:element name="periodCoverageStartDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="periodCoverageEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="roamingTaxAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="taxExemption" type="bir:TaxExemption" minOccurs="0"/>
+			<xs:element name="approvalStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="billedInd" type="bir:BilledInd" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetAllCredits">
+		<xs:sequence>
+			<xs:element name="accountNumber" type="common:AccountNumber" minOccurs="0"/>
+			<xs:element name="adjustmentId" type="bir:AdjustmentId" minOccurs="0"/>
+			<xs:element name="chargeSequenceNumber" type="bir:ChargeSequenceNumber" minOccurs="0"/>
+			<xs:element name="creditCreationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="effectiveDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="activityCode" type="bir:ActivityCode" minOccurs="0"/>
+			<xs:element name="reasonCode" type="bir:ReasonCode" minOccurs="0"/>
+			<xs:element name="featureCode" type="bir:FeatureCode" minOccurs="0"/>
+			<xs:element name="balanceImpactCode" type="bir:BalanceImpactCode" minOccurs="0"/>
+			<xs:element name="subscriberNumber" type="common:SubscriberNumber" minOccurs="0"/>
+			<xs:element name="productType" type="common:ProductType" minOccurs="0"/>
+			<xs:element name="operatorId" type="bir:OperatorId" minOccurs="0"/>
+			<xs:element name="amount" type="xs:double" minOccurs="0"/>
+			<xs:element name="pstAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="gstAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="hstAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="balanceIgnoreFlagInd" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="serviceCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="roamingTaxAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="approvalStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="billedInd" type="bir:BilledInd" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChargeIdentifier">
+		<xs:sequence>
+			<xs:element name="accountNumber" type="common:AccountNumber"/>
+			<xs:element name="chargeSequenceNumber" type="bir:ChargeSequenceNumber"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChargeAndAdjustmentCodeList">
+		<xs:sequence>
+			<xs:element name="chargeCodeList" type="ChargeAndAdjustmentCode" maxOccurs="10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChargeAndAdjustmentCode">
+		<xs:sequence>
+			<xs:element name="chargeCode" type="xs:string"/>
+			<xs:element name="adjustmentReasonCode" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DiscountPlanType">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+					<xs:element name="effectiveDate" type="xs:date">
+						<xs:annotation>
+							<xs:documentation>Configured availability effective date of the discount</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="expirationDate" type="xs:date">
+						<xs:annotation>
+							<xs:documentation>Configured availability expire date of discount</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="months" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>Number of months the discount is applicable from when the discount is applied</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="amount" type="xs:double" nillable="true">
+						<xs:annotation>
+							<xs:documentation>Dollar amount of the discount</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="percent" type="xs:double" nillable="true">
+						<xs:annotation>
+							<xs:documentation>Percentage amount of the discount</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="productType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>C - PRODUCT_TYPE_PCS;
+P- PRODUCT_TYPE_PAGER
+I - PRODUCT_TYPE_IDEN</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="level" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>B - BAN/account level, C - subscriber level</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="brandIdList">
+						<xs:annotation>
+							<xs:documentation>Applicable brands for the discount</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="brandId" type="common:BrandId" maxOccurs="10"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="offerExpirationDate" type="xs:date">
+						<xs:annotation>
+							<xs:documentation>offer_end_date of soc_discount_plan table</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="pricePlanInd" type="xs:boolean">
+						<xs:annotation>
+							<xs:documentation>Indicates if discount is tied to a price plan</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="discountGroupList">
+						<xs:annotation>
+							<xs:documentation>group_code of discount_category table</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="discountGroup" type="xs:string" minOccurs="0" maxOccurs="100"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="CreditTransferSequenceNumber">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="CreditTransferReasonCode">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ChargeSequenceNumber">
+		<xs:restriction base="xs:double"/>
+	</xs:simpleType>
+	<xs:simpleType name="BilledInd">
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+	<xs:simpleType name="BillSequenceNumber">
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<xs:simpleType name="AdjustmentId">
+		<xs:restriction base="xs:double"/>
+	</xs:simpleType>
+	<xs:simpleType name="TransactionId">
+		<xs:restriction base="xs:double"/>
+	</xs:simpleType>
+	<xs:simpleType name="ChargeCreationDate">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="ChargeEffectiveDate">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="ChargeCode">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ActivityCode">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="FeatureRevenueCode">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ServiceCode">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="FeatureCode">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ReasonCode">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="BalanceImpactCode">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="OperatorId">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ChargeAmount">
+		<xs:restriction base="xs:double"/>
+	</xs:simpleType>
+	<xs:simpleType name="OverrideThreshold">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="TransferStatus">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="BillingCycleCode">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="FailureCode">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+</xs:schema>

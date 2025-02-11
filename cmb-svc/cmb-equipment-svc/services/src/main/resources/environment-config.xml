@@ -1,0 +1,5 @@
+<environment-config>
+	<entry name="cmb-equipment-svc" path="/cmb-ns"/>
+	<entry name="cmb-equipment-svc" path="/ARMX/reference-versions" value="${label}"/>
+	<entry name="cmb-equipment-svc-lite" path="/ARMX/reference-versions" value="${label}"/>
+</environment-config>

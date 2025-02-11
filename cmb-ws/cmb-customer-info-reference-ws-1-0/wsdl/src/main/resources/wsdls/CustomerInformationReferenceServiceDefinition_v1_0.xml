@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>CustomerInformationReferenceService</Name>
+		<Documentation>Provides the ability to retrieve Reference Data</Documentation>
+		<TAM_LevelZeroAndOne>CMO/InformationMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/CustomerInformationReference</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<soapAddress>http://cmosr-custinfomgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>CustomerInformationReferenceServiceRequestResponse_1_0.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/CustomerInformationReferenceServiceRequestResponse_1_0</NameSpace>
+		<nsAbbrev>cir</nsAbbrev>
+		<OutputDir/>
+		<!-- CAPI DR 202104 Wireless Major Release: removed this security policy as last-mile security is NOT supported by SOA today for this particular service,
+				and	as a result, Weblogic should not expect to validate a SAML token. For all operations, InputType wsp="False" has been changed as well.
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+		-->
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getAccountTypes</OperationName>
+		<Documentation>Retrieves account type list.</Documentation>
+		<InputType wsp="False">getAccountTypes</InputType>
+		<OutputType>getAccountTypesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAccountType</OperationName>
+		<Documentation>Retrieves account type.</Documentation>
+		<InputType wsp="False">getAccountType</InputType>
+		<OutputType>getAccountTypeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getMemoTypes</OperationName>
+		<Documentation>Retrieves memo type list.</Documentation>
+		<InputType wsp="False">getMemoTypes</InputType>
+		<OutputType>getMemoTypesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getMemoType</OperationName>
+		<Documentation>Retrieves memo type.</Documentation>
+		<InputType wsp="False">getMemoType</InputType>
+		<OutputType>getMemoTypeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSegmentations</OperationName>
+		<Documentation>Retrieves Segmentations.</Documentation>
+		<InputType wsp="False">getSegmentations</InputType>
+		<OutputType>getSegmentationsResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSegmentation</OperationName>
+		<Documentation>Retrieves Segmentation.</Documentation>
+		<InputType wsp="False">getSegmentation</InputType>
+		<OutputType>getSegmentationResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

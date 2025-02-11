@@ -1,0 +1,98 @@
+body {
+	background-color: #E2E2E2;
+}
+
+.ui.header {
+	color: #49166D;
+}
+
+.line {
+	font-size: 17.5px;
+}
+
+.title {
+	margin: 1.5em;
+}
+
+.highlighter.segment {
+	background-color: #B2D47E;
+}
+
+.content.ui.segments {
+	margin: 1em;
+	background-color: #FFFFFF;
+}
+
+.ui.vertical.segment {
+	padding: 1em;
+}
+
+.content .file.header {
+	color: #66CC00;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.search.icon {
+	color: #49166D;
+}
+
+a.filelink {
+	color: #49166D;
+	font-weight: bold;	
+}
+
+.sticky .highlighter.segment {
+	text-align: right;
+	position: fixed;
+	right: 20px;
+	z-index: 1;
+}
+
+.minimizing.button {
+	background-color: #8BE234;
+	color: #FFFFFF;
+}
+
+.minimizing.button:hover {
+	background-color: #57A708;
+	color: #FFFFFF;
+}
+
+.maximizing.button {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	z-index: 1;
+	background-color: #8BE234;
+	color: #FFFFFF;
+}
+
+.maximizing.button:hover {
+	background-color: #57A708;
+	color: #FFFFFF;
+}
+
+.maximizing.button:focus {
+	background-color: #57A708;
+	color: #FFFFFF;
+}
+
+/*
+*http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html
+*/
+.highlight1 {
+	background-color: #FFFF00;
+}
+
+.highlight2 {
+	background-color: #FF9933;
+}
+
+.highlight3 {
+	background-color: #FF9999;
+}
+
+.highlight4 {
+	background-color: #66FFFF;
+}

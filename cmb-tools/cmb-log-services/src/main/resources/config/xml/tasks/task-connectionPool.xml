@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<task name="Connection Pool Monitoring" shortname="connPoolMon" type="simple">
+
+	<taskEnvironment shortname="pra" schedule="disabled">
+		<taskApplication shortname="capiejbs">
+			<taskComponent name="CMB Account EJB">
+				<taskGrepString value="PoolLimitSQLException"/>
+			</taskComponent>
+			<taskComponent name="CMB Subscriber EJB">
+				<taskGrepString value="PoolLimitSQLException"/>
+			</taskComponent>
+			<taskComponent name="CMB Equipment EJB">
+				<taskGrepString value="PoolLimitSQLException"/>
+			</taskComponent>
+			<taskComponent name="CMB Reference EJB">
+				<taskGrepString value="PoolLimitSQLException"/>
+			</taskComponent>
+		</taskApplication>
+		<notifyParty email="wilson.cheong@telus.com"/>
+		<taskParam name="frequency" value="15"/>
+		<taskParam name="description" value="Checks if DB Connection pool fails {frequency}+ times in the morning and sends out a notification."/>
+		<taskParam name="emailSubject" value="PR Log Monitoring: Connection Pool Exceptions"/>
+	</taskEnvironment>
+	
+	<taskEnvironment shortname="prb" schedule="disabled">
+		<taskApplication shortname="capiejbs">
+			<taskComponent name="CMB Account EJB">
+				<taskGrepString value="PoolLimitSQLException"/>
+			</taskComponent>
+			<taskComponent name="CMB Subscriber EJB">
+				<taskGrepString value="PoolLimitSQLException"/>
+			</taskComponent>
+			<taskComponent name="CMB Equipment EJB">
+				<taskGrepString value="PoolLimitSQLException"/>
+			</taskComponent>
+			<taskComponent name="CMB Reference EJB">
+				<taskGrepString value="PoolLimitSQLException"/>
+			</taskComponent>
+		</taskApplication>
+		<notifyParty email="wilson.cheong@telus.com"/>
+		<taskParam name="frequency" value="15"/>
+		<taskParam name="description" value="Checks if DB Connection pool fails {frequency}+ times in the morning and sends out a notification."/>
+		<taskParam name="emailSubject" value="PR Log Monitoring: Connection Pool Exceptions"/>
+	</taskEnvironment>
+	
+</task>	

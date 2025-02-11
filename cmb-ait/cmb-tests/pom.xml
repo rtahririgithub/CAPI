@@ -1,0 +1,161 @@
+<!-- generated with TAF v0.1.1 -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+   <parent>
+        <groupId>telus.ait</groupId>
+        <artifactId>pom-cmb</artifactId>
+        <version>1.0.0</version>
+    </parent>
+	
+	<artifactId>cmb-tests</artifactId>
+	<packaging>jar</packaging>	
+	<name>cmb-tests</name>
+	
+	<dependencies>
+<!-- TODO Depending on pom should have added sub-modules as transitive dependencies. It did not work!
+        <dependency>
+            <groupId>telus.ait</groupId>
+            <artifactId>pom-OOM_TA_test1-steps</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
+            <type>pom</type>
+        </dependency>
+-->
+        <!--START: explicit listing of all libraries/sub-modules managed by pom-OOM_TA_test1-steps-->
+        <dependency>
+            <groupId>telus.ait</groupId>
+            <artifactId>cmb-app-config</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>telus.ait</groupId>
+            <artifactId>cmb-clientapi-steps</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>telus.ait</groupId>
+            <artifactId>cmb-clientapidb-steps</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!--END: explicit listing of all libraries/sub-modules managed by pom-OOM_TA_test1-steps-->
+
+        <dependency>
+            <groupId>telus.ait</groupId>
+            <artifactId>cmb-fwk</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>telus.TELUS_Frameworks6</groupId>
+            <artifactId>frameworks6-webservices</artifactId>
+        </dependency>
+
+        <!--wlfullclient: tough dependency - tried to inherit it from top-level project. Got ClassNotFoundException exception-->
+        <dependency>
+            <groupId>weblogic.1035</groupId>
+            <artifactId>wlfullclient</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>dynaTrace</groupId>
+            <artifactId>dtAutomation</artifactId>
+            <version>5.6</version>
+        </dependency>
+
+        <!-- additional dependencies instead of root pom -->
+        <dependency>
+            <groupId>weblogic.1035</groupId>
+            <artifactId>ws.api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>weblogic.1035</groupId>
+            <artifactId>glassfish.jaxws.rt</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>weblogic.1035</groupId>
+            <artifactId>com.bea.core.woodstox</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>weblogic.1035</groupId>
+            <artifactId>com.bea.core.stax2</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>weblogic.1035</groupId>
+            <artifactId>com.bea.core.xml.beaxmlbeans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>weblogic.1035</groupId>
+            <artifactId>glassfish.xmlstreambuffer</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>weblogic.1035</groupId>
+            <artifactId>glassfish.stax.ex</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>weblogic.1035</groupId>
+            <artifactId>glassfish.jaxb</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>weblogic.1035</groupId>
+            <artifactId>cryptoj</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>weblogic.1035</groupId>
+            <artifactId>webserviceclient</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-spring</artifactId>
+        </dependency>
+        <dependency>
+			<groupId>telus.customer.clientapi</groupId>
+			<artifactId>TELUS-ClientAPI-J2EEProvider</artifactId>
+			<version>3.44-SNAPSHOT</version>
+		</dependency>
+        <dependency>
+			<groupId>telus.customer.clientapi</groupId>
+			<artifactId>TELUS-ClientAPI-J2EEProvider</artifactId>
+			<version>3.44-SNAPSHOT</version>
+		</dependency>
+        <dependency>
+			<groupId>telus.customer.clientapi</groupId>
+			<artifactId>TELUS-ClientAPI-J2EEProvider</artifactId>
+			<version>3.44-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+  			<groupId>telus.frameworks.mobility</groupId>
+  			<artifactId>TELUS-ConfigurationManager-api</artifactId>
+  			<version>1.2</version>
+			<optional>true</optional>
+		</dependency>		
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>net.serenity-bdd.maven.plugins</groupId>
+                <artifactId>serenity-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>serenity-reports</id>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

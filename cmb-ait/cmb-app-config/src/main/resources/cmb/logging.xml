@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE group PUBLIC "-//TELUS.com//DTD PropertyNode 1.0//EN" "PropertyNode.dtd">
+
+<group name="irrelevant">
+    <group name="logging">
+        <prop name="log4j.rootCategory">${log4j/severity/threshold}, CONSOLE, FILE</prop>
+        <prop name="log4j.logger.SOX_LOGGER">${log4j/severity/threshold},AOMLOG</prop>
+
+        <prop name="log4j.appender.CONSOLE">org.apache.log4j.ConsoleAppender</prop>
+        <prop name="log4j.appender.CONSOLE.Threshold">DEBUG</prop>
+        <prop name="log4j.appender.CONSOLE.layout">org.apache.log4j.PatternLayout</prop>
+        <prop name="log4j.appender.CONSOLE.layout.ConversionPattern">%-25d %-5p %X{transactionId} %X{subscriberNumber} [%t] %c - %m%n</prop>
+        
+        <prop name="log4j.appender.FILE">org.apache.log4j.DailyRollingFileAppender</prop>
+        <prop name="log4j.appender.FILE.Append">true</prop>
+        <prop name="log4j.appender.FILE.Threshold">DEBUG</prop>
+        <prop name="log4j.appender.FILE.layout">org.apache.log4j.PatternLayout</prop>
+        <prop name="log4j.appender.FILE.layout.ConversionPattern">%-25d %-5p %X{transactionId} %X{subscriberNumber} [%t] %c - %m%n</prop>
+        
+        <prop name="log4j.appender.AOMLOG">org.apache.log4j.DailyRollingFileAppender</prop>
+        <prop name="log4j.appender.AOMLOG.Append">true</prop>
+        <prop name="log4j.appender.AOMLOG.Threshold">INFO</prop>
+        <prop name="log4j.appender.AOMLOG.layout">org.apache.log4j.PatternLayout</prop>
+        <prop name="log4j.appender.AOMLOG.layout.ConversionPattern">%d{dd MMM yyyy HH:mm:ss,SSS} %-25X{userId} [%-10X{subscriberNumber}] [%-8X{accountNumber}]%n</prop>
+        <prop name="log4j.appender.AOMLOG.file">${dirs/log4j/logDir}/aom-access-${fw_appVersion}.log</prop>
+        <prop name="log4j.appender.AOMLOG.DatePattern">'.'yyyy-MM</prop>
+        <!-- // TODO check if this works in long run and commit // 
+        	log4j.appender.AOMLOG=org.apache.log4j.rolling.RollingFileAppender
+			log4j.appender.AOMLOG.RollingPolicy=org.apache.log4j.rolling.TimeBasedRollingPolicy
+			log4j.appender.AOMLOG.RollingPolicy.FileNamePattern=aom-access-${fw_appVersion}.log.%d{yyyy-MM}.gz
+			log4j.appender.AOMLOG.File=${dirs/log4j/logDir}/aom-access-${fw_appVersion}.log
+         // TODO ENDS // -->
+         
+        <!-- 
+           ${fw_appVersion} is derived from appVersion from the appCtx.properties
+           The default value for appVersion is 1_0 when appVersion is not present in appCtx.properties  
+        -->
+        <prop name="log4j.appender.FILE.file">${dirs/log4j/logDir}/IntegrationTests-${fw_appVersion}.log</prop>
+
+		<!--<prop name="log4j.logger.com.telus.framework.config.spring.PlaceholderConfigurer">TRACE</prop> -->
+
+        <prop name="log4j.logger.com.telus.agentoffermanager">DEBUG</prop>
+        <prop name="log4j.logger.org.springframework">WARN</prop>
+        <prop name="log4j.logger.org.hibernate">WARN</prop>
+        <!--<prop name="log4j.logger.java.sql">DEBUG</prop>-->
+
+    </group>
+</group>

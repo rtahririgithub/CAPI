@@ -1,0 +1,17 @@
+<bindings xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxws"
+	wsdlLocation="SubscriberInformationHistoryService_v1_1.wsdl" xmlns="http://java.sun.com/xml/ns/jaxws">
+
+	<enableWrapperStyle>false</enableWrapperStyle>
+
+	<package name="com.telus.cmb.jws" />
+
+	<bindings
+		node="wsdl:definitions/wsdl:portType[@name='SubscriberInformationHistoryServicePortType']">
+		<class name="SubscriberInformationHistoryServicePort" />
+	</bindings>
+	<bindings
+		node="wsdl:definitions/wsdl:service[@name='SubscriberInformationHistoryService_v1_1']">
+		<class name="SubscriberInformationHistoryService" />
+	</bindings>
+</bindings>

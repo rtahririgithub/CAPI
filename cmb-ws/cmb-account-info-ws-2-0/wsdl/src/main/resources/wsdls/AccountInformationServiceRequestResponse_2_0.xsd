@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 U (http://www.altova.com) by Telus (TME COMMUNICATIONS INC) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/AccountInformationServiceRequestResponse_2" 
+		    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:acc="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/account_information_types_1" 	
+			xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/customer_management_common_types_1" 			
+			targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/AccountInformationServiceRequestResponse_2" 
+			elementFormDefault="qualified">
+	
+			<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/account_information_types_1" 
+				schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/AccountInformationTypes_1_0.xsd"/>
+			<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/customer_management_common_types_1" 
+				schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_1_0.xsd"/>
+
+	<xsd:element name="getAccountByAccountNumber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ban" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>		
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAccountByAccountNumberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="account" type="acc:Account" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getAccountByPhoneNumber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>		
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAccountByPhoneNumberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="account" type="acc:Account" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getAccountsByAccountNumbers">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ban" type="common:AccountNumber" minOccurs="1" maxOccurs="1000"/>
+			</xsd:sequence>		
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAccountsByAccountNumbersResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="account" type="acc:Account" minOccurs="0" maxOccurs="1000"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+		
+	<xsd:element name="updateAccountPassword">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ban" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="newPassword" type="common:AccountPassword" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>		
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateAccountPasswordResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="getEmailAddress">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ban" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>		
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getEmailAddressResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="emailAddress" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="updateEmailAddress">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ban" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="emailAddress" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateEmailAddressResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="getInvoiceProperties">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ban" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>		
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getInvoicePropertiesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="invoiceProperties" type="acc:InvoiceProperties" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="updateInvoiceProperties">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="invoiceProperties" type="acc:InvoiceProperties" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="updateInvoicePropertiesResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

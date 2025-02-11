@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>BillingInquiryReferenceService</Name>
+		<Documentation>Provides the ability to retrieve Reference Data</Documentation>
+		<TAM_LevelZeroAndOne>CMO/BillingInquiryMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/BillingInquiryReference</ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>1</MinorVersion>
+		<soapAddress>http://cmbilling-billinginquiry-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>BillingInquiryReferenceServiceRequestResponse_1_1.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/BillingInquiryReferenceServiceRequestResponse_1_1</NameSpace>
+		<nsAbbrev>bir</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getPaymentSourceTypes</OperationName>
+		<Documentation>Retrieves Payment Source Types.</Documentation>
+		<InputType wsp="True">getPaymentSourceTypes</InputType>
+		<OutputType>getPaymentSourceTypesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPaymentMethods</OperationName>
+		<Documentation>Retrieves Payment Methods.</Documentation>
+		<InputType wsp="True">getPaymentMethods</InputType>
+		<OutputType>getPaymentMethodsResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPrepaidRechargeDenominations</OperationName>
+		<Documentation>Retrieves Prepaid Recharge Denominations.</Documentation>
+		<InputType wsp="True">getPrepaidRechargeDenominations</InputType>
+		<OutputType>getPrepaidRechargeDenominationsResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAdjustmentReasons</OperationName>
+		<Documentation>Retrieves all the credits (adjustments) that can be applied to an account.</Documentation>
+		<InputType wsp="True">getAdjustmentReasons</InputType>
+		<OutputType>getAdjustmentReasonsResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getAdjustmentReason</OperationName>
+		<Documentation>Retrieves the credit (adjustment) by code that can be applied to an account.</Documentation>
+		<InputType wsp="True">getAdjustmentReason</InputType>
+		<OutputType>getAdjustmentReasonResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getManualChargeTypes</OperationName>
+		<Documentation>Retrieves the one-time charge details for all manual charge types.</Documentation>
+		<InputType wsp="True">getManualChargeTypes</InputType>
+		<OutputType>getManualChargeTypesResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getManualChargeType</OperationName>
+		<Documentation>Retrieves the one-time charge details by code for a manual charge type.</Documentation>
+		<InputType wsp="True">getManualChargeType</InputType>
+		<OutputType>getManualChargeTypeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getPaperBillChargeType</OperationName>
+		<Documentation>Retrieves the one-time charge details for paper bill on the account for a charge type.</Documentation>
+		<InputType wsp="True">getPaperBillChargeType</InputType>
+		<OutputType>getPaperBillChargeTypeResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

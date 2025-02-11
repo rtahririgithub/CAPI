@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by ROCHELLE MANABAT (TELUS) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/AccountInfo_v1" xmlns:ns1="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/AccountInfo_v1" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/AccountInfo_v1" elementFormDefault="qualified">
+	<xs:element name="CustomerAccount">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="accountInfo" type="AccountInfo"/>
+				<xs:element name="transactionDate" type="xs:date"/>
+				<xs:element name="paymentMethod" type="PaymentMethodInfo" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>To be used for PAP setup, change and remove</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="payment" type="PaymentInfo" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>To be used for Make Payment notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="paymentReport" type="PaymentReportInfo" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>To be used by Payment Arrangement (SSPA) and Payment Notification (SSPN)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="credit" type="CreditInfo" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>To be used by Credit and Adjustment notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="AccountInfo">
+		<xs:sequence>
+			<xs:element name="billingAccountNumber" type="xs:string"/>
+			<xs:element name="accountStatus" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A - Active; S - Suspended; C - Cancelled</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="C"/>
+						<xs:enumeration value="S"/>
+						<xs:enumeration value="A"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="delinquentInd" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="hotlinedInd" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="clpInd" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="subscriberPhoneNumber" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaymentMethodInfo">
+		<xs:sequence>
+			<xs:element name="typeCode">
+				<xs:annotation>
+					<xs:documentation>CC=Credit Card BD=Bank Draft</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="BD"/>
+						<xs:enumeration value="CC"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="creditCardNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="bankAccountNumber" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaymentInfo">
+		<xs:sequence>
+			<xs:element name="paymentMethod" type="PaymentMethodInfo"/>
+			<xs:element name="authorizationNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="amount" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaymentReportInfo">
+		<xs:sequence>
+			<xs:element name="amount" type="xs:double"/>
+			<xs:element name="dueDate" type="xs:date"/>
+			<xs:element name="transactionReferenceId" type="xs:string" minOccurs="0"/>
+			<xs:element name="arrangementDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreditInfo">
+		<xs:sequence>
+			<xs:element name="creditAmount" type="xs:double"/>
+			<xs:element name="taxAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="transactionType">
+				<xs:annotation>
+					<xs:documentation>onetime, recurring</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="recurring"/>
+						<xs:enumeration value="onetime"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="creditDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>When transactionType=onetime, provide the credit date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="numberOfMonths" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>When transactionType=recurring, number of months recurring payment will occur for</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

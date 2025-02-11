@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/SubscriberInformationServiceRequestResponse_v4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:srm="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CMBResponseCommonTypes_v1" xmlns:ect="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5" xmlns:sit="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/SubscriberInformationServiceRequestResponse_v4" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3_3.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CMBResponseCommonTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CMBResponseCommonTypes_v1_0.xsd"/>
+	<xsd:element name="getSubscriberIdentifierByPhoneNumberAndAccountNumber">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns a list of subscriber identifiers, KB subscriber number/ID and CRDB Subscription ID/External ID, queried by phone number and BAN. By default, it searches in wireless number. The searching can be expanded to Voip phone number as well via specifying the search option flags</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="xsd:int"/>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+				<xsd:element name="phoneNumberSearchOption" type="tns:PhoneNumberSearchOption" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberIdentifierByPhoneNumberAndAccountNumberResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriberIdentifier" type="sit:SubscriberIdentifier"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberIdentifierListByAccountNumber">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns a list of subscriber identifiers, KB subscriber number/ID and CRDB Subscription ID/External ID, queried by BAN</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="xsd:int"/>
+				<xsd:element name="includeStatusOption" type="tns:IncludeStatusOption" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberIdentifierListByAccountNumberResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriberIdentifierList" type="sit:SubscriberIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createMemo">
+		<xsd:annotation>
+			<xsd:documentation> This operation creates a subscriber level memo.  The operation requires BAN, KB Subscriber Number and Product Type in addition to the memo text.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="xsd:int"/>
+				<xsd:element name="subscriberMemo" type="sit:SubscriberMemo"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="createMemoResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByAccountNumber">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns a list of subscribers, active and cancelled, queried by account number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByAccountNumberResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriberList" type="sit:Subscriber" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByImsi">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns a list of subscribers, active and cancelled, queried by equipment IMSI</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="imsi" type="common:IMSIType"/>
+				<xsd:element name="includeCancelledSubscribersInd" type="xsd:boolean" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByImsiResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriberList" type="sit:Subscriber" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByPhoneNumber">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns a list of subscribers, active and cancelled, queried by phone number. By default, it searches in wireless number. The searching can be expanded to Voip phone number as well via specifying the search option flags</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+				<xsd:element name="phoneNumberSearchOption" type="tns:PhoneNumberSearchOption" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByPhoneNumberResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriberList" type="sit:Subscriber" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberByPhoneNumber">
+		<xsd:annotation>
+			<xsd:documentation> This operation returns a single subscriber, either active or suspended, queried by phone number. By default, it searches in wireless number. The searching can be expanded to Voip phone number as well via specifying the search option flags</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+				<xsd:element name="phoneNumberSearchOption" type="tns:PhoneNumberSearchOption" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberByPhoneNumberResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriber" type="sit:Subscriber" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkPortOutEligibility">
+		<xsd:annotation>
+			<xsd:documentation>Check to see if a phoneNumber is eligible for port out and if it is “transferable blocked”</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+				<xsd:element name="ndpDirectionIndicator" type="sit:NDPDirectionIndicator"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkPortOutEligibilityResponse">
+		<xsd:annotation>
+			<xsd:documentation>Booleans indicating if phoneNumber is eligible for port out or transferable blocked</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="portOutEligibility" type="sit:PortOutEligibilityInfo"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getCallingCircleInformation">
+		<xsd:annotation>
+			<xsd:documentation>This operation will return the calling circle numbers.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="xsd:int"/>
+				<xsd:element name="subscriberNumber" type="common:SubscriberNumber"/>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="serviceCode" type="common:ServiceCode"/>
+				<xsd:element name="featureCode" type="common:FeatureCode"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getCallingCircleInformationResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="callingCircleInfo" type="sit:CallingCircleInfo" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByDataSharingGroupList">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns a list of subscribers representing only active or suspended subscribers (Subscriber.status == SubscriberStatus.A || Subscriber.status == SubscriberStatus.S) on an account where the subscriber has a SOC that belongs in the given data sharing group codes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="xsd:int"/>
+				<xsd:element name="dataSharingGroupCodeList" type="xsd:string" maxOccurs="unbounded"/>
+				<xsd:element name="effectiveDate" type="xsd:date" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Date when subscribers have active priceplan/service in the given data sharing group.  If null or not supplied, will use logical date.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberListByDataSharingGroupListResponse">
+		<xsd:annotation>
+			<xsd:documentation>Returns SubscribersByDataSharingGroup object types giving the data sharing group reference data, a list of subscribers and whether they are contributing</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriberListByDataSharingGroupList" type="sit:SubscriberListByDataSharingGroup" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberDataSharingInfoList">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns a list of subscribers (only active or suspended subscribers on an account) together with the data sharing information by data sharing (DS) group and the total spending on the DS group, and an indicator showing whether he/she is contributing to the DS group or not.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="xsd:int"/>
+				<xsd:element name="dataSharingGroupCodeList" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>A list of data sharing groups that the operation will be used for filtering. If empty then all data sharing groups will be considered.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberDataSharingInfoListResponse">
+		<xsd:annotation>
+			<xsd:documentation>Returns list of SubscriberDataSharingInfo object giving the data sharing group information of the subscriber.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriberDataSharingInfoList" type="tns:SubscriberDataSharingInfo" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberIdListByServiceGroupFamily">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns all subscriber Ids (both active and suspended subscribers) on the given billingAccountNumber where the subscriber has a SOC with a SOC group belonging to the specified familyType</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="xsd:int"/>
+				<xsd:element name="familyTypeCode" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This code is used to further classify a Price Plan or Service.  i.e. 'U' = data dollar pooling price plans, 'Y' = business anywhere price plans/services, 'R' = RIM price plans</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="effectiveDate" type="xsd:date" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Date when subscribers have active priceplan/service in the given family type.  If null or not supplied, will use logical date.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberIdListByServiceGroupFamilyResponse">
+		<xsd:annotation>
+			<xsd:documentation>Returns a list of subscriber ids based on the billing account and family type.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriberIdList" type="common:SubscriberNumber" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberBySubscriberId">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns a Subscriber given a subscriberId</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="subscriberId" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberBySubscriberIdResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriber" type="sit:Subscriber"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getLatestSubscriberByPhoneNumber">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns a single subscriber that is most recently associated with the phone number, the susbcriber can be in cancelled status as well. By default, it searches in wireless number. The searching can be expanded to Voip phone number as well via specifying the search option flags</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+				<xsd:element name="phoneNumberSearchOption" type="tns:PhoneNumberSearchOption" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getLatestSubscriberByPhoneNumberResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriber" type="sit:Subscriber" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberIdentifierBySubscriptionId">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns the subscriber identifier that is associated with the subscription Id.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="subscriptionId" type="common:SubscriptionId"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberIdentifierBySubscriptionIdResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriberIdentifier" type="sit:SubscriberIdentifier" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberBySubscriptionId">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns the latest subscriber that is associated with the subscription id.  Includes subscriber in cancelled state.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="subscriptionId" type="common:SubscriptionId"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSubscriberBySubscriptionIdResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="subscriber" type="sit:Subscriber" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAirTimeAllocationList">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns the voice allocation information for services based on subscriber profile and/or the soc configuration data.  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceIdentityList" type="sit:ServiceIdentity" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="effectiveDate" type="xsd:date" minOccurs="0"/>
+				<xsd:element name="subscriberIdentity" type="sit:SubscriberIdentifier" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAirTimeAllocationListResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="srm:ServiceResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="airTimeAllocationList" type="sit:ServiceAirTimeAllocation" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="IncludeStatusOption">
+		<xsd:sequence>
+			<xsd:element name="includeActiveInd" type="xsd:boolean" default="true" minOccurs="0"/>
+			<xsd:element name="includeCancelledInd" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="includeSuspendedInd" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="includeReservedInd" type="xsd:boolean" default="false" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PhoneNumberSearchOption">
+		<xsd:sequence>
+			<xsd:element name="searchWirelessInd" type="xsd:boolean" default="true" minOccurs="0"/>
+			<xsd:element name="searchVoipInd" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="searchTollFreeInd" type="xsd:boolean" default="false" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubscriberDataSharingInfo">
+		<xsd:annotation>
+			<xsd:documentation>The subscriber on an account with information regarding the contributing or participating data sharing groups and spending on rate plan and other non-data-sharing SOCs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+			<xsd:element name="contractStartDate" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>Contract commitment effective date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="subscriptionId" type="common:SubscriptionId"/>
+			<xsd:element name="pricePlanCode" type="common:PricePlanCode"/>
+			<xsd:element name="pricePlanRecurringChargeAmt" type="xsd:double"/>
+			<xsd:element name="nonDataSharingRegularSocList" type="tns:NonDataSharingRegularSocInfo" minOccurs="0" maxOccurs="unbounded">				
+				<xsd:annotation>
+					<xsd:documentation>List of non data sharing regular service order code info including family types and the recurring charge amount.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="dataSharingInfoList" type="tns:DataSharingInfo" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of data sharing regular service order code info including the family types, contributing indicator, and data sharing spent amount.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NonDataSharingRegularSocInfo">			
+		<xsd:annotation>
+			<xsd:documentation>Non data sharing regular service order code info including the soc code, family types and the recurring charge amount.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="socCode" type="xsd:string">						
+				<xsd:annotation>
+					<xsd:documentation>Service order code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="familyTypeList" type="tns:FamilyTypeList" minOccurs="0"/>
+			<xsd:element name="socRecurringChargeAmt" type="xsd:double">				
+				<xsd:annotation>
+					<xsd:documentation>The recurring charge amount for the service order code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DataSharingInfo">		
+		<xsd:annotation>
+			<xsd:documentation>Data sharing service order code info including the family types, contributing indicator, and data sharing spent amount.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="dataSharingGroupCode" type="xsd:string"/>
+			<xsd:element name="dataSharingSocList" type="tns:DataSharingSocInfo" maxOccurs="unbounded">			
+				<xsd:annotation>
+					<xsd:documentation>A list of data sharing service order code infos.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DataSharingSocInfo">		
+		<xsd:annotation>
+			<xsd:documentation>Data sharing service order code info including the family types, contributing indicator, and data sharing spent amount.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="dataSharingSocCode" type="xsd:string">				
+				<xsd:annotation>
+					<xsd:documentation>Data sharing service order code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="familyTypeList" type="tns:FamilyTypeList" minOccurs="0"/>
+			<xsd:element name="dataSharingSpentAmt" type="xsd:double">
+				<xsd:annotation>
+					<xsd:documentation>The data sharing spent amount that contributes towards MSC calculation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="contributingInd" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>true - contributor of the data sharing group; false - accessor of the data sharing group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FamilyTypeList">
+		<xsd:sequence>
+			<xsd:element name="familyType" type="xsd:string" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

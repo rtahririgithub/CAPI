@@ -1,0 +1,3 @@
+package com.telus.api.reference;
+public interface MigrationType extends Reference {	public final static String PCS_PRE_TO_PCSPOST = "PRPO";	public final static String PCS_POST_TO_PCSPRE = "POPR";	public final static String IDEN_TO_PCSPOST = "MKPO";	public final static String IDEN_TO_PCSPRE = "MKPR";	public final static String PCS_POST_TO_IDEN = "POMK";	public final static String PCS_PRE_TO_IDEN = "PRMK";	public final static String PCS_POST_TO_BCMOBILE = "POMS";	public final static String BC_MOBILE_TO_PCS_POST = "MSPO";
+}

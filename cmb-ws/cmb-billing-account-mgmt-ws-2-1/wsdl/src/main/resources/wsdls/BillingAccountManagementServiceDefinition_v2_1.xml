@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>BillingAccountManagementService</Name>
+		<Documentation>Provides the ability to update account Association, save and update credit result</Documentation>
+		<TAM_LevelZeroAndOne>CMO/BillingAccountMgmt</TAM_LevelZeroAndOne>
+		<ServiceTaxonomy>/BillingAccountManagement</ServiceTaxonomy>
+		<MajorVersion>2</MajorVersion>
+		<MinorVersion>1</MinorVersion>
+		<soapAddress>http://cmbilling-billingacctmgmt-dv103.tmi.telus.com</soapAddress>
+ 		<SchemaLocation>BillingAccountManagementServiceRequestResponse_v2_1.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/BillingAccountMgmt/BillingAccountManagementServiceRequestResponse_v2</NameSpace>
+		<nsAbbrev>bam</nsAbbrev>
+		<OutputDir></OutputDir>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>		
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>updatePaymentMethod</OperationName>
+		<Documentation>Updates payment method.</Documentation>
+		<InputType wsp="True">updatePaymentMethod</InputType>
+		<OutputType>updatePaymentMethodResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation> 
+			<type>UserHeader</type> 
+		    <soapHeaderType>explicit</soapHeaderType> 
+		 </InputSoapHeaderType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>registerTopUpCreditCard</OperationName>
+		<Documentation>Registers Top Up Credit Card.</Documentation>
+		<InputType wsp="True">registerTopUpCreditCard</InputType>
+		<OutputType>registerTopUpCreditCardResponse</OutputType>
+		<InputSoapHeaderType>
+			<Documentation>User Header allows input of customer ID and list of consuming application IDs</Documentation> 
+			<type>UserHeader</type> 
+		    <soapHeaderType>explicit</soapHeaderType> 
+		 </InputSoapHeaderType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>removeTopUpCreditCard</OperationName>
+		<Documentation>Remove Top Up Credit Card.</Documentation>
+		<InputType wsp="True">removeTopUpCreditCard</InputType>
+		<OutputType>removeTopUpCreditCardResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>updateCreditCheckResult</OperationName>
+		<Documentation>Update Credit Check Result</Documentation>
+		<InputType wsp="True">updateCreditCheckResult</InputType>
+		<OutputType>updateCreditCheckResultResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>saveCreditCheckResult</OperationName>
+		<Documentation>Save Credit Check Result</Documentation>
+		<InputType wsp="True">saveCreditCheckResult</InputType>
+		<OutputType>saveCreditCheckResultResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	
+	<Operation>
+		<OperationName>processPayment</OperationName>
+		<Documentation>Process payment and record it into KB</Documentation>
+		<InputType wsp="True">processPayment</InputType>
+		<OutputType>processPaymentResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>
+
+

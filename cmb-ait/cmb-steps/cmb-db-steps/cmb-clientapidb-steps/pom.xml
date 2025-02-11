@@ -1,0 +1,41 @@
+<!-- generated with TAF v0.1.1 -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+        <groupId>telus.ait</groupId>
+        <artifactId>pom-cmb-db-steps</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+	<artifactId>cmb-clientapidb-steps</artifactId>
+	<packaging>jar</packaging>
+	<name>cmb-dist-steps</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>telus.ait</groupId>
+            <artifactId>cmb-fwk</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,16 @@
+
+--step 1: delete fraud rules setup for Self Serve (SS_SVC)
+
+DELETE from APP_TRANSTYP_FRAUD_XREF 
+WHERE APP_ID = (select APP_ID from APPLICATION where APP_CD = 'SS_SVC_1');
+
+DELETE from APP_TRANSTYP_FRAUD_XREF 
+WHERE APP_ID = (select APP_ID from APPLICATION where APP_CD = 'SS_SVC_3');
+
+DELETE from APPLICATION
+WHERE APP_CD = 'SS_SVC_1';
+
+DELETE from APPLICATION
+WHERE APP_CD = 'SS_SVC_3';
+
+commit;

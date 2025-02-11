@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/WirelessRatedAirtimeUsageInquiryServiceRequestResponse_v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" xmlns:typ="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/RatedAirtimeUsageInquiryTypes_v1" xmlns:ns1="http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/WirelessRatedAirtimeUsageInquiryServiceRequestResponse_v1" xmlns:ns2="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/RatedAirtimeUsageInquiryTypes_v1" xmlns:ns3="http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/WirelessRatedAirtimeUsageInquiryServiceRequestResponse_v1" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/BillingInquiryMgmt/WirelessRatedAirtimeUsageInquiryServiceRequestResponse_v1" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/RatedAirtimeUsageInquiryTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/RatedAirtimeUsageInquiryTypes_v1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4_0.xsd"/>
+	<xsd:element name="getAirtimeUsageSummary">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountId" type="common:AccountNumber"/>
+				<xsd:element name="subscriberNumber" type="common:SubscriberNumber"/>
+				<xsd:element name="serviceFeature" type="common:FeatureCode" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAirtimeUsageSummaryResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="VoiceUsageSummary" type="typ:VoiceUsageSummary"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getUnpaidAirtimeUsageChargeInfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getUnpaidAirtimeUsageChargeInfoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="unpaidAirtimeUsageChargeInfo" type="typ:AirtimeUsageChargeInfo"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

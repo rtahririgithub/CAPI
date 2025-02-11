@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<context:annotation-config/>
+
+
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"/>
+
+	<bean id="knowbilityJdbcTemplateO9" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="knowbilityDataSourceOracle9" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+
+	<bean id="knowbilityNamedParameterJdbcTemplateO9" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg name="dataSource" ref="knowbilityDataSourceOracle9" />		
+	</bean>
+
+	<bean id="helperMultipleJdbcDaoTemplateSupportO9" abstract="true" class="com.telus.cmb.common.dao.jdbctemplate.MultipleJdbcDaoTemplateSupport"
+		p:knowbilityJdbcTemplate-ref="knowbilityJdbcTemplateO9"
+		p:knowbilityNamedParameterJdbcTemplate-ref="knowbilityNamedParameterJdbcTemplateO9"
+	/>
+	
+	<bean id="knowbilityJdbcTemplateO12" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="knowbilityDataSourceOracle12" p:nativeJdbcExtractor-ref="nativeJdbcExtractor"
+	/>
+
+	<bean id="knowbilityNamedParameterJdbcTemplateO12" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg name="dataSource" ref="knowbilityDataSourceOracle12" />		
+	</bean>
+
+	<bean id="helperMultipleJdbcDaoTemplateSupportO12" abstract="true" class="com.telus.cmb.common.dao.jdbctemplate.MultipleJdbcDaoTemplateSupport"
+		p:knowbilityJdbcTemplate-ref="knowbilityJdbcTemplate12"
+		p:knowbilityNamedParameterJdbcTemplate-ref="knowbilityNamedParameterJdbcTemplateO12"
+	/>
+
+<!-- 
+	<bean id="Accouclass="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.AccountDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+ -->
+<!-- 
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.AddressDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+ 	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.DepositDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+ 	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.FleetDaoImpl"  parent="helperMultipleJdbcDaoTemplateSupport"/>
+ 	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.InvoiceDaoImpl"  parent="helperMultipleJdbcDaoTemplateSupport"/>
+ 	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.MemoDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>	
+ 	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.SubscriberEquipmentDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>	
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.PrepaidDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.ProvisioningDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.SubscriberDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.SubscriberInformationCodsDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.ServiceAgreementDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.UsageDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.AdjustmentDaoImpl"  parent="helperMultipleJdbcDaoTemplateSupport"/>
+   	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.SubscriptionServiceDaoImpl" />	
+   	<bean class="com.telus.cmb.subscriber.lifecyclehelper.dao.impl.CommunicationSuiteDaoImpl" parent="helperMultipleJdbcDaoTemplateSupport"/>
+   	
+ -->
+
+</beans> 

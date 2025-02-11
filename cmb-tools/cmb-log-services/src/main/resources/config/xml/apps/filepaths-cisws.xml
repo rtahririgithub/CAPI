@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<application name="Client API CIS Web Services" shortname="cisws" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+
+	<component name="AccountContactMgmtSvc 1.x">
+		<artifact name="cis-account-contact-mgmt-ws" version="1_*"/>	
+	</component>
+	<component name="AccountCreditHistoryInfoSvc 1.x">
+		<artifact name="cis-account-credit-hist-info-ws" version="1_*"/>
+	</component>
+	<component name="AccountLifecycleMgmtApi 1.x">
+		<artifact name="cis-account-lifecycle-mgmt-rest" version="1_*"/>
+	</component>
+	<component name="AccountProfileMgmtSvc 1.x">
+		<artifact name="cis-account-profile-mgmt-ws" version="1_*"/>
+	</component>
+	<component name="AccountProfileMgmtRESTSvc 1.x">
+		<artifact name="cis-account-profile-mgmt-rest" version="1_*"/>
+	</component>
+	<component name="CommunicationSuiteMgmtSvc 1.x">
+		<artifact name="cis-communication-suite-mgmt-ws" version="1_*"/>
+	</component>
+	<component name="PhoneNumberMgmtRESTSvc 1.x">
+		<artifact name="cis-phone-number-mgmt-rest" version="1_*"/>
+	</component>
+	<component name="SubscriberProfileMgmtRestSvc 1.x">
+		<artifact name="cis-spmrs-rest" version="1_*"/>
+	</component>
+	<component name="WLSAccountLifecycleMgmtSvc 1.x">
+		<artifact name="cis-wls-account-lifecycle-mgmt-ws" version="1_*"/>
+	</component>
+	<component name="WLSMemoMgmtRESTSvc 1.x">
+		<artifact name="cis-wls-memo-mgmt-rest" version="1_*"/>
+	</component>
+	<component name="WLSSubscriberLifecycleMgmtRESTSvc 1.x">
+		<artifact name="cis-wls-subscriber-lifecycle-mgmt-rest" version="1_*"/>
+	</component>
+	<component name="WLSVoicemailMgmtRESTSvc 1.x">
+		<artifact name="cis-wls-voicemail-mgmt-rest" version="1_*"/>
+	</component>
+	<component name="PhoneNumberMgmtRESTSvc - Penalty Failures" filenames="penaltyFailures.txt*">
+		<artifact name="cis-phone-number-mgmt-rest" version="1_*"/>
+	</component>
+	
+</application>
+	

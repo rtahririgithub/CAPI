@@ -1,0 +1,15 @@
+<environment-config>
+	<entry name="cmb-provider" path="/ARMX/reference-versions" value="4.0-${label}"/>
+	<entry name="cmb-provider" path="/cmb-ns"/>
+	<entry name="ClientAPI" path="/Telus-ECA">
+		<entry name="911FeeProvinces">
+			<value value="NS"/>
+			<value value="PE"/>
+			<value value="SK"/>
+			<value value="NB"/>
+			<value value="PQ"/>
+			<value value="NF"/>
+			<value value="NT"/>
+		</entry>
+	</entry>
+</environment-config>

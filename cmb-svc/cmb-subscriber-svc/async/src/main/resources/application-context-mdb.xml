@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+	">
+	
+	<bean id="msgSubTypePostCommit" class="com.telus.cmb.subscriber.messagebeans.PostCommitHandler"/>
+	<bean id="msgSubTypePostCommitLog" class="com.telus.cmb.subscriber.messagebeans.PostCommitLogHandler"/>
+	<bean id="msgSubTypeProductEnterpriseDataSync" class="com.telus.cmb.subscriber.messagebeans.ProductEnterpriseDataSyncHandler"/>
+	<bean id="msgSubTypeProductEnterpriseDataSyncLog" class="com.telus.cmb.subscriber.messagebeans.ProductEnterpriseDataSyncLogHandler"/>
+	<bean id="msgSubTypeActivityLoggingService" class="com.telus.cmb.subscriber.messagebeans.ActivityLoggingServiceHandler"/>
+	<bean id="msgSubTypeActivityLoggingServiceLog" class="com.telus.cmb.subscriber.messagebeans.ActivityLoggingServiceLogHandler"/>
+	<bean id="msgSubTypeConfigurationManager" class="com.telus.cmb.subscriber.messagebeans.ConfigurationManagerHandler"/>
+	<bean id="msgSubTypeConfigurationManagerLog" class="com.telus.cmb.subscriber.messagebeans.ConfigurationManagerLogHandler"/>
+	<bean id="msgSubTypeHPAAccount" class="com.telus.cmb.subscriber.messagebeans.HPAAccountHandler"/>
+	<bean id="msgSubTypeProvisioning" class="com.telus.cmb.subscriber.messagebeans.ProvisioningActionHandler"/>
+	<bean id="msgSubTypeProvisioningLicenseOrder" class="com.telus.cmb.subscriber.messagebeans.ProvisioningLicenseActionHandler"/>
+	<bean id="msgSubTypeCommunicationSuite" class="com.telus.cmb.subscriber.messagebeans.CommunicationSuiteHandler"/>
+	
+	
+
+	<util:map id="handler" map-class="java.util.HashMap">
+		<entry><key><value>msgSubTypePostCommit</value></key><ref bean="msgSubTypePostCommit"/></entry>
+		<entry><key><value>msgSubTypePostCommitLog</value></key><ref bean="msgSubTypePostCommitLog"/></entry>
+		<entry><key><value>msgSubTypeProductEnterpriseDataSync</value></key><ref bean="msgSubTypeProductEnterpriseDataSync"/></entry>
+		<entry><key><value>msgSubTypeProductEnterpriseDataSyncLog</value></key><ref bean="msgSubTypeProductEnterpriseDataSyncLog"/></entry>
+		<entry><key><value>msgSubTypeActivityLoggingService</value></key><ref bean="msgSubTypeActivityLoggingService"/></entry>
+  		<entry><key><value>msgSubTypeActivityLoggingServiceLog</value></key><ref bean="msgSubTypeActivityLoggingServiceLog"/></entry>
+  		<entry><key><value>msgSubTypeConfigurationManager</value></key><ref bean="msgSubTypeConfigurationManager"/></entry>
+  		<entry><key><value>msgSubTypeConfigurationManagerLog</value></key><ref bean="msgSubTypeConfigurationManagerLog"/></entry>
+  		<entry><key><value>msgSubTypeHPAAccount</value></key><ref bean="msgSubTypeHPAAccount"/></entry>
+  		<entry><key><value>msgSubTypeProvisioning</value></key><ref bean="msgSubTypeProvisioning"/></entry>
+  		<entry><key><value>msgSubTypeProvisioningLicenseOrder</value></key><ref bean="msgSubTypeProvisioningLicenseOrder"/></entry>	
+  		<entry><key><value>msgSubTypeCommunicationSuite</value></key><ref bean="msgSubTypeCommunicationSuite"/></entry>
+	</util:map>
+	
+</beans>

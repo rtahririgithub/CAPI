@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/customer_management_common_types_1" xmlns:common-v4="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" xmlns:typ="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" xmlns="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/billing_inquiry_types_1" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerBill/billing_inquiry_types_1" elementFormDefault="qualified">
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/customer_management_common_types_1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_1_0.xsd"/>
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/ResourceOrderReferenceTypes_1_0.xsd"/>
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4_0.xsd"/>
+	<xs:complexType name="PaymentHistory">
+		<xs:sequence>
+			<xs:element name="sequenceNo" type="xs:positiveInteger"/>
+			<xs:element name="date" type="xs:date" minOccurs="0"/>
+			<xs:element name="paymentMethodCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="paymentMethodSubCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="sourceTypeCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="sourceId" type="xs:string" minOccurs="0"/>
+			<xs:element name="originalAmount" type="common:PaymentAmount" minOccurs="0"/>
+			<xs:element name="actualAmount" type="common:PaymentAmount" minOccurs="0"/>
+			<xs:element name="amountDue" type="common:PaymentAmount" minOccurs="0"/>
+			<xs:element name="depositDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="billDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="activityCode" type="common:ActivityCode" minOccurs="0"/>
+			<xs:element name="activityReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="isBalanceIgnoreFlag" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="creditCard" type="common:CreditCard" minOccurs="0"/>
+			<xs:element name="cheque" type="common:Cheque" minOccurs="0"/>
+			<xs:element name="originalBanId" type="common:AccountNumber" minOccurs="0"/>
+			<xs:element name="fileSequenceNumber" type="xs:long" minOccurs="0"/>
+			<xs:element name="batchNumber" type="xs:long" minOccurs="0"/>
+			<xs:element name="batchLineNumber" type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="TransactionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CCV"/>
+			<xs:enumeration value="CCP"/>
+			<xs:enumeration value="CCR"/>
+			<xs:enumeration value="CCU"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CreditCardHolder">
+		<xs:sequence>
+			<xs:element name="clientId" type="xs:string"/>
+			<xs:element name="firstName" type="xs:string"/>
+			<xs:element name="lastName" type="xs:string"/>
+			<xs:element name="civicStreetNumber" type="xs:string" nillable="true"/>
+			<xs:element name="streetName" type="xs:string" nillable="true"/>
+			<xs:element name="apartmentNumber" type="xs:string" nillable="true"/>
+			<xs:element name="city" type="xs:string" nillable="true"/>
+			<xs:element name="province" type="common:ProvinceCode" nillable="true"/>
+			<xs:element name="postalCode" type="common:PostalCode" nillable="true"/>
+			<xs:element name="homePhone" type="common:PhoneNumber" nillable="true"/>
+			<xs:element name="birthDate" type="xs:date" nillable="true"/>
+			<xs:element name="businessRole" type="xs:string" nillable="true"/>
+			<xs:element name="activationDate" type="xs:date" nillable="true"/>
+			<xs:element name="accountType" type="typ:AccountTypeCode" nillable="true"/>
+			<xs:element name="accountSubType" type="typ:AccountSubTypeCode" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreditCardTransaction">
+		<xs:sequence>
+			<xs:element name="banId" type="common:AccountNumber"/>
+			<xs:element name="transactionType" type="TransactionType" default="CCV"/>
+			<xs:element name="amount" type="common:PaymentAmount"/>
+			<xs:element name="creditCard" type="common:CreditCard"/>
+			<xs:element name="chargeAuthorizationNumber" type="xs:string" nillable="true"/>
+			<xs:element name="creditCardHolder" type="CreditCardHolder"/>
+			<xs:element name="brandId" type="common:BrandId" default="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Invoice">
+		<xs:sequence>
+			<xs:element name="date" type="xs:date" minOccurs="0"/>
+			<xs:element name="mailedInd" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="previousBalance" type="xs:double" minOccurs="0"/>
+			<xs:element name="invoiceAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="amountDue" type="xs:double" minOccurs="0"/>
+			<xs:element name="billSequenceNo" type="xs:int" minOccurs="0"/>
+			<xs:element name="billCycleRunYear" type="xs:int" minOccurs="0"/>
+			<xs:element name="billCycleRunMonth" type="xs:int" minOccurs="0"/>
+			<xs:element name="billCycleCode" type="xs:int" minOccurs="0"/>
+			<xs:element name="status" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A - AFTER-UNDO
+C - CONFIRMED
+N - NOT-CONFIRMED
+U - REQ-UNDO
+T - NOT-RUN
+D - EXTRACT-BY-DATE
+</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paymentReceivedAmount" type="xs:double" default="0.0" minOccurs="0"/>
+			<xs:element name="adjustmentAmount" type="xs:double" default="0.0" minOccurs="0"/>
+			<xs:element name="pastDueAmount" type="xs:double" default="0.0" minOccurs="0"/>
+			<xs:element name="latePaymentChargeAmount" type="xs:double" default="0.0" minOccurs="0"/>
+			<xs:element name="currentChargeAmount" type="xs:double" default="0.0" minOccurs="0"/>
+			<xs:element name="totalTax" type="xs:double" default="0.0" minOccurs="0"/>
+			<xs:element name="homeCallCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="roamingCallCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="homeCallMinutes" type="xs:double" minOccurs="0"/>
+			<xs:element name="roamingCallMinutes" type="xs:double" minOccurs="0"/>
+			<xs:element name="monthlyRecurringChargeAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="localCallingChargeAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="otherChargeAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="zoneUsageChargeAmount" type="xs:double" minOccurs="0"/>
+			<xs:element name="extendedHomeAreaUsageChargeAmount" type="xs:double" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

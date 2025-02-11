@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+        
+	<context:annotation-config/>                           
+    <import resource="classpath:framework-application-context.xml"/>
+	
+	<bean id="telusHeaderIdentityProvider" class="com.telus.cmb.framework.identity.TelusHeaderIdentityProvider"
+		p:identityManager-ref="identityManager"
+	/>
+
+	<jee:remote-slsb id="subscriberFacade" 
+		lookup-home-on-startup="false" resource-ref="false"
+		business-interface="com.telus.cmb.subscriber.lifecyclefacade.svc.SubscriberLifecycleFacade" 
+		jndi-name="SubscriberLifecycleFacade#com.telus.cmb.subscriber.lifecyclefacade.svc.SubscriberLifecycleFacade">
+		<jee:environment>
+			java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+			java.naming.provider.url=${services/SubscriberLifecycleFacade/url}
+			java.naming.security.principal=ejb_user
+			java.naming.security.credentials=ejb_user
+		</jee:environment>
+	</jee:remote-slsb>	
+
+	<jee:remote-slsb id="subscriberManager" 
+		lookup-home-on-startup="false" resource-ref="false"
+		business-interface="com.telus.cmb.subscriber.lifecyclemanager.svc.SubscriberLifecycleManager" 
+		jndi-name="SubscriberLifecycleManager#com.telus.cmb.subscriber.lifecyclemanager.svc.SubscriberLifecycleManager">
+		<jee:environment>
+			java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+			java.naming.provider.url=${services/SubscriberLifecycleManager/url}
+			java.naming.security.principal=ejb_user
+			java.naming.security.credentials=ejb_user
+		</jee:environment>
+	</jee:remote-slsb>	
+
+	<jee:remote-slsb id="subscriberHelper" 
+		lookup-home-on-startup="false" resource-ref="false"
+		business-interface="com.telus.cmb.subscriber.lifecyclehelper.svc.SubscriberLifecycleHelper" 
+		jndi-name="SubscriberLifecycleHelper#com.telus.cmb.subscriber.lifecyclehelper.svc.SubscriberLifecycleHelper">
+		<jee:environment>
+			java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+			java.naming.provider.url=${services/SubscriberLifecycleHelper/url}
+			java.naming.security.principal=ejb_user
+			java.naming.security.credentials=ejb_user
+		</jee:environment>
+	</jee:remote-slsb>	
+
+	<jee:remote-slsb id="accountFacade" 
+		lookup-home-on-startup="false" resource-ref="false"
+		business-interface="com.telus.cmb.account.lifecyclefacade.svc.AccountLifecycleFacade" 
+		jndi-name="AccountLifecycleFacade#com.telus.cmb.account.lifecyclefacade.svc.AccountLifecycleFacade">
+		<jee:environment>
+			java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+			java.naming.provider.url=${services/AccountLifecycleFacade/url}
+			java.naming.security.principal=ejb_user
+			java.naming.security.credentials=ejb_user
+		</jee:environment>
+	</jee:remote-slsb>	
+
+	<jee:remote-slsb id="accountManager" 
+		lookup-home-on-startup="false" resource-ref="false"
+		business-interface="com.telus.cmb.account.lifecyclemanager.svc.AccountLifecycleManager" 
+		jndi-name="AccountLifecycleManager#com.telus.cmb.account.lifecyclemanager.svc.AccountLifecycleManager">
+		<jee:environment>
+			java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+			java.naming.provider.url=${services/AccountLifecycleManager/url}
+			java.naming.security.principal=ejb_user
+			java.naming.security.credentials=ejb_user
+		</jee:environment>
+	</jee:remote-slsb>	
+
+	<jee:remote-slsb id="accountHelper" 
+		lookup-home-on-startup="false" resource-ref="false"
+		business-interface="com.telus.cmb.account.informationhelper.svc.AccountInformationHelper" 
+		jndi-name="AccountInformationHelper#com.telus.cmb.account.informationhelper.svc.AccountInformationHelper">
+		<jee:environment>
+			java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+			java.naming.provider.url=${services/AccountInformationHelper/url}
+			java.naming.security.principal=ejb_user
+			java.naming.security.credentials=ejb_user
+		</jee:environment>
+	</jee:remote-slsb>	
+
+</beans>

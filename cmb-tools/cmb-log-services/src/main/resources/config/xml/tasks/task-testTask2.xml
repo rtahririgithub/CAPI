@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<task name="Test 2" shortname="GoRapsGo" type="freeFries">
+	<taskEnvironment shortname="dev" schedule="disabled"></taskEnvironment>
+</task>	

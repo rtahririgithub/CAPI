@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<!-- this file is meant for full-svc.ear,s jndi name shall be local queue and connection factory-->
+	
+	<jee:jndi-lookup id="cmbJmsConnectFactory" jndi-name="${services/CMBQueue/defCmbJmsConnectionFactoryJndi:com.jms.wl.connection.PERSISTENT_CONN_FACTORY}" resource-ref="true"
+		expected-type="javax.jms.ConnectionFactory" />
+		
+	<jee:jndi-lookup id="cmbQueue" jndi-name="${services/CMBQueue/defCmbJmsManagementQueueJndi:com.telus.cmb.queue.CMB_MANAGEMENT_QUEUE}" resource-ref="true"
+		expected-type="javax.jms.Queue" />
+
+	<jee:jndi-lookup id="cmbRetryQueue" jndi-name="${services/CMBQueue/cmbJmsManagementQueueRetryJndi:com.telus.cmb.queue.CMB_MANAGEMENT_QUEUE_RETRY}" resource-ref="true"
+		expected-type="javax.jms.Queue" />
+		
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory"  ref="cmbJmsConnectFactory"/>
+		<property name="defaultDestination" ref="cmbQueue" />
+		<property name="pubSubDomain" value="false"/>
+	</bean>
+	
+	<bean id="fastQueue" class="com.telus.cmb.common.jms.JmsQueueSupport" lazy-init="true">
+		<property name="jmsTemplate">
+			<bean class="org.springframework.jms.core.JmsTemplate" depends-on="cmbJmsConnectFactory, cmbQueue">
+				<property name="connectionFactory"  ref="cmbJmsConnectFactory"/>
+				<property name="defaultDestination" ref="cmbQueue" />
+				<property name="pubSubDomain" value="false"/>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="slowQueue" class="com.telus.cmb.common.jms.JmsQueueSupport" lazy-init="true">
+		<property name="jmsTemplate">
+			<bean class="org.springframework.jms.core.JmsTemplate" depends-on="cmbJmsConnectFactory, cmbRetryQueue">
+				<property name="connectionFactory"  ref="cmbJmsConnectFactory"/>
+				<property name="defaultDestination" ref="cmbRetryQueue" />
+				<property name="pubSubDomain" value="false"/>
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

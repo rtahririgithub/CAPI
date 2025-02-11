@@ -1,0 +1,21 @@
+title checkNewSubscriberEligibility (Provider) Current
+note left of Front-End
+Customer wants to add a new subscriber to their existing\naccount
+end note
+
+Front-End->TMAccount: checkNewSubscriberEligibility
+TMAccount->+AccountLifecycleFacade: checkNewSubscriberEligibility
+AccountLifecycleFacade->AccountInformationHelper: retrieveDepositsByBan
+AccountInformationHelper->AccountLifecycleFacade: return Deposit Info
+AccountLifecycleFacade->CreditProfileServiceDao: perfromSubscriberEligibilityCheck
+CreditProfileServiceDao->AccountLifecycleFacade: return CreditCheckResultInfo
+AccountLifecycleFacade->AccountLifecycleManager: retrieveLastCreditCheckResultByBan 
+AccountLifecycleManager->AccountInformationHelper: retrieveAmdocsCreditCheckResultByBan
+AccountInformationHelper->CreditCheckDao: retrieveLastCreditCheckResultByBan
+CreditCheckDao->KB: retrieveLastCreditCheckResultByBan using\nCRDCHECK_RESULT_PKG.getLastCreditCheckResultByBan
+
+KB->AccountLifecycleFacade: return CreditCheckResultInfo
+AccountLifecycleFacade->AccountLifecycleFacade: combine result Infos from HCD and Amdocs
+
+AccountLifecycleFacade->-TMAccount: return CreditCheckResultInfo
+TMAccount->Front-End: return creditCheckResult

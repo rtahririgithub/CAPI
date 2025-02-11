@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+
+<application name="Client API CMB Billing Web Services" shortname="cmbbilws" path="/${root}/${host}/wls/8.1/${env}/logs/applications/${domain}/${node}/applications/${artifact}-${version}/">
+
+	<overrideValue name="env" value="P" environments="pra,prb"/>
+	<overrideValue name="env" value="S1" environments="st101a,st101b"/>
+	<overrideValue name="env" value="PT148" environments="pt148"/>
+	<overrideValue name="env" value="Q2" environments="pt140"/>
+	<overrideValue name="env" value="PT168" environments="pt168"/>
+	<overrideValue name="env" value="DV103" environments="dv103"/>
+
+	<component name="BillingInquiryReferenceService 2.0 (CC)">
+		<artifact name="cmb-billing-inquiry-reference-service" version="20" appMap="BillingInquiryReferenceService 20"/>
+	</component>	
+	<component name="BillingInquiryReferenceService 2.1 (CC)">
+		<artifact name="cmb-billing-inquiry-reference-service" version="21" appMap="cmb-billing-inquiry-reference-service-21"/>
+	</component>
+	<component name="BillingInquiryService 1.6 (CC)">
+		<artifact name="cmb-billing-inquiry-service" version="16" appMap="cmb-billing-inquiry-service-16"/>
+	</component>	
+	<component name="BillingInquiryService 1.7" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cmb-billing-inquiry-ws" version="1_7"/>
+	</component>	
+	<component name="WirelessPaymentService 1.0 (CC)">
+		<artifact name="cmb-wireless-payment-service" version="10"/>
+	</component>	
+	<component name="WirelessRatedAirtimeUsageInquiry 1.0 (CC)">
+		<artifact name="cmb-wireless-rated-airtime-usage-inquiry-jws" version="10" appMap="WirelessRatedAirtimeUsageInquirys10"/>
+	</component>	
+</application>

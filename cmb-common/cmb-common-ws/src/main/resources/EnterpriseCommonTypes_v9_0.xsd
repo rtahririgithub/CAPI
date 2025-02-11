@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" elementFormDefault="qualified" attributeFormDefault="unqualified" version="9.0">
+	<xs:simpleType name="indicatorType">
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+	<xs:simpleType name="localeType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="codeType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="codeDescTextType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="CodeDescText">
+		<xs:annotation>
+			<xs:documentation>Represents an internationalized string.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="locale" type="tns:localeType">
+				<xs:annotation>
+					<xs:documentation>Ex. EN_CA, FR_CA</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codeDescText" type="tns:codeDescTextType">
+				<xs:annotation>
+					<xs:documentation>Message text</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MultilingualCodeDescTextList">
+		<xs:annotation>
+			<xs:documentation>Represents a list of internationalized strings.  One for each language.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="codeDescText" type="tns:CodeDescText" maxOccurs="10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageType">
+		<xs:annotation>
+			<xs:documentation>This type is created as a workaround for what seems like a bug in the Oracle XML binding classes.  There are certain cases when a CodeDescTextList is used as an element type with multiplicity greater than 1 a "Unable to lookup BindingTypeName" error occurs at runtime.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="message" type="tns:MultilingualCodeDescTextList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Name">
+		<xs:annotation>
+			<xs:documentation>Represents an internationalized string.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="locale" type="tns:localeType">
+				<xs:annotation>
+					<xs:documentation>Ex. EN_CA, FR_CA</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>name  text</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MultilingualNameList">
+		<xs:annotation>
+			<xs:documentation>Represents a list of internationalized strings.  One for each language.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="tns:Name" maxOccurs="10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Description">
+		<xs:annotation>
+			<xs:documentation>Represents an internationalized string.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="locale" type="tns:localeType">
+				<xs:annotation>
+					<xs:documentation>Ex. EN_CA, FR_CA</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descriptionText" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Description  text</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MultilingualDescriptionList">
+		<xs:annotation>
+			<xs:documentation>Represents a list of internationalized strings.  One for each language.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="tns:Description" maxOccurs="10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MultilingualCodeDescriptionList">
+		<xs:annotation>
+			<xs:documentation>Represents Code value plus the list of internationalized strings describing it.  One for each language.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="code" type="tns:codeType"/>
+			<xs:element name="description" type="tns:Description" minOccurs="0" maxOccurs="10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResponseMessage">
+		<xs:annotation>
+			<xs:documentation>This construct can be used for a standard response structure if error and error context data is required to be returned by a service operation.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="dateTimeStamp" type="xs:dateTime"/>
+			<xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="messageType" type="xs:string" minOccurs="0"/>
+			<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+			<xs:element name="messageList" type="tns:Message" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="contextData" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Message">
+		<xs:sequence>
+			<xs:element name="locale" type="xs:string"/>
+			<xs:element name="message" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AuditInfo">
+		<xs:sequence>
+			<xs:element name="userId" type="xs:string" minOccurs="0"/>
+			<xs:element name="userTypeCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="salesRepresentativeId" type="xs:string" minOccurs="0"/>
+			<xs:element name="channelOrganizationId" type="xs:string" minOccurs="0"/>
+			<xs:element name="outletId" type="xs:string" minOccurs="0"/>
+			<xs:element name="originatorApplicationId" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Captures the upstream/downstream application identity (i.e. not necessarily the one that is authenticating to use the service as a client)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="correlationId" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Used to correlate the client side log event to the request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="timestamp" type="xs:dateTime" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="masterSourceIdType">
+		<xs:annotation>
+			<xs:documentation>CMDB identifier for the database or system mastering this data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<xs:complexType name="brandType">
+		<xs:sequence>
+			<xs:element name="brandId" type="tns:brandIdType"/>
+			<xs:element name="brandNameDecode" type="tns:CodeDescText" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="brandIdType">
+		<xs:annotation>
+			<xs:documentation>TELUS brand identifier.  List of values in RefPDS: BRAND_NAME</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<xs:simpleType name="currencyCodeType">
+		<xs:annotation>
+			<xs:documentation>Currency codes from ISO 4217.  e.g. CAD, USD</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="languageCodeType">
+		<xs:annotation>
+			<xs:documentation>Canadian and US language codes from ISO 639: 2-letter codes.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="unitOfMeasureCodeType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="unitQuantityType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:complexType name="CreditCard">
+		<xs:sequence>
+			<xs:element name="token" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>the token for the encrypted credit card information.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="first6" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The first 6 digits of a credit card is used by some systems to determine the credit card type.  It is reccomended to use card type rather than first 6</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cardType" type="tns:MultilingualCodeDescriptionList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Visa, MasterCard, etc.  RefPDS: CREDIT_CARD_TYPE has the standard codes to use</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="last4" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The last 4 digits on a credit card number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="expiryMonth" type="tns:Month" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="expiryYear" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="cardVerificationData" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>the 3-4 verification digits on the front or back of the card.  Also called the Card Verification Value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holderName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Month">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MonthDay">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="31"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="DriversLicense">
+		<xs:sequence>
+			<xs:element name="driversLicenseNumber" type="xs:string"/>
+			<xs:element name="provinceCode" type="tns:ProvinceCodeType"/>
+			<xs:element name="expiryDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProvincialIdCard">
+		<xs:sequence>
+			<xs:element name="provincialIdNumber" type="xs:string"/>
+			<xs:element name="provinceCode" type="tns:ProvinceCodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Passport">
+		<xs:sequence>
+			<xs:element name="passportNumber" type="xs:string"/>
+			<xs:element name="countryCode" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HealthCard">
+		<xs:sequence>
+			<xs:element name="healthCardNumber" type="xs:string"/>
+			<xs:element name="provinceCode" type="tns:ProvinceCodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ProvinceCodeType">
+		<xs:annotation>
+			<xs:documentation>Province Code Type. Its value must be one of the values defined in reference ods table named: PROVINCE.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="PartyName">
+		<xs:sequence>
+			<xs:element name="nameId" type="tns:nameIdType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="fullName" type="tns:fullNameType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A derived attribute obtained by putting all the name attributes into a formatted string</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="supplementaryName" type="tns:supplementaryNameType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The operating / doing business as / fictional business name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="supplementaryNameOperatingCode" type="tns:supplementaryNameOperatingCodeType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="nameRelText" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Trustee for, Executor for, or In Trust for.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastUpdateTimeStamp" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IndividualName">
+		<xs:complexContent>
+			<xs:extension base="tns:PartyName">
+				<xs:sequence>
+					<xs:element name="nameSalutation" type="tns:MultilingualCodeDescTextList" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="firstName" type="tns:firstNameType" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="lastName" type="tns:lastNameType" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="middleName" type="tns:middleNameType" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="nameSuffixCode" type="tns:MultilingualCodeDescTextList" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="nameNonStandardSuffix" type="tns:MultilingualCodeDescTextList" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrganizationName">
+		<xs:complexContent>
+			<xs:extension base="tns:PartyName">
+				<xs:sequence>
+					<xs:element name="orgName" type="tns:organizationNameType" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="UnknownName">
+		<xs:complexContent>
+			<xs:extension base="tns:PartyName">
+				<xs:sequence>
+					<xs:element name="orgName" type="tns:organizationNameType" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="nameSalutation" type="tns:MultilingualCodeDescTextList" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="firstName" type="tns:firstNameType" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="lastName" type="tns:lastNameType" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="middleName" type="tns:middleNameType" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="nameSuffix" type="tns:MultilingualCodeDescTextList" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="nameNonStandardSuffix" type="tns:MultilingualCodeDescTextList" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="nameIdType">
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<xs:simpleType name="nameTypeCodeType">
+		<xs:annotation>
+			<xs:documentation>The type of party this name is for: P- Person, O- Organization, U-Unknown</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="fullNameType">
+		<xs:annotation>
+			<xs:documentation>dervived field (algorithm including full person name or business name, and any supplementary names if applicable)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="organizationNameType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="firstNameType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="lastNameType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="middleNameType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="supplementaryNameType">
+		<xs:annotation>
+			<xs:documentation>The name that the person or organization is "doing business as" / "operating as"
+			E.g. "John Doe O/A Petro Canada" - Petro Canada is the supplementary name
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="supplementaryNameOperatingCodeType">
+		<xs:annotation>
+			<xs:documentation>O/A- Operating As, D/B- Doing Business as</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="nameAssignmentTypeCodeType">
+		<xs:annotation>
+			<xs:documentation>L- Legal, A- Alias, P- Preferred, I- Additional Info</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="MarketSegment">
+		<xs:sequence>
+			<xs:element name="marketSegmentType" type="tns:MultilingualCodeDescriptionList" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The Type of market Segmentation: e.g. CBU, SS1, SS2, VALS.  RefPDS: MKT_SEG_TYPE</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="marketSegmentValue" type="tns:MultilingualCodeDescriptionList" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The value of the segmentation: VALS: 1,2,CS1,CS2 or CBU: A1, B1, C1 etc.  
+RefPDS: 1 per TYPE.  
+MKT_SEG_A, 
+MKT_SEG_CBU, BI_CM_RELATIONSHIP_MANAGEMENT_SEGMENT, ...</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastUpdateTimeStamp" type="xs:dateTime" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BankAccount">
+		<xs:sequence>
+			<xs:element name="bankCode" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>also called the institution number. It is the code is used to identify the bank. e.g. 003 - Royal Bank</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="branchNumber" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Also called transit number. the number used to identify the bank branch for the institution. e.g. 12345 - the branch at hastings and main</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>the number used to identity the account</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountNumberLastNDigit" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>the last N digits of the account number.  This is used for display</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Quantity">
+		<xs:sequence>
+			<xs:element name="amount" type="xs:double" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="unit" type="tns:MultilingualCodeDescriptionList" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MonetaryAmt">
+		<xs:complexContent>
+			<xs:extension base="tns:Quantity"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Duration">
+		<xs:complexContent>
+			<xs:extension base="tns:Quantity"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Rate">
+		<xs:sequence>
+			<xs:element name="numerator" type="tns:MonetaryAmt" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="denominator" type="tns:Duration" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

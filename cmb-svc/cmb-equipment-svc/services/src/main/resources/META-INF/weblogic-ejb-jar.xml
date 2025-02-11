@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wls:weblogic-ejb-jar xmlns:wls="http://www.bea.com/ns/weblogic/weblogic-ejb-jar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd http://www.bea.com/ns/weblogic/weblogic-ejb-jar http://www.bea.com/ns/weblogic/weblogic-ejb-jar/1.0/weblogic-ejb-jar.xsd">
+    <!--weblogic-version:10.3.3-->
+   <wls:weblogic-enterprise-bean>
+        <wls:ejb-name>ProductEquipmentHelper</wls:ejb-name>
+        <wls:enable-call-by-reference>true</wls:enable-call-by-reference>
+        <wls:dispatch-policy>WorkManager-Online</wls:dispatch-policy>
+    </wls:weblogic-enterprise-bean>
+    <wls:weblogic-enterprise-bean>
+        <wls:ejb-name>ProductEquipmentLifecycleFacade</wls:ejb-name>
+        <wls:enable-call-by-reference>true</wls:enable-call-by-reference>
+        <wls:dispatch-policy>WorkManager-Online</wls:dispatch-policy>
+    </wls:weblogic-enterprise-bean>
+    <wls:weblogic-enterprise-bean>
+        <wls:ejb-name>ProductEquipmentManager</wls:ejb-name>
+        <wls:enable-call-by-reference>true</wls:enable-call-by-reference>
+        <wls:dispatch-policy>WorkManager-Online</wls:dispatch-policy>
+    </wls:weblogic-enterprise-bean>
+</wls:weblogic-ejb-jar>

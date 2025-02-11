@@ -1,0 +1,3 @@
+<environment-config>
+	<entry name="cmb-billing-account-mgmt-ws-2-0" path="/cmb-ns"/>
+</environment-config>

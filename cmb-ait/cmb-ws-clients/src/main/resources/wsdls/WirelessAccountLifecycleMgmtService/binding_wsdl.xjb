@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bindings
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+  wsdlLocation="WirelessAccountLifecycleMgmtService_v1_3.wsdl"
+  xmlns="http://java.sun.com/xml/ns/jaxws">
+
+	<enableWrapperStyle>false</enableWrapperStyle>
+	
+	<bindings node="wsdl:definitions/wsdl:portType[@name='WirelessAccountLifecycleMgmtService_v1_3_PortType']">
+		<class name="WirelessAccountLifecycleMgmtServicePortType"/>
+	</bindings>
+
+    <bindings node="wsdl:definitions/wsdl:service[@name='WirelessAccountLifecycleMgmtService_v1_3']">
+        <class name="WirelessAccountLifecycleMgmtServicePort"/>
+    </bindings>
+
+</bindings>

@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by TELUS TELUS (TELUS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberLifeCycleManagementServiceRequestResponse_v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:srt="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" xmlns:ect="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8" xmlns:slct="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberLifeCycleCommonTypes_v1" xmlns:ref="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/SubscriberLifeCycleManagementServiceRequestResponse_v1" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v3_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/ServiceRequestCommonTypes_v1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberLifeCycleCommonTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/CustomerOrder/SubscriberLifeCycleCommonTypes_v1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/ResourceOrderReferenceTypes_1_0.xsd"/>
+	<xsd:element name="resumeCancelledSubscriber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="resumeProperties" type="slct:ResumeCancelledSubscriberPropertiesType"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="resumeCancelledSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="restoreSuspendedSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>This operation will suspend all subscribers in the LIST, and if the count of subscribers provided equals all the subscribers in the account, then the Account will also be suspended.
+
+If the suspendAllSubscribersInd is set, then all subscribers and account will be suspended.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber">
+					<xsd:annotation>
+						<xsd:documentation>BAN </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="subscriberIdList" type="common:SubscriberNumber" minOccurs="0" maxOccurs="500"/>
+				<xsd:element name="restoreAllSubscriberInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Defaulted to FALSE.  TRUE implies that all subscribers in the BAN should be restored</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="restorePropertiesType" type="tns:SuspendedPropertiesType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Required only of suspendAllSubscriber is set to TRUE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="productType" type="common:ProductType" minOccurs="0"/>
+				<xsd:element name="portInInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="restoreSuspendedSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cancelSubscriber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="cancelProperties" type="slct:CancelSubscriberPropertiesType"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="notificationSuppresionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cancelSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="suspendSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>This operation will suspend all subscribers in the LIST, and if the count of subscribers provided equals all the subscribers in the account, then the Account will also be suspended.
+
+If the suspendAllSubscribersInd is set, then all subscribers and account will be suspended.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber">
+					<xsd:annotation>
+						<xsd:documentation>BAN </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="suspendAllSubscriberInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Defaulted to FALSE.  TRUE implies that all subscribers in the BAN should be cancelled</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="suspendPropertiesType" type="tns:SuspendedPropertiesType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Required only of suspendAllSubscriber is set to TRUE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="subscriberIdList" type="common:SubscriberNumber" minOccurs="0" maxOccurs="500"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="suspendSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="ect:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="reservePhoneNumberForSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>Reserves phone number in KB table. This is only required for ACTIVATION flow.	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="numberGroup" type="ref:NumberGroup"/>
+				<xsd:element name="equipmentSerialNumber" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Equipment serail number required to determine portin eligibility and pager check </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="productType" type="common:ProductType">
+					<xsd:annotation>
+						<xsd:documentation>C - PRODUCT_TYPE_PCS;
+P- PRODUCT_TYPE_PAGER
+I - PRODUCT_TYPE_IDEN</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="likeMatchInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>For 'Like Matches' this should  be true and 'phone number pattern' should be the 10 digit phone number of an existing subscriber.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="phoneNumberPattern" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Phone number search pattern.  For 'Like Matches'  this should be the 10 digit phone number of an existing subscriber.  Otherwise,  it should be 10 digit combination of numbers and asterixes (*), where asterisk  means any number.  If 'phoneNumberPattern' contains less than 10 characters, it will be padded with asterixes.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="asianFriendlyInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>isAsian indicator. true/false(default). </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="portInReserveRequiredInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>is this a port in reservation indicator, true/false(default)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="portInEligibility" type="tns:PortInEligibility" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Required for Port In reservations.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="offlineReservationInd" type="xsd:boolean" default="false" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Reserve phone number for usage during Offline Activations. </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="reservePhoneNumberForSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="releaseSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>Releases he subscriber and  their reserved phone number.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="productType" type="common:ProductType">
+					<xsd:annotation>
+						<xsd:documentation>C - PRODUCT_TYPE_PCS;
+P- PRODUCT_TYPE_PAGER
+I - PRODUCT_TYPE_IDEN</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="cancelPortInInd" type="xsd:boolean" default="false"/>
+				<xsd:element name="portInEligibility" type="tns:PortInEligibility" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Required if cancelPortIn = TRUE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="releaseSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="ect:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="activateSavedSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>Activates a subscriber that has already been created with service agreement saved.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:annotation>
+					<xsd:documentation>
+								SRPDS Header details, if SRPDS message	is required.
+							</xsd:documentation>
+				</xsd:annotation>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber"/>
+				<xsd:element name="subscriberId" type="common:SubscriberNumber"/>
+				<xsd:element name="activityReasonCode" type="xsd:string"/>
+				<xsd:element name="startServiceDate" type="xsd:date"/>
+				<xsd:element name="memoText" type="xsd:string"/>
+				<xsd:element name="portInInd" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="modifyPortRequestInd" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="ServiceRequestHeader" type="srt:ServiceRequestHeader" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="activateSavedSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="ect:ResponseMessage"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="validateDataSharingBeforeCancelSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>Validates if any data sharing rules (minimum service agreement - MSC) are broken when a subscriber cancels their account or ports-out of TELUS.  Operation is only scoped for Consumer accounts and will return information on whether a data sharing SOC transfer can be done to resolve any MSC breakage if applicable.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="subscriberId" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The subscriber id of the cancelling/porting-out subscriber.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="validateDataSharingBeforeCancelSubscriberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseMessage" type="ect:ResponseMessage"/>
+				<xsd:element name="dataSharingViolationInd" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Flag to indicate whether or not a data sharing soc transfer action is necessary when the subscriber cancels their account or ports-out of TELUS.  If set to true, then the data sharing minimum service commitment is violated when the subscriber cancels/ports out.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="dataSharingSocTransfer" type="tns:DataSharingSocTransfer" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>The information of the data sharing soc transfer if one is needed - only populated if requiresSocTransferInd is set to true above.  The soc transfer includes the candidate subscriber, the assessing data sharing SOC code of the candidate subscriber and the contributing data sharing soc of the subscriber cancelling/porting out.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="WarningType" type="tns:WarningType"/>
+	<xsd:complexType name="WarningType">
+		<xsd:sequence>
+			<xsd:element name="systemCode" type="xsd:string"/>
+			<xsd:element name="warningType" type="xsd:string"/>
+			<xsd:element name="warning" type="tns:WarningBaseType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WarningBaseType">
+		<xsd:sequence>
+			<xsd:element name="messageId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warningMessage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="variables" type="xsd:string" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="cancelPortOutSubscriber">
+		<xsd:annotation>
+			<xsd:documentation>This operation attempts to cancel a subscriber due to a port out.  If the cancelled subscriber results in no active subscribers on the account and the remaining subscribers are all cancelled, the account is cancelled.  If the cancelled subscriber results in no active subscribers on the account and there is at least one subscriber that is suspended, then the account is suspended.  RCM is called to release the telephone number after the subscriber is cancelled and a log entry is recorded in SRPDS for this subscriber cancellation event.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="billingAccountNumber" type="common:AccountNumber" minOccurs="0"/>
+				<xsd:element name="phoneNumber" type="common:PhoneNumber"/>
+				<xsd:element name="cancelProperties" type="slct:CancelSubscriberPropertiesType"/>
+				<xsd:element name="forceCancelImmediateIndicator" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If true, subscriber is cancelled on the specified effectiveDate regardless of when the bill cycle day</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="cancellationInd" type="xsd:boolean" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>To be used by WNP for cancelling subscribers who have ported out from Telus. 
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="userProfile" type="srt:UserServiceProfile" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Used for recording entry into SRPDS.  If no value specified, will use values on subscriber</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="serviceRequestHeader" type="srt:ServiceRequestHeader">
+					<xsd:annotation>
+						<xsd:documentation>Used for recording entry into SRPDS.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cancelPortOutSubscriberResponse">
+		<xsd:annotation>
+			<xsd:documentation>Returns any errors or warnings while invoking the operation.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="warningList" type="tns:WarningType" minOccurs="0" maxOccurs="100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="SuspendedPropertiesType">
+		<xsd:sequence>
+			<xsd:element name="memoText" type="xsd:string"/>
+			<xsd:element name="reasonCode" type="xsd:string"/>
+			<xsd:element name="activityDate" type="xsd:date"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubscriberSuspendedPropertiesList">
+		<xsd:sequence>
+			<xsd:element name="suspendedPropertiesList" type="tns:SuspendedPropertiesType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PortInEligibility">
+		<xsd:sequence>
+			<xsd:element name="portProcessTypeCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="portVisibilityCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="currentServiceProviderCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="iDENCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="portDirectionCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="incommingBrandCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="outgoingBrandCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="phoneNumberCd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CDMACoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="HSPACoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="CDMAPrePaidCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="HSPAPrePaidCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="CDMAPostPaidCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="HSPAPostPaidCoverageInd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="platformId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DataSharingSocTransfer">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element name="candidateSubscriberId" type="xsd:string" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>This is the (candidate) subscriber who will take over the data sharing soc of the cancelling/porting out subscriber.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="candidateDataSharingSoc" type="ect:MultilingualCodeDescriptionList" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This is the candidate subscriber's data sharing SOC code and description that needs to be removed.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="contributorDataSharingSoc" type="ect:MultilingualCodeDescriptionList" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>This is the data sharing SOC code and description of the subscriber who is cancelling/porting-out.  This SOC will be added to the candidate subscriber as well as removed from the cancelling/porting-out subscriber.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

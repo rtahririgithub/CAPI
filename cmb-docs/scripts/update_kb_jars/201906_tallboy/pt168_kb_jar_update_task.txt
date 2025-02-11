@@ -1,0 +1,78 @@
+Title: Update KB Jars for Tallboy Project on CAPI weblogic Domain/Clusters in PT168
+
+====================================================================================================
+  PREFACE:
+    For steps 1 to 4 below, please execute the steps for all the following domain/clusters
+====================================================================================================
+Domain/Cluster: 
+PT168UtilityManagementSvc/GeneralUtilities
+PT168CustomerManagementFulfillmentSvc/CustomerSelfManagement
+PT168SupplyPartnerManagementSvc/PartnerManagement
+PT168ServiceManagementFulfillmentSvc/ServiceOrderManagement
+PT168CustomerManagementOSRSvc/CustomerInformationManagement
+PT168CustomerManagementOSRSvc/CustomerInformationManagement2
+PT168CustomerManagementBillingSvc/BillingInquiry
+ITS01SMIntegrationSvc/Customer
+
+====================================================================================================
+  Execution Steps:
+    1. Backup the AMDOCS jar files from the following weblogic domain locations 
+====================================================================================================
+/work/users/infra/wls/domains/PT168CustomerManagementOSRSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/PT168CustomerManagementBillingSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/PT168CustomerManagementFulfillmentSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/PT168SupplyPartnerManagementSvc/common/uams_v8.2_hf19.jar
+
+/work/users/infra/wls/domains/PT168UtilityManagementSvc/common/AmdocsEJB-client.jar
+/work/users/infra/wls/domains/PT168UtilityManagementSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/PT168ServiceManagementFulfillmentSvc/common/AmdocsEJB-client.jar
+/work/users/infra/wls/domains/PT168ServiceManagementFulfillmentSvc/common/uams_v8.2_hf19.jar
+/work/users/infra/wls/domains/ITS01SMIntegrationSvc/common/AmdocsEJB-client.jar
+/work/users/infra/wls/domains/ITS01SMIntegrationSvc/common/uams_v8.2_hf19.jar
+
+====================================================================================================
+    2. Copy new AMDOCS jar files over to weblogic domain/clusters noted in the PREFACE
+====================================================================================================
+SOURCE LOCATIONS:
+
+Filename: uams_v8.2_hf20-18.02.0.jar
+Source location: http://mavenrepository.tsl.telus.com/nexus/service/local/repositories/telus-m3/content/com/amdocs/kbapi/uams_v8.2_hf20/18.02.0/uams_v8.2_hf20-18.02.0.jar
+
+Filename: AmdocsEJB-client_v1.7-19.6.1.jar
+Source location: http://mavenrepository.tsl.telus.com/nexus/service/local/repositories/telus-m3/content/com/amdocs/kbapi/AmdocsEJB-client_v1.7/19.6.1/AmdocsEJB-client_v1.7-19.6.1.jar
+
+---------------------------------------------------------------------------------------------------
+DESTINATION LOCATIONS:
+
+/work/users/infra/wls/domains/PT168CustomerManagementOSRSvc/common/uams_v8.2_hf20-18.02.0.jar
+/work/users/infra/wls/domains/PT168CustomerManagementBillingSvc/common/uams_v8.2_hf20-18.02.0.jar
+/work/users/infra/wls/domains/PT168CustomerManagementFulfillmentSvc/common/uams_v8.2_hf20-18.02.0.jar
+/work/users/infra/wls/domains/PT168SupplyPartnerManagementSvc/common/uams_v8.2_hf20-18.02.0.jar
+
+/work/users/infra/wls/domains/PT168UtilityManagementSvc/common/AmdocsEJB-client_v1.7-19.6.1.jar
+/work/users/infra/wls/domains/PT168UtilityManagementSvc/common/uams_v8.2_hf20-18.02.0.jar
+/work/users/infra/wls/domains/PT168ServiceManagementFulfillmentSvc/common/AmdocsEJB-client_v1.7-19.6.1.jar
+/work/users/infra/wls/domains/PT168ServiceManagementFulfillmentSvc/common/uams_v8.2_hf20-18.02.0.jar
+/work/users/infra/wls/domains/ITS01SMIntegrationSvc/common/AmdocsEJB-client_v1.7-19.6.1.jar
+/work/users/infra/wls/domains/ITS01SMIntegrationSvc/common/uams_v8.2_hf20-18.02.0.jar
+
+====================================================================================================
+    3. Update classpaths on each node of the weblogic domain and clusters noted in the PREFACE
+====================================================================================================
+Update the AMDOCs jar file names as follows (FROM -> TO):
+
+uams_v8.2_hf19.jar-> uams_v8.2_hf20-18.02.0.jar
+AmdocsEJB-client.jar -> AmdocsEJB-client_v1.7-19.6.1.jar
+
+====================================================================================================
+    4. Recycle the following weblogic domain/clusters noted in the PREFACE
+====================================================================================================
+
+====================================================================================================
+  Rollback Strategy:
+====================================================================================================
+Use the backed up kb jar files from step 1 above.
+
+Redeploy these backed up files to all the domain and clusters and update all the classpaths in each
+node of the weblogic domain and clusters to these backed up files.  Recycle all the domain and clusters.
+====================================================================================================

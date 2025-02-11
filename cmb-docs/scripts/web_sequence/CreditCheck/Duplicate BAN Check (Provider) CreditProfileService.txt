@@ -1,0 +1,21 @@
+title Duplicate BAN Check (Provider) CreditProfileService
+
+note left of FrontEnd
+FR836819 Call HCD Web Service for duplicate BAN check
+2 Search Levels can be passed to TMAccount
+1) DEFAULT_DUPLICATE_BAN_SEARCH_LEVEL (default)  
+2) MIKE_TO_PCS_DUPLICATE_BAN_SEARCH_LEVEL
+
+However, CreditProfileService.performDuplicateAccountCheck does\nnot support performFindMatchingAccount logic\nReza Tahriri has confirmed that this level of search is obsolete
+end note
+
+FrontEnd->TMAccount: getDuplicateAccountBANs(duplicateSearchLevel)
+TMAccount->CreditProfileService: performDuplicateAccountCheck
+CreditProfileService->TMAccount: performDuplicateAccountCheckResponse
+TMAccount->TMAccount: map performDuplicateAccountCheckResponse int array of duplicate BANs
+
+alt no duplicate BANs
+TMAccount->FrontEnd: return new int[0]
+else duplicate BANs returned
+TMAccount->FrontEnd: return int array of duplicate BANs
+end

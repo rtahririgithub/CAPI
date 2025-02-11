@@ -1,0 +1,440 @@
+<evaluation-rules>
+	<!-- Business Anywhere Regular, Business Anywhere Personal, Business Connect Regular, Business Connect Personal only -->
+	<account-type-rule accountCombinedTypes="BA,BN,BF,BG">
+		<!-- Telus Mobility -->
+		<brand-rule brandId="1">
+			<!-- Telus Mobility / B (good risk) -->
+			<credit-class-rule creditClass="B">
+				<account-lifecycle-rule newAccount="false">
+					<collection-activity-rule activityPresent="true">
+						<result depositAmount="200" dialingEligibility="true" roamingEligibility="true" />
+					</collection-activity-rule>
+				</account-lifecycle-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<account-lifecycle-rule newAccount="false">
+				<collection-activity-rule activityPresent="true">
+					<result depositAmount="200" dialingEligibility="true" roamingEligibility="true" />
+				</collection-activity-rule>
+			</account-lifecycle-rule>
+			<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+		</brand-rule>
+		<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+	</account-type-rule>
+
+	<!-- Consumer Regular, Business Personal, Corporate Individual (MIKE+PCS), Corporate Employee only -->
+	<account-type-rule accountCombinedTypes="IR,BP,CI,CE,CP">
+		<!-- Telus Mobility -->
+		<brand-rule brandId="1">
+			<!-- Telus Mobility / B (good risk) -->
+			<credit-class-rule creditClass="B">
+				<collection-activity-rule activityPresent="true">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</collection-activity-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- Telus Mobility / D (low - medium risk) -->
+			<credit-class-rule creditClass="D">
+				<collection-activity-rule activityPresent="true">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</collection-activity-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- Telus Mobility / C (medium risk with deposit accounts) -->
+			<credit-class-rule creditClass="C">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="3" operation="less-equal">
+						<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+					</tenure-rule>
+					<tenure-rule limit="3" operation="greater">
+						<collection-activity-rule activityPresent="true">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+				</account-lifecycle-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- Telus Mobility / X (medium - high risk) -->
+			<credit-class-rule creditClass="X">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="3" operation="less-equal">
+						<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+					</tenure-rule>
+					<tenure-rule limit="3" operation="greater">
+						<collection-activity-rule activityPresent="true">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+						<collection-activity-rule activityPresent="false">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+				</account-lifecycle-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- Telus Mobility / L (medium - high risk) -->
+			<credit-class-rule creditClass="L">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="3" operation="less-equal">
+						<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+					</tenure-rule>
+					<tenure-rule limit="3" operation="greater">
+						<collection-activity-rule activityPresent="true">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+						<collection-activity-rule activityPresent="false">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+				</account-lifecycle-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- Telus Mobility / all other credit classes / conditions -->
+			<account-lifecycle-rule newAccount="true">
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</account-lifecycle-rule>
+			<account-lifecycle-rule newAccount="false">
+				<tenure-rule limit="6" operation="less-equal">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</tenure-rule>
+				<tenure-rule limit="6" operation="greater">
+					<collection-activity-rule activityPresent="true">
+						<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+					</collection-activity-rule>
+					<collection-activity-rule activityPresent="false">
+						<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+					</collection-activity-rule>
+				</tenure-rule>
+			</account-lifecycle-rule>
+			<!-- all other -->
+			<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+		</brand-rule>
+		<!-- KOODO -->
+		<brand-rule brandId="3">
+			<!-- KOODO / B (good risk) -->
+			<credit-class-rule creditClass="B">
+				<account-lifecycle-rule newAccount="false">
+					<collection-activity-rule activityPresent="true">
+						<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+					</collection-activity-rule>
+				</account-lifecycle-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- KOODO / D (low - medium risk) -->
+			<credit-class-rule creditClass="D">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="3" operation="greater">
+						<collection-activity-rule activityPresent="false">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+					<!-- all other conditions -->
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<!-- all other conditions -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- KOODO / X (medium - high risk) -->
+			<credit-class-rule creditClass="X">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="6" operation="greater">
+						<collection-activity-rule activityPresent="false">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+					<!-- all other conditions -->
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<!-- all other conditions -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- KOODO / L (medium - high risk) -->
+			<credit-class-rule creditClass="L">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="6" operation="greater">
+						<collection-activity-rule activityPresent="false">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+					<!-- all other conditions -->
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<!-- all other conditions -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- KOODO / all other credit classes / conditions -->
+			<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+		</brand-rule>
+		<!-- all other account types -->
+		<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+	</account-type-rule>
+
+	<!-- All other Consumer, Business accounts only -->
+	<account-type-rule accountCombinedTypes="B,I">
+		<!-- Telus Mobility -->
+		<brand-rule brandId="1">
+			<!-- Telus Mobility / B (good risk) -->
+			<credit-class-rule creditClass="B">
+				<collection-activity-rule activityPresent="true">
+					<result depositAmount="200" dialingEligibility="true" roamingEligibility="true" />
+				</collection-activity-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- Telus Mobility / D (low - medium risk) -->
+			<credit-class-rule creditClass="D">
+				<collection-activity-rule activityPresent="true">
+					<result depositAmount="200" dialingEligibility="true" roamingEligibility="true" />
+				</collection-activity-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- Telus Mobility / C (medium risk with deposit accounts) -->
+			<credit-class-rule creditClass="C">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="500" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="3" operation="less-equal">
+						<result depositAmount="500" dialingEligibility="true" roamingEligibility="true" />
+					</tenure-rule>
+					<tenure-rule limit="3" operation="greater">
+						<collection-activity-rule activityPresent="true">
+							<result depositAmount="200" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+				</account-lifecycle-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- Telus Mobility / X (medium - high risk) -->
+			<credit-class-rule creditClass="X">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="500" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="3" operation="less-equal">
+						<result depositAmount="500" dialingEligibility="true" roamingEligibility="true" />
+					</tenure-rule>
+					<tenure-rule limit="3" operation="greater">
+						<collection-activity-rule activityPresent="true">
+							<result depositAmount="500" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+						<collection-activity-rule activityPresent="false">
+							<result depositAmount="200" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+				</account-lifecycle-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- Telus Mobility / L (medium - high risk) -->
+			<credit-class-rule creditClass="L">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="500" dialingEligibility="true" roamingEligibility="true" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="3" operation="less-equal">
+						<result depositAmount="500" dialingEligibility="true" roamingEligibility="true" />
+					</tenure-rule>
+					<tenure-rule limit="3" operation="greater">
+						<collection-activity-rule activityPresent="true">
+							<result depositAmount="500" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+						<collection-activity-rule activityPresent="false">
+							<result depositAmount="200" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+				</account-lifecycle-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- Telus Mobility / all other credit classes / conditions -->
+			<account-lifecycle-rule newAccount="true">
+				<result depositAmount="1000" dialingEligibility="true" roamingEligibility="true" />
+			</account-lifecycle-rule>
+			<account-lifecycle-rule newAccount="false">
+				<tenure-rule limit="6" operation="less-equal">
+					<result depositAmount="1000" dialingEligibility="true" roamingEligibility="true" />
+				</tenure-rule>
+				<tenure-rule limit="6" operation="greater">
+					<collection-activity-rule activityPresent="true">
+						<result depositAmount="1000" dialingEligibility="true" roamingEligibility="true" />
+					</collection-activity-rule>
+					<collection-activity-rule activityPresent="false">
+						<result depositAmount="200" dialingEligibility="true" roamingEligibility="true" />
+					</collection-activity-rule>
+				</tenure-rule>
+			</account-lifecycle-rule>
+			<!-- all other -->
+			<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+		</brand-rule>
+		<!-- KOODO -->
+		<brand-rule brandId="3">
+			<!-- KOODO / B (good risk) -->
+			<credit-class-rule creditClass="B">
+				<account-lifecycle-rule newAccount="false">
+					<collection-activity-rule activityPresent="true">
+						<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+					</collection-activity-rule>
+				</account-lifecycle-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- KOODO / D (low - medium risk) -->
+			<credit-class-rule creditClass="D">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="3" operation="greater">
+						<collection-activity-rule activityPresent="false">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+					<!-- all other conditions -->
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+				</account-lifecycle-rule>
+				<!-- all other conditions -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- KOODO / L (medium - high risk) -->
+			<credit-class-rule creditClass="L">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="6" operation="greater">
+						<collection-activity-rule activityPresent="false">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+					<!-- all other conditions -->
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+				</account-lifecycle-rule>
+				<!-- all other conditions -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- KOODO / X (medium - high risk) -->
+			<credit-class-rule creditClass="X">
+				<account-lifecycle-rule newAccount="true">
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+				</account-lifecycle-rule>
+				<account-lifecycle-rule newAccount="false">
+					<tenure-rule limit="6" operation="greater">
+						<collection-activity-rule activityPresent="false">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</collection-activity-rule>
+					</tenure-rule>
+					<!-- all other conditions -->
+					<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+				</account-lifecycle-rule>
+				<!-- all other conditions -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+			</credit-class-rule>
+			<!-- KOODO / all other credit classes / conditions -->
+			<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+		</brand-rule>
+		<!-- SCORPION -->
+		<brand-rule brandId="4">
+			<!-- SCORPION / B (good risk) -->
+			<credit-class-rule creditClass="B">
+				<account-lifecycle-rule newAccount="false">
+					<collection-activity-rule activityPresent="false">
+						<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+					</collection-activity-rule>
+				</account-lifecycle-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+			</credit-class-rule>
+			<!-- SCORPION / D (low - medium risk) -->
+			<credit-class-rule creditClass="D">
+				<account-lifecycle-rule newAccount="false">
+					<collection-activity-rule activityPresent="false">
+						<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+					</collection-activity-rule>
+				</account-lifecycle-rule>
+				<!-- all other conditions -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+			</credit-class-rule>
+			<!-- SCORPION / C (medium risk with deposit accounts) -->
+			<credit-class-rule creditClass="C">
+				<account-lifecycle-rule newAccount="false">
+					<collection-activity-rule activityPresent="false">
+						<tenure-rule limit="3" operation="greater">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</tenure-rule>
+					</collection-activity-rule>
+				</account-lifecycle-rule>
+				<!-- all other -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+			</credit-class-rule>
+			<!-- SCORPION / X (medium - high risk) -->
+			<credit-class-rule creditClass="X">
+				<account-lifecycle-rule newAccount="false">
+					<collection-activity-rule activityPresent="false">
+						<tenure-rule limit="6" operation="greater">
+							<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+						</tenure-rule>
+					</collection-activity-rule>
+				</account-lifecycle-rule>
+				<!-- all other conditions -->
+				<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+			</credit-class-rule>
+			<!-- SCORPION / all other credit classes / conditions -->
+			<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+		</brand-rule>
+		<!-- WALMART -->
+		<brand-rule brandId="5">
+			<account-lifecycle-rule newAccount="false">
+				<tenure-rule limit="6" operation="less">
+					<result depositAmount="200" dialingEligibility="true" roamingEligibility="false" />
+				</tenure-rule>
+				<tenure-rule limit="12" operation="less">
+					<collection-activity-rule activityPresent="false">
+						<result depositAmount="50" dialingEligibility="true" roamingEligibility="false" />
+					</collection-activity-rule>
+					<!--all other -->
+					<result depositAmount="200" dialingEligibility="true" roamingEligibility="false" />
+				</tenure-rule>
+				<tenure-rule limit="12" operation="greater-equal">
+					<collection-activity-rule activityPresent="false">
+						<result depositAmount="0" dialingEligibility="true" roamingEligibility="false" />
+					</collection-activity-rule>
+					<!--all other -->
+					<result depositAmount="50" dialingEligibility="true" roamingEligibility="false" />
+				</tenure-rule>
+				<!-- WALMART / all other conditions -->
+				<result depositAmount="200" dialingEligibility="false" roamingEligibility="false" />
+			</account-lifecycle-rule>
+			<!-- WALMART / all other conditions -->
+			<result depositAmount="200" dialingEligibility="false" roamingEligibility="false" />
+		</brand-rule>
+	</account-type-rule>
+	<!-- all other account types -->
+	<result depositAmount="0" dialingEligibility="true" roamingEligibility="true" />
+</evaluation-rules>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+    
+<!--  	<jee:jndi-lookup id="dataSource" jndi-name="cmb.jdbc.kb" resource-ref="true"/>	-->
+
+	<bean id="codsDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@//CRDBPS-scan.corp.ads:41521/CRDBPSsv1.world"/>
+		<property name="username" value="basread"/>
+		<property name="password" value="basread"/>
+	</bean>
+	<bean id="coneDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@boer:1522:hserv"/>
+		<property name="username" value="cone_app"/>
+		<property name="password" value="cone_app"/>
+	</bean>
+	<bean id="distDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@//DISTPS-scan.corp.ads:41521/DISTPSsv1.WORLD"/>
+		<property name="username" value="ivradm"/>
+		<property name="password" value="admivr"/>
+	</bean>
+	<bean id="easDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=rac_ln98250-scan.corp.ads)(PORT=41521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=HEAS.world)))"/>
+		<property name="username" value="actv_app"/>
+		<property name="password" value="kactv_app"/>
+	</bean>
+	<bean id="ecpcsDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@boer:1521:hecpcs"/>
+		<property name="username" value="basread"/>
+		<property name="password" value="basread"/>
+	</bean>
+	<bean id="knowbilityDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin://@KBPT-scan:41521/KBQA140sv3.WORLD"/>
+		<property name="username" value="basread2h"/>
+		<property name="password" value="basread2h"/>
+	</bean>
+	<bean id="cconDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@//CCONPS-scan.corp.ads:41521/CCONPSsv1.WORLD"/>
+		<property name="username" value="cc_fraud_app"/>
+		<property name="password" value="hcfa123"/>
+	</bean>
+	
+</beans>

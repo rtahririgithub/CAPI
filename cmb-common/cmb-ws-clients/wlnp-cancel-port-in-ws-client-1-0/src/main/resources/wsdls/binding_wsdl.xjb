@@ -1,0 +1,15 @@
+<bindings xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxws"
+	wsdlLocation="CancelPortInRequestService_v1_0.wsdl" xmlns="http://java.sun.com/xml/ns/jaxws">
+	
+	<!-- Disable default wrapper style so generated classes do not use holders -->
+	
+	<enableWrapperStyle>false</enableWrapperStyle>
+
+	<package name="com.telus.cmb.wsclient" />
+
+	<bindings node="wsdl:definitions/wsdl:portType[@name='CancelPortInRequestSoapPortType']">
+		<class name="CancelPortInRequestPort" />
+	</bindings>
+
+</bindings>

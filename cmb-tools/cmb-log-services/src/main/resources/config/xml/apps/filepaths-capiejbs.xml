@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<application name="Client API EJBs" shortname="capiejbs" path="/${root}/${host}/logs/${node}/applications/${artifact}-1.0/" filenames="rolling.log*,lifecycle.log*">
+
+	<component name="CMB Account EJB">
+		<artifact name="cmb-account-svc"/>
+		<artifact name="cmb-account-svc-lite"/>
+	</component>
+	<component name="CMB Subscriber EJB">
+		<artifact name="cmb-subscriber-svc" appMap="cmb-subscriber-svc.ear"/>
+		<artifact name="cmb-subscriber-svc-lite" appMap="cmb-subscriber-svc-lite"/>
+	</component>
+	<component name="CMB Equipment EJB">
+		<artifact name="cmb-equipment-svc"/>
+		<artifact name="cmb-equipment-svc-lite"/>
+	</component>
+	<component name="CMB Reference EJB">
+		<artifact name="cmb-reference-svc"/>
+	</component>
+	<component name="CMB Utility EJB">
+		<artifact name="cmb-utility-svc" appMap="Utility EJB"/>
+	</component>
+	<component name="CMB Monitoring EJB" filenames="monitoring_output_rolling.txt*" timestampFormat="yyyy-MM-dd">
+		<artifact name="cmb-monitoring-svc" appMap="Performance Monitoring EJB"/>
+	</component>
+	<component name="Kafka - Account" filenames="KafkaInfo.log*" timestampFormat="yyyy-MM-dd">
+		<artifact name="cmb-account-svc"/>
+		<artifact name="cmb-account-svc-lite"/>
+	</component>
+	<component name="Kafka - Subscriber" filenames="KafkaInfo.log*" timestampFormat="yyyy-MM-dd">
+		<artifact name="cmb-subscriber-svc" appMap="cmb-subscriber-svc.ear"/>
+		<artifact name="cmb-subscriber-svc-lite" appMap="cmb-subscriber-svc-lite"/>
+	</component>
+	<component name="Queues" filenames="FailureQueue.log*">
+		<artifact name="cmb-account-svc"/>
+		<artifact name="cmb-subscriber-svc" appMap="cmb-subscriber-svc.ear"/>
+		<artifact name="cmb-equipment-svc"/>
+	</component>
+	<component name="SLA Logs" filenames="SLAFailures.log*" timestampFormat="yyyy-MM-dd">
+		<artifact name="cmb-account-svc"/>
+		<artifact name="cmb-account-svc-lite"/>
+		<artifact name="cmb-subscriber-svc" appMap="cmb-subscriber-svc.ear"/>
+		<artifact name="cmb-subscriber-svc-lite" appMap="cmb-subscriber-svc-lite"/>
+		<artifact name="cmb-equipment-svc"/>
+		<artifact name="cmb-equipment-svc-lite"/>
+		<artifact name="cmb-reference-svc"/>
+	</component>
+	
+</application>

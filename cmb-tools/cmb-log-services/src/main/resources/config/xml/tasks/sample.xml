@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<task name="Reference Cache Refresh Notification" shortname="cacheRefresh" type="cacheRefresh">
+
+	<taskEnvironment shortname="pra" schedule="capiCacheRefresh">
+		<taskApplication shortname="capiejbs">
+			<taskComponent name="CMB Reference EJB">
+				<taskGrepString value="\[CACHE\] Refresh ends..total time=\["/>
+			</taskComponent>
+		</taskApplication>
+		<notifyParty email="wilson.cheong@telus.com"/>
+		<taskParam name="retryCount" value="10"/>
+		<taskParam name="retryDelay" value="60000"/>
+	</taskEnvironment>
+	
+	<taskEnvironment shortname="prb" schedule="disabled">
+		<taskApplication shortname="capiejbs">
+			<taskComponent name="CMB Reference EJB">
+				<taskGrepString value="\[CACHE\] Refresh ends..total time=\["/>
+			</taskComponent>
+		</taskApplication>
+		<notifyParty email="wilson.cheong@telus.com"/>
+	</taskEnvironment>
+	
+</task>	

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 sp1 (x64) (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/ReceivablesMgmt/WirelessPaymentServiceRequestResponse_v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5" xmlns:avalon="http://schemas.telus.com/avalon/common/v1_0" xmlns:resource="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" xmlns:enterprise="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/ReceivablesMgmt/WirelessPaymentServiceRequestResponse_v1" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5_0.xsd"/>
+	<xsd:import namespace="http://schemas.telus.com/avalon/common/v1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/AvalonCommonSchema_v1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/resource_order_reference_types_1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Resource/BaseTypes/ResourceOrderReferenceTypes_1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9_1.xsd"/>
+	<xsd:element name="processCreditCard">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="creditCardTransaction" type="tns:CreditCardTransaction"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processCreditCardResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="enterprise:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="authorizationNumber" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UserHeader" type="avalon:OriginatingUserType"/>
+	<xsd:element name="processPayment">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="creditCardTransaction" type="tns:CreditCardTransaction"/>
+				<xsd:element name="paymentSourceType" type="xsd:string"/>
+				<xsd:element name="paymentSourceId" type="xsd:string"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="true"/>
+				<xsd:element name="auditInfo" type="enterprise:AuditInfo" minOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processPaymentResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="enterprise:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="authorizationNumber" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processDeposit">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="creditCardTransaction" type="tns:CreditCardTransaction"/>
+				<xsd:element name="paymentSourceType" type="xsd:string"/>
+				<xsd:element name="paymentSourceId" type="xsd:string"/>
+				<xsd:element name="notificationSuppressionInd" type="xsd:boolean" default="true"/>
+				<xsd:element name="auditInfo" type="enterprise:AuditInfo" minOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processDepositResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="enterprise:ResponseMessage">
+					<xsd:sequence>
+						<xsd:element name="authorizationNumber" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CreditCardHolder">
+		<xsd:sequence>
+			<xsd:element name="clientId" type="xsd:string"/>
+			<xsd:element name="firstName" type="xsd:string"/>
+			<xsd:element name="lastName" type="xsd:string"/>
+			<xsd:element name="civicStreetNumber" type="xsd:string" nillable="true"/>
+			<xsd:element name="streetName" type="xsd:string" nillable="true"/>
+			<xsd:element name="apartmentNumber" type="xsd:string" nillable="true"/>
+			<xsd:element name="city" type="xsd:string" nillable="true"/>
+			<xsd:element name="province" type="common:ProvinceCode" nillable="true"/>
+			<xsd:element name="postalCode" type="common:PostalCode" nillable="true"/>
+			<xsd:element name="homePhone" type="common:PhoneNumber" nillable="true"/>
+			<xsd:element name="birthDate" type="xsd:date" nillable="true"/>
+			<xsd:element name="businessRole" type="xsd:string" nillable="true"/>
+			<xsd:element name="activationDate" type="xsd:date" nillable="true"/>
+			<xsd:element name="accountType" type="resource:AccountTypeCode" nillable="true"/>
+			<xsd:element name="accountSubType" type="resource:AccountSubTypeCode" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditCardTransaction">
+		<xsd:sequence>
+			<xsd:element name="banId" type="common:AccountNumber"/>
+			<xsd:element name="transactionType" type="xsd:string" default="CCV"/>
+			<xsd:element name="amount" type="common:PaymentAmount"/>
+			<xsd:element name="creditCard" type="enterprise:CreditCard"/>
+			<xsd:element name="chargeAuthorizationNumber" type="xsd:string" nillable="true"/>
+			<xsd:element name="creditCardHolder" type="tns:CreditCardHolder"/>
+			<xsd:element name="brandId" type="common:BrandId" default="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

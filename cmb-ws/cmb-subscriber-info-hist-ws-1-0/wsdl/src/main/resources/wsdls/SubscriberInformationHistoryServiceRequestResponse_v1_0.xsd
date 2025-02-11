@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/SubscriberInformationHistoryServiceRequestResponse_v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5" xmlns:ect="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" xmlns:sit="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3" xmlns:ssat="http://xmlschema.tmi.telus.com/xsd/Service/Service/SubscriberServiceAgreementTypes_v3" targetNamespace="http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/SubscriberInformationHistoryServiceRequestResponse_v1" elementFormDefault="qualified">
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9_1.xsd"/>
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v5_0.xsd"/>
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/SubscriberInformationTypes_v3_0.xsd"/>
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Service/Service/SubscriberServiceAgreementTypes_v3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Service/Service/SubscriberServiceAgreementTypes_v3_0.xsd"/>
+	<xs:complexType name="SubscriberStatusHistory">
+		<xs:sequence>
+			<xs:element name="statusDate" type="xs:dateTime"/>
+			<xs:element name="status" type="sit:SubscriberStatus"/>
+			<xs:element name="activityCode" type="common:ActivityCode"/>
+			<xs:element name="activityReasonCode" type="common:ReasonCode"/>
+			<xs:element name="previousBillingAccountNumber" type="common:AccountNumber"/>
+			<xs:element name="nextBillingAccountNumber" type="common:AccountNumber"/>
+			<xs:element name="brandId" type="common:BrandId"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubscriberStatusHistoryList">
+		<xs:annotation>
+			<xs:documentation>Represents a list of subscriber history items.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="subscriberHistoryDetail" type="tns:SubscriberStatusHistory" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubscriberStatusHistoryResult">
+		<xs:sequence>
+			<xs:element name="billingAccountNumber" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="subscriberNumber" type="common:SubscriberNumber" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="historyList" type="tns:SubscriberStatusHistoryList" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="getSubscriberStatusHistory">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Retrieves a list of subscriber history items. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="billingAccountNumber" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="subscriberNumber" type="common:SubscriberNumber" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="fromDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="toDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getSubscriberStatusHistoryResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="ect:ResponseMessage">
+					<xs:sequence>
+						<xs:element name="subscriberStatusHistory" type="tns:SubscriberStatusHistoryResult"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="PricePlanChangeHistory">
+		<xs:sequence>
+			<xs:element name="effectiveDate" type="xs:dateTime"/>
+			<xs:element name="expirationDate" type="xs:dateTime"/>
+			<xs:element name="newPricePlanCode" type="common:PricePlanCode"/>
+			<xs:element name="oldPricePlanCode" type="common:PricePlanCode"/>
+			<xs:element name="knowbilityOperatorID" type="xs:string"/>
+			<xs:element name="applicationID" type="xs:string"/>
+			<xs:element name="dealerCode" type="common:DealerCode"/>
+			<xs:element name="salesRepId" type="common:SalesRepCode"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PricePlanChangeHistoryList">
+		<xs:annotation>
+			<xs:documentation>Represents a list of price plan change history items.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="pricePlanChangeHistory" type="tns:PricePlanChangeHistory" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PricePlanChangeHistoryResult">
+		<xs:sequence>
+			<xs:element name="billingAccountNumber" type="common:AccountNumber"/>
+			<xs:element name="subscriberNumber" type="common:SubscriberNumber"/>
+			<xs:element name="historyList" type="tns:PricePlanChangeHistoryList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="getPricePlanChangeHistory">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Retrieves a list of subscriber price plan changes for given time interval. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="billingAccountNumber" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="subscriberNumber" type="common:SubscriberNumber" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="fromDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="toDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getPricePlanChangeHistoryResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="ect:ResponseMessage">
+					<xs:sequence>
+						<xs:element name="pricePlanChangeHistory" type="tns:PricePlanChangeHistoryResult"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ServiceChangeHistory">
+		<xs:sequence>
+			<xs:element name="effectiveDate" type="xs:dateTime"/>
+			<xs:element name="expirationDate" type="xs:dateTime"/>
+			<xs:element name="serviceCode" type="common:ServiceCode"/>
+			<xs:element name="knowbilityOperatorID" type="xs:string"/>
+			<xs:element name="applicationID" type="xs:string"/>
+			<xs:element name="dealerCode" type="common:DealerCode"/>
+			<xs:element name="salesRepId" type="common:SalesRepCode"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ServiceChangeHistoryList">
+		<xs:annotation>
+			<xs:documentation>Represents a list of ServiceChangeHistoryDetail</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="serviceChangeHistory" type="tns:ServiceChangeHistory" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ServiceChangeHistoryResult">
+		<xs:sequence>
+			<xs:element name="billingAccountNumber" type="common:AccountNumber"/>
+			<xs:element name="subscriberNumber" type="common:SubscriberNumber"/>
+			<xs:element name="serviceChangeHistoryList" type="tns:ServiceChangeHistoryList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="getServiceChangeHistory">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Retrieves a list of subscriber service changes for given time interval. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="billingAccountNumber" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="subscriberNumber" type="common:SubscriberNumber" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="fromDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="toDate" type="xs:date" maxOccurs="1"/>
+				<xs:element name="includeAllServicesInd" type="xs:boolean" default="false">
+					<xs:annotation>
+						<xs:documentation>If true, retrieves all SOCs that are not Price Plans; where false, only retrieves SOCs that are not designated as Price Plans, Optional or Auto Expired Optional</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getServiceChangeHistoryResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="ect:ResponseMessage">
+					<xs:sequence>
+						<xs:element name="serviceChangeHistory" type="tns:ServiceChangeHistoryResult"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ContractChangeHistory">
+		<xs:sequence>
+			<xs:element name="effectiveDate" type="xs:dateTime"/>
+			<xs:element name="commitmentStartDate" type="xs:dateTime"/>
+			<xs:element name="commitmentEndDate" type="xs:dateTime"/>
+			<xs:element name="reasonCode" type="common:ReasonCode"/>
+			<xs:element name="knowbilityOperatorID" type="xs:string"/>
+			<xs:element name="commitmentInMonths" type="common:ContractTerm"/>
+			<xs:element name="applicationID" type="xs:string"/>
+			<xs:element name="dealerCode" type="common:DealerCode"/>
+			<xs:element name="salesRepId" type="common:SalesRepCode"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContractChangeHistoryList">
+		<xs:annotation>
+			<xs:documentation>Represents a list of ContractChangeHistoryDetail</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="contractChangeHistory" type="tns:ContractChangeHistory" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContractChangeHistoryResult">
+		<xs:sequence>
+			<xs:element name="billingAccountNumber" type="common:AccountNumber"/>
+			<xs:element name="subscriberNumber" type="common:SubscriberNumber"/>
+			<xs:element name="historyList" type="tns:ContractChangeHistoryList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="getContractChangeHistory">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Retrieves a list of subscriber service changes for given time interval. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="billingAccountNumber" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="subscriberNumber" type="common:SubscriberNumber" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="fromDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="toDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getContractChangeHistoryResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="ect:ResponseMessage">
+					<xs:sequence>
+						<xs:element name="contractChangeHistory" type="tns:ContractChangeHistoryResult"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="FeatureParameterHistory">
+		<xs:sequence>
+			<xs:element name="serviceCode" type="common:ServiceCode"/>
+			<xs:element name="featureCode" type="common:FeatureCode"/>
+			<xs:element name="parameterName" type="xs:string"/>
+			<xs:element name="parameterValue" type="xs:string"/>
+			<xs:element name="creationDate" type="xs:dateTime"/>
+			<xs:element name="effectiveDate" type="xs:date"/>
+			<xs:element name="expirationDate" type="xs:date"/>
+			<xs:element name="knowbilityOperatorID" type="xs:string"/>
+			<xs:element name="applicationID" type="xs:string"/>
+			<xs:element name="updateDate" type="xs:dateTime"/>
+			<xs:element name="serviceSequenceNum" type="xs:string"/>
+			<xs:element name="serviceVersionNum" type="xs:string"/>
+			<xs:element name="featureSequenceNum" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FeatureParameterHistoryList">
+		<xs:annotation>
+			<xs:documentation>Represents a list of FeatureParameterHistoryDetail items</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="featureParameterHistory" type="tns:FeatureParameterHistory" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FeatureParameterHistoryResult">
+		<xs:sequence>
+			<xs:element name="billingAccountNumber" type="common:AccountNumber"/>
+			<xs:element name="subscriberNumber" type="common:SubscriberNumber"/>
+			<xs:element name="productType" type="common:ProductType"/>
+			<xs:element name="historyList" type="tns:FeatureParameterHistoryList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="getFeatureParameterHistoryByParameterName">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Retrieves a list of subscriber service changes for given time interval. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="billingAccountNumber" type="common:AccountNumber" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="subscriberNumber" type="common:SubscriberNumber" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="productType" type="common:ProductType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="parameterNameList">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="parameterNames" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="fromDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="toDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFeatureParameterHistoryByParameterNameResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="ect:ResponseMessage">
+					<xs:sequence>
+						<xs:element name="featureParameterChangeHistory" type="tns:FeatureParameterHistoryResult"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+    
+<!--  	<jee:jndi-lookup id="dataSource" jndi-name="cmb.jdbc.kb" resource-ref="true"/>	-->
+
+	<bean id="codsDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@crab:1521:DCODS"/>
+		<property name="username" value="basread"/>
+		<property name="password" value="basread"/>
+	</bean>
+ 
+	<bean id="coneDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@perch:1521:DSERV"/>
+		<property name="username" value="cone_app"/>
+		<property name="password" value="cone_app"/>
+	</bean>
+
+	<bean id="distDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@rac-ln99070-scan:41521:DISTPTsv1.world"/>
+		<property name="username" value="ivradm"/>
+		<property name="password" value="admivr"/>
+	</bean>
+	
+	<bean id="easDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@zebra:1521:DEAS"/>
+		<property name="username" value="actv_app"/>
+		<property name="password" value="actvapp"/>
+	</bean>
+
+	<bean id="ecpcsDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@crab:1523:DECPCS"/>
+		<property name="username" value="basread"/>
+		<property name="password" value="basread"/>
+	</bean>
+	
+	<bean id="knowbilityDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@yamuna:1521:qkb9"/>
+		<property name="username" value="basread2"/>
+		<property name="password" value="basread2"/>
+	</bean>
+	
+	<bean id="cconDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@scallop:41521:dccon"/>
+		<property name="username" value="cc_fraud_adm"/>
+		<property name="password" value="cfa123"/>
+	</bean>	
+</beans>

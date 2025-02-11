@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<task name="Load CAPI EJB Usage Logs" shortname="ejbUsageCache" type="ejbUsageCache">
+	
+	<taskEnvironment shortname="pr" schedule="monthlyRefresh">		
+		<taskParam name="archiveMonths" value="12"/>
+	</taskEnvironment>
+	
+</task>	

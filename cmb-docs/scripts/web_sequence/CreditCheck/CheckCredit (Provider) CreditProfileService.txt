@@ -1,0 +1,36 @@
+title CheckCredit (Provider) CreditProfileService
+note left of FrontEnd
+FR837907 Initial save of credit check information to KB
+FR837910 Create Account even if Credit Check Fails
+FR838666 Remove lookup credit message code logic from provider when calling HCD Web Service 3.0
+end note
+alt ConsumerAccount
+FrontEnd->+TMPostpaidConsumerAccount: checkCredit
+TMPostpaidConsumerAccount->CreditProfileService: performCreditCheck
+CreditProfileService->TMPostpaidConsumerAccount: CreditProfileServiceResponse
+note right of CreditProfileService
+ retrieving message is no longer
+ required because Credit Profile Service response
+ returns this information
+end note
+
+alt manualCreditRequest.transformed
+TMPostpaidConsumerAccount->AccountLifecycleManager: saveCreditCheckInfo
+AccountLifecycleManager->CreditCheckDao: saveCreditCheckInfo (with manual flag)
+CreditCheckDao->KB: setCreditEvaluationInfo 
+else else
+TMPostpaidConsumerAccount->AccountLifecycleManager: saveCreditCheckInfo
+AccountLifecycleManager->CreditCheckDao: saveCreditCheckInfo
+CreditCheckDao->KB: setCreditEvaluationInfo
+end
+TMPostpaidConsumerAccount->-FrontEnd: return checkResult
+
+else BusinessAccount
+FrontEnd->+TMPostpaidBusinessRegularAccount: checkCredit
+TMPostpaidBusinessRegularAccount->CreditProfileService: performBusinessCreditCheck
+CreditProfileService->TMPostpaidBusinessRegularAccount: CreditProfileServiceResponse
+TMPostpaidBusinessRegularAccount->AccountLifecycleManager: saveCreditCheckInfoForBusiness
+AccountLifecycleManager->CreditCheckDao: saveCreditCheckInfoForBusiness
+CreditCheckDao->KB: setCreditEvaluationInfo
+TMPostpaidBusinessRegularAccount->-FrontEnd: return checkResultInfo
+end

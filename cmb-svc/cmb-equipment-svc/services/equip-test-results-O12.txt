@@ -1,0 +1,72 @@
+
+Enter testRetrievePagerEquipmentInfo
+EquipmentInfo[
+associatedHandsetIMEI = null
+banID = 0
+ brand ids=[1]
+ browserProtocol = null
+ browserVersion = 
+ capCode = 
+ contractTermCredits = null
+ coverageRegion = null
+ coverageRegionCodes = null
+ currentCoverageRegionCode = null
+ encodingFormat = 
+ equipmentStatusDate = null
+ equipmentStatusID = 0
+ equipmentStatusTypeID = 0
+ equipmentType = 
+ equipmentTypeClass = 
+ firmwareVersion = 
+ firmwareVersionFeatureCodes = null
+ formattedCapCode = 
+ frequencyCode = 
+ initialActivation = false
+ lastMuleEquipment = null
+ lastMuleIMEI = 
+ legacy = false
+ modeCode = 0
+ modeDescription = 
+ modelType = null
+ phoneNumber = 
+ possession = 
+ prepaid = false
+ primary = true
+ PRLCode = null
+ PRLDescription = 
+ productCategoryId = 0
+ productClassCode = 
+ productClassDescription = 
+ productClassID = 0
+ productCode = 
+ productFeatures = null
+ productGroupTypeCode = 
+ productGroupTypeDescription = 
+ productGroupTypeDescriptionFrench = 
+ productGroupTypeID = 0
+ productName = 
+ productNameFrench = 
+ productPromoTypeList = null
+ productStatusCode = 
+ productType = P
+ productTypeDescription = 
+ productTypeDescriptionFrench = 
+ productTypeID = 0
+ profile = null
+ providerOwnerID = 0
+ PUKCode = 
+ serialNumber = 
+ shippedToLocation = 0
+ stolen = false
+ sublock1 = 
+ techType = 
+ unscanned = false
+ vendorName = 
+ vendorNo = 
+ virtual = false
+ vistoCapable = false
+ RIMPin = null
+ productPrePostpaidFlag = null
+]
+
+Exit testRetrievePagerEquipmentInfo

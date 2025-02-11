@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:typ="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0"
+           xmlns="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/enterprise_reference_types_1_0"
+		   xmlns:common="http://schemas.telus.com/eca/common_types_2_1"
+           targetNamespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/enterprise_reference_types_1_0"
+           elementFormDefault="qualified">
+		   
+	<xs:import namespace="http://schemas.telus.com/eca/common_types_2_1" 
+	schemaLocation="http://xmlschema.tmi.telus.com/xsd/legacy/ECA_CommonTypes_2_1.xsd"/>
+
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0" 
+	schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CustomerInformationReferenceTypes_1_0.xsd"/>
+
+	<xs:complexType name="UnitType">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+   </xs:complexType>
+	
+	<xs:complexType name="Province">
+		<xs:sequence>
+			<xs:element name="code" type="common:ProvinceCode"/>
+			<xs:element name="description" type="xs:string" nillable="true"/>
+			<xs:element name="descriptionFrench" type="xs:string" nillable="true"/>
+			<xs:element name="countryCode" type="xs:string"/>
+			<xs:element name="canadaPostCode" type="xs:string"/>
+		</xs:sequence>
+   </xs:complexType>
+	
+   <xs:complexType name="State">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+   </xs:complexType>	
+	
+   <xs:complexType name="Country">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+   </xs:complexType>		
+	
+   <xs:complexType name="Language">
+		<xs:complexContent>
+			<xs:extension base="typ:Reference">
+				<xs:sequence>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+   </xs:complexType>		
+</xs:schema>

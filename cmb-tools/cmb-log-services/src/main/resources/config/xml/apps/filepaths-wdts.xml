@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<application name="Wireless Data Toggle Service" shortname="wdts" path="/${root}/${host}/wls/8.1/${env}/logs/applications/${node}/applications/${artifact}-${version}/">
+	
+	<overrideValue name="env" value="P" environments="pra,prb"/>
+	<overrideValue name="env" value="S1" environments="st101a,st101b"/>
+	<overrideValue name="env" value="Q1" environments="pt148"/>
+	<overrideValue name="env" value="Q2" environments="pt140"/>
+	<overrideValue name="env" value="PT168" environments="pt168"/>
+	<overrideValue name="env" value="D3" environments="dv103"/>
+		
+	<component name="Wireless Data Toggle Service">
+		<artifact name="NotificationMgt_WDTS" version="2.*" appMap="Wireless Data Toggle Web Service"/>
+	</component>
+</application>

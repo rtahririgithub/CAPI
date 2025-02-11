@@ -1,0 +1,3181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://telus.com/wsdl/PMO/CatalogMgmt/ProductDeviceService_5" xmlns:shttp="http://soa.com/wsdl/http" xmlns:wss="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ex="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/Exceptions_v3" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:iface="http://telus.com/wsdl/PMO/CatalogMgmt/ProductDeviceService_5" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ProductDeviceService="http://xmlschema.tmi.telus.com/srv/PMO/CatalogMgmt/ProductDeviceServiceRequestResponse_v5" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ping="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://xmlschema.tmi.telus.com/srv/PMO/CatalogMgmt/ProductDeviceServiceRequestResponse_v5" version="5.5" xmlns:entcmt="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" xmlns:prodTypes="http://xmlschema.tmi.telus.com/xsd/Product/Product/ProductDeviceTypes_v4" xmlns:tns="http://xmlschema.tmi.telus.com/srv/PMO/CatalogMgmt/ProductDeviceServiceRequestResponse_v5" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Product/Product/ProductDeviceTypes_v4"/>
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9"/>
+	<xs:complexType name="SubCategoryListRequest">
+		<xs:annotation>
+			<xs:documentation>Represents a list of parameters in order to fetch all the nodes configured for the particular  hiearchical structure defined by categoryRootTypeCd and categoryLineOfBusinessTxt. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="entityCategoryRootTypeCd" type="xs:string"/>
+			<xs:element minOccurs="0" name="entityCategoryLineOfBusinessTxt" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="getSubCategoryList">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>Represents a list of parameters in order to fetch all the nodes configured for the particular  hiearchical structure defined by categoryRootTypeCd and categoryLineOfBusinessTxt. </xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element maxOccurs="100" name="getSubCategoryList" type="tns:SubCategoryListRequest"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getSubCategoryListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="subCategoryList" type="prodTypes:Category"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="AssociatedProductListRequest">
+		<xs:sequence>
+			<xs:element name="entityCategoryRootTypeCd" type="xs:string"/>
+			<xs:element name="entityCategoryRootId" type="xs:long"/>
+			<xs:element name="entityCategoryTypeCd" type="xs:string"/>
+			<xs:element name="entityCategoryId" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="getAssociatedProductList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="100" name="categoryList" type="tns:AssociatedProductListRequest"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="AssociatedProductList">
+		<xs:sequence>
+			<xs:element name="category" type="prodTypes:Category"/>
+			<xs:element maxOccurs="unbounded" name="productList" type="prodTypes:ProductHeader"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="getAssociatedProductListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="100" minOccurs="0" name="associatedProductList" type="tns:AssociatedProductList"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productID" type="xs:long"/>
+				<xs:element name="languageCd" type="entcmt:localeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductInfoResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element name="productHeader" type="prodTypes:ProductHeader"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFirmwareFeature">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="firmwareVersionID" type="xs:string"/>
+				<xs:element name="languageCd" type="entcmt:localeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFirmwareFeatureResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="FeatureList" type="prodTypes:Feature"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getPagingProductInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="pagingProductID" type="xs:long"/>
+				<xs:element name="frequencyID" type="xs:long"/>
+				<xs:element name="languageCd" type="entcmt:localeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getPagingProductInfoResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="ProductPagingHeader" type="prodTypes:ProductPagingHeader"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductAdjustmentDetail">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productID" type="xs:long"/>
+				<xs:element name="languageCd" type="entcmt:localeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductAdjustmentDetailResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="ProductAdjustmentDetailList" type="prodTypes:ProductAdjustmentDetail"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductServiceDetail">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productID" type="xs:long"/>
+				<xs:element name="languageCd" type="entcmt:localeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductServiceDetailResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="ProductServiceDetailList" type="prodTypes:ProductServiceDetail"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProduct">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="productID" type="xs:long"/>
+				<xs:element minOccurs="0" name="featureCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="featureGroupCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="firmwareVersion" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element name="product" type="prodTypes:Product"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="productListRequest">
+		<xs:sequence>
+			<xs:element name="productCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="featureCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="featureGroupCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="firmwareVersion" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="getProductList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="25" name="productList" type="tns:productListRequest"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="25" name="productList" type="prodTypes:Product"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductHeader">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productID" type="xs:long"/>
+				<xs:element name="productCode" type="xs:string"/>
+				<xs:element name="sapMaterialNum" type="xs:string"/>
+				<xs:element default="false" minOccurs="0" name="includeProductHierarchy" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductHeaderResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="productHeader" type="prodTypes:ProductHeader"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductHeaderList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" name="productIdList" type="xs:long"/>
+				<xs:element maxOccurs="1000" name="productCodeList" type="xs:string"/>
+				<xs:element default="false" minOccurs="0" name="includeProductHierarchy" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductHeaderListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="productHeaderList" type="prodTypes:ProductHeader"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getSwappableProductHeaderList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="technologyType" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getSwappableProductHeaderListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="productHeaderList" type="prodTypes:ProductHeader"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductTechnologyGroup">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productID" type="xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductTechnologyGroupResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="productTechnologyGroup" type="prodTypes:ProductTechnologyGroup"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductTechnologyGroupList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" name="productIdList" type="xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductTechnologyGroupListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="productTechnologyGroup" type="prodTypes:ProductTechnologyGroup"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductInventoryModel">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productID" type="xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductInventoryModelResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="productInventoryModel" type="prodTypes:ProductInventoryModel"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductInventoryModelList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" name="productIdList" type="xs:long"/>
+				<xs:element name="productCode" type="xs:string"/>
+				<xs:element name="productInventoryModelDescEn" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductInventoryModelListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="productInventoryModelList" type="prodTypes:ProductInventoryModel"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getTechnologyTypeByInventoryModelId">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="inventoryModelID" type="xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getTechnologyTypeByInventoryModelIdResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="technologyType" type="xs:string"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductFrequencyMode">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productID" type="xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductFrequencyModeResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="productMode" type="prodTypes:ProductFrequencyMode"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductFrequencyModeList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" name="productIDList" type="xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductFrequencyModeListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="productFrequencyModeList" type="prodTypes:ProductFrequencyMode"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFirmwareAndBrowserInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="requestDetail" type="prodTypes:FirmwareAndBrowserInfoRqstDetail"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFirmwareAndBrowserInfoResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="firmwareAndBrowserInfo" type="prodTypes:FirmwareAndBrowserInfo"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFirmwareAndBrowserInfoList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" name="requestDetailList" type="prodTypes:FirmwareAndBrowserInfoRqstDetail"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFirmwareAndBrowserInfoListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="firmwareAndBrowserInfoList" type="prodTypes:FirmwareAndBrowserInfo"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductFeature">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productID" type="xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductFeatureResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="productFeature" type="prodTypes:ProductFeature"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductFeatureList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" name="productIDList" type="xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductFeatureListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="productFeatureList" type="prodTypes:ProductFeature"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductPrice">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="provinceCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="perspectiveDate" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductPriceResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="productBasePrice" type="prodTypes:ProductBasePrice"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductPriceList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" name="productCodeList" type="xs:string"/>
+				<xs:element minOccurs="0" name="provinceCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="perspectiveDate" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductPriceListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="productBasePriceList" type="prodTypes:ProductBasePrice"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getReferencedProduct">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="productId" type="xs:long"/>
+				<xs:element minOccurs="0" name="referenceTypeCode" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getReferencedProductResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="referencedProductList" type="prodTypes:ReferencedProduct"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBibAmount">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="termCnt" type="xs:long"/>
+				<xs:element minOccurs="0" name="perspectiveDate" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBibAmountResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="productBibAmountList" type="prodTypes:ProductBibAmount"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBibAmountList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" name="productCodeList" type="xs:string"/>
+				<xs:element minOccurs="0" name="termCnt" type="xs:long"/>
+				<xs:element minOccurs="0" name="perspectiveDate" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBibAmountListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="productBibAmountList" type="prodTypes:ProductBibAmount"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductCredit">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="accountTypeCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="hardwareValidationReasonCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="perspectiveDate" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductCreditResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="productCredit" type="prodTypes:ProductCredit"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductCreditList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" name="productCodeHVReason" type="prodTypes:ProductCodeHVReason"/>
+				<xs:element minOccurs="0" name="accountTypeCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="perspectiveDate" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductCreditListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="productCreditList" type="prodTypes:ProductCredit"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductChannelCost">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productCode" type="xs:string"/>
+				<xs:element name="chnlOrgTypeCode" type="xs:string"/>
+				<xs:element name="provinceCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="perspectiveDate" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductChannelCostResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="productChannelCost" type="prodTypes:ProductChannelCost"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductChannelCostList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" name="productCodeList" type="xs:string"/>
+				<xs:element name="chnlOrgTypeCode" type="xs:string"/>
+				<xs:element name="provinceCode" type="xs:string"/>
+				<xs:element minOccurs="0" name="perspectiveDate" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductChannelCostListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="productChannelCostList" type="prodTypes:ProductChannelCost"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductUSIMProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productID" type="xs:long"/>
+				<xs:element minOccurs="0" name="profileCode" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductUSIMProfileResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element name="productUSIMProfile" type="prodTypes:ProductUSIMProfile"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBrowserVersionInfoByProductID">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productID" type="xs:long"/>
+				<xs:element minOccurs="0" name="browserVersion" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBrowserVersionInfoByProductIDResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element name="browserVersion" type="prodTypes:BrowserVersion"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFirmwareVersionInfoByProductID">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productID" type="xs:long"/>
+				<xs:element minOccurs="0" name="firmwareVersion" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFirmwareVersionInfoByProductIDResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element name="firmwareVersion" type="prodTypes:FirmwareVersion"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFirmwareVersionInfoList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" name="firmwareVersionList" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFirmwareVersionInfoListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="firmwareVersionList" type="prodTypes:FirmwareVersion"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductFinanceList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1000" minOccurs="1" name="productCodeList" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="1" name="accountTypeCode" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="provinceCode" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="termType" type="xs:int"/>
+				<xs:element minOccurs="0" name="perspectiveDate" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductFinanceListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="1000" minOccurs="0" name="productFinanceList" type="prodTypes:ProductFinance"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductSummaryList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="0" name="classificationCode" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="categoryDescription" type="entcmt:MultilingualDescriptionList"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="technologyType" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="manufacturerName" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="perspectiveDate" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductSummaryListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="productSummaryList" type="prodTypes:ProductSummary"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductInventoryList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="productIdList" type="xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductInventoryListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="productInventoryList" type="prodTypes:ProductInventory"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductCompatibilityList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:long"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="productTypeTxt" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductCompatibilityListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="productList" type="prodTypes:ProductCompatibility"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductSegregationList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="1" name="channelOrgId" type="xs:long"/>
+				<xs:element maxOccurs="1" minOccurs="1" name="includeExpiredIndicator" type="xs:boolean"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="productTypeTxt" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getProductSegregationListResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:ErrorResponseMessage">
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="productList" type="prodTypes:ProductSegregation"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ErrorResponseMessage">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="messageList">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="entcmt:ResponseMessage"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+    <xs:schema targetNamespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1" version="1.0" xmlns:tns="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="pingResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="version" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ping">
+		<xs:complexType>
+			<xs:sequence/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" version="9.0" xmlns:tns="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="indicatorType">
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+	<xs:simpleType name="localeType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="codeType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="codeDescTextType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="CodeDescText">
+		<xs:annotation>
+			<xs:documentation>Represents an internationalized string.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="locale" type="tns:localeType">
+				<xs:annotation>
+					<xs:documentation>Ex. EN_CA, FR_CA</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codeDescText" type="tns:codeDescTextType">
+				<xs:annotation>
+					<xs:documentation>Message text</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MultilingualCodeDescTextList">
+		<xs:annotation>
+			<xs:documentation>Represents a list of internationalized strings.  One for each language.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="10" name="codeDescText" type="tns:CodeDescText"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageType">
+		<xs:annotation>
+			<xs:documentation>This type is created as a workaround for what seems like a bug in the Oracle XML binding classes.  There are certain cases when a CodeDescTextList is used as an element type with multiplicity greater than 1 a &quot;Unable to lookup BindingTypeName&quot; error occurs at runtime.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="message" type="tns:MultilingualCodeDescTextList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Name">
+		<xs:annotation>
+			<xs:documentation>Represents an internationalized string.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="locale" type="tns:localeType">
+				<xs:annotation>
+					<xs:documentation>Ex. EN_CA, FR_CA</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>name  text</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MultilingualNameList">
+		<xs:annotation>
+			<xs:documentation>Represents a list of internationalized strings.  One for each language.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="10" name="name" type="tns:Name"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Description">
+		<xs:annotation>
+			<xs:documentation>Represents an internationalized string.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="locale" type="tns:localeType">
+				<xs:annotation>
+					<xs:documentation>Ex. EN_CA, FR_CA</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descriptionText" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Description  text</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MultilingualDescriptionList">
+		<xs:annotation>
+			<xs:documentation>Represents a list of internationalized strings.  One for each language.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="10" name="description" type="tns:Description"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MultilingualCodeDescriptionList">
+		<xs:annotation>
+			<xs:documentation>Represents Code value plus the list of internationalized strings describing it.  One for each language.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="code" type="tns:codeType"/>
+			<xs:element maxOccurs="10" minOccurs="0" name="description" type="tns:Description"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResponseMessage">
+		<xs:annotation>
+			<xs:documentation>This construct can be used for a standard response structure if error and error context data is required to be returned by a service operation.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="dateTimeStamp" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="errorCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="messageType" type="xs:string"/>
+			<xs:element minOccurs="0" name="transactionId" type="xs:string"/>
+			<xs:element maxOccurs="10" minOccurs="0" name="messageList" type="tns:Message"/>
+			<xs:element minOccurs="0" name="contextData" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResponseStatus">
+		<xs:annotation>
+			<xs:documentation>This construct can be used for a standard response structure for RESTful APIs.
+REST design normally maps error conditions to existing well-established HTTP error codes, e.g. 200 (&quot;OK&quot;), 404 (&quot;Resource not found&quot;).
+Both for reasons of design flexibility (the predefined codes often seem ill-suited to specific conditions) and technical limitations (the SOA Software Policy Manager's implementation of exposing SOAP services as REST as described above), we are taking a different approach.
+Generally, as long as the call to the SOA-bound service succeeds, the HTTP response status will be 200 (success), even when there are underlying failures, and a &quot;status&quot; object, always part of the response payload, is used to indicate any such failures. (This is the approach Facebook takes.)
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="statusCd" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>HTTP result code - Possible/typical values: 200, 400, 500</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="statusSubCd" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Our internal status code - Possible/typical values: UM1, UM2</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="statusTxt" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Short description of status - Possible/typical values: Invalid URL; CustomerRatingInquiry call failed</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="systemErrorCd" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>If the underlying service we call returns its own error code, we'll include it here, e.g. Contents of faultString in error response - Possible/typical values: &quot;error: java.lang.IllegalArgumentException&quot;; &quot;BAN [90653242] Not Found&quot;</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="systemErrorTimeStamp" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Time of underlying error (to help in locating error in logs) - Possible/typical values: 2013-05-23T11:07:48</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="systemErrorTxt" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Description of system error; messageId, errorCode from PolicyException - Possible/typical values: &quot;messageId: APP10004; errorCode CMB_AIS_0001&quot;</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Message">
+		<xs:sequence>
+			<xs:element name="locale" type="xs:string"/>
+			<xs:element name="message" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AuditInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="userId" type="xs:string"/>
+			<xs:element minOccurs="0" name="userTypeCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="salesRepresentativeId" type="xs:string"/>
+			<xs:element minOccurs="0" name="channelOrganizationId" type="xs:string"/>
+			<xs:element minOccurs="0" name="outletId" type="xs:string"/>
+			<xs:element minOccurs="0" name="originatorApplicationId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Captures the upstream/downstream application identity (i.e. not necessarily the one that is authenticating to use the service as a client)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="correlationId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Used to correlate the client side log event to the request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="timestamp" type="xs:dateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="masterSourceIdType">
+		<xs:annotation>
+			<xs:documentation>CMDB identifier for the database or system mastering this data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<xs:complexType name="brandType">
+		<xs:sequence>
+			<xs:element name="brandId" type="tns:brandIdType"/>
+			<xs:element minOccurs="0" name="brandNameDecode" type="tns:CodeDescText"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="brandIdType">
+		<xs:annotation>
+			<xs:documentation>TELUS brand identifier.  List of values in RefPDS: BRAND_NAME</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<xs:simpleType name="currencyCodeType">
+		<xs:annotation>
+			<xs:documentation>Currency codes from ISO 4217.  e.g. CAD, USD</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="languageCodeType">
+		<xs:annotation>
+			<xs:documentation>Canadian and US language codes from ISO 639: 2-letter codes.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="unitOfMeasureCodeType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="unitQuantityType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:complexType name="CreditCard">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="token" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>the token for the encrypted credit card information.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="first6" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The first 6 digits of a credit card is used by some systems to determine the credit card type.  It is reccomended to use card type rather than first 6</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="cardType" type="tns:MultilingualCodeDescriptionList">
+				<xs:annotation>
+					<xs:documentation>Visa, MasterCard, etc.  RefPDS: CREDIT_CARD_TYPE has the standard codes to use</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="1" name="last4" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The last 4 digits on a credit card number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="1" name="expiryMonth" type="tns:Month"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="expiryYear" type="xs:int"/>
+			<xs:element minOccurs="0" name="cardVerificationData" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>the 3-4 verification digits on the front or back of the card.  Also called the Card Verification Value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="holderName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Month">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MonthDay">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="31"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="DriversLicense">
+		<xs:sequence>
+			<xs:element name="driversLicenseNumber" type="xs:string"/>
+			<xs:element name="provinceCode" type="tns:ProvinceCodeType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="expiryDate" type="xs:dateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProvincialIdCard">
+		<xs:sequence>
+			<xs:element name="provincialIdNumber" type="xs:string"/>
+			<xs:element name="provinceCode" type="tns:ProvinceCodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Passport">
+		<xs:sequence>
+			<xs:element name="passportNumber" type="xs:string"/>
+			<xs:element name="countryCode" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HealthCard">
+		<xs:sequence>
+			<xs:element name="healthCardNumber" type="xs:string"/>
+			<xs:element minOccurs="0" name="provinceCode" type="tns:ProvinceCodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ProvinceCodeType">
+		<xs:annotation>
+			<xs:documentation>Province Code Type. Its value must be one of the values defined in reference ods table named: PROVINCE.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="PartyName">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="nameId" type="tns:nameIdType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="fullName" type="tns:fullNameType">
+				<xs:annotation>
+					<xs:documentation>A derived attribute obtained by putting all the name attributes into a formatted string</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="supplementaryName" type="tns:supplementaryNameType">
+				<xs:annotation>
+					<xs:documentation>The operating / doing business as / fictional business name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="supplementaryNameOperatingCode" type="tns:supplementaryNameOperatingCodeType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="nameRelText" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Trustee for, Executor for, or In Trust for.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="lastUpdateTimeStamp" type="xs:dateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IndividualName">
+		<xs:complexContent>
+			<xs:extension base="tns:PartyName">
+				<xs:sequence>
+					<xs:element maxOccurs="1" minOccurs="0" name="nameSalutation" type="tns:MultilingualCodeDescTextList"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="firstName" type="tns:firstNameType"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="lastName" type="tns:lastNameType"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="middleName" type="tns:middleNameType"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="nameSuffixCode" type="tns:MultilingualCodeDescTextList"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="nameNonStandardSuffix" type="tns:MultilingualCodeDescTextList"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrganizationName">
+		<xs:complexContent>
+			<xs:extension base="tns:PartyName">
+				<xs:sequence>
+					<xs:element maxOccurs="1" minOccurs="1" name="orgName" type="tns:organizationNameType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="UnknownName">
+		<xs:complexContent>
+			<xs:extension base="tns:PartyName">
+				<xs:sequence>
+					<xs:element maxOccurs="1" minOccurs="0" name="orgName" type="tns:organizationNameType"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="nameSalutation" type="tns:MultilingualCodeDescTextList"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="firstName" type="tns:firstNameType"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="lastName" type="tns:lastNameType"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="middleName" type="tns:middleNameType"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="nameSuffix" type="tns:MultilingualCodeDescTextList"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="nameNonStandardSuffix" type="tns:MultilingualCodeDescTextList"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="nameIdType">
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<xs:simpleType name="nameTypeCodeType">
+		<xs:annotation>
+			<xs:documentation>The type of party this name is for: P- Person, O- Organization, U-Unknown</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="fullNameType">
+		<xs:annotation>
+			<xs:documentation>dervived field (algorithm including full person name or business name, and any supplementary names if applicable)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="organizationNameType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="firstNameType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="lastNameType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="middleNameType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="supplementaryNameType">
+		<xs:annotation>
+			<xs:documentation>The name that the person or organization is &quot;doing business as&quot; / &quot;operating as&quot;
+			E.g. &quot;John Doe O/A Petro Canada&quot; - Petro Canada is the supplementary name
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="supplementaryNameOperatingCodeType">
+		<xs:annotation>
+			<xs:documentation>O/A- Operating As, D/B- Doing Business as</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="nameAssignmentTypeCodeType">
+		<xs:annotation>
+			<xs:documentation>L- Legal, A- Alias, P- Preferred, I- Additional Info</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="MarketSegment">
+		<xs:sequence>
+			<xs:element minOccurs="1" name="marketSegmentType" type="tns:MultilingualCodeDescriptionList">
+				<xs:annotation>
+					<xs:documentation>The Type of market Segmentation: e.g. CBU, SS1, SS2, VALS.  RefPDS: MKT_SEG_TYPE</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="1" name="marketSegmentValue" type="tns:MultilingualCodeDescriptionList">
+				<xs:annotation>
+					<xs:documentation>The value of the segmentation: VALS: 1,2,CS1,CS2 or CBU: A1, B1, C1 etc.  
+RefPDS: 1 per TYPE.  
+MKT_SEG_A, 
+MKT_SEG_CBU, BI_CM_RELATIONSHIP_MANAGEMENT_SEGMENT, ...</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="lastUpdateTimeStamp" type="xs:dateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BankAccount">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="bankCode" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>also called the institution number. It is the code is used to identify the bank. e.g. 003 - Royal Bank</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="1" name="branchNumber" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Also called transit number. the number used to identify the bank branch for the institution. e.g. 12345 - the branch at hastings and main</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="accountNumber" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>the number used to identity the account</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="accountNumberLastNDigit" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>the last N digits of the account number.  This is used for display</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Quantity">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="amount" type="xs:double"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="unit" type="tns:MultilingualCodeDescriptionList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MonetaryAmt">
+		<xs:complexContent>
+			<xs:extension base="tns:Quantity"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Duration">
+		<xs:complexContent>
+			<xs:extension base="tns:Quantity"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Rate">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="numerator" type="tns:MonetaryAmt"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="denominator" type="tns:Duration"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/Exceptions_v3" xmlns:exc="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/Exceptions_v3" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="ServiceException" type="exc:FaultExceptionDetailsType">
+		<xsd:annotation>
+			<xsd:documentation>Service exception fault when downstream services are not available.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="Message">
+		<xsd:sequence>
+			<xsd:element name="locale" type="xsd:string"/>
+			<xsd:element name="errorMessage" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MessageList">
+		<xsd:sequence>
+			<xsd:element maxOccurs="10" name="Message" type="exc:Message"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FaultExceptionDetailsType">
+		<xsd:sequence>
+			<xsd:element name="messageId" type="xsd:string"/>
+			<xsd:element name="errorCode" type="xsd:string"/>
+			<xsd:element name="errorMessage" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="additionalLanguageErrorMessages" type="exc:MessageList"/>
+			<xsd:element maxOccurs="100" minOccurs="0" name="variables" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
+    <xsd:schema targetNamespace="http://telus.com/wsdl/PMO/CatalogMgmt/ProductDeviceService_5" xmlns:ProductDeviceService="http://xmlschema.tmi.telus.com/srv/PMO/CatalogMgmt/ProductDeviceServiceRequestResponse_v5" xmlns:ex="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/Exceptions_v3" xmlns:iface="http://telus.com/wsdl/PMO/CatalogMgmt/ProductDeviceService_5" xmlns:ping="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1" xmlns:shttp="http://soa.com/wsdl/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wss="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+         <xsd:import namespace="http://xmlschema.tmi.telus.com/srv/PMO/CatalogMgmt/ProductDeviceServiceRequestResponse_v5"/>
+         <xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/Exceptions_v3"/>
+         <xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/types/ping_v1"/>
+      </xsd:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Product/Product/ProductDeviceTypes_v4" version="4.5" xmlns:entcmt="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9" xmlns:tns="http://xmlschema.tmi.telus.com/xsd/Product/Product/ProductDeviceTypes_v4" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v9"/>
+	<xs:complexType name="Category">
+		<xs:sequence>
+			<xs:element name="entityCategoryRootTypeCd" type="xs:string"/>
+			<xs:element name="entityCategoryId" type="xs:long"/>
+			<xs:element minOccurs="0" name="entityRelationshipId" type="xs:long"/>
+			<xs:element minOccurs="0" name="entityCategoryCd" type="xs:string"/>
+			<xs:element name="entityCategoryTypeCd" type="xs:string"/>
+			<xs:element minOccurs="0" name="parentEntityCategoryId" type="xs:long"/>
+			<xs:element minOccurs="0" name="parentEntityCategoryCd" type="xs:string"/>
+			<xs:element minOccurs="0" name="entityCategoryName" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element minOccurs="0" name="entityCategoryDescription" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element maxOccurs="1000" minOccurs="0" name="subCategoryList" type="tns:Category"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductFrequencyModeDetail">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="descriptionFrench" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductFrequencyMode">
+		<xs:sequence>
+			<xs:element name="northAmericaRoamingCapableInd" type="xs:boolean"/>
+			<xs:element name="internationalLimitedRoamingCapableInd" type="xs:boolean"/>
+			<xs:element name="fullInternationalRoamingCapableInd" type="xs:boolean"/>
+			<xs:element name="productID" type="xs:long"/>
+			<xs:element maxOccurs="1000" minOccurs="0" name="productFrequencyModeDetailList" type="tns:ProductFrequencyModeDetail"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductFeature">
+		<xs:sequence>
+			<xs:element name="gpsInd" type="xs:boolean"/>
+			<xs:element name="legacyInd" type="xs:boolean"/>
+			<xs:element name="vistoCapableInd" type="xs:boolean"/>
+			<xs:element name="productID" type="xs:long"/>
+			<xs:element maxOccurs="1000" minOccurs="0" name="featureList" type="tns:Feature"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FirmwareVersion">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="firmwareVersion" type="xs:string"/>
+			<xs:element minOccurs="0" name="support1xBrowserInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="javaDownloadInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="contentDownloadInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="userAgent" type="xs:string"/>
+			<xs:element minOccurs="0" name="userAgentProfUrl" type="xs:string"/>
+			<xs:element minOccurs="0" name="mpcapCode" type="xs:string"/>
+			<xs:element maxOccurs="1000" minOccurs="0" name="featureList" type="tns:Feature"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Feature">
+		<xs:sequence>
+			<xs:element name="featureID" type="xs:long"/>
+			<xs:element name="featureCode" type="xs:string"/>
+			<xs:element name="featureDescription" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element minOccurs="0" name="featureComment" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element name="featureGroupCode" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Classification">
+		<xs:sequence>
+			<xs:element name="classificationID" type="xs:long"/>
+			<xs:element name="code" type="xs:string"/>
+			<xs:element name="description" type="entcmt:MultilingualDescriptionList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductCategory">
+		<xs:sequence>
+			<xs:element name="categoryID" type="xs:long"/>
+			<xs:element name="categoryDescription" type="entcmt:MultilingualDescriptionList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BrowserVersion">
+		<xs:sequence>
+			<xs:element name="browserVersion" type="xs:string"/>
+			<xs:element name="protocol" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FirmwareAndBrowserInfo">
+		<xs:sequence>
+			<xs:element name="evdoCapableInd" type="xs:boolean"/>
+			<xs:element name="mmsCapableInd" type="xs:boolean"/>
+			<xs:element name="msBasedEnabledInd" type="xs:boolean"/>
+			<xs:element name="pttEnabledInd" type="xs:boolean"/>
+			<xs:element name="smsCapableInd" type="xs:boolean"/>
+			<xs:element name="contentDownloadCapableInd" type="xs:boolean"/>
+			<xs:element name="javaDownloadCapableInd" type="xs:boolean"/>
+			<xs:element name="support1xBrowserInd" type="xs:boolean"/>
+			<xs:element name="otapCapableInd" type="xs:boolean"/>
+			<xs:element name="mototalkCapableInd" type="xs:boolean"/>
+			<xs:element name="productID" type="xs:long"/>
+			<xs:element name="technologyType" type="xs:string"/>
+			<xs:element name="defaultInd" type="xs:boolean"/>
+			<xs:element name="prlCode" type="xs:string"/>
+			<xs:element name="effectiveDate" type="xs:dateTime"/>
+			<xs:element name="expirationDate" type="xs:dateTime"/>
+			<xs:element name="browserVersion" type="tns:BrowserVersion"/>
+			<xs:element name="firmwareVersion" type="tns:FirmwareVersion"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductTechnologyGroup">
+		<xs:sequence>
+			<xs:element name="technologyGroup" type="tns:TechnologyGroup"/>
+			<xs:element name="productID" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductTechnologyType">
+		<xs:sequence>
+			<xs:element name="technologyType" type="xs:string"/>
+			<xs:element name="technologyTypeDescription" type="entcmt:MultilingualDescriptionList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TechnologyGroup">
+		<xs:sequence>
+			<xs:element name="technologyGroupTypeID" type="xs:long"/>
+			<xs:element name="code" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="descriptionFrench" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductInventoryModel">
+		<xs:sequence>
+			<xs:element name="inventoryModel" type="tns:InventoryModel"/>
+			<xs:element name="productID" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InventoryModel">
+		<xs:sequence>
+			<xs:element name="inventoryModelID" type="xs:long"/>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="descriptionFrench" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CatalogueItem">
+		<xs:sequence>
+			<xs:element name="catalogueItemID" type="xs:long"/>
+			<xs:element name="catalogueItemTypeCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="catalogueItemEffectiveDate" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="catalogueItemExpirationDate" type="xs:dateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CatalogueItemCategoryType">
+		<xs:sequence>
+			<xs:element name="catalogueItemCategoryCd" type="xs:string"/>
+			<xs:element name="catalogueItemCategoryTypeCd" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CatalogueItemCategoryList">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="category" type="tns:CatalogueItemCategoryType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductHeader">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="catalogueItem" type="tns:CatalogueItem"/>
+			<xs:element minOccurs="0" name="catalogueItemCategoryList" type="tns:CatalogueItemCategoryList"/>
+			<xs:element minOccurs="0" name="hierarchicalGrouping" type="tns:Category"/>
+			<xs:element minOccurs="0" name="productID" type="xs:long"/>
+			<xs:element name="productCode" type="xs:string"/>
+			<xs:element name="productName" type="entcmt:MultilingualNameList"/>
+			<xs:element minOccurs="0" name="productDescription" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element minOccurs="0" name="universalProductCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="productEffective" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="productExpirationDate" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="productLoadDate" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="productUpdateDate" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="sapMaterialNum" type="xs:string"/>
+			<xs:element minOccurs="0" name="esimEnabledCd" type="xs:string"/>
+			<xs:element minOccurs="0" name="restockableInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="swapableInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="saleableInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="equipModelInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="manufacturerProductCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="serializedInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="prepostPaidCd" type="xs:string"/>
+			<xs:element name="technologyType" type="tns:ProductTechnologyType"/>
+			<xs:element minOccurs="0" name="productTypeCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="equipmentTypeCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="semsEquipmentGroupCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="brandID" type="xs:long"/>
+			<xs:element minOccurs="0" name="brandCode" type="xs:string"/>
+			<xs:element name="classification" type="tns:Classification"/>
+			<xs:element name="category" type="tns:ProductCategory"/>
+			<xs:element minOccurs="0" name="statusCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="idenInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="cellularInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="cellularDigitalInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="analogInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="pcsInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="pagerInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="onexRTTInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="onexRTTCardInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="handsetInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="simCardInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="rimInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="cellularRIMInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="idenRIMInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="ruimCardInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="assetTagInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="dataCapableInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="dataCardInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="dispatchEnabledInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="muleInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="pdaInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="worldPhoneInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="dataModemInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="dataVoiceModemInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="usimCardInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="hspaEquipmentInd" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="manufacturerId" type="xs:long"/>
+			<xs:element minOccurs="0" name="manufacturerName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AttachedFeaturedSIMProfile">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="featureID" type="xs:long"/>
+			<xs:element minOccurs="0" name="featureCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="featureComment" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element minOccurs="0" name="featureGroupCode" type="xs:string"/>
+			<xs:element name="attachedSIMProfileCd" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Product">
+		<xs:sequence>
+			<xs:element name="product" type="tns:ProductHeader"/>
+			<xs:element maxOccurs="1000" minOccurs="0" name="featureList" type="tns:Feature"/>
+			<xs:element minOccurs="0" name="attachedFeaturedSIMProfile" type="tns:AttachedFeaturedSIMProfile"/>
+			<xs:element minOccurs="0" name="vendorName" type="xs:string"/>
+			<xs:element minOccurs="0" name="vendorNum" type="xs:string"/>
+			<xs:element name="evdoCapableInd" type="xs:boolean"/>
+			<xs:element name="gpsInd" type="xs:boolean"/>
+			<xs:element name="legacyInd" type="xs:boolean"/>
+			<xs:element name="mmsCapableInd" type="xs:boolean"/>
+			<xs:element name="msBasedEnabledInd" type="xs:boolean"/>
+			<xs:element name="pttEnabledInd" type="xs:boolean"/>
+			<xs:element name="smsCapableInd" type="xs:boolean"/>
+			<xs:element name="telephonyEnabledInd" type="xs:boolean"/>
+			<xs:element name="vistoCapableInd" type="xs:boolean"/>
+			<xs:element name="wirelessWebEnabledInd" type="xs:boolean"/>
+			<xs:element name="appleInd" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductPagingHeader">
+		<xs:sequence>
+			<xs:element name="baudRate" type="xs:string"/>
+			<xs:element name="model" type="xs:integer"/>
+			<xs:element name="encoderFormatCode" type="xs:string"/>
+			<xs:element name="encoderFormatString" type="xs:string"/>
+			<xs:element name="modelType" type="xs:string"/>
+			<xs:element name="modelTypeDescription" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element name="encoderFormatDescription" type="entcmt:MultilingualDescriptionList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductAdjustmentDetail">
+		<xs:sequence>
+			<xs:element name="productGroupTypeID" type="xs:long"/>
+			<xs:element name="productTypeID" type="xs:long"/>
+			<xs:element name="adjustmentReasonCode" type="xs:string"/>
+			<xs:element name="adjustmentReasonCodeDescription" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element name="adjustmentCode" type="xs:string"/>
+			<xs:element name="adjustmentDescription" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element name="updateDate" type="xs:dateTime"/>
+			<xs:element name="loadDate" type="xs:dateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductServiceDetail">
+		<xs:sequence>
+			<xs:element name="serviceCD" type="xs:string"/>
+			<xs:element name="serviceDescription" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element name="billingType" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element name="compatibleTechnologyType" type="tns:ProductTechnologyType"/>
+			<xs:element name="duration" type="xs:long"/>
+			<xs:element name="effectiveDate" type="xs:dateTime"/>
+			<xs:element name="endDate" type="xs:dateTime"/>
+			<xs:element name="productGroupTypeID" type="xs:long"/>
+			<xs:element name="productTypeID" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductChannelCost">
+		<xs:sequence>
+			<xs:element name="productID" type="xs:long"/>
+			<xs:element name="productCode" type="xs:string"/>
+			<xs:element name="price" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductBasePrice">
+		<xs:sequence>
+			<xs:element name="productID" type="xs:long"/>
+			<xs:element name="productCode" type="xs:string"/>
+			<xs:element name="priceAmt" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferencedProduct">
+		<xs:sequence>
+			<xs:element name="productId" type="xs:long"/>
+			<xs:element name="productCode" type="xs:string"/>
+			<xs:element name="productFamilyId" type="xs:long"/>
+			<xs:element name="sapMaterialNum" type="xs:string"/>
+			<xs:element name="referenceTypeCode" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductBibAmount">
+		<xs:sequence>
+			<xs:element name="productCode" type="xs:string"/>
+			<xs:element name="bibAmt" type="xs:double"/>
+			<xs:element name="termCnt" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductCredit">
+		<xs:sequence>
+			<xs:element name="productID" type="xs:long"/>
+			<xs:element name="productCode" type="xs:string"/>
+			<xs:element name="programID" type="xs:long"/>
+			<xs:element name="programGroupCode" type="xs:string"/>
+			<xs:element name="creditDeliveryType" type="xs:string"/>
+			<xs:element maxOccurs="1000" minOccurs="0" name="creditList" type="tns:CreditType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreditType">
+		<xs:sequence>
+			<xs:element name="creditTypeCode" type="xs:string"/>
+			<xs:element name="creditTypeEnglishDesc" type="xs:string"/>
+			<xs:element name="creditTypeFrenchDesc" type="xs:string"/>
+			<xs:element maxOccurs="20" minOccurs="0" name="provinceCodeList" type="xs:string"/>
+			<xs:element name="accountTypeCode" type="xs:string"/>
+			<xs:element name="barCode" type="xs:string"/>
+			<xs:element name="termType" type="xs:int"/>
+			<xs:element name="creditAmt" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductUSIMProfile">
+		<xs:sequence>
+			<xs:element name="productID" type="xs:long"/>
+			<xs:element minOccurs="0" name="simType" type="xs:string"/>
+			<xs:element name="defaultInd" type="xs:boolean"/>
+			<xs:element name="usimProfile" type="tns:UsimProfile"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UsimProfile">
+		<xs:sequence>
+			<xs:element name="profileID" type="xs:long"/>
+			<xs:element name="profileCode" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="descriptionFrench" type="xs:string"/>
+			<xs:element name="maskName" type="xs:string"/>
+			<xs:element name="macAddress" type="xs:string"/>
+			<xs:element name="initializationFile" type="xs:string"/>
+			<xs:element name="voltage" type="xs:string"/>
+			<xs:element name="effectiveDate" type="xs:dateTime"/>
+			<xs:element name="expiryDate" type="xs:dateTime"/>
+			<xs:element name="profileVersion" type="xs:string"/>
+			<xs:element maxOccurs="1000" minOccurs="0" name="usimProfileDetailList"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UsimProfileDetail">
+		<xs:sequence>
+			<xs:element name="usimProfileComponent" type="tns:UsimProfileComponent"/>
+			<xs:element name="defaultInd" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UsimProfileComponent">
+		<xs:sequence>
+			<xs:element name="componentID" type="xs:long"/>
+			<xs:element name="versionNumber" type="xs:string"/>
+			<xs:element name="componentType" type="xs:string"/>
+			<xs:element name="componentName" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="descriptionFrench" type="xs:string"/>
+			<xs:element name="preferredInd" type="xs:boolean"/>
+			<xs:element maxOccurs="1000" minOccurs="0" name="usimComponentParameter" type="tns:UsimComponentParameter"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductCodeHVReason">
+		<xs:sequence>
+			<xs:element name="productCode" type="xs:string"/>
+			<xs:element name="hardwareValidationCode" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UsimComponentParameter">
+		<xs:sequence>
+			<xs:element name="parameterID" type="xs:long"/>
+			<xs:element name="usimComponentID" type="xs:long"/>
+			<xs:element name="parameterName" type="xs:string"/>
+			<xs:element name="parameterValue" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FirmwareAndBrowserInfoRqstDetail">
+		<xs:sequence>
+			<xs:element name="productID" type="xs:long"/>
+			<xs:element name="browserVersion" type="xs:string"/>
+			<xs:element name="firmwareVersion" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductAlias">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="productAliasType" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="productAliasValue" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductSummary">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="productID" type="xs:long"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="productCode" type="xs:string"/>
+			<xs:element minOccurs="1" name="productName" type="entcmt:MultilingualNameList"/>
+			<xs:element minOccurs="1" name="productDescription" type="entcmt:MultilingualDescriptionList"/>
+			<xs:element maxOccurs="50" minOccurs="0" name="productAlias" type="tns:ProductAlias"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="nationalPriceAmt" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FinanceOption">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="accountTypeCode" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="termType" type="xs:int"/>
+			<xs:element maxOccurs="30" minOccurs="1" name="provinceCodeList" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="downPaymentAmt" type="xs:double"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="installmentAmt" type="xs:double"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="totalPaymentAmt" type="xs:double"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="chargeCode" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductFinance">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="productCode" type="xs:string"/>
+			<xs:element maxOccurs="50" minOccurs="1" name="financeOptionList" type="tns:FinanceOption"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductInventory">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="productID" type="xs:long"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="stockLevelQtyAmt" type="xs:long"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="unitTypeCode" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="thresholdAmt" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductCompatibility">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="productID" type="xs:long"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="productCode" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="sapMaterialNum" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="effectiveDate" type="xs:dateTime"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="expiryDate" type="xs:dateTime"/>
+			<xs:element name="classification" type="tns:Classification"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="productTypeTxt" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductSegregation">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="productID" type="xs:long"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="productCode" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="segregationEffectiveDate" type="xs:dateTime"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="segregationExpiryDate" type="xs:dateTime"/>
+			<xs:element maxOccurs="30" minOccurs="0" name="provinceCodeList" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getProductHeaderResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductHeaderResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductTechnologyGroup">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductTechnologyGroup">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBrowserVersionInfoByProductID">
+    <wsdl:part name="parameters" element="ProductDeviceService:getBrowserVersionInfoByProductID">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPagingProductInfo">
+    <wsdl:part name="parameters" element="ProductDeviceService:getPagingProductInfo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductFinanceList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductFinanceList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirmwareVersionInfoList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getFirmwareVersionInfoList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductFeature">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductFeature">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductUSIMProfile">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductUSIMProfile">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductCreditListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductCreditListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductInventoryModelListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductInventoryModelListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBibAmount">
+    <wsdl:part name="parameters" element="ProductDeviceService:getBibAmount">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductInventoryModelResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductInventoryModelResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductPriceList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductPriceList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductHeaderList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductHeaderList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductFeatureListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductFeatureListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReferencedProductResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getReferencedProductResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductSegregationList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductSegregationList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductInventoryModel">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductInventoryModel">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBibAmountListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getBibAmountListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductPriceResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductPriceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductFrequencyModeListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductFrequencyModeListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductCreditList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductCreditList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductPriceListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductPriceListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirmwareAndBrowserInfoListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getFirmwareAndBrowserInfoListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPagingProductInfoResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getPagingProductInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSwappableProductHeaderListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getSwappableProductHeaderListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReferencedProduct">
+    <wsdl:part name="parameters" element="ProductDeviceService:getReferencedProduct">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductFrequencyModeList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductFrequencyModeList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductInventoryListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductInventoryListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductUSIMProfileResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductUSIMProfileResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirmwareAndBrowserInfoResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getFirmwareAndBrowserInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductServiceDetailResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductServiceDetailResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductTechnologyGroupListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductTechnologyGroupListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductInventoryModelList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductInventoryModelList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductPrice">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductPrice">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part name="result" element="ping:pingResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductHeader">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductHeader">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductChannelCostListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductChannelCostListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductCreditResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductCreditResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirmwareAndBrowserInfo">
+    <wsdl:part name="parameters" element="ProductDeviceService:getFirmwareAndBrowserInfo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductInfoResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductSummaryList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductSummaryList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductFeatureList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductFeatureList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ping">
+    <wsdl:part name="parameters" element="ping:ping">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductCompatibilityListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductCompatibilityListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductChannelCost">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductChannelCost">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceException">
+    <wsdl:part name="fault" element="ex:ServiceException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductFeatureResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductFeatureResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirmwareFeatureResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getFirmwareFeatureResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductInventoryList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductInventoryList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirmwareFeature">
+    <wsdl:part name="parameters" element="ProductDeviceService:getFirmwareFeature">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductFrequencyModeResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductFrequencyModeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductChannelCostResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductChannelCostResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirmwareVersionInfoListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getFirmwareVersionInfoListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductHeaderListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductHeaderListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAssociatedProductList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getAssociatedProductList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductCompatibilityList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductCompatibilityList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductTechnologyGroupResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductTechnologyGroupResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirmwareVersionInfoByProductIDResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getFirmwareVersionInfoByProductIDResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductInfo">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductInfo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductServiceDetail">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductServiceDetail">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductTechnologyGroupList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductTechnologyGroupList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTechnologyTypeByInventoryModelIdResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getTechnologyTypeByInventoryModelIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductFrequencyMode">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductFrequencyMode">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirmwareAndBrowserInfoList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getFirmwareAndBrowserInfoList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBibAmountList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getBibAmountList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProduct">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProduct">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductCredit">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductCredit">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductChannelCostList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductChannelCostList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductAdjustmentDetailResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductAdjustmentDetailResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSwappableProductHeaderList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getSwappableProductHeaderList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAssociatedProductListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getAssociatedProductListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductAdjustmentDetail">
+    <wsdl:part name="parameters" element="ProductDeviceService:getProductAdjustmentDetail">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBibAmountResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getBibAmountResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductSegregationListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductSegregationListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductSummaryListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductSummaryListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubCategoryList">
+    <wsdl:part name="parameters" element="ProductDeviceService:getSubCategoryList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirmwareVersionInfoByProductID">
+    <wsdl:part name="parameters" element="ProductDeviceService:getFirmwareVersionInfoByProductID">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBrowserVersionInfoByProductIDResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getBrowserVersionInfoByProductIDResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTechnologyTypeByInventoryModelId">
+    <wsdl:part name="parameters" element="ProductDeviceService:getTechnologyTypeByInventoryModelId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubCategoryListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getSubCategoryListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductFinanceListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductFinanceListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductListResponse">
+    <wsdl:part name="result" element="ProductDeviceService:getProductListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ProductDeviceService_v5_0_PortType">
+    <wsdl:operation name="getSubCategoryList">
+      <wsdl:input message="iface:getSubCategoryList">
+    </wsdl:input>
+      <wsdl:output message="iface:getSubCategoryListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAssociatedProductList">
+      <wsdl:input message="iface:getAssociatedProductList">
+    </wsdl:input>
+      <wsdl:output message="iface:getAssociatedProductListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductInfo">
+      <wsdl:input message="iface:getProductInfo">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductInfoResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirmwareFeature">
+      <wsdl:input message="iface:getFirmwareFeature">
+    </wsdl:input>
+      <wsdl:output message="iface:getFirmwareFeatureResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPagingProductInfo">
+      <wsdl:input message="iface:getPagingProductInfo">
+    </wsdl:input>
+      <wsdl:output message="iface:getPagingProductInfoResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductAdjustmentDetail">
+      <wsdl:input message="iface:getProductAdjustmentDetail">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductAdjustmentDetailResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductServiceDetail">
+      <wsdl:input message="iface:getProductServiceDetail">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductServiceDetailResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <wsdl:input message="iface:getProduct">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductList">
+      <wsdl:input message="iface:getProductList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductHeader">
+      <wsdl:input message="iface:getProductHeader">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductHeaderResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductHeaderList">
+      <wsdl:input message="iface:getProductHeaderList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductHeaderListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSwappableProductHeaderList">
+      <wsdl:input message="iface:getSwappableProductHeaderList">
+    </wsdl:input>
+      <wsdl:output message="iface:getSwappableProductHeaderListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductTechnologyGroup">
+      <wsdl:input message="iface:getProductTechnologyGroup">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductTechnologyGroupResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductTechnologyGroupList">
+      <wsdl:input message="iface:getProductTechnologyGroupList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductTechnologyGroupListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductInventoryModel">
+      <wsdl:input message="iface:getProductInventoryModel">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductInventoryModelResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductInventoryModelList">
+      <wsdl:input message="iface:getProductInventoryModelList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductInventoryModelListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTechnologyTypeByInventoryModelId">
+      <wsdl:input message="iface:getTechnologyTypeByInventoryModelId">
+    </wsdl:input>
+      <wsdl:output message="iface:getTechnologyTypeByInventoryModelIdResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductFrequencyMode">
+      <wsdl:input message="iface:getProductFrequencyMode">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductFrequencyModeResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductFrequencyModeList">
+      <wsdl:input message="iface:getProductFrequencyModeList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductFrequencyModeListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirmwareAndBrowserInfo">
+      <wsdl:input message="iface:getFirmwareAndBrowserInfo">
+    </wsdl:input>
+      <wsdl:output message="iface:getFirmwareAndBrowserInfoResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirmwareAndBrowserInfoList">
+      <wsdl:input message="iface:getFirmwareAndBrowserInfoList">
+    </wsdl:input>
+      <wsdl:output message="iface:getFirmwareAndBrowserInfoListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductFeature">
+      <wsdl:input message="iface:getProductFeature">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductFeatureResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductFeatureList">
+      <wsdl:input message="iface:getProductFeatureList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductFeatureListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductPrice">
+      <wsdl:input message="iface:getProductPrice">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductPriceResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductPriceList">
+      <wsdl:input message="iface:getProductPriceList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductPriceListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getReferencedProduct">
+      <wsdl:input message="iface:getReferencedProduct">
+    </wsdl:input>
+      <wsdl:output message="iface:getReferencedProductResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getBibAmount">
+      <wsdl:input message="iface:getBibAmount">
+    </wsdl:input>
+      <wsdl:output message="iface:getBibAmountResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getBibAmountList">
+      <wsdl:input message="iface:getBibAmountList">
+    </wsdl:input>
+      <wsdl:output message="iface:getBibAmountListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductCredit">
+      <wsdl:input message="iface:getProductCredit">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductCreditResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductCreditList">
+      <wsdl:input message="iface:getProductCreditList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductCreditListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductChannelCost">
+      <wsdl:input message="iface:getProductChannelCost">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductChannelCostResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductChannelCostList">
+      <wsdl:input message="iface:getProductChannelCostList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductChannelCostListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductUSIMProfile">
+      <wsdl:input message="iface:getProductUSIMProfile">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductUSIMProfileResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getBrowserVersionInfoByProductID">
+      <wsdl:input message="iface:getBrowserVersionInfoByProductID">
+    </wsdl:input>
+      <wsdl:output message="iface:getBrowserVersionInfoByProductIDResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirmwareVersionInfoByProductID">
+      <wsdl:input message="iface:getFirmwareVersionInfoByProductID">
+    </wsdl:input>
+      <wsdl:output message="iface:getFirmwareVersionInfoByProductIDResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirmwareVersionInfoList">
+      <wsdl:input message="iface:getFirmwareVersionInfoList">
+    </wsdl:input>
+      <wsdl:output message="iface:getFirmwareVersionInfoListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductFinanceList">
+      <wsdl:input message="iface:getProductFinanceList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductFinanceListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductSummaryList">
+      <wsdl:input message="iface:getProductSummaryList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductSummaryListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductInventoryList">
+      <wsdl:input message="iface:getProductInventoryList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductInventoryListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductCompatibilityList">
+      <wsdl:input message="iface:getProductCompatibilityList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductCompatibilityListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductSegregationList">
+      <wsdl:input message="iface:getProductSegregationList">
+    </wsdl:input>
+      <wsdl:output message="iface:getProductSegregationListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdl:input message="iface:ping">
+    </wsdl:input>
+      <wsdl:output message="iface:pingResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="iface:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductDeviceService_v5_0_SOAP" type="iface:ProductDeviceService_v5_0_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSubCategoryList">
+<wsdl:documentation>Retrieves  sub categories based on   categoryRootTypeCd and categoryLineOfBusiness</wsdl:documentation>
+      <soap:operation soapAction="getSubCategoryList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAssociatedProductList">
+<wsdl:documentation>Retrieves all the associated products' information eg. product id, productCd etc.etc. based on CategoryList defined  in the request parameters</wsdl:documentation>
+      <soap:operation soapAction="getAssociatedProductList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductInfo">
+<wsdl:documentation>Retrieves product's information such as product code, name, sap material number etc. based on Product Id and locale</wsdl:documentation>
+      <soap:operation soapAction="getProductInfo"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirmwareFeature">
+<wsdl:documentation>Retrieves Features information based on Firmware id and locale</wsdl:documentation>
+      <soap:operation soapAction="getFirmwareFeature"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPagingProductInfo">
+<wsdl:documentation>Retrieves Paging product's information such as product code, name, classification, baud rate, model description, etc. based on Paging Product id and locale.
+		</wsdl:documentation>
+      <soap:operation soapAction="getPagingProductInfo"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductAdjustmentDetail">
+<wsdl:documentation>Retrieves product's Adjustment  related info  likes adjustment code, adjustment reason code etc.</wsdl:documentation>
+      <soap:operation soapAction="getProductAdjustmentDetail"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductServiceDetail">
+<wsdl:documentation>Retrieves product's services info like service code, description etc.</wsdl:documentation>
+      <soap:operation soapAction="getProductServiceDetail"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+<wsdl:documentation>Retrieves product's information such as product code, name, sap material number etc. along with productFeatures and product browser info</wsdl:documentation>
+      <soap:operation soapAction="getProduct"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductList">
+<wsdl:documentation>Retrieves the list of  product's information such as product code, name, sap material number etc. along with productFeatures and product browser info</wsdl:documentation>
+      <soap:operation soapAction="getProductList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductHeader">
+<wsdl:documentation>Retrieves product's information such as product code, name, sap material number etc.</wsdl:documentation>
+      <soap:operation soapAction="getProductHeader"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductHeaderList">
+<wsdl:documentation>Retrieves product's information such as product code, name, sap material number etc. for the given list of products</wsdl:documentation>
+      <soap:operation soapAction="getProductHeaderList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSwappableProductHeaderList">
+<wsdl:documentation>Retrieves list of swappable Product Request by the technology type</wsdl:documentation>
+      <soap:operation soapAction="getSwappableProductHeaderList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductTechnologyGroup">
+<wsdl:documentation>Retrieves Product Technology Group information by product id</wsdl:documentation>
+      <soap:operation soapAction="getProductTechnologyGroup"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductTechnologyGroupList">
+<wsdl:documentation>Retrieves List of Product Technology Group Request by list if product ids</wsdl:documentation>
+      <soap:operation soapAction="getProductTechnologyGroupList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductInventoryModel">
+<wsdl:documentation>Retrieves Product Inventory Model Group Request by product id</wsdl:documentation>
+      <soap:operation soapAction="getProductInventoryModel"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductInventoryModelList">
+<wsdl:documentation>
+		Retrieves Retrieve list of Product Inventory Model Group by the following criteria
+				- List of Product Id
+				- Product Code
+				- Description of Product Inventory Model Group
+		</wsdl:documentation>
+      <soap:operation soapAction="getProductInventoryModelList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTechnologyTypeByInventoryModelId">
+<wsdl:documentation>Retrieves technology type by Inventory Model Id</wsdl:documentation>
+      <soap:operation soapAction="getTechnologyTypeByInventoryModelId"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductFrequencyMode">
+<wsdl:documentation>Retrieves Product Mode by the product id</wsdl:documentation>
+      <soap:operation soapAction="getProductFrequencyMode"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductFrequencyModeList">
+<wsdl:documentation>Retrieves Retrieve list of frequency mode by list of product id</wsdl:documentation>
+      <soap:operation soapAction="getProductFrequencyModeList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirmwareAndBrowserInfo">
+<wsdl:documentation>Retrieves Firmware and Browser info by product id such as browser version and firmware version</wsdl:documentation>
+      <soap:operation soapAction="getFirmwareAndBrowserInfo"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirmwareAndBrowserInfoList">
+<wsdl:documentation>
+		Retrieves list of Firmware and Browser information by the product id, browser version and firmware version
+				NOTE: If browser version or firmware version is null, it will return
+				      default firmware browser associate with the product
+		</wsdl:documentation>
+      <soap:operation soapAction="getFirmwareAndBrowserInfoList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductFeature">
+<wsdl:documentation>Retrieves list of Product Features by product id</wsdl:documentation>
+      <soap:operation soapAction="getProductFeature"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductFeatureList">
+<wsdl:documentation>Retrieves Retrieve list of Product Feature by list of product ids</wsdl:documentation>
+      <soap:operation soapAction="getProductFeatureList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductPrice">
+<wsdl:documentation>
+		Retrieves Product Price by the following criteria
+				- Product Code
+				- Province Code
+				- Perspective Date
+		</wsdl:documentation>
+      <soap:operation soapAction="getProductPrice"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductPriceList">
+<wsdl:documentation>
+		Retrieves List of Product Price by the following criteria
+				- Product Code
+				- Province Code
+				- Perspective Date
+		</wsdl:documentation>
+      <soap:operation soapAction="getProductPriceList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getReferencedProduct">
+<wsdl:documentation>
+		Retrieves ReferencedProduct by the following criteria
+				- Product Code
+				- Product ID   (Optional)
+				- Reference Type (Optional)
+		</wsdl:documentation>
+      <soap:operation soapAction="getReferencedProduct"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getBibAmount">
+<wsdl:documentation>
+		Retrieves Product BIB (Bring it Back ) Amount by the following criteria
+				- Product Code
+				- termCnt
+				- Perspective Date
+		</wsdl:documentation>
+      <soap:operation soapAction="getBibAmount"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getBibAmountList">
+<wsdl:documentation>
+		Retrieves List of Product BIB (Bring it Back ) Amount  by the following criteria
+				- Product Code
+				- termCnt
+				- Perspective Date
+		</wsdl:documentation>
+      <soap:operation soapAction="getBibAmountList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductCredit">
+<wsdl:documentation>
+		Retrieves Product Credit by the following criteria				
+				- Product Code
+				- Account Type
+				- Hardware Validation Reason Code
+				- Perspective Date
+		</wsdl:documentation>
+      <soap:operation soapAction="getProductCredit"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductCreditList">
+<wsdl:documentation>
+		Retrieves list of Product Credit by the following criteria
+				- List of the Product Code and Hardware Validaton Reason Code Pair
+				- Account Type				
+				- Perspective Date
+		</wsdl:documentation>
+      <soap:operation soapAction="getProductCreditList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductChannelCost">
+<wsdl:documentation>
+		Retrieves Product Channel Cost by the following criteria
+				- Product Code
+				- Channel Organization Type Code
+				- Province Code
+		</wsdl:documentation>
+      <soap:operation soapAction="getProductChannelCost"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductChannelCostList">
+<wsdl:documentation>
+		Retrieves Product Channel Cost by the following criteria
+				- Product Code
+				- Channel Organization Type Code
+				- Province Code
+		</wsdl:documentation>
+      <soap:operation soapAction="getProductChannelCostList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductUSIMProfile">
+<wsdl:documentation>
+		Retrieves SIM Profile by the following criteria
+				- Product Id
+				- Profile Code
+				NOTE: If profile code is null, it will return
+				      default profile associate with the product
+		</wsdl:documentation>
+      <soap:operation soapAction="getProductUSIMProfile"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getBrowserVersionInfoByProductID">
+<wsdl:documentation>
+		Get Browser Version Info by Product Id and Browser Version				
+				NOTE: If the Browser version is null, return the default Browser for product
+		</wsdl:documentation>
+      <soap:operation soapAction="getBrowserVersionInfoByProductID"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirmwareVersionInfoByProductID">
+<wsdl:documentation>
+		Get Firmware Version Info by Product Id and Firmware Version				
+				NOTE: If the firmware version is null, return the default firmware for product
+		</wsdl:documentation>
+      <soap:operation soapAction="getFirmwareVersionInfoByProductID"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirmwareVersionInfoList">
+<wsdl:documentation>
+		Get Firmware Version Info list by Firmware Version				
+				NOTE: If the firmware version is null, return the default firmware for product
+		</wsdl:documentation>
+      <soap:operation soapAction="getFirmwareVersionInfoList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductFinanceList">
+<wsdl:documentation>getProductFinanceList - Operation will provide product finance option info based on the search criteria: account type, province Code,term, and product code list. 
+          
+      INPUTS:      
+      	String: accountTypeCode
+      	String: provinceCode
+      	int: termType
+      	List&lt;String&gt;: productCodeList
+        Date: perspectiveDate
+        
+      OUTPUTS:
+      	List&lt;ProductFinanceInfo&gt;: productFinanceList
+      
+      </wsdl:documentation>
+      <soap:operation soapAction="getProductFinanceList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductSummaryList">
+<wsdl:documentation>getProductSummaryList - Operation will retrieve product basic info  based on product category, technology type,classificationCode, manufacturerName, and perspectiveDate. 
+          
+      INPUTS:            	
+      	String: classificationCode
+      	MultilingualDescriptionList: categoryDesc
+      	String: technologyType
+      	String: manufacturerName
+        Date: perspectiveDate
+            
+      OUTPUTS:
+      	List&lt;ProductSummary&gt;: productSummaryList
+      
+      </wsdl:documentation>
+      <soap:operation soapAction="getProductSummaryList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductInventoryList">
+<wsdl:documentation>getProductInventoryList - Operation will retrieve product inventory info list  based on product Id list. 
+          
+      INPUTS:            	
+      	List&lt;Long&gt;: productIDList
+      	
+            
+      OUTPUTS:
+      	List&lt;ProductInventory&gt;: productInventoryList
+      
+      </wsdl:documentation>
+      <soap:operation soapAction="getProductInventoryList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductCompatibilityList">
+<wsdl:documentation>getProductCompatibilityList - Operation will retrieve product Compatibility list  based on Product Id and productTypeTxt. 
+          
+      INPUTS:            	
+      	long: productId
+      	String: productTypeTxt
+      	
+            
+      OUTPUTS:
+      	List&lt;ProductCompatibility&gt;: productList
+      
+      </wsdl:documentation>
+      <soap:operation soapAction="getProductCompatibilityList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProductSegregationList">
+<wsdl:documentation>getProductSegregationList - Operation will retrieve product Segregation list  based on channelOrgId, productTypeTxt, and  includeExpiredInd. 
+          
+      INPUTS:            	
+      	Long: channelOrgId
+      	String: productTypeTxt
+      	Boolean: includeExpiredInd      	
+            
+      OUTPUTS:
+      	List&lt;ProductSegregation&gt;: productList
+      
+      </wsdl:documentation>
+      <soap:operation soapAction="getProductSegregationList"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+<wsdl:documentation/>
+      <soap:operation soapAction="ping"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductDeviceService_v5_0">
+<wsdl:documentation>In order to fulfill the requirement, the &lt;ProductUSIMProfile&gt;  complex type is modified in ProductDeviceTypes_v4_5.xsd by adding one optional parameter &quot;simType&quot;. This element would have the values configured in P3MS . In order to expose it ProductDeviceS</wsdl:documentation>
+    <wsdl:port name="ProductDeviceServicePort" binding="iface:ProductDeviceService_v5_0_SOAP">
+      <soap:address location="http://pm-productcatalog-dv103.tmi.telus.com/PMO/CatalogMgmt/ProductDeviceServiceV5/ProductDeviceService_v5_0"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

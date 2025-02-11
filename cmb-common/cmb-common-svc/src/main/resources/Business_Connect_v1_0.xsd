@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 (x64) (http://www.altova.com) by ROCHELLE MANABAT (TELUS) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/Business_Connect_v1" xmlns:ns1="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/Business_Connect_v1" targetNamespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/Business_Connect_v1" elementFormDefault="qualified">
+	<xs:element name="CustomerAccount">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="accountInfo" type="AccountInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="AccountInfo">
+		<xs:sequence>
+			<xs:element name="AccountNumber" type="xs:string"/>
+			<xs:element name="CompanyName" type="xs:string" minOccurs="0"/>
+			<xs:element name="subscriberPhoneNumber" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

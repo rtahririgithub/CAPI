@@ -1,0 +1,4 @@
+<environment-config>
+	<entry name="cmb-resource-order-reference-ws-1-1" path="/cmb-ns"/>
+	<entry name="cmb-resource-order-reference-ws-1-1" path="/ARMX/reference-versions" value="${label}"/>
+</environment-config>

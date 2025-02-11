@@ -1,0 +1,10 @@
+package com.telus.cmb.subscriber.kafka.domain;
+
+public enum KafkaEventSubType {
+	
+	CHANGE_EQUIPMENT_BASIC,
+	CHANGE_EQUIPMENT_SMART_SPEAKER_SOC, 
+	CHANGE_PHONENUMBER_BASIC, 
+	CHANGE_PHONENUMBER_SMART_SPEAKER_SOC;
+
+}

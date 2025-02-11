@@ -1,0 +1,1366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by TELUS TELUS (TELUS) -->
+<xsd:schema xmlns:tns="http://xmlschema.tmi.telus.com/srv/SMO/OrderMgmt/ServiceOrderReferenceServiceRequestResponse_v5" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ref="http://xmlschema.tmi.telus.com/xsd/Service/BaseTypes/ServiceOrderReferenceTypes_v5" xmlns:tpe="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0" xmlns:cdt="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/common_domain_types_3" xmlns:common="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" xmlns:ect="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8" xmlns:srm="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CMBResponseCommonTypes_v1" targetNamespace="http://xmlschema.tmi.telus.com/srv/SMO/OrderMgmt/ServiceOrderReferenceServiceRequestResponse_v5" elementFormDefault="qualified">
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Service/BaseTypes/ServiceOrderReferenceTypes_v5" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Service/BaseTypes/ServiceOrderReferenceTypes_v5_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/common_domain_types_3" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/common_domain_types_3_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/customer_information_reference_types_1_0" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CustomerInformationReferenceTypes_1_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Enterprise/BaseTypes/EnterpriseCommonTypes_v8_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/Customer/CustomerManagementCommonTypes_v4_0.xsd"/>
+	<xsd:import namespace="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CMBResponseCommonTypes_v1" schemaLocation="http://xmlschema.tmi.telus.com/xsd/Customer/BaseTypes/CMBResponseCommonTypes_v1_0.xsd"/>
+	<xsd:element name="getSpecialNumber">
+		<xsd:annotation>
+			<xsd:documentation>Operation used to retrieve special number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSpecialNumberResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getSpecialNumberResponseType" type="tns:GetSpecialNumberResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSpecialNumberList">
+		<xsd:annotation>
+			<xsd:documentation>Operation used to retrieve special number list</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSpecialNumberListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getSpecialNumberListResponseType" type="tns:GetSpecialNumberListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSpecialNumberRange">
+		<xsd:annotation>
+			<xsd:documentation>Operation used to retrieve special number range</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phoneNumber" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSpecialNumberRangeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getSpecialNumberRangeResponseType" type="tns:GetSpecialNumberRangeResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSpecialNumberRangeList">
+		<xsd:annotation>
+			<xsd:documentation>Operation used to retrieve special number range list</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSpecialNumberRangeListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getSpecialNumberRangeListResponseType" type="tns:GetSpecialNumberRangeListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getCommitmentReasonList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getCommitmentReasonListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getCommitmentReasonListResponseType" type="tns:GetCommitmentReasonListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getCommitmentReason">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="commitmentReasonCode" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getCommitmentReasonResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getCommitmentReasonResponseType" type="tns:GetCommitmentReasonResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPoolingGroupList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPoolingGroupListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPoolingGroupListResponseType" type="tns:GetPoolingGroupListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPoolingGroup">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="poolingGroupCode" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPoolingGroupResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPoolingGroupResponseType" type="tns:GetPoolingGroupResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getFeatureList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getFeatureListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getFeatureListResponseType" type="tns:GetFeatureListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getFeature">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="featureCode" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getFeatureResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getFeatureResponseType" type="tns:GetFeatureResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getRegularServiceList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="regularServiceCodeList" type="xsd:string" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getRegularServiceListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getRegularServiceListResponseType" type="tns:GetRegularServiceListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getRegularService">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="regularServiceCode" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getRegularServiceResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getRegularServiceResponseType" type="tns:GetRegularServiceResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPrepaidServiceList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPrepaidServiceListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPrepaidServiceListResponseType" type="tns:GetPrepaidServiceListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPrepaidServiceListByEquipmentAndNetworkType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="equipmentType" type="common:EquipmentType"/>
+				<xsd:element name="networkType" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>I: NETWORK TYPE IDEN
+C: NETWORK TYPE CDMA
+H: NETWORK TYPE HSPA
+9: ALL NETWORK TYPES</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPrepaidServiceListByEquipmentAndNetworkTypeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPrepaidServiceListByEquipmentAndNetworkTypeResponseType" type="tns:GetPrepaidServiceListByEquipmentAndNetworkTypeResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPrepaidService">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceCode" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPrepaidServiceResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPrepaidServiceResponseType" type="tns:GetPrepaidServiceResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceListByFeatureCategory">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="featureCategory" type="xsd:string"/>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="currentInd" type="xsd:boolean"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceListByFeatureCategoryResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getServiceListByFeatureCategoryResponseType" type="tns:GetServiceListByFeatureCategoryResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlan">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="pricePlanCode" type="common:PricePlanCode"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlanResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPricePlanResponseType" type="tns:GetPricePlanResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlanSummaryListByPricePlanCodeList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="pricePlanCodeList" type="common:PricePlanCode" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlanSummaryListByPricePlanCodeListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPricePlanSummaryListByPricePlanCodeListResponseType" type="tns:GetPricePlanSummaryListByPricePlanCodeListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlanByEquipmentAndAccountInfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="pricePlanCode" type="common:PricePlanCode"/>
+				<xsd:element name="equipmentType" type="common:EquipmentType"/>
+				<xsd:element name="provinceCode" type="common:ProvinceCode"/>
+				<xsd:element name="accountType" type="xsd:string"/>
+				<xsd:element name="accountSubType" type="xsd:string"/>
+				<xsd:element name="brandId" type="cdt:BrandID"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlanByEquipmentAndAccountInfoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPricePlanByEquipmentAndAccountInfoResponseType" type="tns:GetPricePlanByEquipmentAndAccountInfoResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlanList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="equipmentType" type="common:EquipmentType"/>
+				<xsd:element name="provinceCode" type="common:ProvinceCode"/>
+				<xsd:element name="accountType" type="xsd:string"/>
+				<xsd:element name="accountSubType" type="xsd:string"/>
+				<xsd:element name="brandId" type="cdt:BrandID"/>
+				<xsd:element name="activityCode" type="xsd:string"/>
+				<xsd:element name="currentPlansOnlyInd" type="xsd:boolean" default="false"/>
+				<xsd:element name="availableForActivationOnlyInd" type="xsd:boolean" default="false"/>
+				<xsd:element name="activityReasonCode" type="xsd:string"/>
+				<xsd:element name="term" type="common:ContractTerm"/>
+				<xsd:element name="networkType" type="xsd:string"/>
+				<xsd:element name="initialActivationInd" type="xsd:boolean" default="false"/>
+				<xsd:element name="productPromoTypeList" type="xsd:long" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="seatTypeCd" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							STRT = SEAT_TYPE_STARTER
+							MOBL = SEAT_TYPE_MOBILE 
+							OFFC = SEAT_TYPE_OFFICE 
+							PROF = SEAT_TYPE_PROFESSIONAL
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="socGroupList" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="offerCriteria" type="ref:OfferCriteria" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>OfferCriteria will check whether or not the returned list of price plans are contained in the offer or not.  If the price plan is available in the offer (as determined by the offer id and prespective date), then the OfferInd in the PricePlanSummary response will be set to true.  If no offerCriteria is specified in the request then, the OfferInd will not be set in the response.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlanListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPricePlanListResponseType" type="tns:GetPricePlanListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkServiceAssociation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceCode" type="common:ServiceCode"/>
+				<xsd:element name="pricePlanCode" type="common:PricePlanCode"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkServiceAssociationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="checkServiceAssociationResponseType" type="tns:CheckServiceAssociationResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getLogicalDate">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getLogicalDateResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getLogicalDateResponseType" type="tns:GetLogicalDateResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceExclusionGroupList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceExclusionGroupListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getServiceExclusionGroupListResponseType" type="tns:GetServiceExclusionGroupListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getBrandList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getBrandListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getBrandListResponseType" type="tns:GetBrandListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getBrandByBrandId">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="brandId" type="cdt:BrandID"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getBrandByBrandIdResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getBrandByBrandIdResponseType" type="tns:GetBrandByBrandIdResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkServicePrivilege">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceCodeList" type="common:ServiceCode" maxOccurs="unbounded"/>
+				<xsd:element name="businessRole" type="common:BusinessRole"/>
+				<xsd:element name="privilege" type="common:Privilege"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkPricePlanPrivilege">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceCodeList" type="common:ServiceCode" maxOccurs="unbounded"/>
+				<xsd:element name="businessRole" type="common:BusinessRole"/>
+				<xsd:element name="privilege" type="common:Privilege"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkServicePrivilegeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="checkServicePrivilegeResponseType" type="tns:CheckServicePrivilegeResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="checkPricePlanPrivilegeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="checkPricePlanPrivilegeResponseType" type="tns:CheckPricePlanPrivilegeResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceTerm">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceCode" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceTermResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getServiceTermResponseType" type="tns:GetServiceTermResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getDataSharingGroupList">
+		<xsd:annotation>
+			<xsd:documentation>Operation used to get the definition of all data sharing groups</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getDataSharingGroupListResponse">
+		<xsd:annotation>
+			<xsd:documentation>List of all data sharing group definitions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getDataSharingGroupListResponseType" type="tns:GetDataSharingGroupListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getDataSharingGroup">
+		<xsd:annotation>
+			<xsd:documentation>Operation used to get the definition of a specific data sharing group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="dataSharingGroupCode" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getDataSharingGroupResponse">
+		<xsd:annotation>
+			<xsd:documentation>Return the data sharing group definition</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getDataSharingGroupResponseType" type="tns:GetDataSharingGroupResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAirTimeAllocationList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceCodeList" type="common:ServiceCode" maxOccurs="unbounded"/>
+				<xsd:element name="effectiveRetrievalDate" type="xsd:date" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>It is the the effective date for retrieval.  Past effective date is not supported. If no date passed in, the current logical date will be used.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAirTimeAllocationListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getAirTimeAllocationListResponseType" type="tns:GetAirTimeAllocationListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getCalculatedEffectiveAirTimeAllocationList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceCodeList" type="common:ServiceCode" maxOccurs="unbounded"/>
+				<xsd:element name="effectiveDate" type="xsd:date">
+					<xsd:annotation>
+						<xsd:documentation>contract effective date.  Past effective date is not supported</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getCalculatedEffectiveAirTimeAllocationListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getCalculatedEffectiveAirTimeAllocationListResponseType" type="tns:GetCalculatedEffectiveAirTimeAllocationListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPeriodList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceCode" type="common:ServiceCode"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPeriodListResponse">
+		<xsd:annotation>
+			<xsd:documentation> </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPeriodListResponseType" type="tns:GetPeriodListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceFeatureClassification">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="classificationCode" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceFeatureClassificationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getServiceFeatureClassificationResponseType" type="tns:GetServiceFeatureClassificationResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getEquivalentService">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns the  "FIRST SERVICE" found for the provided ServiceCode that is the "Equivalent Service" and contains the included/optionla services provided.   The Equivalent Service may exist in the input price plan either as included or optional.  It is possible that this operation returns no service.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="originalServiceCodeList" type="xsd:string" maxOccurs="20"/>
+				<xsd:element name="destinationServiceCodeList" type="xsd:string" maxOccurs="500"/>
+				<xsd:element name="networkType" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getEquivalentServiceResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getEquivalentServiceResponseType" type="tns:GetEquivalentServiceResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceRelation">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns the bounded service(s) from the soc relation extension table for the given service.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="serviceRelationCodeList" type="tns:ServiceRelationCode" maxOccurs="20"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceRelationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getServiceRelationResponseType" type="tns:GetServiceRelationResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceListByServiceGroup">
+		<xsd:annotation>
+			<xsd:documentation>This operation retrieves a list of services for a given service group code.This operation returns the service code and the service meta data.  Use lite version - getPricePlanAndServiceCodeListByGroupCode if only the service code is required.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="serviceGroupCodeList" type="xsd:string" maxOccurs="20"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceListByServiceGroupResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getServiceListByServiceGroupResponseType" type="tns:GetServiceListByServiceGroupResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlanAndServiceCodeListByGroupCode">
+		<xsd:annotation>
+			<xsd:documentation>This operation returns a list of codes (includes priceplans and services) for the given group code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="groupCodeList" type="xsd:string" maxOccurs="20"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlanAndServiceCodeListByGroupCodeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPricePlanAndServiceCodeListByGroupCodeResponseType" type="tns:GetPricePlanAndServiceCodeListByGroupCodeResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getIncludedPromotionService">
+		<xsd:annotation>
+			<xsd:documentation>This operation retrieves promotional services applicable for a given price plan and filtered by the input parameters.  This operation should be called on demand based on the indicator from getPricePlanByEquipmentAndAccountInfo.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="pricePlanCode" type="xsd:string"/>
+				<xsd:element name="equipmentType" type="common:EquipmentType">
+					<xsd:annotation>
+						<xsd:documentation>SEMS Equipment types - A=EQUIPMENT_TYPE_ANALOG  D=EQUIPMENT_TYPE_DIGITAL 3=EQUIPMENT_TYPE_1xRTT_CARD
+Z=EQUIPMENT_TYPE_RIM C=EQUIPMENT_TYPE_DATACARD P=EQUIPMENT_TYPE_PDA 9=EQUIPMENT_TYPE_ALL U= EQUIPMENT_TYPE_USIM  I=EQUIPMENT_TYPE_PREPAID_IPAD</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="networkType" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>  I=NETWORK_TYPE_IDEN
+						C= NETWORK_TYPE_CDMA
+						H= NETWORK_TYPE_HSPA
+						9= NETWORK_TYPE_ALL (this means CDMA+HSPA and not IDEN)  NETWORK_TYPE_HSPA
+						  NETWORK_TYPE_ALL (this means CDMA+HSPA and not IDEN)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="provinceCode" type="xsd:string"/>
+				<xsd:element name="contractTerm" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>0 = TERM_MONTH_TO_MONTH, 12 = TERM_1_YEAR, 24=TERM_2_YEARS, 36=TERM_3_YEARS</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ServiceCodeBusinessAndPriviledgeCode" type="tns:ServiceCodeBusinessRolePriviledge" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation> SOC level from soc_poilicy table.  A SOC has a business role. </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getIncludedPromotionServiceResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getIncludedPromotionServiceResponseType" type="tns:GetIncludedPromotionServiceResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAlternateRecurringCharge">
+		<xsd:annotation>
+			<xsd:documentation>Retrieves the alternate recurring charge (if any) for the given list of services.  This operation should only be called if the Service Object (returned from other operations)  has the alternateRecurringChargeInd to TRUE.  Note that the charges are retrieved from batch_pp_rc_rate table.  Based on analysis, only 911 charges (for CDMA devices) will have the alternative recurring charge setup.  Note that the charges are retrieved from batch_pp_rc_rate table.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="serviceCodeList" type="xsd:string" maxOccurs="20"/>
+				<xsd:element name="provinceCode" type="xsd:string"/>
+				<xsd:element name="npaNXX" type="xsd:string"/>
+				<xsd:element name="corporateId" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAlternateRecurringChargeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getAlternateRecurringChargeResponseType" type="tns:GetAlternateRecurringChargeResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlanByEquipmentAndAccountByBusinessRole">
+		<xsd:annotation>
+			<xsd:documentation>This method retrieves the price plan by equipment type and account info.  Data is filtered by the Optional Services Indicator and on the Business Role and Privilege that is passed in.  All services are returned including included service and optioanal service, but based on input parms.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditInfo" type="ect:AuditInfo" minOccurs="0"/>
+				<xsd:element name="productType" type="common:ProductType" minOccurs="0"/>
+				<xsd:element name="pricePlanCode" type="common:PricePlanCode"/>
+				<xsd:element name="equipmentType" type="common:EquipmentType">
+					<xsd:annotation>
+						<xsd:documentation>SEMS Equipment types - A=EQUIPMENT_TYPE_ANALOG  D=EQUIPMENT_TYPE_DIGITAL 3=EQUIPMENT_TYPE_1xRTT_CARD
+Z=EQUIPMENT_TYPE_RIM C=EQUIPMENT_TYPE_DATACARD P=EQUIPMENT_TYPE_PDA 9=EQUIPMENT_TYPE_ALL U= EQUIPMENT_TYPE_USIM  I=EQUIPMENT_TYPE_PREPAID_IPAD</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="provinceCode" type="common:ProvinceCode"/>
+				<xsd:element name="accountType" type="xsd:string"/>
+				<xsd:element name="accountSubType" type="xsd:string"/>
+				<xsd:element name="brandId" type="cdt:BrandID"/>
+				<xsd:element name="ServiceCodeBusinessAndPriviledgeCode" type="tns:ServiceCodeBusinessRolePriviledge" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation> SOC level from soc_poilicy table.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getPricePlanByEquipmentAndAccountByBusinessRoleResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getPricePlanByEquipmentAndAccountByBusinessRoleResponseType" type="tns:GetPricePlanByEquipmentAndAccountByBusinessRoleResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getMigrationTypeList">
+		<xsd:annotation>
+			<xsd:documentation>This method retrieves all valid migration types.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getMigrationTypeListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getMigrationTypeListResponseType" type="tns:GetMigrationTypeListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSeatTypeList">
+		<xsd:annotation>
+			<xsd:documentation>This method retrieves all valid SMB Business Connect seat types.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getSeatTypeListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getSeatTypeListResponseType" type="tns:GetSeatTypeListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAssociatedIncludedPromotion">
+		<xsd:annotation>
+			<xsd:documentation> This method return result if service is associated with included Promotion</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="pricePlanCode" type="common:PricePlanCode"/>
+				<xsd:element name="serviceCode" type="common:ServiceCode"/>
+				<xsd:element name="term" type="common:ContractTerm"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getAssociatedIncludedPromotionResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getAssociatedIncludedPromotionResponseType" type="tns:GetAssociatedIncludedPromotionResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceExtendedInfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceCodeList" type="common:ServiceCode" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getServiceExtendedInfoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getServiceExtendedInfoResponseType" type="tns:GetServiceExtendedInfoResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="ServiceCode">
+		<xsd:sequence>
+			<xsd:element name="serviceCode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceGroupCode">
+		<xsd:sequence>
+			<xsd:element name="serviceGroupCode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceRelationCode">
+		<xsd:sequence>
+			<xsd:element name="serviceCode" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Destination Service Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="serviceRelationTypeCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>F=TYPE_PROMOTION, C=TYPE_FEATURE_CARD, M=TYPE_BOUND, S=TYPE_SEQUENTIALLY_BOUND</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceCodeRelation">
+		<xsd:sequence>
+			<xsd:element name="service" type="ref:Service" minOccurs="0"/>
+			<xsd:element name="serviceRelationExpirationDate" type="xsd:date" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceCodeAndExpiry">
+		<xsd:sequence>
+			<xsd:element name="serviceCodeRelationList" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="tns:ServiceCodeRelation"/>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="originalServiceCode" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EquivalentServiceList">
+		<xsd:sequence>
+			<xsd:element name="service" type="ref:Service" minOccurs="0"/>
+			<xsd:element name="originalServiceCode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceGroupCodeList">
+		<xsd:sequence>
+			<xsd:element name="serviceGroupCode" type="xsd:string"/>
+			<xsd:element name="serviceList" type="ref:Service" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PricePlanServiceCodeList">
+		<xsd:sequence>
+			<xsd:element name="groupCode" type="xsd:string"/>
+			<xsd:element name="pricePlanServiceCodeList" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AlternateRecurringCharge">
+		<xsd:sequence>
+			<xsd:element name="serviceCode" type="common:ServiceCode"/>
+			<xsd:element name="alternateRecurringCharge" type="xsd:double"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NetworkType">
+		<xsd:sequence>
+			<xsd:element name="networkType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>I=NETWORK_TYPE_IDEN
+						C= NETWORK_TYPE_CDMA
+						H= NETWORK_TYPE_HSPA
+						9= NETWORK_TYPE_ALL (this means CDMA+HSPA and not IDEN)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceCodeBusinessRolePriviledge">
+		<xsd:sequence>
+			<xsd:element name="businessRoleCode" type="common:BusinessRole"/>
+			<xsd:element name="privilegeCode" type="common:Privilege"/>
+			<xsd:element name="serviceAvailableInd" type="xsd:boolean" default="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MigrationType">
+		<xsd:sequence>
+			<xsd:element name="migrationTypeCode" type="xsd:string"/>
+			<xsd:element name="migrationTypeDesc" type="ect:MultilingualDescriptionList"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SeatType">
+		<xsd:complexContent>
+			<xsd:extension base="tpe:Reference"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="getOptionalServiceList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="pricePlanCode" type="common:PricePlanCode"/>
+				<xsd:element name="equipmentType" type="common:EquipmentType"/>
+				<xsd:element name="provinceCode" type="common:ProvinceCode"/>
+				<xsd:element name="accountType" type="xsd:string"/>
+				<xsd:element name="accountSubType" type="xsd:string"/>
+				<xsd:element name="brandId" type="cdt:BrandID"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getOptionalServiceListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getOptionalServiceListResponseType" type="tns:GetOptionalServiceListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+		<xsd:element name="getMandatoryServiceList">
+		<xsd:complexType>
+			<xsd:sequence>
+			<xsd:element name="pricePlanCode" type="common:PricePlanCode"/>
+				<xsd:element name="handSetType" type="xsd:string">
+				<xsd:annotation>
+							<xsd:documentation>Value will be excepted here are :PDA OR RIM</xsd:documentation>
+				</xsd:annotation>
+				</xsd:element>				
+				<xsd:element name="productType" type="common:ProductType"/>
+				<xsd:element name="equipmentType" type="common:EquipmentType"/>
+				<xsd:element name="provinceCode" type="common:ProvinceCode"/>
+				<xsd:element name="accountType" type="xsd:string"/>
+				<xsd:element name="accountSubType" type="xsd:string"/>
+				<xsd:element name="brandId" type="cdt:BrandID"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getMandatoryServiceListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="getMandatoryServiceListResponseType" type="tns:GetMandatoryServiceListResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CheckServiceAssociationResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="associatedServiceInd" type="xsd:boolean" default="false"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CheckServicePrivilegeResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="servicePolicyList" type="ref:ServicePolicy" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CheckPricePlanPrivilegeResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="servicePolicyList" type="ref:ServicePolicy" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetAirTimeAllocationListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="airTimeAllocationList" type="ref:ServiceAirTimeAllocation" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetAlternateRecurringChargeResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="alternateRecurringChargeList" type="tns:AlternateRecurringCharge" minOccurs="0" maxOccurs="20"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetAssociatedIncludedPromotionResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="associatedIncludedPromoInd" type="xsd:boolean" default="false"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetBrandByBrandIdResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="brand" type="ref:Brand"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetBrandListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="brandList" type="ref:Brand" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetCalculatedEffectiveAirTimeAllocationListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="airTimeAllocationList" type="ref:ServiceAirTimeAllocation" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetCommitmentReasonResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="commitmentReason" type="ref:CommitmentReason" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetCommitmentReasonListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="commitmentReasonList" type="ref:CommitmentReason" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetDataSharingGroupResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="dataSharingGroup" type="ref:DataSharingGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetDataSharingGroupListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="dataSharingGroupList" type="ref:DataSharingGroup" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetEquivalentServiceResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="equivalentServiceList" type="tns:EquivalentServiceList" minOccurs="0" maxOccurs="20"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetFeatureResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="feature" type="ref:Feature" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetFeatureListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="featureList" type="ref:Feature" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetIncludedPromotionServiceResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceList" type="ref:Service" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetLogicalDateResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="logicalDate" type="xsd:date"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetMigrationTypeListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="migrationTypeList" type="tns:MigrationType" minOccurs="0" maxOccurs="20"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetOptionalServiceListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceList" type="ref:Service" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetMandatoryServiceListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceList" type="ref:Service" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPeriodListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="periodList" type="ref:Period" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Empty object means the service is not associated with period. not period based.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPoolingGroupResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="poolingGroup" type="ref:PoolingGroup" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPoolingGroupListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="poolingGroupList" type="ref:PoolingGroup" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPrepaidServiceResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="service" type="ref:Service" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPrepaidServiceListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceList" type="ref:Service" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPrepaidServiceListByEquipmentAndNetworkTypeResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceList" type="ref:Service" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPricePlanResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="pricePlanSummary" type="ref:PricePlanSummary" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPricePlanListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="pricePlanSummaryList" type="ref:PricePlanSummary" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPricePlanAndServiceCodeListByGroupCodeResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="pricePlanServiceCodeList" type="tns:PricePlanServiceCodeList" maxOccurs="20"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPricePlanByEquipmentAndAccountByBusinessRoleResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="pricePlan" type="ref:PricePlan" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPricePlanByEquipmentAndAccountInfoResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="pricePlan" type="ref:PricePlan" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetPricePlanSummaryListByPricePlanCodeListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="pricePlanSummaryList" type="ref:PricePlanSummary" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetRegularServiceResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="service" type="ref:Service" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetRegularServiceListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceList" type="ref:Service" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetSeatTypeListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="seatTypeList" type="tns:SeatType" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetServiceExclusionGroupListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceExclusionGroupList" type="ref:ServiceExclusionGroups" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetServiceExtendedInfoResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceExtendedInformationList" type="ref:ServiceExtendedInformation" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetServiceFeatureClassificationResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceFeatureClassification" type="ref:ServiceFeatureClassification" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>empty object indicate no mapping object found for the given code</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetServiceListByFeatureCategoryResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceList" type="ref:Service" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetServiceListByServiceGroupResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceGroupCodeList" type="tns:ServiceGroupCodeList" minOccurs="0" maxOccurs="20"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetServiceRelationResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="originalServiceCodeList" minOccurs="0" maxOccurs="20">
+						<xsd:complexType>
+							<xsd:complexContent>
+								<xsd:extension base="tns:ServiceCodeAndExpiry"/>
+							</xsd:complexContent>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetServiceTermResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="serviceTerm" type="ref:ServiceTerm" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetSpecialNumberResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="specialNumber" type="ref:SpecialNumber" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetSpecialNumberListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="specialNumberList" type="ref:SpecialNumber" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetSpecialNumberRangeResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="specialNumberRange" type="ref:SpecialNumberRange" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetSpecialNumberRangeListResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="srm:ServiceResponseMessage">
+				<xsd:sequence>
+					<xsd:element name="specialNumberRangeList" type="ref:SpecialNumberRange" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

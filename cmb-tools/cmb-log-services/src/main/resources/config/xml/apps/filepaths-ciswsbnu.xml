@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<application name="Billing &amp; Usage CIS Web Services" shortname="ciswsbnu" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+
+	<component name="BillingReferenceRESTSvc 1.x">
+		<artifact name="cis-billing-reference-rest" version="1_*"/>
+	</component>
+	<component name="ComboCreditEstimatorRESTSvc 1.x">
+		<artifact name="cis-wls-combo-credit-estimator-rest" version="1_*" appMap="ComboCreditEstimatorRESTSvc"/>
+	</component>
+	<component name="WLSCollectionTreatmentMgmtSvc 1.x">
+		<artifact name="cis-wls-collection-treatment-mgmt-ws" version="1_*"/>
+	</component>
+	<component name="WLSPaymentMgmtSvc 1.x">
+		<artifact name="cis-wls-payment-mgmt-ws" version="1_*"/>
+	</component>
+	<component name="WLSPaymentMgmtRESTSvc 1.x">
+		<artifact name="cis-wls-payment-mgmt-rest" version="1_*"/>
+	</component>
+	<component name="WLSRatedAirtimeUsageInquirySvc 1.x">
+		<artifact name="cis-wls-rated-airtime-usage-inquiry-ws" version="1_*"/>
+	</component>
+	
+</application>
+	

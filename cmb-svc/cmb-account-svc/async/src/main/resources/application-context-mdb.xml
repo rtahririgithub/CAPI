@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+	">
+	
+	<bean id="msgSubTypeMemo" class="com.telus.cmb.account.messagebeans.MemoCreationHandler"/>
+	<bean id="msgSubTypeMemoLog" class="com.telus.cmb.account.messagebeans.MemoCreationLogHandler"/>
+	<bean id="msgSubTypeBillingAccountEnterpriseDataSync" class="com.telus.cmb.account.messagebeans.BillingAccountEnterpriseDataSyncHandler"/>
+	<bean id="msgSubTypeBillingAccountEnterpriseDataSyncLog" class="com.telus.cmb.account.messagebeans.BillingAccountEnterpriseDataSyncLogHandler"/>
+	<bean id="msgSubTypeFollowUp" class="com.telus.cmb.account.messagebeans.FollowUpCreationHandler"/>
+	<bean id="msgSubTypeCreditProfile" class="com.telus.cmb.account.messagebeans.CreditProfileUpdateHandler"/>
+	<bean id="msgSubTypeCreditCheckResult" class="com.telus.cmb.account.messagebeans.CreditCheckResultUpdateHandler"/>
+	<bean id="msgSubTypeCreditCheckInfo" class="com.telus.cmb.account.messagebeans.CreditCheckInfoUpdateHandler"/>
+	<bean id="msgSubTypeBusinessCreditCheckInfo" class="com.telus.cmb.account.messagebeans.BusinessCreditCheckInfoUpdateHandler"/>
+	<bean id="msgSubTypeProvisioning" class="com.telus.cmb.account.messagebeans.ProvisioningActionHandler"/>
+	
+	
+	<util:map id="handler" map-class="java.util.HashMap">
+		<entry><key><value>msgSubTypeMemo</value></key><ref bean="msgSubTypeMemo"/></entry>
+		<entry><key><value>msgSubTypeMemoLog</value></key><ref bean="msgSubTypeMemoLog"/></entry>
+		<entry><key><value>msgSubTypeBillingAccountEnterpriseDataSync</value></key><ref bean="msgSubTypeBillingAccountEnterpriseDataSync"/></entry>
+		<entry><key><value>msgSubTypeBillingAccountEnterpriseDataSyncLog</value></key><ref bean="msgSubTypeBillingAccountEnterpriseDataSyncLog"/></entry>
+		<entry><key><value>msgSubTypeProvisioning</value></key><ref bean="msgSubTypeProvisioning"/></entry>
+	</util:map>
+	
+</beans>

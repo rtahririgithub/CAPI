@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+	
+	<import resource="classpath*:application-context-wsclients-prepaid.xml"/>
+
+	<bean id="orderServiceDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.OrderServiceDaoImpl" />
+	<bean id="subscriptionServiceDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.SubscriptionServiceDaoImpl" />
+	<bean id="prepaidWirelessCustomerOrderServiceDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.PrepaidWirelessCustomerOrderServiceDaoImpl"/>
+	<bean id="prepaidSubscriberServiceDao" class="com.telus.cmb.subscriber.lifecyclemanager.dao.impl.PrepaidSubscriberServiceDaoImpl"/>
+
+	<bean id="jaxWsPortProxyBase" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" abstract="true"
+		p:lookupServiceOnStartup="false" 
+		p:username="${credentials/ejb/username}" 
+		p:password="${credentials/ejb/password}" 
+	/>
+	
+	<bean id="soaBasicAuth" class="com.telus.cmb.common.dao.soa.spring.rest.SoaBasicAuth" 
+		p:username="${credentials/ejb/username}" 
+		p:password="${credentials/ejb/password}"
+	/>
+		
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.ActivatePortInRequestServiceDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.wlnp.apirs.ActivatePortInRequestPort"
+		p:wsdlDocumentUrl="classpath:wsdls/ActivatePortInRequestService_v1_0.wsdl"
+		p:namespaceUri="http://services.telus.com/wlnp/prm/services"
+		p:serviceName="ActivatePortInRequestService" 
+		p:endpointAddress="${endpoints/ActivatePortInRequestService/url}" 
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.CancelPortInRequestDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.wlnp.cnclpirs.CancelPortInRequestPort"
+		p:wsdlDocumentUrl="classpath:wsdls/CancelPortInRequestService_v1_0.wsdl"
+		p:namespaceUri="http://services.telus.com/wlnp/prm/services"
+		p:serviceName="CancelPortInRequestService" 
+		p:endpointAddress="${endpoints/CancelPortInRequestService/url}" 
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.CreatePortInRequestDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.wlnp.crtpirs.CreatePortInRequestPort"
+		p:wsdlDocumentUrl="classpath:wsdls/CreatePortInRequestService_v1_0_1.wsdl"
+		p:namespaceUri="http://services.telus.com/wlnp/prm/services"
+		p:serviceName="CreatePortInRequestService_vs0" 
+		p:endpointAddress="${endpoints/CreatePortInRequestService/url}" 
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.DeactivateMVNESubscriberRequestDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.wlnp.dss.DeactivateMvneSubscriberPort"
+		p:wsdlDocumentUrl="classpath:wsdls/DeactivateSubscriberService.wsdl"
+		p:namespaceUri="http://services.telus.com/wlnp/prm/services"
+		p:serviceName="DeactivateMVNESubscriberService" 
+		p:endpointAddress="${endpoints/DeactivateMvneSubscriberService/url}" 
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.RedkneeSubscriptionMgmtServiceDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.RedKneeSubscriptionManagementServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/RedKneeSubscriptionManagementService_v1_0.wsdl"
+		p:namespaceUri="http://soap.crmapi.util.redknee.com/subscriptions/Subscriptions-v2.0"
+		p:serviceName="SubscriptionService" 
+		p:endpointAddress="${endpoints/RedKneeSubscriptionManagementService/url}" 
+	/>
+	
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.EligibilityCheckRequestDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.wlnp.chels.EligibilityCheckPort"
+		p:wsdlDocumentUrl="classpath:wsdls/CheckEligibilityService_v1_1.wsdl"
+		p:namespaceUri="http://schemas.telus.com/wlnp/core/client"
+		p:serviceName="EligibilityCheckService_v1_1" 
+		p:endpointAddress="${endpoints/EligibilityCheckService/url}" 
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.HardwarePurchaseAccountServiceDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.HardwarePurchaseAccountServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/HardwarePurchaseAccountService_v1_4.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/BillingAccountMgmt/HardwarePurchaseAccountService_1"
+		p:serviceName="HardwarePurchaseAccountService_v1_4" 
+		p:endpointAddress="${endpoints/HardwarePurchaseAccountService/url}" 
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.LogicalResourceServiceDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.LogicalResourceServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/LogicalResourcesManagementService_v6_1.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/RMO/ResourceMgmt/LogicalResourcesManagementService_6"
+		p:serviceName="LogicalResourcesManagementService_v6_1" 
+		p:endpointAddress="${endpoints/LogicalResourceService/url}" 
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.PortabilityServiceDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.wlnp.prts.PortabilityPort"
+		p:wsdlDocumentUrl="classpath:wsdls/PortabilityService_v1_0.wsdl"
+		p:namespaceUri="http://www.telus.com/WLNP-PortabilityService"
+		p:serviceName="WLNP-PortabilityService_vs0" 
+		p:endpointAddress="${endpoints/PortabilityService/url}" 
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.ProductDataMgmtDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.ConsumerProductDataManagementServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/ConsumerProductDataManagementService_v1_0.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/InformationMgmt/ConsumerProductDataManagementService_1"
+		p:serviceName="ConsumerProductDataManagementService_v1_0" 
+		p:endpointAddress="${endpoints/ConsumerProductDataManagementService/url}" 
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.PortRequestInformationDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.PortRequestInformationPort"
+		p:wsdlDocumentUrl="classpath:wsdls/PortRequestInformationService_v1_0.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/RMO/ResourceMgmt/PortRequestInformationService_1"
+		p:serviceName="PortRequestInformationService_v1_0" 
+		p:endpointAddress="${endpoints/PortRequestInformationService/url}" 
+	/>
+
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.SubmitPortInRequestDaoImpl" />
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.wlnp.spirs.SubmitPortInRequestPort"
+		p:wsdlDocumentUrl="classpath:wsdls/SubmitPortInRequestService_v1_0.wsdl"
+		p:namespaceUri="http://services.telus.com/wlnp/prm/services"
+		p:serviceName="SubmitPortInRequestService" 
+		p:endpointAddress="${endpoints/SubmitPortInRequestService/url}" 
+	/>	
+	
+	<bean class="com.telus.cmb.common.dao.provisioning.WirelessProvisioningServiceDaoImpl"/>
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.WirelessProvisioningPort"
+		p:wsdlDocumentUrl="classpath:wsdls/WirelessProvisioningService_v1_0.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/SMO/Activation/WirelessProvisioningService_1"
+		p:serviceName="WirelessProvisioningService_v1_0" 
+		p:endpointAddress="${endpoints/WirelessProvisioningService/url}" 
+	/>
+	
+	<bean class="com.telus.cmb.common.dao.provisioning.VOIPSupplementaryServiceDaoImpl"/>
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.VoipSupplementaryServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/VoipSupplementaryService_v1_1.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/SMO/Activation/VoipSupplementaryService_1"
+		p:serviceName="VoipSupplementaryService_v1_1" 
+		p:endpointAddress="${endpoints/VoipSupplementaryService/url}" 
+	/>
+	
+	<bean class="com.telus.cmb.common.dao.provisioning.VOIPLicensePurchaseServiceDaoImpl"/>
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.VoipLicensePurchaseServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/VoipLicensePurchaseSvc_v1_0.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/SMO/Activation/VoipLicensePurchaseSvc_1"
+		p:serviceName="VoipLicensePurchaseSvc_v1_0" 
+		p:endpointAddress="${endpoints/VoipLicensePurchaseService/url}" 
+	/>
+	
+	<bean class="com.telus.cmb.common.svc.identityprofile.EnterpriseConsumerProfileRegistrationServiceAdapterImpl"/>
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.EnterpriseConsumerProfileRegistrationPort"
+		p:wsdlDocumentUrl="classpath:wsdls/EnterpriseConsumerProfileRegistrationSvc_v1_1.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/InformationMgmt/EnterpriseConsumerProfileRegistrationSvc_1"
+		p:serviceName="EnterpriseConsumerProfileRegistrationSvc_v1_1" 
+		p:endpointAddress="${endpoints/EnterpriseConsumerProfileRegistrationService/url}" 
+	/>
+	
+	<bean id="minMdnServiceDao" class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.MinMdnServiceDaoImpl"/>
+	
+	<bean id="penaltyCalculationServiceDao" class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.PenaltyCalculationServiceDaoImpl"/> 
+	<bean parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.PenaltyCalculationServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/PenaltyCalculationService_v3_1.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/ContactMgmt/PenaltyCalculationService_3"
+		p:serviceName="PenaltyCalculationService_v3_1" 
+		p:endpointAddress="${endpoints/PenaltyCalculationService/url}" 
+	/>
+	
+	<bean class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.CommunicationSuiteMgmtSvcDaoImpl"/>
+	<bean id="commSuiteMgmtRestSvcDao" class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.CommSuiteMgmtRestSvcDaoImpl" 
+	 p:endpointUri="${endpoints/CommunicationSuiteMgmtRestService/url}"/>
+	
+	<bean id="ocssamServiceDao" class="com.telus.cmb.subscriber.lifecyclefacade.dao.impl.OcssamServiceDaoImpl"/>
+	<bean id="ocssamsPort" parent="jaxWsPortProxyBase"
+		p:serviceInterface="com.telus.cmb.wsclient.OnlineChargingSubscriberAccountMgmtServicePort"
+		p:wsdlDocumentUrl="classpath:wsdls/OnlineChargingSubscriberAccountMgmtService_v3_2.wsdl"
+		p:namespaceUri="http://telus.com/wsdl/CMO/BillingAccountMgmt/OnlineChargingSubscriberAccountMgmtService_3"
+		p:serviceName="OnlineChargingSubscriberAccountMgmtService_v3_2" 
+		p:endpointAddress="${endpoints/OnlineChargingSubscriberAccountMgmtService/url}" 
+	/>
+	
+	<!-- notification dao: TODO: review -->
+	
+    <bean id="jaxbUtil" class="com.telus.cmb.common.util.JAXBUtil">
+        <property name="jaxbContext">
+		    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		        <property name="staticMethod"><value>javax.xml.bind.JAXBContext.newInstance</value></property>
+		        <property name="arguments">
+			        <array><!-- list of classes to be bound to the JAXBContext  -->
+				        <!--TODO, investigate why have to package name rather than the className here. Class name work when there are multiple classes, see cmb-notification project -->
+				        <value>com.telus.tmi.xmlschema.xsd.customer.customer.business_connect_v1.CustomerAccount</value>
+				        <value>com.telus.tmi.xmlschema.xsd.customer.customerorder.wirelessserviceinfo_v1.CustomerAccount</value>
+				        <value>com.telus.tmi.xmlschema.xsd.customer.customerorder.wirelessserviceinfo_v2.CustomerAccount</value>
+				        <value>com.telus.tmi.xmlschema.xsd.customer.customerorder.wirelessserviceinfo_v21.CustomerAccount</value>
+				        <value>com.telus.tmi.xmlschema.xsd.customer.customerorder.wirelessserviceinfo_v3.CustomerAccount</value>
+				        <value>com.telus.tmi.xmlschema.xsd.customer.customer.bcx_sd_fallout_v1.CustomerAccount</value>
+			        </array>
+		        </property>
+		    </bean>
+         </property>
+    </bean>
+
+	<bean id="queueSender" class="com.telus.cmb.common.jms.JmsSupport"
+		p:jmsTemplate-ref="jmsTemplate" 
+		p:messageType="CMB_SUB_MDB">
+	</bean>    
+	
+</beans> 

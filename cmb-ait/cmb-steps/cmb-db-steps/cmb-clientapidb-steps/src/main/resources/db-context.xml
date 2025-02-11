@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <bean id="configurationFramework"
+          class="com.telus.framework.config.spring.PlaceholderConfigurer">
+    </bean>
+
+    <context:component-scan base-package="com.telus.ait.integration" />
+
+    <bean id="distDataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${databases/dist/driver}"/>
+        <property name="url" value="${databases/dist/url}"/>
+        <property name="username" value="${databases/dist/username}"/>
+        <property name="password" value="${databases/dist/password}"/>
+    </bean>
+    <bean id="distJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="distDataSource"></property>
+    </bean>
+
+    <bean id="kbDataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${databases/kb/driver}"/>
+        <property name="url" value="${databases/kb/url}"/>
+        <property name="username" value="${databases/kb/username}"/>
+        <property name="password" value="${databases/kb/password}"/>
+    </bean>
+    <bean id="kbJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="kbDataSource"></property>
+    </bean>
+</beans>

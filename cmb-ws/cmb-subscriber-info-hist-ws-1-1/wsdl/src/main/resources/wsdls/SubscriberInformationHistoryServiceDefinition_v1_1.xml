@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by TELUS COMMUNICATIONS (TELUS COMMUNICATIONS) -->
+<Service xsi:noNamespaceSchemaLocation="http://xmlschema.tmi.telus.com/xsd/common/utils/xmlToWsdl/ServiceDefinition_v3_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceDefinition>
+		<Name>SubscriberInformationHistoryService</Name>
+		<Documentation>Provides the ability to retrieve and update Subscriber History Information Data</Documentation>
+		<TAM_LevelZeroAndOne>CMO/InformationMgmt</TAM_LevelZeroAndOne>
+		<!-- CAPI DR 2021: replaced the ServiceTaxonomy with an empty value to match the modified weblogic.xml context-root, 
+			 which was modified to match the configured physical endpoint URI in SOA PolicyManager ** THIS IS A WORKAROUND **.
+		<ServiceTaxonomy>/SubscriberInformation</ServiceTaxonomy>
+		-->
+		<ServiceTaxonomy></ServiceTaxonomy>
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>1</MinorVersion>
+		<soapAddress>http://cmosr-custinfomgmt-dv103.tmi.telus.com</soapAddress>
+		<SchemaLocation>SubscriberInformationHistoryServiceRequestResponse_v1_1.xsd</SchemaLocation>
+		<NameSpace>http://xmlschema.tmi.telus.com/srv/CMO/InformationMgmt/SubscriberInformationHistoryServiceRequestResponse_v1</NameSpace>
+		<nsAbbrev>sihs</nsAbbrev>
+		<OutputDir/>
+		<SecurityToken>
+			<Token>Wssp1.2-2007-Saml1.1-SenderVouches-Wss1.0</Token>
+		</SecurityToken>
+	</ServiceDefinition>
+	<Operation>
+		<OperationName>getPricePlanChangeHistory</OperationName>
+		<Documentation>Retrieves subscriber historical price plan information by Billing Account number and Subscriber number.</Documentation>
+		<InputType wsp="True">getPricePlanChangeHistory</InputType>
+		<OutputType>getPricePlanChangeHistoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getServiceChangeHistory</OperationName>
+		<Documentation>Retrieves subscriber historical service information by Billing Account number and Subscriber number.</Documentation>
+		<InputType wsp="True">getServiceChangeHistory</InputType>
+		<OutputType>getServiceChangeHistoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getContractChangeHistory</OperationName>
+		<Documentation>Retrieves subscriber historical contract information by Billing Account number and Subscriber number.</Documentation>
+		<InputType wsp="True">getContractChangeHistory</InputType>
+		<OutputType>getContractChangeHistoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getSubscriberStatusChangeHistory</OperationName>
+		<Documentation>Retrieves subscriber historical status information by Billing Account number and Subscriber number.</Documentation>
+		<InputType wsp="True">getSubscriberStatusHistory</InputType>
+		<OutputType>getSubscriberStatusHistoryResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getFeatureParameterHistoryByParameterName</OperationName>
+		<Documentation>Retrieves subscriber historical feature parameter information by Billing Account number and Subscriber number.</Documentation>
+		<InputType wsp="True">getFeatureParameterHistoryByParameterName</InputType>
+		<OutputType>getFeatureParameterHistoryByParameterNameResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+	<Operation>
+		<OperationName>getVendorServiceChangeHistoryBySOCs</OperationName>
+		<Documentation>Retrieves subscriber vendor service history information by Billing Account number, Subscriber number and SOC codes</Documentation>
+		<InputType wsp="True">getVendorServiceChangeHistoryBySOCs</InputType>
+		<OutputType>getVendorServiceChangeHistoryBySOCsResponse</OutputType>
+		<MessageExchangePattern>request-response</MessageExchangePattern>
+	</Operation>
+</Service>

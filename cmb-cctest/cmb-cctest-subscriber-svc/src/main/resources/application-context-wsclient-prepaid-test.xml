@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+    <!--
+    This is a test class only. This code is now migrated to common-svc. Use only for debugging.
+   -->
+	
+	<bean id="orderServiceWSClient" class="com.telus.cmb.prepaid.dependency.client.OrderServiceClient"/>
+	<bean id="subscriptionServiceWSClient" class="com.telus.cmb.prepaid.dependency.client.SubscriptionServiceClient"/>
+	<bean id="prepaidSubscriberServiceWSClient" class="com.telus.cmb.prepaid.dependency.client.PrepaidSubscriberServiceClient"/>
+	<bean id="prepaidWirelessCustomerOrderWSClient" class="com.telus.cmb.prepaid.dependency.client.PrepaidWirelessCustomerOrderServiceClient"/>
+	
+   	<bean id="orderServiceWSPort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" lazy-init="false">
+    	<property name="lookupServiceOnStartup" value="false" />
+        <property name="serviceInterface" value="com.telus.cmb.wsclient.OrderServicePortType" />
+        <property name="wsdlDocumentUrl" value="classpath:definition/OrderService_v2_0.wsdl" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/CMO/OrderMgmt/OrderService_2" />
+        <property name="serviceName" value="OrderService_v2_0" />
+        <property name="username" value="CLIENTAPI_EJB"/> 
+        <property name="password" value="soaorgid"/>   
+        <property name="endpointAddress" value="http://servicemngr-dv103.tsl.telus.com:80/CMO/OrderMgmt/OrderService_v2_0_vs1"/>  	
+   	</bean>
+	
+	
+   	<bean id="subscriptionServiceWSPort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" lazy-init="false">
+    	<property name="lookupServiceOnStartup" value="false" />
+        <property name="serviceInterface" value="com.telus.cmb.wsclient.SubscriptionServicePortType" />
+        <property name="wsdlDocumentUrl" value="classpath:definition/SubscriptionService_v2_0.wsdl" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/CMO/SelfMgmt/SubscriptionService_2" />
+        <property name="serviceName" value="SubscriptionService_v2_0" />
+        <property name="username" value="CLIENTAPI_EJB"/> 
+        <property name="password" value="soaorgid"/>   
+        <property name="endpointAddress" value="http://servicemngr-pt168.tsl.telus.com:80/CMO/SelfMgmt/SubscriptionService_v2_0_vs1"/>  	
+   	</bean>
+   	
+   	<bean id="prepaidWirelessCustomerOrderServiceWSClient" class="com.telus.cmb.prepaid.dependency.client.PrepaidWirelessCustomerOrderServiceClient"/>
+   	<bean id="prepaidWirelessCustomerOrderServiceWSPort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" lazy-init="false">
+    	<property name="lookupServiceOnStartup" value="false" />
+        <property name="serviceInterface" value="com.telus.cmb.wsclient.PrepaidWirelessCustomerOrderServiceV11PortType" />
+        <property name="wsdlDocumentUrl" value="classpath:definition/PrepaidWirelessCustomerOrderService_v1_1.wsdl" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/CMO/OrderMgmt/PrepaidWirelessCustomerOrderService_1" />
+        <property name="serviceName" value="PrepaidWirelessCustomerOrderService_v1_1" />
+        <property name="username" value="CLIENTAPI_EJB"/> 
+        <property name="password" value="soaorgid"/> 
+		<property name="endpointAddress" value="https://servicemngr-pt148.tsl.telus.com:443/CMO/OrderMgmt/PrepaidWirelessCustomerOrderService_v1_1_vs1"/>  
+   	</bean> 	 	   	
+   	
+   	<bean id="prepaidSubscriberServiceWSPort" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean" lazy-init="false">
+    	<property name="lookupServiceOnStartup" value="false" />
+        <property name="serviceInterface" value="com.telus.cmb.wsclient.PrepaidSubscriberServiceV30PortType" />
+        <property name="wsdlDocumentUrl" value="classpath:definition/PrepaidSubscriberService_v3_0.wsdl" />
+        <property name="namespaceUri" value="http://telus.com/wsdl/CMO/SelfMgmt/PrepaidSubscriberService_3" />
+        <property name="serviceName" value="PrepaidSubscriberService_v3_0" />
+        <property name="username" value="CLIENTAPI_EJB"/> 
+        <property name="password" value="soaorgid"/>   
+        <property name="endpointAddress" value="https://servicemngr-pt148.tsl.telus.com:443/CMO/SelfMgmt/PrepaidSubscriberService_v3_0_vs0"/>  	
+   	</bean>
+
+</beans>

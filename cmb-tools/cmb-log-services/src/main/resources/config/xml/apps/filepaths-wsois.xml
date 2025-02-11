@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<application name="Wireless Subscriber Offer Information Service" shortname="wsois" path="/logs/${host}/wls/8.1/${env}/logs/applications/wsois-${version}.log*">
+
+	<overrideValue name="env" value="P" environments="pra,prb"/>
+	<overrideValue name="env" value="S1" environments="st101a,st101b"/>
+	<overrideValue name="env" value="PT148" environments="pt148"/>
+	<overrideValue name="env" value="Q2" environments="pt140"/>
+	<overrideValue name="env" value="PT168" environments="pt168"/>
+	<overrideValue name="env" value="DV103" environments="dv103"/>
+
+	<component name="WSOIS v2.4">
+		<artifact name="WirelessSubscriberOfferInformationService" version="2_4" appMap="WSOIS Web Service"/>
+	</component>
+	
+</application>

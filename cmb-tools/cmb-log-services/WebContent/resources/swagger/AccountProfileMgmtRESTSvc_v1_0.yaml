@@ -1,0 +1,320 @@
+---
+swagger: "2.0"
+info:
+  description: "The AccountProfileMgmtRESTSvc_v1_0 will expose a suite of REST operations\
+    \ to perform account profile related functions.  Version 1.0 will provide the\
+    \ capability for TELUS vendor development teams to save an account pay-per-use\
+    \ consent breach.\n\n"
+  version: "1.0"
+  title: "AccountProfileMgmtRESTSvc"
+  termsOfService: ""
+  contact: {}
+host: "smintegration-customer-dv103.tsl.telus.com"
+basePath: "/v1/cmo/informationmgmt/accountprofilemgmt"
+schemes:
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /account/{ban}/ppu-consent-breach:
+    post:
+      summary: "createPpuConsentBreach"
+      description: "<b><u>SDF Authentication:</u></b>\n</br>SDF Authentication Mode:\
+        \ <i>Member Plus</i>\n</br>NextGen SDF Authentication Mode: <i>APP_AUTH</i>\n\
+        </br>\n\n<b><u>SDF Injected Header:</u></b>\n|Parameter Name|Description|\n\
+        |---|---|\n|X-TELUS-SDF-AppId|The SDF application id that will be used to\
+        \ complete the transaction.|\n\n</br>\n\nSLA Information:\n\nServices/APIs\
+        \ called:\n|Service|operation|SLA|\n|---|---|---|\n|CIS|cis-account-retrieval-service.getAccountByBan||\t\
+        \n|CIS|cis-ocssam-service.updateConsent||\n|CIS|cis-service-request-information-service.reportAccountPayPerUseBreachConsent||\n\
+        |CIS|cis-notification-service.sendEmailNotification||\t\n|DataGrid|WLSAccountRetrievalSvc.getAccountListByBillingAccountNumberList||\n\
+        |OCSSAM|OnlineChargingSubscriberAccountMgmtService.updateConsent||\n|SRPDS|ServiceRequestInformationService.storeServiceRequest||\n\
+        |Notifications|EnterpriseCustomerNotificationManagementService.submitNotification||\n\
+        \n</br>\nExpected average response time: ? ms\n"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        description: >-
+          The consent parameters that are used to save the pay-per-use consent
+          breach.
+        schema:
+          type: "object"
+          required:
+          - "applicationId"
+          - "consentList"
+          properties:
+            applicationId:
+              type: "string"
+              description: "The originating application id."
+            subscriberId:
+              type: "string"
+              description: "The subscriber id or phone number."
+            consenterName:
+              type: "string"
+              description: "The full name of the consenter."
+            consenterEmailTxt:
+              type: "string"
+              description: "The email of the consenter."
+            consentList:
+              type: "array"
+              description: "The list of consent events to be processed."
+              items:
+                $ref: "#/definitions/Consent"
+          description: "The consent parameters that are used to save the pay-per-use\
+            \ consent breach."
+        x-examples:
+          application/json: "{\n  \"applicationId\" : \"5824\",\n  \"subscriberId\"\
+            \ : \"4161234567\",\n  \"consenterName\" : \"John Doe\",\n  \"consenterEmailTxt\"\
+            \ : \"john.doe@email.com\",\n  \"consentList\" : [\n    {\n      \"typeCd\"\
+            \ : \"IMMEDIATE\",\n      \"zoneCd\" : \"DOMESTIC\",\n      \"thresholdAmt\"\
+            \ : \"50.00\",\n      \"serviceList\" : [\n      \t{\n          \"serviceCd\"\
+            \ : \"ST6GBKS60\"      \n      \t}\n      ]\n    },\n    {\n      \"typeCd\"\
+            \ : \"FUTURE\",\n      \"zoneCd\" : \"DOMESTIC\",\n      \"serviceList\"\
+            \ : [\n      \t{\n          \"serviceCd\" : \"ST6GBKS60\",        \n \
+            \         \"effectiveDt\" : \"2017-10-20\"        \n      \t}\n      ]\n\
+            \    }\n  ]\n}"
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+              activityErrorList:
+                type: "array"
+                description: "List of the save account consent breach activities which\
+                  \ did not complete successfully but do not result in a hard stop\
+                  \ error.\n\n|Activity error code|Description|\n|---|---|\n|NOTIFICATION_EMAIL|There\
+                  \ was an error sending the email request to the ECNMS platform.|\n\
+                  |DUPLICATE_DOMESTIC_CONSENT|The immediate domestic consent has already\
+                  \ been saved. The consent is noted as duplicate in SRPDS and notifications\
+                  \ will be skipped.|\n|DUPLICATE_ROAMING_CONSENT|The immediate roaming\
+                  \ consent has already been saved. The consent is noted as duplicate\
+                  \ in SRPDS and notifications will be skipped.|"
+                items:
+                  type: "string"
+                  description: "The error code of the activity which did not complete\
+                    \ successfully, but did not result in a hard stop error."
+                  example: "NOTIFICATION_EMAIL"
+          examples:
+            application/json: "Successful response with no failed activities:\n{\n\
+              \   \"status\" : {\n      “statusCd” : “200”,\n      “statusTxt” : “\
+              Success”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\n  \
+              \ }\n}"
+        400:
+          description: "A business exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "<b><u>Validation Exceptions:</u></b>\n|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|400|BE|ERROR_INVALID_CONSENT|ERROR_INVALID_CONSENT|Invalid\
+              \ consent type: [consent_type]|The consent type is invalid.  Valid values\
+              \ are FUTURE or IMMEDIATE.  Case insensitive.|\n|400|BE|ERROR_INVALID_CONSENT|ERROR_INVALID_CONSENT|Invalid\
+              \ zone: [zone_type]|The zone type is invalid.  Valid values are DOMESTIC\
+              \ or ROAMING.  Case insensitive.|\n|400|BE|ERROR_INVALID_CONSENT|ERROR_INVALID_CONSENT|Future\
+              \ consents must include an effective date for each service.|The future\
+              \ consents do not include an effective date for each service.|\n|400|BE|ERROR_INVALID_CONSENT|ERROR_INVALID_CONSENT|AuditInfo\
+              \ is null or originatorApplicationId is malformed.|The audit info is\
+              \ incomplete – you must have at least the originatorApplicationId. \
+              \ This is the id that’s used in SRPDS and Notification Engine.  This\
+              \ error does not check for validity of the application id in neither\
+              \ SRPDS or Notifications – just that it’s present.|\n|400|BE|ERROR_INVALID_CONSENT|ERROR_INVALID_CONSENT|At\
+              \ least subscriber id or email address is required for auditing the\
+              \ consent event for this user type.|Either the subscriber id or email\
+              \ address is used for creating the consent event in SRPDS and determining\
+              \ the user type - these fields are also used as consenter contact information\
+              \ (in addition to the consenterName).|\n|400|BE|ERROR_DUPLICATE_CONSENT|ERROR_DUPLICATE_CONSENT|More\
+              \ than one consent found of type: [consent_type] in zone: [zone_type].|Duplicate\
+              \ consent found – you’re only allowed one consent per consent type and\
+              \ zone.  I.e. you can only include one consent that’s IMMEDIATE and\
+              \ DOMESTIC.|\n|400|BE|ERROR_INVALID_BAN|ERROR_INVALID_BAN|The billing\
+              \ account number ([ban]) does not exist.|The billing account number\
+              \ is invalid.|\n\n\n<br/><b><u>Subsystem Exceptions:</u></b>\n|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|400|BE|ERROR_OCSSAM|800|Underlying error\
+              \ message|Any caught exception resulting from an underlying OCSSAM general\
+              \ system error.|\n|400|BE|ERROR_SRPDS|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying SRPDS\
+              \ business exception.|\n</br>"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+          examples:
+            application/json: "Failure response for OCSSAM exception:\n{\n   “status”\
+              \ : {\n      “statusCd” : “400”,\n      “statusSubCd” : “BE”,\n    \
+              \  “statusTxt” : “ERROR_OCSSAM”,\n      “systemErrorTimeStamp” : “2017-10-19T14:59:13”\
+              ,\n      “systemErrorCd” : “800”,\n      “systemErrorTxt” : “Not authorized\
+              \ - Message for NoAccess is : LATE UNBLOCK.”\n   }\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|System error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying system\
+              \ or service exception not captured elsewhere|\n|500|GE|General error|ERROR_GENERIC|Underlying\
+              \ error message|Any caught exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+    parameters:
+    - name: "ban"
+      in: "path"
+      required: true
+      type: "string"
+      description: "The billing account number that a pay-per-use breach has occurred."
+  /ping:
+    get:
+      summary: "ping"
+      description: "SLA Information:\n\nServices/APIs called: None\n\nExpected average\
+        \ response time: 1500 ms\n"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Successful invocation of the REST service"
+          schema:
+            required:
+            - "status"
+            type: "object"
+            description: "|statusCd|statusTxt|Notes|\n|---|---|---|\n|200|Success|Successful\
+              \ invocation of the REST service|\n"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+              nameTxt:
+                type: "string"
+                description: "The name of the service."
+              descriptionTxt:
+                type: "string"
+                description: "The description of the service."
+              buildLabelTxt:
+                type: "string"
+                description: "The build version for this service."
+              buildDt:
+                type: "string"
+                description: "The date the service was built."
+          examples:
+            application/json: "{\n   “status” : {\n      “statusCd” : “200”,\n   \
+              \   “statusTxt” : “Success”,\n      “systemErrorTimeStamp” : “2017-02-21T14:59:13”\
+              \n   },\n   “nameTxt” : “Account Profile Mgmt REST Service 1.0”,\n \
+              \  “descriptionTxt” : “This service provides a suite of operations to\
+              \ perform account profile management functions.”,\n   “buildLabel” :\
+              \ “201711.0.21”,\n   “buildDt” : “20171019-195457”\n}"
+        500:
+          description: "A system exception occurred when calling the REST service."
+          schema:
+            type: "object"
+            description: "|statusCd|statusSubCd|statusTxt|systemErrorCd|systemErrorTxt|Notes|\n\
+              |---|---|---|---|---|---|\n|500|SE|System error|Underlying error code|Underlying\
+              \ error message|Any caught exception resulting from an underlying system\
+              \ or service exception not captured elsewhere|\n|500|GE|General error|ERROR_GENERIC|Underlying\
+              \ error message|Any caught exception not captured elsewhere|"
+            properties:
+              status:
+                $ref: "#/definitions/ResponseStatus"
+securityDefinitions:
+  HTTP_BASIC:
+    description: "All GET methods are public, meaning that *you can read all the data*.\
+      \ Write operations require authentication and therefore are forbidden to the\
+      \ general public."
+    type: "basic"
+definitions:
+  ResponseStatus:
+    type: "object"
+    required:
+    - "statusCd"
+    properties:
+      statusCd:
+        type: "string"
+        description: "The HTTP result status code."
+        example: "200"
+      statusSubCd:
+        type: "string"
+        description: "The service internal status code."
+        example: "UM1, UM2"
+      statusTxt:
+        type: "string"
+        description: "A short description of status."
+        example: "Invalid URL"
+      systemErrorCd:
+        type: "string"
+        description: "If the underlying service we call returns its own error code,\
+          \ we'll include it here, e.g. contents of faultString in error response"
+        example: "“error: java.lang.IllegalArgumentException\""
+      systemErrorTs:
+        type: "string"
+        description: "The time of underlying error (to help in locating error in logs)."
+        example: "2013-05-23T11:07:48"
+      systemErrorTxt:
+        type: "string"
+        description: "A description of system error; messageId, errorCode from PolicyException."
+        example: "“messageId: APP10004”"
+    description: "REST design normally maps error conditions to existing well-established\
+      \ HTTP error codes, e.g. 200 (\"OK\"), 404 (\"Resource not found\").  However,\
+      \ for reasons of design flexibility (the predefined codes often seem ill-suited\
+      \ to specific conditions) we are taking a different approach. Generally, as\
+      \ long as the call to the service succeeds, the HTTP response status will be\
+      \ 200 (success), even when there are underlying failures, and a \"status\" object,\
+      \ always part of the response payload, is used to indicate any such failures\
+      \ (this is the approach Facebook takes)."
+  Consent:
+    type: "object"
+    required:
+    - "thresholdAmt"
+    - "typeCd"
+    - "zoneCd"
+    properties:
+      typeCd:
+        type: "string"
+        description: "The type of consent."
+        enum:
+        - "IMMEDIATE"
+        - "FUTURE"
+      zoneCd:
+        type: "string"
+        description: "The zone of the consent."
+        enum:
+        - "DOMESTIC"
+        - "ROAMING"
+      thresholdAmt:
+        type: "number"
+        description: "The threshold breach limit amount for this consent event."
+        example: 50
+      serviceList:
+        type: "array"
+        description: "The list of services that are applicable to this consent event."
+        items:
+          $ref: "#/definitions/ConsentService"
+    description: "The attributes of the consent event that is being processed."
+  ConsentService:
+    type: "object"
+    required:
+    - "serviceCd"
+    properties:
+      serviceCd:
+        type: "string"
+        description: "The service code."
+      effectiveDt:
+        type: "string"
+        format: "date"
+        description: "The effective date of the service.  \n\nWhen saving a pay-per-use\
+          \ consent breach, every consent of type \"FUTURE\" will require every service\
+          \ to have an effective date.  This field becomes mandatory for those scenarios.\
+          \  The default value for \"IMMEDIATE\" consents is the current system date."
+    description: "The attributes of the service that is applicable for the consent\
+      \ event that is being processed."

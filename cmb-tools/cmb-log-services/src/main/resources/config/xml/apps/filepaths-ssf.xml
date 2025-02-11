@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application>
+
+<application name="Service and Support Fees" shortname="ssf">
+
+	<component name="SSF EJBs" path="/${root}/${host}/wls/8.1/${env}/logs/applications/${node}/">
+		<artifact name="ssf-eas">
+			<overrideValue name="env" value="P" environments="pra,prb"/>
+			<overrideValue name="env" value="Q1" environments="pt148"/>
+			<overrideValue name="env" value="Q2" environments="pt140"/>
+			<overrideValue name="env" value="PT168" environments="pt168"/>
+			<overrideValue name="env" value="S1" environments="st101a,st101b"/>
+			<overrideValue name="env" value="D3" environments="dv103"/>
+		</artifact>
+	</component>
+	<component name="ChargeAdjustmentSvc 1.0" path="/${root}/${host}/logs/${node}/applications/${artifact}-${version}/">
+		<artifact name="cis-charge-adjustment-ws" version="1_0"/>
+	</component>
+	
+</application>

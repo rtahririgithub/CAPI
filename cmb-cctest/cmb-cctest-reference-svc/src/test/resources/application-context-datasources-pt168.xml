@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+
+	<bean id="ecmsDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@mussel:41521:J2ECMS"/>
+		<property name="username" value="basread"/>
+		<property name="password" value="basread"/>
+	</bean>
+
+	<bean id="codsDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@mussel:1521:JCODS"/>
+		<property name="username" value="basread"/>
+		<property name="password" value="basread"/>
+	</bean>
+ 
+	<bean id="coneDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@mussel:1521:JSERV"/>
+		<property name="username" value="cone_app"/>
+		<property name="password" value="cone_app"/>
+	</bean>
+
+	<bean id="distDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@mussel:1521:JDIST"/>
+		<property name="username" value="ivradm"/>
+		<property name="password" value="admivr"/>
+	</bean>
+	
+	<bean id="easDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@mussel:1521:JEAS"/>
+		<property name="username" value="actv_app"/>
+		<property name="password" value="kactv_app"/>
+	</bean>
+
+	<bean id="ecpcsDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@perch:1521:KECPCS"/>
+		<property name="username" value="basread"/>
+		<property name="password" value="basread"/>
+	</bean>
+	
+	<bean id="knowbilityDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@yamuna:1521:qkb10"/>
+		<property name="username" value="basread3"/>
+		<property name="password" value="basread3"/>
+	</bean>
+	
+	<bean id="refDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@yamuna:1521:qkb10"/>
+		<property name="username" value="basread3_ref"/>
+		<property name="password" value="basread3_ref"/>
+	</bean>	
+
+</beans>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<context:annotation-config/>
+
+	<bean id="referenceDataCodsDao" class="com.telus.cmb.reference.dao.ReferenceDataCodsDao"
+		p:dataSource-ref="codsDataSource"
+	/>
+	
+	<bean id="referenceDataConeDao" class="com.telus.cmb.reference.dao.ReferenceDataConeDao"
+		p:dataSource-ref="emcmConeDataSource" p:rollbackDataSource-ref="coneDataSource"
+	/>
+	
+	<bean id="referenceDataDistDao" class="com.telus.cmb.reference.dao.ReferenceDataDistDao"
+		p:dataSource-ref="distDataSource"
+	/>
+	
+	<bean id="referenceDataEasDao" class="com.telus.cmb.reference.dao.ReferenceDataEasDao"
+		p:dataSource-ref="easDataSource"
+	/>
+
+	<bean id="referenceDataEcpcsDao" class="com.telus.cmb.reference.dao.ReferenceDataEcpcsDao"
+		p:dataSource-ref="ecpcsDataSource"
+	/>
+	
+	<bean id="referenceDataKnowbilityDao" class="com.telus.cmb.reference.dao.ReferenceDataKnowbilityDao"
+		p:dataSource-ref="knowbilityDataSource"
+	/>
+
+	<bean id="referenceDataRefDao" class="com.telus.cmb.reference.dao.ReferenceDataRefDao"
+		p:dataSource-ref="refDataSource"
+	/>
+		
+	<bean id="amdocsSessionManager" class="com.telus.cmb.common.dao.amdocs.AmdocsSessionManager"/>
+		
+	<bean id="referenceDataAmdocsDao" class="com.telus.cmb.reference.dao.ReferenceDataAmdocsDao"
+		p:amdocsSessionManager-ref="amdocsSessionManager"
+	/> 
+	
+	<bean id="testPointDao" class="com.telus.cmb.common.dao.testpoint.DataSourceTestPointDao"
+		p:codsJdbcDataSource-ref="codsDataSource"
+		p:coneJdbcDataSource-ref="coneDataSource"
+		p:distJdbcDataSource-ref="distDataSource"
+		p:easJdbcDataSource-ref="easDataSource"
+		p:ecpcsJdbcDataSource-ref="ecpcsDataSource"
+		p:knowbilityJdbcDataSource-ref="knowbilityDataSource"
+		p:knowbilityRefJdbcDataSource-ref="refDataSource"
+		p:emcmJdbcDataSource-ref="emcmConeDataSource"
+	/>
+	
+</beans>
